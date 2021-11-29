@@ -1,0 +1,2 @@
+<Capability Name ="privateNetworkClientServer" />
+<Capability Name ="internetClientServer" />
