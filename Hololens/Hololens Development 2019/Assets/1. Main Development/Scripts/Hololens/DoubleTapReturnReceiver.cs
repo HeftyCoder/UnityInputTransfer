@@ -12,8 +12,7 @@ public class DoubleTapReturnReceiver : MonoBehaviour
 
     private void HandleInput(PhoneInputSerialization input)
     {
-        Debug.Log(input.TapCount);
-        if (input.TapCount == 2)
+        if (input.TapCount >= 2)
             transform.position = anchor.position;
     }
 }

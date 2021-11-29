@@ -30,7 +30,7 @@ public class RigInputReceiver : MonoBehaviour
 
     private void HandleInput(PhoneInputSerialization input)
     {
-        rigidBody.AddTorque(angularScale * input.AngularVelocity);
-        rigidBody.AddForce(input.LinearAcceleration * accelerationScale, ForceMode.Impulse);
+        rigidBody.AddRelativeTorque(angularScale * input.AngularVelocity, ForceMode.Impulse);
+        rigidBody.AddRelativeForce(input.LinearAcceleration * accelerationScale, ForceMode.Impulse);
     }
 }
