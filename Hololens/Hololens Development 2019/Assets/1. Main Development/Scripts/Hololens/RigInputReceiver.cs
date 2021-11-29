@@ -6,6 +6,7 @@ using UnityEngine;
 public class RigInputReceiver : MonoBehaviour
 {
     [SerializeField] float angularScale = 1.5f;
+    [SerializeField] float accelerationScale = 1.5f;
     HololensPhoneServer hololensServer;
     Rigidbody rigidBody;
 
@@ -30,5 +31,6 @@ public class RigInputReceiver : MonoBehaviour
     private void HandleInput(PhoneInputSerialization input)
     {
         rigidBody.AddTorque(angularScale * input.AngularVelocity);
+        rigidBody.AddForce(input.LinearAcceleration * accelerationScale, ForceMode.Impulse);
     }
 }

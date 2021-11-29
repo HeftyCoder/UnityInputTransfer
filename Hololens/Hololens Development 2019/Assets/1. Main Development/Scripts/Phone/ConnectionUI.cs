@@ -31,7 +31,7 @@ public class ConnectionUI : MonoBehaviour
             ipInput.text = ip;
         var portString = PlayerPrefs.GetString(portKey);
         if (!string.IsNullOrEmpty(portString) && int.TryParse(portString, out int port))
-            ipInput.text = portString;
+            portInput.text = portString;
     }
     private void Start()
     {

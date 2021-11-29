@@ -11,7 +11,12 @@ public class PhoneInputSerialization : SerializablePacket
     public Vector3 LinearAcceleration { get; private set; }
     public Vector2 TouchDelta { get; private set; }
     public int TapCount { get; private set; }
-    
+
+    public override string ToString()
+    {
+        return $"Acceleration: {Acceleration}\n Angular Velocity: {AngularVelocity}\n Gravity: {Gravity}\n Linear Acceleration: {LinearAcceleration}\n" +
+            $"Touch Delta: {TouchDelta}\n Tap Count:{TapCount}";
+    }
     public PhoneInputSerialization()
     {
 

@@ -29,7 +29,7 @@ public class HololensPhoneClient : MonoBehaviour
 
         if (currentTime < intervalMills)
         {
-            currentTime += Time.deltaTime * 0.001f;
+            currentTime += Time.deltaTime * 1000;
             return;
         }
 

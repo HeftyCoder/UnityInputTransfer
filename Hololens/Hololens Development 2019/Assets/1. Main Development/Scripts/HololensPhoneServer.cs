@@ -36,7 +36,7 @@ public class HololensPhoneServer : MonoBehaviour
     }
     //Not afraid of concurrency because we're polling every frame for an update
     //Either way, our sockets invoke the events on Unity's Main Thread
-    private void Update()
+    private void FixedUpdate()
     {
         if (queuedInputs.Count == 0)
             return;
