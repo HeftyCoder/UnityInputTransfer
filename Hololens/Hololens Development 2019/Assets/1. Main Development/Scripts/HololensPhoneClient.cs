@@ -53,4 +53,6 @@ public class HololensPhoneClient : MonoBehaviour
             return;
         ClientSocket.Connect(ip, port);
     }
+
+    public void Disconnect() => ClientSocket.Disconnect();
 }
