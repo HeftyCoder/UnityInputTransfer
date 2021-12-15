@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
+using System.IO;
 
 [RequireComponent(typeof(Rigidbody))]
 public class RigInputReceiver : MonoBehaviour
@@ -15,7 +18,6 @@ public class RigInputReceiver : MonoBehaviour
     private bool firstInitialization = true;
     private void Awake()
     {
-        rigidBody = GetComponent<Rigidbody>();
     }
 
     private void OnEnable()

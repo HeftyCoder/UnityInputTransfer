@@ -1,30 +1,41 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
+using UnityEngine.InputSystem.LowLevel;
+using System.IO;
 public class PhoneInputSerializer : MonoBehaviour
 {
-    Touchscreen touchScreen;
     Accelerometer accelerometer;
     GravitySensor gravitySensor;
     LinearAccelerationSensor linearAccelerationSensor;
-    UnityEngine.InputSystem.Gyroscope gyro;    
+    UnityEngine.InputSystem.Gyroscope gyro;
 
-    private void OnEnable()
+    InputEventTrace eventTrace;
+    Func<InputEventPtr, InputDevice, bool> filter;
+    private void Awake()
     {
+        
+    }
+    private void OnEnable()
+    {   
         accelerometer = Accelerometer.current;
         gyro = UnityEngine.InputSystem.Gyroscope.current;
         gravitySensor = GravitySensor.current;
         linearAccelerationSensor = LinearAccelerationSensor.current;
-        touchScreen = Touchscreen.current;
-
+        
         EnableDevice(accelerometer);
         EnableDevice(gyro);
         EnableDevice(gravitySensor);
         EnableDevice(linearAccelerationSensor);
-        EnableDevice(touchScreen);
+
+        Debug.Log(Gamepad.current.deviceId);
+        eventTrace = new InputEventTrace(device: Gamepad.current, growBuffer: true);
+        eventTrace.deviceId = Gamepad.current.deviceId;
+        eventTrace.Enable();
     }
     
     private void OnDisable()
@@ -33,7 +44,8 @@ public class PhoneInputSerializer : MonoBehaviour
         DisableDevice(gyro);
         DisableDevice(gravitySensor);
         DisableDevice(linearAccelerationSensor);
-        DisableDevice(touchScreen);
+
+        eventTrace.Dispose();
     }
     private void EnableDevice(InputDevice device)
     {
@@ -46,19 +58,18 @@ public class PhoneInputSerializer : MonoBehaviour
             InputSystem.DisableDevice(device);
     }
 
-    public PhoneInputSerialization GetInputSerialization()
+    public byte[] GetEventsAsBytes()
     {
-        var acceleration = ReadValue(accelerometer?.acceleration);
-        var angularVel = ReadValue(gyro?.angularVelocity);
-        var gravity = ReadValue(gravitySensor?.gravity);
-        var linearAcc = ReadValue(linearAccelerationSensor?.acceleration);
-
-        var primaryTouch = touchScreen?.primaryTouch;
-        var delta = ReadValue(primaryTouch?.delta);
-
-        var tapCount = primaryTouch?.tapCount == null ? 0 : primaryTouch.tapCount.ReadValue();
-
-        return new PhoneInputSerialization(acceleration, angularVel, gravity, linearAcc, delta, tapCount);
+        using (MemoryStream stream = new MemoryStream())
+        {
+            eventTrace.WriteTo(stream);
+            var result = stream.ToArray();
+            eventTrace.Dispose();
+            eventTrace = new InputEventTrace(device: Gamepad.current, growBuffer: true);
+            eventTrace.deviceId = Gamepad.current.deviceId;
+            eventTrace.Enable();
+            return result;
+        }
     }
 
     private Vector3 ReadValue(Vector3Control control) => control == null ? Vector3.zero : control.ReadValue();

@@ -34,7 +34,8 @@ public class HololensPhoneClient : MonoBehaviour
         }
 
         currentTime = 0;
-        var serializedInput = inputSerializer.GetInputSerialization();
+        var serializedInput = inputSerializer.GetEventsAsBytes();
+
         ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, serializedInput);
 
     }
