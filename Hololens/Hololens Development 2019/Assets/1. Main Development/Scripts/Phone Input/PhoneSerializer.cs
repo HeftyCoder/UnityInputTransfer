@@ -6,30 +6,50 @@ using TMPro;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Controls;
 using UnityEngine.InputSystem.LowLevel;
+using UnityEngine.InputSystem.Layouts;
 using System.IO;
 public class PhoneSerializer : MonoBehaviour
 {
-    [SerializeField] SensorType[] sensors;
+    [SerializeField] bool controlSensorActivity;
+    [InputControl(layout = "Sensor")]
+    [SerializeField] string[] enabledSensorsAtStart;
     InputEventTrace eventTrace;
     Dictionary<int, DeviceData> deviceChanges = new Dictionary<int, DeviceData>();
 
+    private PhoneServer localServer;
+
+    private void Awake()
+    {
+        localServer = GetComponent<PhoneServer>();
+    }
+    private void Start()
+    {
+        EnableSensors(true);
+    }
     private void OnEnable()
     {
         InputSystem.onDeviceChange += OnDeviceChange;
 
         eventTrace = new InputEventTrace(growBuffer: true);
         eventTrace.Enable();
-        EnableDevices(true);
+        EnableSensors(true);
     }
 
     private void OnDisable()
     {
-        EnableDevices(false);
+        EnableSensors(false);
         InputSystem.onDeviceChange -= OnDeviceChange;
         eventTrace.Dispose();
     }
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
+        //Used in order to avoid conflicts with the server - Might be useless
+        if (localServer != null && localServer.CreatedDevices.Contains(device))
+        {
+            return;
+        }
+
+        Debug.Log($"{device.name} {change}");
         switch (change)
         {
             case InputDeviceChange.Added:
@@ -41,6 +61,10 @@ public class PhoneSerializer : MonoBehaviour
         
     }
 
+    public void ResolveLocalServerDeviceConflict(InputDevice device)
+    {
+        deviceChanges.Remove(device.deviceId);
+    }
     public PhoneData GetPhoneData()
     {
         var data = new PhoneData();
@@ -55,19 +79,24 @@ public class PhoneSerializer : MonoBehaviour
         eventTrace.Clear();
 
         var bytes = stream.ToArray();
-        var changes = deviceChanges.Values;
+        //Get the changes before clearing the dictionary. If you directly use deviceChanges.Values, it will be cleared before being sent
+        var changes = new List<DeviceData>(deviceChanges.Values);
         deviceChanges.Clear();
 
         data.Reset(changes, bytes);
     }
 
-    private void EnableDevices(bool enable)
+    private void EnableSensors(bool enable)
     {
-        for (int i = 0; i < sensors.Length; i++)
+        if (!controlSensorActivity)
+            return;
+        for (int i = 0; i < enabledSensorsAtStart.Length; i++)
         {
-            var className = sensors[i].sensorType;
-            var device = InputSystem.GetDevice(className);
-            
+            var path = enabledSensorsAtStart[i];
+            var control = InputSystem.FindControl(path);
+            if (control == null)
+                continue;
+            var device = control.device;
             if (device != null)
             {
                 if (enable)

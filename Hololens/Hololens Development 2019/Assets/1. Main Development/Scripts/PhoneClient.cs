@@ -17,6 +17,7 @@ public class PhoneClient : MonoBehaviour
     private float currentTime = 0;
     bool startMessaging = false;
     public IClientSocket ClientSocket { get; private set; } = new ClientSocketWs();
+    public PhoneSerializer InputSerializer => inputSerializer;
 
     private void Awake()
     {

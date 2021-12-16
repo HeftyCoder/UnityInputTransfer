@@ -27,6 +27,10 @@ public class PhoneServer : MonoBehaviour
     private Dictionary<int, InputDevice> clientToServerMap = new Dictionary<int, InputDevice>();
     private Dictionary<InputDevice, int> serverToClientMap = new Dictionary<InputDevice, int>();
 
+    public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
+
+    private PhoneClient localClient;
+
     private void Awake()
     {
         if (Instance != null && Instance != this)
@@ -36,7 +40,8 @@ public class PhoneServer : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-        
+
+        localClient = GetComponent<PhoneClient>();
         InitializeServer();
         Instance = this;
     }
@@ -67,20 +72,30 @@ public class PhoneServer : MonoBehaviour
             {
                 var data = new PhoneData();
                 message.Deserialize(data);
-                
+               
                 foreach (var deviceChange in data.DeviceChanges)
                 {
                     //Debug.Log($"{deviceChange.Name} {deviceChange.Id} {deviceChange.DeviceChange}");
+                    
+                    //If using client and server on the same PC, this will result in indefinetely adding devices.
+                    //To avoid this, Phone Serializer and Phone Server must be on the same GameObjects in order to remove
+                    //device change events from client
                     switch (deviceChange.DeviceChange) 
                     {
                         case InputDeviceChange.Added:
+                            if (clientToServerMap.ContainsKey(deviceChange.Id))
+                                break;
                             var device = InputSystem.AddDevice(deviceChange.Layout, deviceChange.Name);
                             AddDevice(deviceChange.Id, device, serverDevices);
+                            //Remove unwanted change events
+                            localClient?.InputSerializer?.ResolveLocalServerDeviceConflict(device);
                             break;
                         case InputDeviceChange.Removed:
                             var id = deviceChange.Id;
-                            var serverDevice = clientToServerMap[id];
-
+                            //Protection from local server-client
+                            if (!clientToServerMap.TryGetValue(id, out InputDevice serverDevice))
+                                return;
+                            
                             RemoveDevice(serverDevice, serverDevices);
                             break;
                     }
@@ -143,6 +158,7 @@ public class PhoneServer : MonoBehaviour
         clientToServerMap.Add(clientDeviceId, device);
         serverToClientMap.Add(device, clientDeviceId);
         devices.Add(device);
+        CreatedDevices.Add(device);
     }
     private void RemoveDevice(InputDevice device, HashSet<InputDevice> devices)
     {
@@ -154,6 +170,7 @@ public class PhoneServer : MonoBehaviour
         var clientDeviceId = serverToClientMap[device];
         serverToClientMap.Remove(device);
         clientToServerMap.Remove(clientDeviceId);
+        CreatedDevices.Remove(device);
         InputSystem.RemoveDevice(device);
     }
 }

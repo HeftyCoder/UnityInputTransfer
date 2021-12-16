@@ -24,13 +24,7 @@ public class OnScreenDownSensor : MonoBehaviour, IPointerDownHandler, IPointerUp
     public void OnPointerUp(PointerEventData data) => sendValues = false;
     private void Update()
     {
-        if (sendValues)
-        {
-            var current = UnityEngine.InputSystem.Gyroscope.current;
-            InputSystem.EnableDevice(current);
-            var value = current.angularVelocity.ReadValue();
-            tmp.text = value.ToString();
-        }
+
     }
     
 }
