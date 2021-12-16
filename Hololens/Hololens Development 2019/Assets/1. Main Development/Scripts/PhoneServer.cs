@@ -7,6 +7,7 @@ using TMPro;
 using UnityEngine.InputSystem.LowLevel;
 using System.IO;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.OnScreen;
 
 public class PhoneServer : MonoBehaviour
 {
@@ -21,9 +22,10 @@ public class PhoneServer : MonoBehaviour
     public IServerSocket ServerSocket { get; private set; }
 
     private InputEventTrace eventTrace = new InputEventTrace();
-    private Dictionary<IPeer, HashSet<InputDevice>> peerToId = new Dictionary<IPeer, HashSet<InputDevice>>();
+    private Dictionary<IPeer, HashSet<InputDevice>> peerToDevices = new Dictionary<IPeer, HashSet<InputDevice>>();
 
-    private Dictionary<int, InputDevice> clientIdToServerDevice = new Dictionary<int, InputDevice>();
+    private Dictionary<int, InputDevice> clientToServerMap = new Dictionary<int, InputDevice>();
+    private Dictionary<InputDevice, int> serverToClientMap = new Dictionary<InputDevice, int>();
 
     private void Awake()
     {
@@ -46,8 +48,10 @@ public class PhoneServer : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var device in clientIdToServerDevice.Values)
+        foreach (var device in clientToServerMap.Values)
             InputSystem.RemoveDevice(device);
+        clientToServerMap.Clear();
+        serverToClientMap.Clear();
     }
     private void InitializeServer()
     {
@@ -56,7 +60,7 @@ public class PhoneServer : MonoBehaviour
         {
             count++;
             var serverDevices = new HashSet<InputDevice>();
-            peerToId.Add(peer, serverDevices);
+            peerToDevices.Add(peer, serverDevices);
             Debug.Log($"Connected :{count}");
 
             peer.MessageReceived += (message) =>
@@ -66,21 +70,18 @@ public class PhoneServer : MonoBehaviour
                 
                 foreach (var deviceChange in data.DeviceChanges)
                 {
+                    //Debug.Log($"{deviceChange.Name} {deviceChange.Id} {deviceChange.DeviceChange}");
                     switch (deviceChange.DeviceChange) 
                     {
                         case InputDeviceChange.Added:
                             var device = InputSystem.AddDevice(deviceChange.Layout, deviceChange.Name);
-                            Debug.Log($"Added device: {device.name} {device.deviceId}");
-                            serverDevices.Add(device);
-                            clientIdToServerDevice.Add(deviceChange.Id, device);
+                            AddDevice(deviceChange.Id, device, serverDevices);
                             break;
                         case InputDeviceChange.Removed:
                             var id = deviceChange.Id;
-                            var serverDevice = clientIdToServerDevice[id];
+                            var serverDevice = clientToServerMap[id];
 
-                            serverDevices.Remove(serverDevice);
-                            clientIdToServerDevice.Remove(id);
-                            InputSystem.RemoveDevice(serverDevice);
+                            RemoveDevice(serverDevice, serverDevices);
                             break;
                     }
                 }
@@ -97,8 +98,13 @@ public class PhoneServer : MonoBehaviour
                 foreach (var info in eventTrace.deviceInfos)
                 {
                     var clientId = info.deviceId;
-                    Debug.Log($"{clientId}");
-                    var serverId = clientIdToServerDevice[clientId].deviceId;
+                    //Debug.Log($"{info.deviceId} {info.layout}");
+                    if (!clientToServerMap.TryGetValue(clientId, out InputDevice serverDevice))
+                    {
+                        Debug.LogWarning($"A device of id:{clientId} was not found. You're probably runnig server and client in the same device");
+                        return;
+                    }
+                    var serverId = clientToServerMap[clientId].deviceId;
                     controller.WithDeviceMappedFromTo(clientId, serverId);
                 }
                 controller.PlayAllEvents();
@@ -111,7 +117,10 @@ public class PhoneServer : MonoBehaviour
         ServerSocket.Disconnected += (peer) =>
         {
             count--;
-            peerToId.Remove(peer);
+            var devices = peerToDevices[peer];
+            foreach (var device in devices)
+                RemoveDevice(device);
+            peerToDevices.Remove(peer);
             Debug.Log($"Disconnected: {count}");
         };
     }
@@ -129,4 +138,22 @@ public class PhoneServer : MonoBehaviour
         ServerSocket.Listen(port);
     }
 
+    private void AddDevice(int clientDeviceId, InputDevice device, HashSet<InputDevice> devices)
+    {
+        clientToServerMap.Add(clientDeviceId, device);
+        serverToClientMap.Add(device, clientDeviceId);
+        devices.Add(device);
+    }
+    private void RemoveDevice(InputDevice device, HashSet<InputDevice> devices)
+    {
+        RemoveDevice(device);
+        devices.Remove(device);
+    }
+    private void RemoveDevice(InputDevice device)
+    {
+        var clientDeviceId = serverToClientMap[device];
+        serverToClientMap.Remove(device);
+        clientToServerMap.Remove(clientDeviceId);
+        InputSystem.RemoveDevice(device);
+    }
 }

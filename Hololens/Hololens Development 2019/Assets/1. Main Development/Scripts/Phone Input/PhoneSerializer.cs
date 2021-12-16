@@ -30,8 +30,15 @@ public class PhoneSerializer : MonoBehaviour
     }
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
-        var deviceData = new DeviceData(device, change);
-        deviceChanges[deviceData.Id] = deviceData;
+        switch (change)
+        {
+            case InputDeviceChange.Added:
+            case InputDeviceChange.Removed:
+                var deviceData = new DeviceData(device, change);
+                deviceChanges[device.deviceId] = deviceData;
+                break;
+        }
+        
     }
 
     public PhoneData GetPhoneData()

@@ -37,24 +37,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Sensor Data"",
-                    ""type"": ""Button"",
+                    ""name"": ""AngVelocity"",
+                    ""type"": ""Value"",
                     ""id"": ""da088950-1be8-422d-a02b-d0f23f7837a0"",
-                    ""expectedControlType"": ""Button"",
+                    ""expectedControlType"": ""Vector3"",
                     ""processors"": """",
                     ""interactions"": """",
-                    ""initialStateCheck"": false
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
                 {
                     ""name"": """",
                     ""id"": ""65055960-6e9a-4502-b3b2-1a75e17b3fba"",
-                    ""path"": ""<Sensor>"",
+                    ""path"": ""<Gyroscope>/angularVelocity"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Sensor Data"",
+                    ""action"": ""AngVelocity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 },
@@ -89,7 +89,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         // Player
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_SensorData = m_Player.FindAction("Sensor Data", throwIfNotFound: true);
+        m_Player_AngVelocity = m_Player.FindAction("AngVelocity", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -150,13 +150,13 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Player;
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_SensorData;
+    private readonly InputAction m_Player_AngVelocity;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @SensorData => m_Wrapper.m_Player_SensorData;
+        public InputAction @AngVelocity => m_Wrapper.m_Player_AngVelocity;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -169,9 +169,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @SensorData.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSensorData;
-                @SensorData.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSensorData;
-                @SensorData.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnSensorData;
+                @AngVelocity.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -179,9 +179,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @SensorData.started += instance.OnSensorData;
-                @SensorData.performed += instance.OnSensorData;
-                @SensorData.canceled += instance.OnSensorData;
+                @AngVelocity.started += instance.OnAngVelocity;
+                @AngVelocity.performed += instance.OnAngVelocity;
+                @AngVelocity.canceled += instance.OnAngVelocity;
             }
         }
     }
@@ -198,6 +198,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     public interface IPlayerActions
     {
         void OnMove(InputAction.CallbackContext context);
-        void OnSensorData(InputAction.CallbackContext context);
+        void OnAngVelocity(InputAction.CallbackContext context);
     }
 }

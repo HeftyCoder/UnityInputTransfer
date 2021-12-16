@@ -26,8 +26,15 @@ public class TransformController : MonoBehaviour
     private void Update()
     {
         var movementControl = inputs.Player.Move;
-        var input = movementControl.ReadValue<Vector2>();
-        Move(input);
+        var movementInput = movementControl.ReadValue<Vector2>();
+        Move(movementInput);
+
+        var angVel = inputs.Player.AngVelocity.ReadValue<Vector3>();
+
+        var rotEuler = transform.rotation.eulerAngles;
+
+        var newOrientation = rotEuler + (180 / Mathf.PI) * angVel * Time.deltaTime;
+        transform.rotation = Quaternion.Euler(newOrientation);
     }
     public void Move(Vector2 inputMovement)
     {
