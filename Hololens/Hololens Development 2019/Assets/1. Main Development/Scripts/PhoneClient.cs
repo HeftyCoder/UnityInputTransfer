@@ -4,18 +4,39 @@ using UnityEngine;
 using System;
 using Barebones.Networking;
 using TMPro;
+using UnityEngine.InputSystem;
 
-public class HololensPhoneClient : MonoBehaviour
+public class PhoneClient : MonoBehaviour
 {
     [SerializeField] bool connectOnStart;
     [SerializeField] string ip = "127.0.0.1";
     [SerializeField] int port = 5000;
-    [SerializeField] PhoneInputSerializer inputSerializer;
+    [SerializeField] PhoneSerializer inputSerializer;
     [SerializeField] float intervalMills = 50;
 
     private float currentTime = 0;
-
+    bool startMessaging = false;
     public IClientSocket ClientSocket { get; private set; } = new ClientSocketWs();
+
+    private void Awake()
+    {
+        ClientSocket.Connected += () =>
+        {
+            var deviceDatas = new List<DeviceData>();
+            foreach (var device in InputSystem.devices)
+            {
+                var deviceData = new DeviceData(device, InputDeviceChange.Added);
+                deviceDatas.Add(deviceData);
+            }
+
+            var phoneData = new PhoneData(deviceDatas, new byte[0]);
+
+            ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, phoneData);
+            startMessaging = true;
+        };
+
+        ClientSocket.Disconnected += () => startMessaging = false;
+    }
 
     private void Start()
     {
@@ -24,7 +45,7 @@ public class HololensPhoneClient : MonoBehaviour
     }
     private void Update()
     {
-        if (!ClientSocket.IsConnected)
+        if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
         if (currentTime < intervalMills)
@@ -34,9 +55,8 @@ public class HololensPhoneClient : MonoBehaviour
         }
 
         currentTime = 0;
-        var serializedInput = inputSerializer.GetEventsAsBytes();
-
-        ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, serializedInput);
+        var phoneData = inputSerializer.GetPhoneData();
+        ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, phoneData);
 
     }
     private void OnDestroy()

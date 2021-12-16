@@ -9,7 +9,7 @@ public class ControlUI : MonoBehaviour
     [SerializeField] TMP_Text inputButtonTMP;
     [SerializeField] Button disconnectButton;
     [SerializeField] Button resetButton;
-    [SerializeField] HololensPhoneClient phoneClient;
+    [SerializeField] PhoneClient phoneClient;
     private bool inputLock = false;
     private void Awake()
     {
@@ -27,13 +27,6 @@ public class ControlUI : MonoBehaviour
         {
             disconnectButton.interactable = false;
             phoneClient.Disconnect();
-        });
-
-        //HACK - Simulate Double tap here
-        resetButton.onClick.AddListener(() =>
-        {
-            var input = new PhoneInputSerialization(Vector3.zero, Vector3.zero, Vector3.zero, Vector3.zero, Vector2.zero, 2);
-            phoneClient.ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, input);
         });
         
     }

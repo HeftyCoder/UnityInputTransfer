@@ -417,6 +417,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62848ed193156cb40b07f576119c3522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  sensors:
+  - sensorType: AttitudeSensor
+  - sensorType: LinearAccelerationSensor
 --- !u!1 &148200061
 GameObject:
   m_ObjectHideFlags: 0
@@ -2381,6 +2384,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1391868825}
   - component: {fileID: 1391868824}
+  - component: {fileID: 1391868826}
   m_Layer: 0
   m_Name: Directional Light
   m_TagString: Untagged
@@ -2463,6 +2467,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!114 &1391868826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391868823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d03ad4d0768d52e4e84293f7517b61c0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 5000
+  onStart: 1
 --- !u!1 &1741372816
 GameObject:
   m_ObjectHideFlags: 0

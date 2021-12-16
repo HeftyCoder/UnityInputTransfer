@@ -7,7 +7,6 @@ namespace Barebones.Networking
     /// </summary>
     public abstract class SerializablePacket : ISerializablePacket
     {
- 
         public byte[] ToBytes()
         {
             byte[] b;
