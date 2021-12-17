@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEditor;
 using UnityEngine.InputSystem;
 
-[CustomPropertyDrawer(typeof(SensorType))]
+[CustomPropertyDrawer(typeof(InputStateData))]
 public class SensorTypeDrawer : PropertyDrawer
 {
     static Type[] sensorTypes;

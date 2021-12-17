@@ -10,10 +10,9 @@ using UnityEngine.InputSystem.Layouts;
 using System.IO;
 public class PhoneSerializer : MonoBehaviour
 {
-    [SerializeField] bool controlSensorActivity;
     [InputControl(layout = "Sensor")]
-    [SerializeField] string[] enabledSensorsAtStart;
-    InputEventTrace eventTrace;
+    [SerializeField] string[] sensorsToConnect;
+
     Dictionary<int, DeviceData> deviceChanges = new Dictionary<int, DeviceData>();
 
     private PhoneServer localServer;
@@ -29,9 +28,6 @@ public class PhoneSerializer : MonoBehaviour
     private void OnEnable()
     {
         InputSystem.onDeviceChange += OnDeviceChange;
-
-        eventTrace = new InputEventTrace(growBuffer: true);
-        eventTrace.Enable();
         EnableSensors(true);
     }
 
@@ -39,7 +35,6 @@ public class PhoneSerializer : MonoBehaviour
     {
         EnableSensors(false);
         InputSystem.onDeviceChange -= OnDeviceChange;
-        eventTrace.Dispose();
     }
     private void OnDeviceChange(InputDevice device, InputDeviceChange change)
     {
@@ -75,8 +70,6 @@ public class PhoneSerializer : MonoBehaviour
     {
         //This specific class does not need to call dispose - otherwise, use using statement
         var stream = new MemoryStream();
-        eventTrace.WriteTo(stream);
-        eventTrace.Clear();
 
         var bytes = stream.ToArray();
         //Get the changes before clearing the dictionary. If you directly use deviceChanges.Values, it will be cleared before being sent
@@ -88,16 +81,15 @@ public class PhoneSerializer : MonoBehaviour
 
     private void EnableSensors(bool enable)
     {
-        if (!controlSensorActivity)
-            return;
-        for (int i = 0; i < enabledSensorsAtStart.Length; i++)
+        for (int i = 0; i < sensorsToConnect.Length; i++)
         {
-            var path = enabledSensorsAtStart[i];
+            var path = sensorsToConnect[i];
             var control = InputSystem.FindControl(path);
             if (control == null)
                 continue;
             var device = control.device;
-            if (device != null)
+
+            if (device != null && !string.IsNullOrEmpty(Utilities.GetSupportedDeviceLayout(device)))
             {
                 if (enable)
                     InputSystem.EnableDevice(device);

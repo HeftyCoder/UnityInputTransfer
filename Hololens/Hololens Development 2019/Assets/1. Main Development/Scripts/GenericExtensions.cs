@@ -13,5 +13,6 @@ namespace Hefty.GenericExtensions
             source.Position = 0;
             source.SetLength(0);
         }
+
     }
 }
