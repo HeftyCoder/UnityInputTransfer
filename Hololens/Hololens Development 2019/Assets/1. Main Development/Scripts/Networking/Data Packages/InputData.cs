@@ -14,6 +14,13 @@ public class InputData : SerializablePacket
 
     public override void ToBinaryWriter(EndianBinaryWriter writer)
     {
+        //For serialization purposes this must be done
+        if (inputData == null)
+        {
+            var layout = deviceDescription.Layout;
+            inputData = InputFactory.CreateInput(layout);
+        }
+        //
         writer.Write(deviceDescription);
         writer.Write((int)deviceChange);
         writer.Write(inputData);

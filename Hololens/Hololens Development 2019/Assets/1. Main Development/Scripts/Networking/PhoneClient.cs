@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.LowLevel;
+using TMPro;
 
 public class PhoneClient : MonoBehaviour
 {
@@ -26,14 +27,14 @@ public class PhoneClient : MonoBehaviour
         {
             foreach (var desc in sensorsToConnect)
             {
-                var device = InputSystem.GetDevice(desc.Layout);
+                var device = InputSystemExtensions.GetDeviceAssignable(desc.Layout);
                 if (device != null)
                     yield return desc;
             }
                 
             foreach (var desc in devicesToConnect)
             {
-                var device = InputSystem.GetDevice(desc.Layout);
+                var device = InputSystemExtensions.GetDeviceAssignable(desc.Layout);
                 if (device != null)
                     yield return desc;
             }
@@ -44,17 +45,17 @@ public class PhoneClient : MonoBehaviour
     PhoneServer localServer;
     bool startMessaging = false;
 
-    public IEnumerable<DeviceDescription> DeviceDescriptions { get; private set; }
+    public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
     public IClientSocket ClientSocket { get; private set; } = new ClientSocketWs();
     
     private void Awake()
     {
-        DeviceDescriptions = internalDeviceDescriptionQuery;
-
-        foreach (var desc in internalDeviceDescriptionQuery)
-        {
+        localServer = GetComponent<PhoneServer>();
+        //Add all the needed layouts
+        foreach (var desc in sensorsToConnect)
             layoutToDescription.Add(desc.Layout, desc);
-        }
+        foreach (var desc in devicesToConnect)
+            layoutToDescription.Add(desc.Layout, desc);
 
         ClientSocket.Connected += () =>
         {
@@ -65,7 +66,7 @@ public class PhoneClient : MonoBehaviour
             //Enable sensors here
             foreach (var sensorDesc in sensorsToConnect)
             {
-                var device = InputSystem.GetDevice(sensorDesc.Layout);
+                var device = InputSystemExtensions.GetDeviceAssignable(sensorDesc.Layout);
                 if (device != null)
                     InputSystem.EnableDevice(device);
             }
@@ -81,7 +82,7 @@ public class PhoneClient : MonoBehaviour
             //Disable sensors
             foreach (var sensorDesc in sensorsToConnect)
             {
-                var device = InputSystem.GetDevice(sensorDesc.Layout);
+                var device = InputSystemExtensions.GetDeviceAssignable(sensorDesc.Layout);
                 if (device != null)
                     InputSystem.EnableDevice(device);
             }
@@ -93,13 +94,15 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
-        //At first test without time limitation
-
         PhoneData data = new PhoneData(gatheredData.Values);
         ClientSocket.SendMessage((short)Operations.StateData, data);
         gatheredData.Clear();
     }
     private void OnDestroy()
+    {
+        ClientSocket.Disconnect();
+    }
+    private void OnApplicationQuit()
     {
         ClientSocket.Disconnect();
     }
@@ -122,6 +125,7 @@ public class PhoneClient : MonoBehaviour
         switch (change) 
         {
             case InputDeviceChange.Added:
+                break;
             case InputDeviceChange.Removed:
                 break;
             default:
@@ -130,11 +134,10 @@ public class PhoneClient : MonoBehaviour
 
         if (IsDeviceFromLocalServer(device))
             return;
-
         var layout = device.GetConnectingDeviceLayout();
-        if (string.IsNullOrEmpty(layout))
+        if (string.IsNullOrEmpty(layout) || !layoutToDescription.ContainsKey(layout))
             return;
-
+        
         var data = GetInputData(layout);
         data.deviceChange = change;
     }
@@ -145,7 +148,7 @@ public class PhoneClient : MonoBehaviour
             return;
 
         var layout = device.GetConnectingDeviceLayout();
-        if (string.IsNullOrEmpty(layout))
+        if (string.IsNullOrEmpty(layout) || !layoutToDescription.ContainsKey(layout))
             return;
 
         var data = GetInputData(layout);
@@ -163,8 +166,10 @@ public class PhoneClient : MonoBehaviour
         }
         return data;
     }
-    private bool IsDeviceFromLocalServer(InputDevice device) 
-        => !captureChangeEvents || (localServer != null && localServer.CreatedDevices.Contains(device));
+    private bool IsDeviceFromLocalServer(InputDevice device)
+    {
+        return !captureChangeEvents || (localServer != null && localServer.CreatedDevices.Contains(device));
+    }
 
     public void SetCaptureEvents(bool value) => captureChangeEvents = value;
 

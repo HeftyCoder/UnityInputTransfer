@@ -25,8 +25,10 @@ public class TransformController : MonoBehaviour
     
     private void Update()
     {
+        var gp = Gamepad.current;
         var movementControl = inputs.Player.Move;
         var movementInput = movementControl.ReadValue<Vector2>();
+        
         Move(movementInput);
 
         var attitude = inputs.Player.Attitude.ReadValue<Quaternion>();

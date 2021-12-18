@@ -19,7 +19,7 @@ public class DeviceDescription : SerializablePacket
         {
             if (!string.IsNullOrEmpty(layout))
                 return layout;
-            layout = device.Substring(1, device.Length - 1);
+            layout = device.Substring(1, device.Length - 2);
             return layout;
         }
     }

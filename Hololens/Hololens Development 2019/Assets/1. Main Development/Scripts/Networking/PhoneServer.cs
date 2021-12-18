@@ -101,18 +101,14 @@ public class PhoneServer : MonoBehaviour
         var subData = new SubscriptionData();
         message.Deserialize(subData);
         var peer = message.Peer;
-        foreach (var device in subData.devices)
-        {
-            var name = device.CustomName;
-            var layout = device.Layout;
-        }
         foreach (var desc in subData.devices)
         {
+            Debug.Log(desc.device);
             AddDevice(desc, peer);
         }
     }
     private void OnPhoneData(IIncommingMessage message)
-    {
+    {;
         var phoneData = new PhoneData();
         message.Deserialize(phoneData);
         var peer = message.Peer;
@@ -123,6 +119,7 @@ public class PhoneServer : MonoBehaviour
             switch (data.deviceChange)
             {
                 case InputDeviceChange.Added:
+                    Debug.Log(desc.device);
                     AddDevice(desc, peer);
                     break;
                 case InputDeviceChange.Removed:
@@ -140,7 +137,7 @@ public class PhoneServer : MonoBehaviour
     #region Adding-Removing Devices
     private void AddDevice(DeviceDescription desc, IPeer peer)
     {
-        var name = $"{desc.customName}_{peer.Id}";
+        var name = $"{desc.CustomName}_{peer.Id}";
         var layout = desc.Layout;
         localClient?.SetCaptureEvents(false);
         var device = InputSystem.AddDevice(layout, name);

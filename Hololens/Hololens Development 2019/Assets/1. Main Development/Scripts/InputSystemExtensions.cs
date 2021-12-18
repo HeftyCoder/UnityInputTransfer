@@ -8,12 +8,32 @@ using Barebones.Networking;
 
 public static class InputSystemExtensions
 {
-    private static int keyLength;
+    private static int keyLength = 112; // android breaks this? ... Method Access
     private static List<Key> keyHelperList = new List<Key>();
+    private static Dictionary<string, Type> availableConnectionTypes;
     static InputSystemExtensions()
     {
-        keyLength = GetKeyEnumDistinctCount();
+        availableConnectionTypes = new Dictionary<string, Type>()
+        {
+            {nameof(Gamepad), typeof(Gamepad)},
+            {nameof(Accelerometer), typeof(Accelerometer)},
+            {nameof(AmbientTemperatureSensor), typeof(AmbientTemperatureSensor)},
+            {nameof(AttitudeSensor), typeof(AttitudeSensor)},
+            {nameof(GravitySensor), typeof(GravitySensor)},
+            {nameof(UnityEngine.InputSystem.Gyroscope), typeof(UnityEngine.InputSystem.Gyroscope)},
+            {nameof(HumiditySensor), typeof(HumiditySensor)},
+            {nameof(Keyboard), typeof(Keyboard)},
+            {nameof(LightSensor), typeof(LightSensor)},
+            {nameof(LinearAccelerationSensor), typeof(LinearAccelerationSensor)},
+            {nameof(MagneticFieldSensor), typeof(MagneticFieldSensor)},
+            {nameof(Mouse), typeof(Mouse)},
+            {nameof(PressureSensor), typeof(PressureSensor)},
+            {nameof(ProximitySensor), typeof(ProximitySensor)},
+            {nameof(StepCounter), typeof(StepCounter)},
+            {nameof(Touchscreen), typeof(Touchscreen)},
+        };
     }
+    // android breaks this? ... Method Access Exception
     private static int GetKeyEnumDistinctCount() => ((int[])Enum.GetValues(typeof(Key))).Distinct().Count();
     /// <summary>
     /// Gets Pressed Keys.This isn't thread safe.
@@ -53,6 +73,48 @@ public static class InputSystemExtensions
         return result;
     }
 
+    public static InputDevice GetDeviceAssignable(string className)
+    {
+        if (!availableConnectionTypes.TryGetValue(className, out Type value))
+            return null;
+        return InputSystem.GetDevice(value);
+    }
+    public static string GetConnectingDeviceLayout(this InputDevice device)
+    {
+        if (device is Mouse)
+            return nameof(Mouse);
+        else if (device is Keyboard)
+            return nameof(Keyboard);
+        else if (device is Touchscreen)
+            return nameof(Touchscreen);
+        else if (device is Gamepad)
+            return nameof(Gamepad);
+        else if (device is Accelerometer)
+            return nameof(Accelerometer);
+        else if (device is UnityEngine.InputSystem.Gyroscope)
+            return nameof(UnityEngine.InputSystem.Gyroscope);
+        else if (device is GravitySensor)
+            return nameof(GravitySensor);
+        else if (device is AttitudeSensor)
+            return nameof(AttitudeSensor);
+        else if (device is LinearAccelerationSensor)
+            return nameof(LinearAccelerationSensor);
+        else if (device is MagneticFieldSensor)
+            return nameof(MagneticFieldSensor);
+        else if (device is LightSensor)
+            return nameof(LightSensor);
+        else if (device is PressureSensor)
+            return nameof(PressureSensor);
+        else if (device is ProximitySensor)
+            return nameof(ProximitySensor);
+        else if (device is HumiditySensor)
+            return nameof(HumiditySensor);
+        else if (device is AmbientTemperatureSensor)
+            return nameof(AmbientTemperatureSensor);
+        else if (device is StepCounter)
+            return nameof(StepCounter);
+        return null;
+    }
     //This should generally not be acceptible. I should only send byte buffers / arrays and decode through them.
     //Documentation is kind of hard to find for this, so I opted for the general approach.
     #region Input System State Serialization
@@ -131,7 +193,7 @@ public static class InputSystemExtensions
         writer.Write(state.leftStick);
         writer.Write(state.leftTrigger);
         writer.Write(state.rightStick);
-        writer.Write(state.leftTrigger);
+        writer.Write(state.rightTrigger);
     }
     public static GamepadState ReadGamepad(this EndianBinaryReader reader)
     {

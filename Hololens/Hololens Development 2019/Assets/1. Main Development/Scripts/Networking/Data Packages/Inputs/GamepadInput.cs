@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class GamepadInput : BaseInput
 {
-    public GamepadState state;
+    public GamepadState state = new GamepadState();
 
     public override void SetUp(InputDevice device)
     {
@@ -17,5 +17,5 @@ public class GamepadInput : BaseInput
     }
 
     public override void ToBinaryWriter(EndianBinaryWriter writer) => writer.Write(state);
-    public override void FromBinaryReader(EndianBinaryReader reader) => reader.ReadGamepad();
+    public override void FromBinaryReader(EndianBinaryReader reader) => state = reader.ReadGamepad();
 }

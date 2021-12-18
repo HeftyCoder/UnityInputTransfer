@@ -32,7 +32,7 @@ public static class InputFactory
     public static BaseInput CreateInput(string layout)
     {
         if (!inputs.TryGetValue(layout, out Func<BaseInput> creator))
-            return null;
+            return new NoInput();
         return creator.Invoke();
     }
     public static BaseInput CreateInput(InputDevice device, string layout)

@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 33548056}
   - component: {fileID: 33548059}
   - component: {fileID: 33548057}
-  - component: {fileID: 33548060}
+  - component: {fileID: 33548058}
   m_Layer: 5
   m_Name: Control UI Canvas
   m_TagString: Untagged
@@ -179,6 +179,23 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!114 &33548058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 33548055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec836d8dfed6d64da4f3cf98d584280, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputButton: {fileID: 54616078}
+  inputButtonTMP: {fileID: 340083930}
+  disconnectButton: {fileID: 1826263926}
+  resetButton: {fileID: 1353234189}
+  phoneClient: {fileID: 140851842}
 --- !u!223 &33548059
 Canvas:
   m_ObjectHideFlags: 0
@@ -200,23 +217,6 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
---- !u!114 &33548060
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 33548055}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c912472ad080e4b4993c1743be2b2a59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputButton: {fileID: 54616078}
-  inputButtonTMP: {fileID: 340083930}
-  disconnectButton: {fileID: 1826263926}
-  resetButton: {fileID: 1353234189}
-  phoneClient: {fileID: 140851842}
 --- !u!1 &54616076
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,8 +346,6 @@ GameObject:
   m_Component:
   - component: {fileID: 140851843}
   - component: {fileID: 140851842}
-  - component: {fileID: 140851845}
-  - component: {fileID: 140851844}
   m_Layer: 0
   m_Name: Hololens Phone Client
   m_TagString: Untagged
@@ -370,8 +368,12 @@ MonoBehaviour:
   connectOnStart: 0
   ip: 127.0.0.1
   port: 5000
-  inputSerializer: {fileID: 140851845}
-  intervalMills: 50
+  sensorsToConnect:
+  - device: <AttitudeSensor>
+    customName: 
+  devicesToConnect:
+  - device: <Gamepad>
+    customName: 
 --- !u!4 &140851843
 Transform:
   m_ObjectHideFlags: 0
@@ -386,41 +388,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &140851844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140851841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4de4f1390eb69cc4e91a005ac54c4104, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  phoneClient: {fileID: 140851842}
-  connectButton: {fileID: 359038486}
-  ipInput: {fileID: 1365480119}
-  portInput: {fileID: 984303625}
-  connectionStatus: {fileID: 554658894}
-  connectionUI: {fileID: 1150517705}
-  controlUI: {fileID: 33548055}
-  changeUITimeSeconds: 1.5
---- !u!114 &140851845
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140851841}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62848ed193156cb40b07f576119c3522, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  controlSensorActivity: 1
-  enabledSensorsAtStart:
-  - <AttitudeSensor>
 --- !u!1 &148200061
 GameObject:
   m_ObjectHideFlags: 0
@@ -1262,6 +1229,7 @@ GameObject:
   - component: {fileID: 549968035}
   - component: {fileID: 549968034}
   - component: {fileID: 549968033}
+  - component: {fileID: 549968037}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -1350,6 +1318,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &549968037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549968032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 13c0e501cf828ca4d919a0dd53283997, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  phoneClient: {fileID: 140851842}
+  connectButton: {fileID: 359038486}
+  ipInput: {fileID: 1365480119}
+  portInput: {fileID: 984303625}
+  connectionStatus: {fileID: 554658894}
+  connectionUI: {fileID: 1150517705}
+  controlUI: {fileID: 33548055}
+  changeUITimeSeconds: 1.5
 --- !u!1 &554658892
 GameObject:
   m_ObjectHideFlags: 0
