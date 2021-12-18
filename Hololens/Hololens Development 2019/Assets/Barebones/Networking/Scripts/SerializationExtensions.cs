@@ -308,17 +308,9 @@ namespace Barebones.Networking
             //writer.Write(bytes);
         }
 
-        public static T ReadPacket<T>(this EndianBinaryReader reader, T packet) where T: ISerializablePacket, new()
+        public static T ReadPacket<T>(this EndianBinaryReader reader, T packet) where T: ISerializablePacket
         {
             packet.FromBinaryReader(reader);
-
-            //var length = reader.ReadInt32();
-
-            //if (length > 0)
-            //    return packet;
-
-            //packet.FromBinaryReader(reader);
-
             return packet;
         }
 

@@ -15,7 +15,8 @@ public static class Utilities
      * to meddle around with it. If Unity updates to other sensors, simply adding them here should work.*/
 
     //Should probably search for another approach to addnig multiple buttons without needing to bind them to a device (?)
-    public static string GetSupportedDeviceLayout(InputDevice device)
+
+    public static string GetConnectingDeviceLayout(this InputDevice device)
     {
         if (device is Mouse)
             return nameof(Mouse);
@@ -49,7 +50,7 @@ public static class Utilities
             return nameof(AmbientTemperatureSensor);
         else if (device is StepCounter)
             return nameof(StepCounter);
-        return "";
+        return null;
     }
 
 }

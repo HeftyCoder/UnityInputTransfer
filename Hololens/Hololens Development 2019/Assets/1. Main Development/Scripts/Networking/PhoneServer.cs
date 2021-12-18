@@ -22,15 +22,11 @@ public class PhoneServer : MonoBehaviour
     public IServerSocket ServerSocket { get; private set; }
 
     private InputEventTrace eventTrace = new InputEventTrace();
-    private Dictionary<IPeer, HashSet<InputDevice>> peerToDevices = new Dictionary<IPeer, HashSet<InputDevice>>();
-
-    private Dictionary<int, InputDevice> clientToServerMap = new Dictionary<int, InputDevice>();
-    private Dictionary<InputDevice, int> serverToClientMap = new Dictionary<InputDevice, int>();
+    private Dictionary<IPeer, Dictionary<string,InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
 
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
 
     private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
-    private PhoneClient localClient;
 
     private void Awake()
     {
@@ -41,8 +37,7 @@ public class PhoneServer : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-
-        localClient = GetComponent<PhoneClient>();
+            
         InitializeServer();
         Instance = this;
     }
@@ -54,10 +49,8 @@ public class PhoneServer : MonoBehaviour
 
     private void OnDestroy()
     {
-        foreach (var device in clientToServerMap.Values)
+        foreach (var device in CreatedDevices)
             InputSystem.RemoveDevice(device);
-        clientToServerMap.Clear();
-        serverToClientMap.Clear();
     }
     private void InitializeServer()
     {
@@ -68,7 +61,7 @@ public class PhoneServer : MonoBehaviour
         ServerSocket.Connected += (peer) =>
         {
             count++;
-            var serverDevices = new HashSet<InputDevice>();
+            var serverDevices = new Dictionary<string, InputDevice>();
             peerToDevices.Add(peer, serverDevices);
             Debug.Log($"Connected :{count}");
 
@@ -83,7 +76,7 @@ public class PhoneServer : MonoBehaviour
         {
             count--;
             var devices = peerToDevices[peer];
-            foreach (var device in devices)
+            foreach (var device in devices.Values)
                 RemoveDevice(device);
             peerToDevices.Remove(peer);
             Debug.Log($"Disconnected: {count}");
@@ -106,12 +99,16 @@ public class PhoneServer : MonoBehaviour
     #region Operations
     private void OnSubscribe(IIncommingMessage message)
     {
+        var subData = new SubscriptionData();
+        message.Deserialize(subData);
+        var peer = message.Peer;
+        foreach (var device in subData.devices)
+        {
+            var name = device.CustomName;
+            var layout = device.Layout;
+        }
         foreach (var deviceChange in data.DeviceChanges)
         {
-
-            //If using client and server on the same PC, this will result in indefinetely adding devices.
-            //To avoid this, Phone Serializer and Phone Server must be on the same GameObjects in order to remove
-            //device change events from client
             switch (deviceChange.DeviceChange)
             {
                 case InputDeviceChange.Added:
@@ -140,25 +137,30 @@ public class PhoneServer : MonoBehaviour
     #endregion
 
     #region Adding-Removing Devices
-    private void AddDevice(int clientDeviceId, InputDevice device, HashSet<InputDevice> devices)
+    private void AddDevice(DeviceDescription desc, IPeer peer)
     {
-        clientToServerMap.Add(clientDeviceId, device);
-        serverToClientMap.Add(device, clientDeviceId);
-        devices.Add(device);
+        var name = $"{desc.customName}_{peer.Id}";
+        var layout = desc.Layout;
+        var device = InputSystem.AddDevice(layout, name);
+        var peerDevices = peerToDevices[peer];
+        peerDevices.Add(layout, device);
         CreatedDevices.Add(device);
     }
-    private void RemoveDevice(InputDevice device, HashSet<InputDevice> devices)
+    private void AddDevice(string layout, InputDevice device, Dictionary<string,InputDevice> devices)
     {
+        devices.Add(layout, device);
+        CreatedDevices.Add(device);
+    }
+    private void RemoveDevice(string layout, InputDevice device, Dictionary<string, InputDevice> devices)
+    {
+        devices.Remove(layout);
         RemoveDevice(device);
-        devices.Remove(device);
     }
     private void RemoveDevice(InputDevice device)
     {
-        var clientDeviceId = serverToClientMap[device];
-        serverToClientMap.Remove(device);
-        clientToServerMap.Remove(clientDeviceId);
-        CreatedDevices.Remove(device);
+        //Order is important
         InputSystem.RemoveDevice(device);
+        CreatedDevices.Remove(device);
     }
     #endregion
     

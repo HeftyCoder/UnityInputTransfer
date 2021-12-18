@@ -49,10 +49,10 @@ public class ReferencePointCreator : MonoBehaviour
     void Update()
     {
         // If there is no tap, then simply do nothing until the next call to Update().
-        if (Input.touchCount == 0)
+        if (UnityEngine.Input.touchCount == 0)
             return;
 
-        var touch = Input.GetTouch(0);
+        var touch = UnityEngine.Input.GetTouch(0);
         if (touch.phase != TouchPhase.Began)
             return;
 

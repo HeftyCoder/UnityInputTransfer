@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Barebones.Networking;
 public class SubscriptionData : SerializablePacket
 {
-    public List<DeviceIdentificationData> devices = new List<DeviceIdentificationData>();
+    public IList<DeviceDescription> devices = new List<DeviceDescription>();
     
     public SubscriptionData() { }
-    public SubscriptionData(List<DeviceIdentificationData> devices) => this.devices = devices;
-    public SubscriptionData(IEnumerable<DeviceIdentificationData> devices)
+    public SubscriptionData(IList<DeviceDescription> devices) => this.devices = devices;
+    public SubscriptionData(IEnumerable<DeviceDescription> devices)
     {
         this.devices.Clear();
         foreach (var data in devices)
@@ -25,7 +25,7 @@ public class SubscriptionData : SerializablePacket
         devices.Clear();
         for (int i = 0; i < count; i++)
         {
-            var data = new DeviceIdentificationData();
+            var data = new DeviceDescription();
             var device = reader.ReadPacket(data);
             devices.Add(device);
         }

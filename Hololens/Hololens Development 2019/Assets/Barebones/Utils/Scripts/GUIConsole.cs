@@ -80,7 +80,7 @@ namespace Barebones
 
         void Update()
         {
-            if (Input.GetKeyDown(toggleKey))
+            if (UnityEngine.Input.GetKeyDown(toggleKey))
             {
                 Show = !Show;
                 if (Show)

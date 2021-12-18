@@ -6,43 +6,34 @@ using UnityEngine.InputSystem;
 
 public class PhoneData : SerializablePacket
 {
-    public IReadOnlyCollection<DeviceData> DeviceChanges { get; private set; }
-    public byte[] InputEvents { get; private set; }
-
+    public IList<InputData> inputDatas = new List<InputData>();
+    
     public PhoneData() { }
-    public PhoneData(IReadOnlyCollection<DeviceData> deviceChanges, byte[] inputEvents) => Reset(deviceChanges, inputEvents);
-    public void Reset(IReadOnlyCollection<DeviceData> deviceChanges, byte[] inputEvents)
+    public PhoneData(IEnumerable<InputData> deviceChanges) => Reset(deviceChanges);
+    public void Reset(IEnumerable<InputData> deviceChanges)
     {
-        DeviceChanges = deviceChanges;
-        InputEvents = inputEvents;
+        inputDatas.Clear();
+        foreach (var data in deviceChanges)
+            inputDatas.Add(data);
     }
     public override void ToBinaryWriter(EndianBinaryWriter writer)
     {
-        writer.Write(DeviceChanges.Count);
-        foreach (var change in DeviceChanges)
+        writer.Write(inputDatas.Count);
+        foreach (var change in inputDatas)
         {
             writer.Write(change);
         }
-
-        writer.Write(InputEvents.Length);
-        writer.Write(InputEvents);
     }
     public override void FromBinaryReader(EndianBinaryReader reader)
     {
-        var collection = new List<DeviceData>();
-
+        inputDatas.Clear();
         var count = reader.ReadInt32();
         for (int i = 0; i < count; i++)
         {
-            var data = new DeviceData();
+            var data = new InputData();
             reader.ReadPacket(data);
-            collection.Add(data);
+            inputDatas.Add(data);
         }
-
-        DeviceChanges = collection;
-
-        count = reader.ReadInt32();
-        InputEvents = reader.ReadBytes(count);
     }
 
 }

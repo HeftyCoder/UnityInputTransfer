@@ -42,7 +42,7 @@ namespace Barebones.MasterServer
             // Listen to "submit on enter" events
             InputField.onEndEdit.AddListener(val =>
             {
-                if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+                if (UnityEngine.Input.GetKeyDown(KeyCode.Return) || UnityEngine.Input.GetKeyDown(KeyCode.KeypadEnter))
                 {
                     OnSendClick();
                 }
@@ -60,7 +60,7 @@ namespace Barebones.MasterServer
                 _wasFocused = InputField.isFocused;
 
             // Focus, if return key was clicked
-            if (FocusOnEnterClick && Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+            if (FocusOnEnterClick && UnityEngine.Input.GetKeyDown(KeyCode.Return) || UnityEngine.Input.GetKeyDown(KeyCode.KeypadEnter))
             {
                 // On enter click
                 if (_allowFocusOnEnter)

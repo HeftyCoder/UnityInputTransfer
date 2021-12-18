@@ -18,8 +18,8 @@ namespace Barebones.MasterServer
 
         public void OnBeginDrag(PointerEventData eventData)
         {
-            _offsetX = transform.position.x - Input.mousePosition.x;
-            _offsetY = transform.position.y - Input.mousePosition.y;
+            _offsetX = transform.position.x - UnityEngine.Input.mousePosition.x;
+            _offsetY = transform.position.y - UnityEngine.Input.mousePosition.y;
 
             if (_group != null)
                 _group.alpha = DraggedOpacity;
@@ -27,7 +27,7 @@ namespace Barebones.MasterServer
 
         public void OnDrag(PointerEventData eventData)
         {
-            transform.position = new Vector3(_offsetX + Input.mousePosition.x, _offsetY + Input.mousePosition.y);
+            transform.position = new Vector3(_offsetX + UnityEngine.Input.mousePosition.x, _offsetY + UnityEngine.Input.mousePosition.y);
         }
 
         public void OnEndDrag(PointerEventData eventData)
