@@ -23,16 +23,16 @@ public class PhoneClient : MonoBehaviour
     {
         ClientSocket.Connected += () =>
         {
-            var deviceDatas = new List<DeviceData>();
+            var deviceDatas = new List<DeviceIdentificationData>();
             foreach (var device in InputSystem.devices)
             {
-                var deviceData = new DeviceData(device, InputDeviceChange.Added);
+                var deviceData = new DeviceIdentificationData(device);
                 deviceDatas.Add(deviceData);
             }
 
-            var phoneData = new PhoneData(deviceDatas, new byte[0]);
 
-            ClientSocket.SendMessage((short)NetworkingCodes.PhoneInput, phoneData);
+            var data = new SubscriptionData(deviceDatas);
+            ClientSocket.SendMessage((short)Operations.Subscribe, data);
             startMessaging = true;
         };
 

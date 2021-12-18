@@ -10,8 +10,13 @@ using UnityEngine.InputSystem.Layouts;
 using System.IO;
 public class PhoneSerializer : MonoBehaviour
 {
-    [InputControl(layout = "Sensor")]
-    [SerializeField] string[] sensorsToConnect;
+    [SerializeField, InputControl(layout = "Sensor")]
+    string[] sensorsToConnect;
+    [SerializeField, InputControl(layout = "InputDevice")]
+    string[] otherDevicesToConnect;
+
+    HashSet<InputDevice> sensors = new HashSet<InputDevice>();
+    HashSet<InputDevice> otherDevices = new HashSet<InputDevice>();
 
     Dictionary<int, DeviceData> deviceChanges = new Dictionary<int, DeviceData>();
 
@@ -79,6 +84,7 @@ public class PhoneSerializer : MonoBehaviour
         data.Reset(changes, bytes);
     }
 
+    private string ParseLayoutName(string layoutName) => layoutName.Substring(1, layoutName.Length - 1);
     private void EnableSensors(bool enable)
     {
         for (int i = 0; i < sensorsToConnect.Length; i++)

@@ -25,6 +25,19 @@ public struct InputStateData : ISerializablePacket
     [FieldOffset(4)] public KeyboardState keyboardState;
     [FieldOffset(4)] public TouchState touchState;
 
+    public InputStateData(InputDataType dataType)
+    {
+        this.dataType = dataType;
+        single = 0;
+        @double = 0;
+        vec2 = Vector2.zero;
+        vec3 = Vector3.zero;
+        gamepadState = new GamepadState();
+        mouseState = new MouseState();
+        keyboardState = new KeyboardState();
+        touchState = new TouchState();
+        integer = 0;
+    }
     public void ToBinaryWriter(EndianBinaryWriter writer)
     {
         writer.Write((int)dataType);

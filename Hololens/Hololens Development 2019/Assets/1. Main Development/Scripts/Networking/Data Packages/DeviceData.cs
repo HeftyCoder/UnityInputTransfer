@@ -5,45 +5,36 @@ using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.Layouts;
 public class DeviceData : SerializablePacket
 {
-    public int id;
-    public string layout;
-    public string name;
+    public DeviceIdentificationData identificationData;
     public InputDeviceChange deviceChange;
     public InputStateData stateData;
 
     public DeviceData() { }
     public DeviceData(InputDevice device, InputDeviceChange change, InputStateData data) => Reset(device, change, data);
-    public DeviceData(int id, string layout, string name, InputDeviceChange deviceChange, InputStateData data) 
-        => Reset(id, layout, name, deviceChange, data);
+    public DeviceData(DeviceIdentificationData idData, InputDeviceChange deviceChange, InputStateData data) 
+        => Reset(idData, deviceChange, data);
     public void Reset(InputDevice device, InputDeviceChange change, InputStateData data)
     {
-        var id = device.deviceId;
-        var layout = device.layout;
-        var name = device.name;
-        Reset(id, layout, name, change, data);
+        var idData = new DeviceIdentificationData(device);
+        Reset(idData, change, data);
     }
-    public void Reset(int id, string layout, string name, InputDeviceChange deviceChange, InputStateData data)
+    public void Reset(DeviceIdentificationData identificationData, InputDeviceChange deviceChange, InputStateData data)
     {
-        this.id = id;
-        this.layout = layout;
-        this.name = name;
+        this.identificationData = identificationData;
         this.deviceChange = deviceChange;
         this.stateData = data;
     }
 
     public override void ToBinaryWriter(EndianBinaryWriter writer)
     {
-        writer.Write(id);
-        writer.Write(layout);
-        writer.Write(name);
+        writer.Write(identificationData);
         writer.Write((int)deviceChange);
         writer.Write(stateData);
     }
     public override void FromBinaryReader(EndianBinaryReader reader)
     {
-        id = reader.ReadInt32();
-        layout = reader.ReadString();
-        name = reader.ReadString();
+        identificationData = new DeviceIdentificationData();
+        reader.ReadPacket(identificationData);
         deviceChange = (InputDeviceChange)reader.ReadInt32();
         stateData = new InputStateData();
         reader.ReadPacket(stateData);
