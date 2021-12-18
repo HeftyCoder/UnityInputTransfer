@@ -16,6 +16,7 @@ public class PhoneClient : MonoBehaviour
     [SerializeField]
     DeviceDescription[] devicesToConnect;
 
+    private bool captureChangeEvents = true;
     //Care not to use duplicates above
     private Dictionary<string, DeviceDescription> layoutToDescription = new Dictionary<string, DeviceDescription>();
     private Dictionary<string, InputData> gatheredData = new Dictionary<string, InputData>();
@@ -162,7 +163,9 @@ public class PhoneClient : MonoBehaviour
         }
         return data;
     }
-    private bool IsDeviceFromLocalServer(InputDevice device) => localServer != null && localServer.CreatedDevices.Contains(device);
+    private bool IsDeviceFromLocalServer(InputDevice device) 
+        => !captureChangeEvents || (localServer != null && localServer.CreatedDevices.Contains(device));
 
+    public void SetCaptureEvents(bool value) => captureChangeEvents = value;
 
 }

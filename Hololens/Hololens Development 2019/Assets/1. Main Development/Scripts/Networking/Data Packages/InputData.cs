@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.Layouts;
 public class InputData : SerializablePacket
 {
     public DeviceDescription deviceDescription;
-    public InputDeviceChange deviceChange;
+    public InputDeviceChange deviceChange = InputDeviceChange.HardReset; // Won't be picked
     public BaseInput inputData;
 
     public InputData() { }

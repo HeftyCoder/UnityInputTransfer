@@ -28,8 +28,11 @@ public class PhoneServer : MonoBehaviour
 
     private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
 
+    private PhoneClient localClient;
+
     private void Awake()
     {
+        localClient = GetComponent<PhoneClient>();
         if (Instance != null && Instance != this)
         {
             Destroy(this);
@@ -75,11 +78,7 @@ public class PhoneServer : MonoBehaviour
         ServerSocket.Disconnected += (peer) =>
         {
             count--;
-            var devices = peerToDevices[peer];
-            foreach (var device in devices.Values)
-                RemoveDevice(device);
-            peerToDevices.Remove(peer);
-            Debug.Log($"Disconnected: {count}");
+            Clear(peer);
         };
     }
     
@@ -107,32 +106,34 @@ public class PhoneServer : MonoBehaviour
             var name = device.CustomName;
             var layout = device.Layout;
         }
-        foreach (var deviceChange in data.DeviceChanges)
+        foreach (var desc in subData.devices)
         {
-            switch (deviceChange.DeviceChange)
-            {
-                case InputDeviceChange.Added:
-                    if (clientToServerMap.ContainsKey(deviceChange.Id))
-                        break;
-                    var device = InputSystem.AddDevice(deviceChange.Layout, deviceChange.Name);
-                    AddDevice(deviceChange.Id, device, serverDevices);
-                    //Remove unwanted change events
-                    localClient?.InputSerializer?.ResolveLocalServerDeviceConflict(device);
-                    break;
-                case InputDeviceChange.Removed:
-                    var id = deviceChange.Id;
-                    //Protection from local server-client
-                    if (!clientToServerMap.TryGetValue(id, out InputDevice serverDevice))
-                        return;
-
-                    RemoveDevice(serverDevice, serverDevices);
-                    break;
-            }
+            AddDevice(desc, peer);
         }
     }
     private void OnPhoneData(IIncommingMessage message)
     {
+        var phoneData = new PhoneData();
+        message.Deserialize(phoneData);
+        var peer = message.Peer;
 
+        foreach (var data in phoneData.inputDatas)
+        {
+            var desc = data.deviceDescription;
+            switch (data.deviceChange)
+            {
+                case InputDeviceChange.Added:
+                    AddDevice(desc, peer);
+                    break;
+                case InputDeviceChange.Removed:
+                    RemoveDevice(data.deviceDescription, peer);
+                    continue;
+            }
+
+            var input = data.inputData;
+            var device = GetDevice(desc.Layout, peer);
+            input.QueueInput(device);
+        }
     }
     #endregion
 
@@ -141,26 +142,47 @@ public class PhoneServer : MonoBehaviour
     {
         var name = $"{desc.customName}_{peer.Id}";
         var layout = desc.Layout;
+        localClient?.SetCaptureEvents(false);
         var device = InputSystem.AddDevice(layout, name);
+        localClient?.SetCaptureEvents(true);
         var peerDevices = peerToDevices[peer];
         peerDevices.Add(layout, device);
         CreatedDevices.Add(device);
     }
-    private void AddDevice(string layout, InputDevice device, Dictionary<string,InputDevice> devices)
+    private void RemoveDevice(DeviceDescription desc, IPeer peer)
     {
-        devices.Add(layout, device);
-        CreatedDevices.Add(device);
-    }
-    private void RemoveDevice(string layout, InputDevice device, Dictionary<string, InputDevice> devices)
-    {
-        devices.Remove(layout);
-        RemoveDevice(device);
-    }
-    private void RemoveDevice(InputDevice device)
-    {
-        //Order is important
-        InputSystem.RemoveDevice(device);
+        localClient?.SetCaptureEvents(false);
+
+        var layout = desc.Layout;
+        var peerDevices = peerToDevices[peer];
+        var device = peerDevices[layout];
+        peerDevices.Remove(layout);
         CreatedDevices.Remove(device);
+        InputSystem.RemoveDevice(device);
+
+        localClient?.SetCaptureEvents(true);
+    }
+
+    private InputDevice GetDevice(string layout, IPeer peer)
+    {
+        var peerDevices = peerToDevices[peer];
+        if (peerDevices.TryGetValue(layout, out InputDevice device))
+            return device;
+        return null;
+    }
+
+    private void Clear(IPeer peer)
+    {
+        localClient?.SetCaptureEvents(false);
+        
+        foreach (var device in peerToDevices[peer].Values)
+        {
+            CreatedDevices.Remove(device);
+            InputSystem.RemoveDevice(device);
+        }
+
+        peerToDevices.Remove(peer);
+        localClient?.SetCaptureEvents(true);
     }
     #endregion
     
