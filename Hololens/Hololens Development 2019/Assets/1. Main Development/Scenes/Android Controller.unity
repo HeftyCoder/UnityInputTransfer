@@ -371,6 +371,10 @@ MonoBehaviour:
   sensorsToConnect:
   - device: <AttitudeSensor>
     customName: 
+  - device: <Accelerometer>
+    customName: 
+  - device: <LinearAccelerationSensor>
+    customName: 
   devicesToConnect:
   - device: <Gamepad>
     customName: 

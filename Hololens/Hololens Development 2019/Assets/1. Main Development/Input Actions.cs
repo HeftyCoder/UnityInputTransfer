@@ -44,6 +44,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""LinearAcceleration"",
+                    ""type"": ""Value"",
+                    ""id"": ""b5453b4b-db94-42eb-96c1-486578c13cf3"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Acceleration"",
+                    ""type"": ""Value"",
+                    ""id"": ""c6a5be75-b523-474e-b8b1-1926b4bd8f80"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -68,6 +86,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Move"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""34068a5e-aa1a-43dc-a88d-020197052661"",
+                    ""path"": ""<LinearAccelerationSensor>/acceleration"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""LinearAcceleration"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cee76cdc-2631-4a81-8045-c7dcde866ebc"",
+                    ""path"": ""<Accelerometer>/acceleration"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Acceleration"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -90,6 +130,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
         m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
         m_Player_Attitude = m_Player.FindAction("Attitude", throwIfNotFound: true);
+        m_Player_LinearAcceleration = m_Player.FindAction("LinearAcceleration", throwIfNotFound: true);
+        m_Player_Acceleration = m_Player.FindAction("Acceleration", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -151,12 +193,16 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private IPlayerActions m_PlayerActionsCallbackInterface;
     private readonly InputAction m_Player_Move;
     private readonly InputAction m_Player_Attitude;
+    private readonly InputAction m_Player_LinearAcceleration;
+    private readonly InputAction m_Player_Acceleration;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Player_Move;
         public InputAction @Attitude => m_Wrapper.m_Player_Attitude;
+        public InputAction @LinearAcceleration => m_Wrapper.m_Player_LinearAcceleration;
+        public InputAction @Acceleration => m_Wrapper.m_Player_Acceleration;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -172,6 +218,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Attitude.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
                 @Attitude.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
                 @Attitude.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
+                @LinearAcceleration.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
+                @LinearAcceleration.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
+                @LinearAcceleration.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
+                @Acceleration.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
+                @Acceleration.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
+                @Acceleration.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -182,6 +234,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Attitude.started += instance.OnAttitude;
                 @Attitude.performed += instance.OnAttitude;
                 @Attitude.canceled += instance.OnAttitude;
+                @LinearAcceleration.started += instance.OnLinearAcceleration;
+                @LinearAcceleration.performed += instance.OnLinearAcceleration;
+                @LinearAcceleration.canceled += instance.OnLinearAcceleration;
+                @Acceleration.started += instance.OnAcceleration;
+                @Acceleration.performed += instance.OnAcceleration;
+                @Acceleration.canceled += instance.OnAcceleration;
             }
         }
     }
@@ -199,5 +257,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttitude(InputAction.CallbackContext context);
+        void OnLinearAcceleration(InputAction.CallbackContext context);
+        void OnAcceleration(InputAction.CallbackContext context);
     }
 }

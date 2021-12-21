@@ -17,8 +17,8 @@ public class PhoneServer : MonoBehaviour
     [SerializeField] bool onStart = false;
     
     private bool listening = false;
-    private int count = 0;    
-
+    private int count = 0;
+    private float timeSinceLastMessage = 0;
     public IServerSocket ServerSocket { get; private set; }
 
     private InputEventTrace eventTrace = new InputEventTrace();
@@ -55,6 +55,11 @@ public class PhoneServer : MonoBehaviour
         foreach (var device in CreatedDevices)
             InputSystem.RemoveDevice(device);
     }
+
+    private void Update()
+    {
+        timeSinceLastMessage += Time.deltaTime;
+    }
     private void InitializeServer()
     {
         ServerSocket = new ServerSocketWs();
@@ -70,6 +75,8 @@ public class PhoneServer : MonoBehaviour
 
             peer.MessageReceived += (message) =>
             {
+                //Debug.Log($"Message Received at: {timeSinceLastMessage}");
+                timeSinceLastMessage = 0;
                 var opcode = message.OpCode;
                 operations[opcode].Invoke(message);
             };
@@ -103,7 +110,6 @@ public class PhoneServer : MonoBehaviour
         var peer = message.Peer;
         foreach (var desc in subData.devices)
         {
-            Debug.Log(desc.device);
             AddDevice(desc, peer);
         }
     }

@@ -5,14 +5,8 @@ using UnityEngine.InputSystem.Controls;
 
 public class Test : MonoBehaviour
 {
-    private TouchControl touchControl;
-    private void Awake()
+    private void Start()
     {
-
-    }
-
-    private void OnEnable()
-    {
-
+        Application.targetFrameRate = 60;
     }
 }
