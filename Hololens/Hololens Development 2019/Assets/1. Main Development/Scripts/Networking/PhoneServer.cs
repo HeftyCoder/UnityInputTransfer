@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.LowLevel;
 using System.IO;
 using UnityEngine.InputSystem;
 using UnityEngine.InputSystem.OnScreen;
+using UnityEngine.Networking;
 
 public class PhoneServer : MonoBehaviour
 {
@@ -27,6 +28,7 @@ public class PhoneServer : MonoBehaviour
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
 
     private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
+    private Dictionary<IPeer, PhoneData> datas = new Dictionary<IPeer, PhoneData>();
 
     private PhoneClient localClient;
 
@@ -59,10 +61,20 @@ public class PhoneServer : MonoBehaviour
     private void Update()
     {
         timeSinceLastMessage += Time.deltaTime;
+
+        //foreach (var pair in datas)
+        //{
+        //    var peer = pair.Key;
+        //    var data = pair.Value;
+        //
+        //    ProcessPhoneData(peer, data);
+        //}
+        //
+        //datas.Clear();
     }
     private void InitializeServer()
     {
-        ServerSocket = new ServerSocketWs();
+        ServerSocket = new TelepathyServerSocket(1000);
         operations.Add((short)Operations.Subscribe, OnSubscribe);
         operations.Add((short)Operations.StateData, OnPhoneData);
 
@@ -75,7 +87,6 @@ public class PhoneServer : MonoBehaviour
 
             peer.MessageReceived += (message) =>
             {
-                //Debug.Log($"Message Received at: {timeSinceLastMessage}");
                 timeSinceLastMessage = 0;
                 var opcode = message.OpCode;
                 operations[opcode].Invoke(message);
@@ -85,6 +96,7 @@ public class PhoneServer : MonoBehaviour
         ServerSocket.Disconnected += (peer) =>
         {
             count--;
+            Debug.Log($"Diconnected: {count}");
             Clear(peer);
         };
     }
@@ -119,6 +131,12 @@ public class PhoneServer : MonoBehaviour
         message.Deserialize(phoneData);
         var peer = message.Peer;
 
+        //datas[peer] = phoneData;
+        ProcessPhoneData(peer, phoneData);
+    }
+
+    private void ProcessPhoneData(IPeer peer, PhoneData phoneData)
+    {
         foreach (var data in phoneData.inputDatas)
         {
             var desc = data.deviceDescription;

@@ -460,7 +460,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 508342240}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 3.549}
   m_LocalScale: {x: 0.15, y: 0.25, z: 0.02}
   m_Children: []
@@ -527,7 +527,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveScale: 0.05
-  attitudeOffset: {x: -270, y: 195, z: -270}
+  unityOffset: {x: 0, y: 0, z: 180}
+  attitudeOffset: {x: 18, y: 270, z: 270}
   acceleration: {x: 0, y: 0, z: 0}
   linearAcceleration: {x: 0, y: 0, z: 0}
   attitude: {x: 0, y: 0, z: 0}

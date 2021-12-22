@@ -62,6 +62,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""AngVelocity"",
+                    ""type"": ""Value"",
+                    ""id"": ""7e8ba50d-49a1-435a-943c-b92a54685bb4"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -108,6 +117,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Acceleration"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f55d2ab8-f479-4e81-bbc5-1cd2c8668b8c"",
+                    ""path"": ""<Gyroscope>/angularVelocity"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""AngVelocity"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -132,6 +152,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_Attitude = m_Player.FindAction("Attitude", throwIfNotFound: true);
         m_Player_LinearAcceleration = m_Player.FindAction("LinearAcceleration", throwIfNotFound: true);
         m_Player_Acceleration = m_Player.FindAction("Acceleration", throwIfNotFound: true);
+        m_Player_AngVelocity = m_Player.FindAction("AngVelocity", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -195,6 +216,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Attitude;
     private readonly InputAction m_Player_LinearAcceleration;
     private readonly InputAction m_Player_Acceleration;
+    private readonly InputAction m_Player_AngVelocity;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -203,6 +225,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @Attitude => m_Wrapper.m_Player_Attitude;
         public InputAction @LinearAcceleration => m_Wrapper.m_Player_LinearAcceleration;
         public InputAction @Acceleration => m_Wrapper.m_Player_Acceleration;
+        public InputAction @AngVelocity => m_Wrapper.m_Player_AngVelocity;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -224,6 +247,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Acceleration.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
                 @Acceleration.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
                 @Acceleration.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
+                @AngVelocity.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -240,6 +266,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Acceleration.started += instance.OnAcceleration;
                 @Acceleration.performed += instance.OnAcceleration;
                 @Acceleration.canceled += instance.OnAcceleration;
+                @AngVelocity.started += instance.OnAngVelocity;
+                @AngVelocity.performed += instance.OnAngVelocity;
+                @AngVelocity.canceled += instance.OnAngVelocity;
             }
         }
     }
@@ -259,5 +288,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnAttitude(InputAction.CallbackContext context);
         void OnLinearAcceleration(InputAction.CallbackContext context);
         void OnAcceleration(InputAction.CallbackContext context);
+        void OnAngVelocity(InputAction.CallbackContext context);
     }
 }

@@ -7,11 +7,14 @@ public class TransformController : MonoBehaviour
 {
     [SerializeField] float moveScale = 1;
     InputActions inputs;
+
+    [SerializeField] Vector3 unityOffset;
     [SerializeField] Vector3 attitudeOffset;
 
     [SerializeField] Vector3 acceleration;
     [SerializeField] Vector3 linearAcceleration;
     [SerializeField] Vector3 attitude;
+    
 
     Vector3 ogPosition;
     private Quaternion attitudeOffsetQuat;
@@ -45,7 +48,9 @@ public class TransformController : MonoBehaviour
         var attitudeQuat = actions.Attitude.ReadValue<Quaternion>();
         attitude = attitudeQuat.eulerAngles;
 
-        transform.rotation = Quaternion.Euler(attitudeOffset) * attitudeQuat;
+        var result = Quaternion.Euler(unityOffset) * Quaternion.Inverse(Quaternion.Euler(attitudeOffset)) * attitudeQuat;
+
+        transform.rotation = result;
     }
     public void Move(Vector2 inputMovement)
     {

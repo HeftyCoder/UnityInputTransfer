@@ -46,7 +46,7 @@ public class PhoneClient : MonoBehaviour
     bool startMessaging = false;
 
     public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
-    public IClientSocket ClientSocket { get; private set; } = new ClientSocketWs();
+    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(1000);
     
     private void Awake()
     {
@@ -76,6 +76,8 @@ public class PhoneClient : MonoBehaviour
 
         ClientSocket.Disconnected += () =>
         {
+            Debug.Log("Disconnected");
+            gatheredData.Clear();
             startMessaging = false;
             InputSystem.onDeviceChange -= OnDeviceChange;
             InputState.onChange -= OnStateChange;
@@ -94,9 +96,12 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
-        PhoneData data = new PhoneData(gatheredData.Values);
-        ClientSocket.SendMessage((short)Operations.StateData, data);
-        gatheredData.Clear();
+        if (gatheredData.Count != 0)
+        {
+            PhoneData data = new PhoneData(gatheredData.Values);
+            ClientSocket.SendMessage((short)Operations.StateData, data);
+            gatheredData.Clear();
+        }
     }
     private void OnDestroy()
     {

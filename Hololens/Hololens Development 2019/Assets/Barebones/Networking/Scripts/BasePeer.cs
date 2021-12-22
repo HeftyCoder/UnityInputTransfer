@@ -404,7 +404,7 @@ namespace Barebones.Networking
         /// <summary>
         ///     Unique id
         /// </summary>
-        public int Id
+        public virtual int Id
         {
             get
             {
