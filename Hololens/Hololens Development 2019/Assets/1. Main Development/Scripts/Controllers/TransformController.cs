@@ -47,8 +47,19 @@ public class TransformController : MonoBehaviour
     {
         inputs.Disable();
     }
-    
-    private void FixedUpdate()
+
+    private void Update()
+    {
+        var actions = inputs.Player;
+        var position = actions.PhonePosition.ReadValue<Vector3>();
+        position += unityOffset;
+        var rotation = actions.PhoneRotation.ReadValue<Quaternion>();
+
+        transform.position = position;
+        transform.rotation = rotation;
+    }
+    //Trying without AR Core
+    /*private void FixedUpdate()
     {
         var actions = inputs.Player;
         
@@ -89,12 +100,7 @@ public class TransformController : MonoBehaviour
         position = newPosition;
         velocity = newVelocity;
         linearAcceleration = newLinearAcceleration;
-    }
-    public void Move(Vector2 inputMovement)
-    {
-        var moveVector = moveScale * new Vector3(inputMovement.x, 0, inputMovement.y);
-        transform.position += moveVector;
-    }
+    }*/
 
     private void ResetValues()
     {

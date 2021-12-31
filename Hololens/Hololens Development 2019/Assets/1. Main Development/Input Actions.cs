@@ -161,7 +161,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""03940047-4fa6-4e3f-92af-769c55878f1d"",
-                    ""path"": ""<OculusTrackingReference>/deviceRotation"",
+                    ""path"": ""<TrackedDevice>/deviceRotation"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

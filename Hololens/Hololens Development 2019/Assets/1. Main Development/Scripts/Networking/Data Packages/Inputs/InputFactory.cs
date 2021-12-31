@@ -26,6 +26,7 @@ public static class InputFactory
             {nameof(ProximitySensor), () => new ProximityInput() },
             {nameof(StepCounter), () => new StepCounterInput() },
             {nameof(Touchscreen), () => new TouchscreenInput() },
+            {nameof(TrackedDevice), () => new TrackedDeviceInput() }
         };
     }
 

@@ -17,6 +17,11 @@ public class PhoneClient : MonoBehaviour
     [SerializeField]
     DeviceDescription[] devicesToConnect;
 
+    [Header("Motion Tracking")]
+    [SerializeField] Transform trackedMotion;
+    [SerializeField] string deviceName;
+
+    DeviceDescription trackedDeviceDescription;
     private bool captureChangeEvents = true;
     //Care not to use duplicates above
     private Dictionary<string, DeviceDescription> layoutToDescription = new Dictionary<string, DeviceDescription>();
@@ -38,6 +43,12 @@ public class PhoneClient : MonoBehaviour
                 if (device != null)
                     yield return desc;
             }
+
+            //Virtually creating a tracked device to send to the server
+            if (trackedDeviceDescription != null)
+            {
+                yield return trackedDeviceDescription;
+            }
         }
     }
 
@@ -50,6 +61,14 @@ public class PhoneClient : MonoBehaviour
     
     private void Awake()
     {
+        if (trackedMotion != null)
+        {
+            trackedDeviceDescription = new DeviceDescription();
+            trackedDeviceDescription.customName = deviceName;
+            trackedDeviceDescription.device = $"<{nameof(TrackedDevice)}>";
+            trackedDeviceDescription.deviceId = -99;
+        }
+        //
         localServer = GetComponent<PhoneServer>();
         //Add all the needed layouts
         foreach (var desc in sensorsToConnect)
@@ -86,7 +105,7 @@ public class PhoneClient : MonoBehaviour
             {
                 var device = InputSystemExtensions.GetDeviceAssignable(sensorDesc.Layout);
                 if (device != null)
-                    InputSystem.EnableDevice(device);
+                    InputSystem.DisableDevice(device);
             }
         };
     }
@@ -96,9 +115,18 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
-        if (gatheredData.Count != 0)
+        if (gatheredData.Count != 0 || trackedMotion != null)
         {
             PhoneData data = new PhoneData(gatheredData.Values);
+            if (trackedMotion != null)
+            {
+                var motionInput = new InputData(trackedDeviceDescription);
+                var position = trackedMotion.position;
+                var rotation = trackedMotion.rotation;
+                motionInput.inputData = new TrackedDeviceInput(position, rotation);
+                data.inputDatas.Add(motionInput);
+            }
+
             ClientSocket.SendMessage((short)Operations.StateData, data);
             gatheredData.Clear();
         }

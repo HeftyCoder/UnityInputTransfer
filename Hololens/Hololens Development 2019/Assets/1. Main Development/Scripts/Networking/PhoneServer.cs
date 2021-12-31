@@ -28,7 +28,6 @@ public class PhoneServer : MonoBehaviour
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
 
     private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
-    private Dictionary<IPeer, PhoneData> datas = new Dictionary<IPeer, PhoneData>();
 
     private PhoneClient localClient;
 

@@ -527,11 +527,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveScale: 0.05
-  unityOffset: {x: 0, y: 0, z: 180}
+  unityOffset: {x: 0, y: 0, z: 3}
   attitudeOffset: {x: 18, y: 270, z: 270}
   acceleration: {x: 0, y: 0, z: 0}
   linearAcceleration: {x: 0, y: 0, z: 0}
   attitude: {x: 0, y: 0, z: 0}
+  velocity: {x: 0, y: 0, z: 0}
+  position: {x: 0, y: 0, z: 0}
+  accOffset: {x: 0, y: 0, z: 0}
+  sampleTime: 10000
+  startTime: 0
+  count: 0
+  accMagnitude: 0
 --- !u!1 &663438186
 GameObject:
   m_ObjectHideFlags: 0
