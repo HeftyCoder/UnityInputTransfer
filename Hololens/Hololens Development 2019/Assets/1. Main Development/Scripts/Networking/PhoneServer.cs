@@ -143,6 +143,12 @@ public class PhoneServer : MonoBehaviour
             switch (data.deviceChange)
             {
                 case InputDeviceChange.Added:
+                    var existingDevice = GetDevice(desc.Layout, peer);
+                    if (existingDevice != null)
+                    {
+                        Debug.Log($"There's already a device with {desc.Layout}");
+                        return;
+                    }
                     Debug.Log(desc.device);
                     AddDevice(desc, peer);
                     break;

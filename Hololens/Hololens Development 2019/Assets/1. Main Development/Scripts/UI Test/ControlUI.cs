@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.InputSystem;
+using UnityEngine.SpatialTracking;
+
 public class ControlUI : MonoBehaviour
 {
     [SerializeField] Button inputButton;
@@ -10,6 +13,9 @@ public class ControlUI : MonoBehaviour
     [SerializeField] Button disconnectButton;
     [SerializeField] Button resetButton;
     [SerializeField] PhoneClient phoneClient;
+    [SerializeField] TMP_Text devicesText;
+    [SerializeField] TrackedPoseDriver driver;
+    [SerializeField] Camera camera;
     private bool inputLock = false;
     private void Awake()
     {
@@ -31,6 +37,21 @@ public class ControlUI : MonoBehaviour
         
     }
 
+    private void Update()
+    {
+        //string print = "";
+        //foreach (var device in InputSystem.devices)
+        //{
+        //    print += $"{device.name} {device.deviceId}\n";
+        //}
+        //devicesText.text = print;
+        string print = "";
+        var pos = camera.transform.position;
+        var rot = camera.transform.rotation;
+        print += $"{pos}\n";
+        print += rot;
+        devicesText.text = print;
+    }
     private void OnDisable()
     {
         UnlockInput();

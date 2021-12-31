@@ -71,6 +71,24 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PhonePosition"",
+                    ""type"": ""Value"",
+                    ""id"": ""9e4923e7-5df7-429d-a284-89c692995873"",
+                    ""expectedControlType"": ""Vector3"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""PhoneRotation"",
+                    ""type"": ""Value"",
+                    ""id"": ""6b5b6bc3-ab64-445d-ba22-10b0d4fedaaa"",
+                    ""expectedControlType"": ""Quaternion"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -128,6 +146,28 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""AngVelocity"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""594abc7e-9796-42ae-9ede-f01f749d662b"",
+                    ""path"": ""<TrackedDevice>/devicePosition"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PhonePosition"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""03940047-4fa6-4e3f-92af-769c55878f1d"",
+                    ""path"": ""<OculusTrackingReference>/deviceRotation"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""PhoneRotation"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -153,6 +193,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Player_LinearAcceleration = m_Player.FindAction("LinearAcceleration", throwIfNotFound: true);
         m_Player_Acceleration = m_Player.FindAction("Acceleration", throwIfNotFound: true);
         m_Player_AngVelocity = m_Player.FindAction("AngVelocity", throwIfNotFound: true);
+        m_Player_PhonePosition = m_Player.FindAction("PhonePosition", throwIfNotFound: true);
+        m_Player_PhoneRotation = m_Player.FindAction("PhoneRotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -217,6 +259,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_LinearAcceleration;
     private readonly InputAction m_Player_Acceleration;
     private readonly InputAction m_Player_AngVelocity;
+    private readonly InputAction m_Player_PhonePosition;
+    private readonly InputAction m_Player_PhoneRotation;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
@@ -226,6 +270,8 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @LinearAcceleration => m_Wrapper.m_Player_LinearAcceleration;
         public InputAction @Acceleration => m_Wrapper.m_Player_Acceleration;
         public InputAction @AngVelocity => m_Wrapper.m_Player_AngVelocity;
+        public InputAction @PhonePosition => m_Wrapper.m_Player_PhonePosition;
+        public InputAction @PhoneRotation => m_Wrapper.m_Player_PhoneRotation;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -250,6 +296,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @AngVelocity.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
                 @AngVelocity.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
                 @AngVelocity.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
+                @PhonePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
+                @PhonePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
+                @PhonePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
+                @PhoneRotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
+                @PhoneRotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
+                @PhoneRotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -269,6 +321,12 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @AngVelocity.started += instance.OnAngVelocity;
                 @AngVelocity.performed += instance.OnAngVelocity;
                 @AngVelocity.canceled += instance.OnAngVelocity;
+                @PhonePosition.started += instance.OnPhonePosition;
+                @PhonePosition.performed += instance.OnPhonePosition;
+                @PhonePosition.canceled += instance.OnPhonePosition;
+                @PhoneRotation.started += instance.OnPhoneRotation;
+                @PhoneRotation.performed += instance.OnPhoneRotation;
+                @PhoneRotation.canceled += instance.OnPhoneRotation;
             }
         }
     }
@@ -289,5 +347,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnLinearAcceleration(InputAction.CallbackContext context);
         void OnAcceleration(InputAction.CallbackContext context);
         void OnAngVelocity(InputAction.CallbackContext context);
+        void OnPhonePosition(InputAction.CallbackContext context);
+        void OnPhoneRotation(InputAction.CallbackContext context);
     }
 }

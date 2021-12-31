@@ -49,6 +49,24 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": true
+                },
+                {
+                    "name": "PhonePosition",
+                    "type": "Value",
+                    "id": "9e4923e7-5df7-429d-a284-89c692995873",
+                    "expectedControlType": "Vector3",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "PhoneRotation",
+                    "type": "Value",
+                    "id": "6b5b6bc3-ab64-445d-ba22-10b0d4fedaaa",
+                    "expectedControlType": "Quaternion",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -104,6 +122,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "AngVelocity",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "594abc7e-9796-42ae-9ede-f01f749d662b",
+                    "path": "<TrackedDevice>/devicePosition",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PhonePosition",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "03940047-4fa6-4e3f-92af-769c55878f1d",
+                    "path": "<OculusTrackingReference>/deviceRotation",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "PhoneRotation",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
