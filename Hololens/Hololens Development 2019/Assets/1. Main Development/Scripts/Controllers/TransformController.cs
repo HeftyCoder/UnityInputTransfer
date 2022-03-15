@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class TransformController : MonoBehaviour
 {
-    [SerializeField] float moveScale = 1;
+    [SerializeField] PhoneServer server;
     InputActions inputs;
 
     [SerializeField] Vector3 unityOffset;
@@ -50,6 +50,21 @@ public class TransformController : MonoBehaviour
 
     private void Update()
     {
+        //Temporary
+        if (server.haveDevicesChanged)
+        {
+            var devices = server.CreatedDevices;
+            var array = new InputDevice[devices.Count];
+            var i = 0;
+            foreach (var device in devices)
+            {
+                array[i] = device;
+                i++;
+            }
+            inputs.devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<InputDevice>(array);
+            server.haveDevicesChanged = false;
+        }
+
         var actions = inputs.Player;
         var position = actions.PhonePosition.ReadValue<Vector3>();
         position += unityOffset;

@@ -370,6 +370,7 @@ MonoBehaviour:
   connectOnStart: 0
   ip: 127.0.0.1
   port: 5000
+  targetFrameRate: -1
   sensorsToConnect:
   - device: <AttitudeSensor>
     customName: 

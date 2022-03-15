@@ -16,7 +16,8 @@ public class PhoneServer : MonoBehaviour
 
     [SerializeField] int port = 5000;
     [SerializeField] bool onStart = false;
-    
+    [SerializeField] float delayThreshold = 1f;
+
     private bool listening = false;
     private int count = 0;
     private float timeSinceLastMessage = 0;
@@ -26,6 +27,7 @@ public class PhoneServer : MonoBehaviour
     private Dictionary<IPeer, Dictionary<string,InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
 
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
+    public bool haveDevicesChanged = false;
 
     private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
 
@@ -60,20 +62,10 @@ public class PhoneServer : MonoBehaviour
     private void Update()
     {
         timeSinceLastMessage += Time.deltaTime;
-
-        //foreach (var pair in datas)
-        //{
-        //    var peer = pair.Key;
-        //    var data = pair.Value;
-        //
-        //    ProcessPhoneData(peer, data);
-        //}
-        //
-        //datas.Clear();
     }
     private void InitializeServer()
     {
-        ServerSocket = new TelepathyServerSocket(1000);
+        ServerSocket = new TelepathyServerSocket(400);
         operations.Add((short)Operations.Subscribe, OnSubscribe);
         operations.Add((short)Operations.StateData, OnPhoneData);
 
@@ -86,6 +78,8 @@ public class PhoneServer : MonoBehaviour
 
             peer.MessageReceived += (message) =>
             {
+                //if (timeSinceLastMessage > delayThreshold)
+                //    Debug.Log($"Message Processing took: {timeSinceLastMessage}");
                 timeSinceLastMessage = 0;
                 var opcode = message.OpCode;
                 operations[opcode].Invoke(message);
@@ -142,6 +136,7 @@ public class PhoneServer : MonoBehaviour
             switch (data.deviceChange)
             {
                 case InputDeviceChange.Added:
+                    haveDevicesChanged = true;
                     var existingDevice = GetDevice(desc.Layout, peer);
                     if (existingDevice != null)
                     {
@@ -152,6 +147,7 @@ public class PhoneServer : MonoBehaviour
                     AddDevice(desc, peer);
                     break;
                 case InputDeviceChange.Removed:
+                    haveDevicesChanged = true;
                     RemoveDevice(data.deviceDescription, peer);
                     continue;
             }
@@ -199,6 +195,7 @@ public class PhoneServer : MonoBehaviour
 
     private void Clear(IPeer peer)
     {
+        haveDevicesChanged = true;
         localClient?.SetCaptureEvents(false);
         
         foreach (var device in peerToDevices[peer].Values)

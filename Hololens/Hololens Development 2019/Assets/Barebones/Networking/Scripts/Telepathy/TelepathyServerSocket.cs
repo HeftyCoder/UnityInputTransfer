@@ -49,7 +49,7 @@ namespace Barebones.Networking
 
         Telepathy.Server server;
         Dictionary<int, BasePeer> peers = new Dictionary<int, BasePeer>();
-        int maxMessageSize = 5;
+        int maxMessageSize = 10;
         public TelepathyServerSocket(int maxMessageSize)
         {
             server = new Server(maxMessageSize);

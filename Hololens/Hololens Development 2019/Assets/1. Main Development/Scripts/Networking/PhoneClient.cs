@@ -10,6 +10,7 @@ public class PhoneClient : MonoBehaviour
     [SerializeField] bool connectOnStart;
     [SerializeField] string ip = "127.0.0.1";
     [SerializeField] int port = 5000;
+    [SerializeField] int targetFrameRate = -1;
 
     [Header("Devices To Connect")]
     [SerializeField]
@@ -57,10 +58,11 @@ public class PhoneClient : MonoBehaviour
     bool startMessaging = false;
 
     public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
-    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(1000);
+    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(400);
     
     private void Awake()
     {
+        Application.targetFrameRate = targetFrameRate;
         if (trackedMotion != null)
         {
             trackedDeviceDescription = new DeviceDescription();
