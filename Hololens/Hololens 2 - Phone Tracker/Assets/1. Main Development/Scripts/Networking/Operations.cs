@@ -1,0 +1,1 @@
+﻿public enum Operations : short { Subscribe, StateData }

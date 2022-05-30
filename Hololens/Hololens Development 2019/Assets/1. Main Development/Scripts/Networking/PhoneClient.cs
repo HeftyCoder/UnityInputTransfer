@@ -112,6 +112,11 @@ public class PhoneClient : MonoBehaviour
         };
     }
 
+    private void Start()
+    {
+        if (connectOnStart)
+            Connect();
+    }
     private void Update()
     {
         if (!ClientSocket.IsConnected || !startMessaging)
