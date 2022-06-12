@@ -6,6 +6,7 @@ using UnityEngine.InputSystem;
 public class TransformController : MonoBehaviour
 {
     [SerializeField] PhoneServer server;
+    [SerializeField] float posScale = 1;
     InputActions inputs;
 
     [SerializeField] Vector3 unityOffset;
@@ -70,7 +71,7 @@ public class TransformController : MonoBehaviour
         position += unityOffset;
         var rotation = actions.PhoneRotation.ReadValue<Quaternion>();
 
-        transform.position = position;
+        transform.position = posScale * position;
         transform.rotation = rotation;
     }
     //Trying without AR Core
