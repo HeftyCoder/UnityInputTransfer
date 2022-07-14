@@ -4,41 +4,33 @@ using UnityEngine.XR.ARSubsystems;
 using Unity.Collections;
 using System;
 using System.Collections.Generic;
+using UnityEngine.UI;
+
 public class CameraTester : MonoBehaviour
 {
+    [SerializeField] RawImage image;
     MaterialPropertyBlock mProp;
-    [SerializeField] ARCameraManager manager;
-    Texture2D texture;
+    WebCamTexture texture;
     private void Awake()
     {
         mProp = new MaterialPropertyBlock();
         var device = WebCamTexture.devices[0];
 
-        texture = new Texture2D(520, 520);
-        var renderer = GetComponent<Renderer>();
-        renderer.GetPropertyBlock(mProp);
-        mProp.SetTexture("_MainTex", texture);
-        renderer.SetPropertyBlock(mProp);
-
+        texture = new WebCamTexture(device.name);
+        image.texture = texture;
+        
     }
 
-    private void Update()
+    private void OnEnable()
     {
-        if (!manager.TryAcquireLatestCpuImage(out var image))
-            return;
-
-        var parameters = new XRCpuImage.ConversionParams(image, TextureFormat.ARGB32);
-        image.ConvertAsync(parameters, ProcessImageData);
-    
+        texture.Play();
     }
 
-    private void ProcessImageData(XRCpuImage.AsyncConversionStatus status, XRCpuImage.ConversionParams cParams, NativeArray<byte> imData)
+    private void OnDisable()
     {
-        if (status == XRCpuImage.AsyncConversionStatus.Ready)
-        {
-            texture.LoadRawTextureData(imData);
-            texture.Apply();
-        }
+        texture.Stop();
     }
+
+    public void ChangeState() => enabled = !enabled;
 
 }
