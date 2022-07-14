@@ -230,3 +230,10 @@ Received Import Request.
   path: Assets/Editor/Migration/AddVuforiaEnginePackage.cs
   artifactKey: Guid(3bbef22eb814a9647b6c1f03e99d95da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
 Start importing Assets/Editor/Migration/AddVuforiaEnginePackage.cs using Guid(3bbef22eb814a9647b6c1f03e99d95da) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '2dba95943e6d1cbba0246cb96b93b668') in 0.036533 seconds 
+========================================================================
+Received Import Request.
+  Time since last request: 1026.691405 seconds.
+  path: Assets/1. Main Development/Scripts/Controllers/TestController.cs
+  artifactKey: Guid(fd7efbad2ec6604489356728ee6de86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/1. Main Development/Scripts/Controllers/TestController.cs using Guid(fd7efbad2ec6604489356728ee6de86d) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '87d51c0d6d4b1cd34b5237b7e88c2b98') in 0.008757 seconds 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
