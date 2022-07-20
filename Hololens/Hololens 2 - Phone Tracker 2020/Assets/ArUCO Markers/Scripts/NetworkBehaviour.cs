@@ -9,8 +9,6 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.XR.WSA;
 using UnityEngine.XR.WSA.Input;
-using UnityEngine.XR.ARFoundation;
-using Microsoft.MixedReality.OpenXR;
 #if ENABLE_WINMD_SUPPORT
 using Windows.Graphics.Imaging;
 using Windows.Perception.Spatial;
@@ -98,6 +96,7 @@ public class NetworkBehaviour : MonoBehaviour
     public Matrix4x4 TransformUnityCamera { get; set; }
     public Matrix4x4 CameraToWorldUnity { get; set; }
 
+
 #if ENABLE_WINMD_SUPPORT
     /// <summary>
     /// OpenCV windows runtime dll component
@@ -116,7 +115,7 @@ public class NetworkBehaviour : MonoBehaviour
     // marker pose measures
     private Queue<Vector3> _posCamQ = new Queue<Vector3>();
     private Queue<Quaternion> _rotCamQ = new Queue<Quaternion>();
-    private IntPtr spatialPointer => Microsoft.MixedReality.Toolkit.WindowsMixedReality.WindowsMixedRealityUtilities.UtilitiesProvider.ISpatialCoordinateSystemPtr;
+
     #region UnityMethods
     async void Start()
     {
@@ -222,8 +221,7 @@ public class NetworkBehaviour : MonoBehaviour
         // when connected as an external device.
         if (Input.GetKeyDown("space"))
         {
-            Debug.Log("Registered space bar press.");
-            ControlCalib();
+
         }
 #endif
     }
@@ -237,6 +235,10 @@ public class NetworkBehaviour : MonoBehaviour
         }
 
     }
+    #endregion
+
+    #region TapGestureHandler
+
     #endregion
 
     /// <summary>
@@ -266,7 +268,9 @@ public class NetworkBehaviour : MonoBehaviour
         // Get the unity spatial coordinate system
         try
         {
-            _unityCoordinateSystem = Marshal.GetObjectForIUnknown(spatialPointer) as Windows.Perception.Spatial.SpatialCoordinateSystem;
+            var ptr = Microsoft.MixedReality.Toolkit.WindowsMixedReality.WindowsMixedRealityUtilities.UtilitiesProvider.ISpatialCoordinateSystemPtr;
+            _unityCoordinateSystem = 
+                Marshal.GetObjectForIUnknown(ptr) as SpatialCoordinateSystem;
             StatusBlock.text = $"Acquired unity coordinate system!";
             Debug.Log("Successfully cached pointer to Unity spatial coordinate system.");
         }
@@ -433,8 +437,8 @@ public class NetworkBehaviour : MonoBehaviour
             // Remove world anchor from game object
             if (_isWorldAnchored)
             {
-                DestroyImmediate(TrackingGos.MarkerGoLeftEye.GetComponent<ARAnchor>());
-                DestroyImmediate(TrackingGos.MarkerGoRightEye.GetComponent<ARAnchor>());
+                //DestroyImmediate(TrackingGos.MarkerGoLeftEye.GetComponent<WorldAnchor>());
+                //DestroyImmediate(TrackingGos.MarkerGoRightEye.GetComponent<WorldAnchor>());
                 _isWorldAnchored = false;
                 
                 Debug.Log("DetectMarkers: removed current world anchor.");
@@ -510,8 +514,8 @@ public class NetworkBehaviour : MonoBehaviour
                 StatusBlock.text = $"No markers detected";
 
                 // Add a world anchor to the attached gameobject
-                TrackingGos.MarkerGoLeftEye.AddComponent<ARAnchor>();
-                TrackingGos.MarkerGoRightEye.AddComponent<ARAnchor>();
+                //TrackingGos.MarkerGoLeftEye.AddComponent<WorldAnchor>();
+                //TrackingGos.MarkerGoRightEye.AddComponent<WorldAnchor>();
                 _isWorldAnchored = true;
 
             }, false);
@@ -527,8 +531,8 @@ public class NetworkBehaviour : MonoBehaviour
             // Remove world anchor from game object
             if (_isWorldAnchored)
             {
-                DestroyImmediate(TrackingGos.BoardGoLeftEye.GetComponent<ARAnchor>());
-                DestroyImmediate(TrackingGos.BoardGoRightEye.GetComponent<ARAnchor>());
+                //DestroyImmediate(TrackingGos.BoardGoLeftEye.GetComponent<WorldAnchor>());
+                //DestroyImmediate(TrackingGos.BoardGoRightEye.GetComponent<WorldAnchor>());
                 _isWorldAnchored = false;
             }
 
@@ -579,8 +583,8 @@ public class NetworkBehaviour : MonoBehaviour
                 StatusBlock.text = $"No board detected";
 
                 // Add a world anchor to the attached gameobject
-                TrackingGos.BoardGoLeftEye.AddComponent<ARAnchor>();
-                TrackingGos.BoardGoRightEye.AddComponent<ARAnchor>();
+                //TrackingGos.BoardGoLeftEye.AddComponent<WorldAnchor>();
+                //TrackingGos.BoardGoRightEye.AddComponent<WorldAnchor>();
                 _isWorldAnchored = true;
 
             }, false);
@@ -630,67 +634,6 @@ public class NetworkBehaviour : MonoBehaviour
         return viewToUnity;
     }
 
-    /// <summary>
-    /// Method to control the collection of points. Called by gesture
-    /// handler or keyboard input.
-    /// </summary>
-    private void ControlCalib()
-    {
-        switch (HMDCalibrationType)
-        {
-            // If we are using a predefined transform hide the calibration 
-            case ArUcoUtils.HMDCalibrationType.UserDefined:
-                CollectPointCorrespondences.HideCalibrationReticle();
-                break;
-
-            case ArUcoUtils.HMDCalibrationType.PointBased:
-                switch (_HMDCalibrationStatus)
-                {
-                    // If we are using a predefined transform hide the calibration 
-                    case ArUcoUtils.HMDCalibrationStatus.NotCalibrating:
-                        CollectPointCorrespondences.HideCalibrationReticle();
-                        break;
-
-                    // We have started calibrating the HMD
-                    case ArUcoUtils.HMDCalibrationStatus.StartedCalibration:
-#if ENABLE_WINMD_SUPPORT
-                        var isDoneCalibrating = CollectPointCorrespondences.CollectPointCorrespondence(
-                            TransformUnityCamera,
-                            CameraToWorldUnity,
-                            CvUtils);
-#endif
-                        // If we are completed calibration, change enum status and hide reticle
-                        if (isDoneCalibrating)
-                        {
-                            _HMDCalibrationStatus = ArUcoUtils.HMDCalibrationStatus.CompletedCalibration;
-                            CollectPointCorrespondences.HideCalibrationReticle();
-                            ControlCalib();
-                        }
-                        break;
-
-                    // We have completed calibration, reset the aruco tracking and 
-                    // begin board tracking with the new predefined transform
-                    case ArUcoUtils.HMDCalibrationStatus.CompletedCalibration:
-
-                        // Set the user-defined transform for each eye to be the newly computed transform
-                        PredefinedTransform.UserDefinedTransformLeftEye = CollectPointCorrespondences.CalibMatrixLeft;
-                        PredefinedTransform.UserDefinedTransformRightEye = CollectPointCorrespondences.CalibMatrixRight;
-                        CollectPointCorrespondences.HideCalibrationReticle();
-                        
-                        // Stop marker tracking, restart with new tracking type and using 
-                        // computed transform offset 
-                        _isRunning = false;
-                        Start();
-
-                        break;
-                    default:
-                        break;
-                }
-                break;
-            default:
-                break;
-        }
-    }
 #endif
 
     /// <summary>
