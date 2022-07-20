@@ -5,21 +5,12 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/1. Main Development/Scenes/Hololens Scene.unity
     guid: b0d692814332f414aa1cd1dae2b2cc76
   - enabled: 0
     path: Assets/1. Main Development/Scenes/Android Controller.unity
     guid: 64b775b1f114fc94e9084a94246a0794
-  - enabled: 0
-    path: Assets/1. Main Development/Scenes/Test Scene.unity
-    guid: 0674f466c9a06944183d5b46818ec75d
-  - enabled: 0
-    path: Assets/ArUCO Markers/Scenes/hmd test.unity
-    guid: 0d6a6ae25ae1a1e42a2c476bd742fe9f
-  - enabled: 1
-    path: Assets/ArUCO Markers/Scenes/hmd.unity
-    guid: 1408e1a0ad36c8840a1840c34e1b7434
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}

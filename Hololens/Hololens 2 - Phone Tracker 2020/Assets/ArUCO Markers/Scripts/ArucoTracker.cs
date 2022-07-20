@@ -13,7 +13,6 @@ using Windows.Perception.Spatial;
 public class ArucoTracker : MonoBehaviour
 {
     public TMP_Text status;
-    public TMP_Text anotherStatus;
     public MediaCaptureUtility.MediaCaptureProfiles mediaProfile;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
@@ -127,12 +126,11 @@ public class ArucoTracker : MonoBehaviour
         try
         {
             _unityCoordinateSystem = PerceptionInterop.GetSceneCoordinateSystem(Pose.identity) as SpatialCoordinateSystem;
-            anotherStatus.text = $"Acquired Coord System Unity: {_unityCoordinateSystem != null}";
             Debug.Log("Successfully cached pointer to Unity spatial coordinate system.");
         }
         catch (Exception ex)
         {
-            anotherStatus.text = $"Failed to get Unity spatial coordinate system: {ex.Message}.";
+            status.text = $"Failed to get Unity spatial coordinate system: {ex.Message}.";
         }
 #endif
     }
