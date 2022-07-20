@@ -624,3 +624,144 @@ AssetImportParameters requested are different than current active one (requested
   custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
   custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 33.86 ms, found 23 plugins.
+Preloading 2 native plugins for Editor in 0.13 ms.
+Unloading 93 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 86.1 MB.
+System memory in use after: 86.3 MB.
+
+Unloading 92 unused Assets to reduce memory usage. Loaded Objects now: 5307.
+Total: 6.189300 ms (FindLiveObjects: 0.603800 ms CreateObjectMapping: 0.460900 ms MarkObjects: 5.020600 ms  DeleteObjects: 0.102000 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.025981 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 2.20 ms, found 23 plugins.
+Preloading 2 native plugins for Editor in 0.19 ms.
+System.NullReferenceException: Object reference not set to an instance of an object
+  at Vuforia.EditorClasses.ExtensionTypeProvider.GetVuforiaPackageAbsPath () [0x0004a] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.IsPackageManager () [0x00000] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.ResolvePluginType () [0x00009] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.GetPluginType () [0x0000c] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.VuforiaUtilities.IsVuforiaEnabledInPlayerSettings () [0x00000] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at VuforiaEnabledObserver..cctor () [0x00000] in <fa936954903d455ab607cdebc0675fa6>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+System.NullReferenceException: Object reference not set to an instance of an object
+  at Vuforia.EditorClasses.ExtensionTypeProvider.GetVuforiaPackageAbsPath () [0x0004a] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.IsPackageManager () [0x00000] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.ResolvePluginType () [0x00009] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.ExtensionTypeProvider.GetPluginType () [0x0000c] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.VuforiaUtilities.IsVuforiaEnabledInPlayerSettings () [0x00000] in <fa936954903d455ab607cdebc0675fa6>:0 
+  at Vuforia.EditorClasses.InitializeOnLoadVuforiaTaskRunner..cctor () [0x00015] in <fa936954903d455ab607cdebc0675fa6>:0 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+System.IO.DirectoryNotFoundException: Could not find a part of the path 'C:\Users\salok\Documents\GitHub\Hololens-Development\Hololens\Hololens 2 - Phone Tracker 2020\Library\PackageCache\com.microsoft.mixedreality.toolkit.foundation@251fc689f36f\SDK\StandardAssets\Controllers\Visuals\Models\generic-controller'.
+  at System.IO.__Error.WinIOError (System.Int32 errorCode, System.String maybeFullPath) [0x000f7] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource].HandleError (System.Int32 hr, System.String path) [0x00006] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource].CommonInit () [0x00054] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableIterator`1[TSource]..ctor (System.String path, System.String originalUserPath, System.String searchPattern, System.IO.SearchOption searchOption, System.IO.SearchResultHandler`1[TSource] resultHandler, System.Boolean checkHost) [0x000d6] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.FileSystemEnumerableFactory.CreateFileNameIterator (System.String path, System.String originalUserPath, System.String searchPattern, System.Boolean includeFiles, System.Boolean includeDirs, System.IO.SearchOption searchOption, System.Boolean checkHost) [0x00009] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.InternalGetFileDirectoryNames (System.String path, System.String userPathOriginal, System.String searchPattern, System.Boolean includeFiles, System.Boolean includeDirs, System.IO.SearchOption searchOption, System.Boolean checkHost) [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.InternalGetFiles (System.String path, System.String searchPattern, System.IO.SearchOption searchOption) [0x00000] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.Directory.GetFiles (System.String path, System.String searchPattern) [0x0001c] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.DirectoryInfo.GetFiles (System.String searchPattern) [0x0000e] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x00002] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFilesSubdirs(System.Collections.ArrayList,string)
+  at System.IO.DirectoryInfo.GetFilesSubdirs (System.Collections.ArrayList l, System.String pattern) [0x0002f] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at System.IO.DirectoryInfo.GetFiles (System.String searchPattern, System.IO.SearchOption searchOption) [0x00017] in <695d1cc93cca45069c528c15c9fdd749>:0 
+  at (wrapper remoting-invoke-with-check) System.IO.DirectoryInfo.GetFiles(string,System.IO.SearchOption)
+  at Microsoft.MixedReality.Toolkit.Utilities.Editor.OnLoadUtilities.FindShaderFolderInPackage () [0x0004c] in C:\Users\salok\Documents\GitHub\Hololens-Development\Hololens\Hololens 2 - Phone Tracker 2020\Library\PackageCache\com.microsoft.mixedreality.toolkit.standardassets@fcc2d8083af4\EditorUtilities\OnLoadUtilities.cs:152 
+  at Microsoft.MixedReality.Toolkit.Utilities.Editor.OnLoadUtilities.EnsureShaders (System.Boolean bypassIgnore) [0x00000] in C:\Users\salok\Documents\GitHub\Hololens-Development\Hololens\Hololens 2 - Phone Tracker 2020\Library\PackageCache\com.microsoft.mixedreality.toolkit.standardassets@fcc2d8083af4\EditorUtilities\OnLoadUtilities.cs:42 
+  at Microsoft.MixedReality.Toolkit.Utilities.Editor.OnLoadUtilities..cctor () [0x00000] in C:\Users\salok\Documents\GitHub\Hololens-Development\Hololens\Hololens 2 - Phone Tracker 2020\Library\PackageCache\com.microsoft.mixedreality.toolkit.standardassets@fcc2d8083af4\EditorUtilities\OnLoadUtilities.cs:23 
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:LogError (object)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+Mono: successfully reloaded assembly
+- Completed reload, in  1.955 seconds
+Domain Reload Profiling:
+	ReloadAssembly (1956ms)
+		BeginReloadAssembly (145ms)
+			ExecutionOrderSort (0ms)
+			DisableScriptedObjects (5ms)
+			BackupInstance (0ms)
+			ReleaseScriptingObjects (0ms)
+			CreateAndSetChildDomain (49ms)
+		EndReloadAssembly (1732ms)
+			LoadAssemblies (158ms)
+			RebuildTransferFunctionScriptingTraits (0ms)
+			SetupTypeCache (458ms)
+			ReleaseScriptCaches (3ms)
+			RebuildScriptCaches (100ms)
+			SetupLoadedEditorAssemblies (855ms)
+				LogAssemblyErrors (0ms)
+				InitializePlatformSupportModulesInManaged (5ms)
+				SetLoadedEditorAssemblies (1ms)
+				RefreshPlugins (3ms)
+				BeforeProcessingInitializeOnLoad (185ms)
+				ProcessInitializeOnLoadAttributes (621ms)
+				ProcessInitializeOnLoadMethodAttributes (33ms)
+				AfterProcessingInitializeOnLoad (7ms)
+				EditorAssembliesLoaded (0ms)
+			ExecutionOrderSort2 (0ms)
+			AwakeInstancesAfterBackupRestoration (2ms)
+Platform modules already initialized, skipping
+Switching build target platform(19) subTarget(0) extendedPlatform(0) -> platform(21) subTarget(3) extendedPlatform(0)
+Refreshing native plugins compatible for Editor in 2.16 ms, found 23 plugins.
+Preloading 2 native plugins for Editor in 0.18 ms.
+Unloading 4540 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 176.6 MB.
+System memory in use after: 176.8 MB.
+
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 5311.
+Total: 6.341900 ms (FindLiveObjects: 0.518900 ms CreateObjectMapping: 0.393600 ms MarkObjects: 5.326300 ms  DeleteObjects: 0.101500 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
