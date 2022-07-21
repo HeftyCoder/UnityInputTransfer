@@ -148,58 +148,58 @@ public class ArucoTracker : MonoBehaviour
         var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
         var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
         
-        Debug.Log("Successfully requested software bitmap.");
-
-        if (softwareBitmap != null)
+        if (softwareBitmap == null)
+            return;
+            
+        // Cache the current camera projection transform (not using currently) ??
+        //var cameraProjectionTransform = camIntrinsics.UndistortedProjectionTransform;
+            
+        // Cache the current camera frame coordinate system
+        _frameCoordinateSystem = mediaFrameReference.CoordinateSystem;
+            
+        if (calibParams == null)
         {
-            
-            // Cache the current camera projection transform (not using currently)
-            //var cameraProjectionTransform = camIntrinsics.UndistortedProjectionTransform;
-            
-            // Cache the current camera frame coordinate system
-            _frameCoordinateSystem = mediaFrameReference.CoordinateSystem;
-            
-            if (calibParams == null)
-            {
-                var camIntrinsics = videoMediaFrame.CameraIntrinsics;
-                calibParams = new OpenCVRuntimeComponent.CameraCalibrationParams(
-                        camIntrinsics.FocalLength, // Focal length
-                        camIntrinsics.PrincipalPoint, // Principal point
-                        camIntrinsics.RadialDistortion, // Radial distortion
-                        camIntrinsics.TangentialDistortion, // Tangential distortion
-                        (int)camIntrinsics.ImageWidth, // Image width
-                        (int)camIntrinsics.ImageHeight); // Image height
-            }
-
-            switch (ArUcoTrackingType)
-            {
-                case ArUcoUtils.ArUcoTrackingType.Markers:
-                    var markers = DetectMarkers(softwareBitmap, calibParams);
-                    UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-                    {
-                        onDetectionFinished?.Invoke(markers);
-                    }, false);
-                    break;
-
-                case ArUcoUtils.ArUcoTrackingType.CustomBoard:
-                    markers = DetectBoard(softwareBitmap, calibParams);
-                    UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-                    {
-                        onDetectionFinished?.Invoke(markers);
-                    }, false);
-                    break;
-
-                case ArUcoUtils.ArUcoTrackingType.None:
-                    status.text = $"Not running tracking...";
-                    break;
-
-                default:
-                    status.text = $"No option selected for tracking...";
-                    break;
-            }
+            var camIntrinsics = videoMediaFrame.CameraIntrinsics;
+            calibParams = new OpenCVRuntimeComponent.CameraCalibrationParams(
+                    camIntrinsics.FocalLength, // Focal length
+                    camIntrinsics.PrincipalPoint, // Principal point
+                    camIntrinsics.RadialDistortion, // Radial distortion
+                    camIntrinsics.TangentialDistortion, // Tangential distortion
+                    (int)camIntrinsics.ImageWidth, // Image width
+                    (int)camIntrinsics.ImageHeight); // Image height
         }
-        // Dispose of the bitmap
-        softwareBitmap?.Dispose();
+
+        softwareBitmap.Dispose();
+        return;
+
+        switch (ArUcoTrackingType)
+        {
+            case ArUcoUtils.ArUcoTrackingType.Markers:
+                var markers = DetectMarkers(softwareBitmap, calibParams);
+                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+                {
+                    onDetectionFinished?.Invoke(markers);
+                }, false);
+                break;
+
+            case ArUcoUtils.ArUcoTrackingType.CustomBoard:
+                markers = DetectBoard(softwareBitmap, calibParams);
+                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+                {
+                    onDetectionFinished?.Invoke(markers);
+                }, false);
+                break;
+
+            case ArUcoUtils.ArUcoTrackingType.None:
+                status.text = $"Not running tracking...";
+                break;
+
+            default:
+                status.text = $"No option selected for tracking...";
+                break;
+        }
+
+        softwareBitmap.Dispose();
     }
 
     private IReadOnlyList<Marker> DetectMarkers(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
