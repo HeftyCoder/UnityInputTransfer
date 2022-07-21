@@ -33,6 +33,7 @@ public class ArucoTracker : MonoBehaviour
     /// OpenCV windows runtime dll component
     /// </summary>
     OpenCVRuntimeComponent.CvUtils CvUtils;
+    OpenCVRuntimeComponent.CameraCalibrationParams calibParams;
 
     /// <summary>
     /// Coordinate system reference for Unity to WinRt transform construction.
@@ -143,33 +144,32 @@ public class ArucoTracker : MonoBehaviour
     /// </summary>
     private void HandleArUcoTracking(Windows.Media.Capture.Frames.MediaFrameReference mediaFrameReference)
     {
-        return;
         // Request software bitmap from media frame reference
-        var softwareBitmap = mediaFrameReference?.VideoMediaFrame?.SoftwareBitmap;
+        var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
+        var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
+        
         Debug.Log("Successfully requested software bitmap.");
 
         if (softwareBitmap != null)
         {
+            
             // Cache the current camera projection transform (not using currently)
-            var cameraProjectionTransform = mediaFrameReference.VideoMediaFrame.CameraIntrinsics.UndistortedProjectionTransform;
-            Debug.Log($"_cameraProjectionTransform: {cameraProjectionTransform}");
-
-            // Cache the current camera intrinsics
-            OpenCVRuntimeComponent.CameraCalibrationParams calibParams = 
-                new OpenCVRuntimeComponent.CameraCalibrationParams(System.Numerics.Vector2.Zero, System.Numerics.Vector2.Zero, System.Numerics.Vector3.Zero, System.Numerics.Vector2.Zero, 0, 0);
-
-            calibParams = new OpenCVRuntimeComponent.CameraCalibrationParams(
-                        mediaFrameReference.VideoMediaFrame.CameraIntrinsics.FocalLength, // Focal length
-                        mediaFrameReference.VideoMediaFrame.CameraIntrinsics.PrincipalPoint, // Principal point
-                        mediaFrameReference.VideoMediaFrame.CameraIntrinsics.RadialDistortion, // Radial distortion
-                        mediaFrameReference.VideoMediaFrame.CameraIntrinsics.TangentialDistortion, // Tangential distortion
-                        (int)mediaFrameReference.VideoMediaFrame.CameraIntrinsics.ImageWidth, // Image width
-                        (int)mediaFrameReference.VideoMediaFrame.CameraIntrinsics.ImageHeight); // Image height
-            Debug.Log($"Per-frame calibParams: [{calibParams}]");
-
+            //var cameraProjectionTransform = camIntrinsics.UndistortedProjectionTransform;
+            
             // Cache the current camera frame coordinate system
             _frameCoordinateSystem = mediaFrameReference.CoordinateSystem;
-            Debug.Log($"_frameCoordinateSystem set from media frame reference");
+            
+            if (calibParams == null)
+            {
+                var camIntrinsics = videoMediaFrame.CameraIntrinsics;
+                calibParams = new OpenCVRuntimeComponent.CameraCalibrationParams(
+                        camIntrinsics.FocalLength, // Focal length
+                        camIntrinsics.PrincipalPoint, // Principal point
+                        camIntrinsics.RadialDistortion, // Radial distortion
+                        camIntrinsics.TangentialDistortion, // Tangential distortion
+                        (int)camIntrinsics.ImageWidth, // Image width
+                        (int)camIntrinsics.ImageHeight); // Image height
+            }
 
             switch (ArUcoTrackingType)
             {
