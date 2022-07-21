@@ -12,17 +12,16 @@ using Windows.Perception.Spatial;
 
 public class ArucoTracker : MonoBehaviour
 {
+    [SerializeField] MediaCapturer mediaCapturer;
     public TMP_Text status;
-    public MediaCaptureUtility.MediaCaptureProfiles mediaProfile;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
     public ArUcoBoardPositions boardPositions;
-
+    
     public Action<IReadOnlyList<Marker>> onDetectionFinished;
 
     private List<Marker> markersInUnity = new List<Marker>();
-    private MediaCaptureUtility _MediaCaptureUtility;
-    private bool _isRunning = false;
+    private MediaCapturer _MediaCaptureUtility;
 
     private Queue<Vector3> _posCamQ = new Queue<Vector3>();
     private Queue<Quaternion> _rotCamQ = new Queue<Quaternion>();
@@ -43,38 +42,20 @@ public class ArucoTracker : MonoBehaviour
 
 #endif
 
-    private void Awake()
+    public void Toggle() => enabled = !enabled;
+    private void OnEnable()
     {
-        _MediaCaptureUtility = new MediaCaptureUtility();
-    }
-    private async void OnEnable()
-    {
-        await StartMediaCapture();
+        StartTracking();
     }
 
-    private async void OnDisable()
+    private void OnDisable()
     {
-        await StopMediaCapture();
+        StopTracking();
     }
 
-    private async Task StartMediaCapture()
+    private void StartTracking()
     {
-
-        status.text = $"Starting Media Capture";
-
 #if ENABLE_WINMD_SUPPORT
-        // Configure camera to return frames fitting the model input size
-        try
-        {
-            await _MediaCaptureUtility.InitializeMediaFrameReaderAsync(mediaProfile);
-            status.text = $"Camera started. Running!";
-            Debug.Log("Successfully initialized frame reader.");
-        }
-        catch (Exception ex)
-        {
-            status.text = $"Failed to start media capture: {ex.Message}. Using loaded/picked image.";
-        }
-
         // Get the unity spatial coordinate system
         try
         {
@@ -95,26 +76,16 @@ public class ArucoTracker : MonoBehaviour
             boardPositions.numMarkers,
             (int)ArUcoDictionaryName,
             boardPositions.FillCustomObjectPointsFromUnity());
-        Debug.Log("Created new instance of the cvutils class.");
 
-        // Run processing loop in separate parallel Task, get the latest frame
-        // and asynchronously evaluate
-        Debug.Log("Begin tracking in frame grab loop.");
-        _isRunning = true;
-        _MediaCaptureUtility.onFrameArrived += HandleArUcoTracking;
+        mediaCapturer.onFrameArrived += HandleArUcoTracking;
 #endif
     }
 
-    private async Task StopMediaCapture()
+    private void StopTracking()
     {
-        _isRunning = false;
-        if (_MediaCaptureUtility != null)
-        {
 #if ENABLE_WINMD_SUPPORT
-            _MediaCaptureUtility.onFrameArrived += HandleArUcoTracking;
+        mediaCapturer.onFrameArrived -= HandleArUcoTracking;
 #endif
-            await _MediaCaptureUtility.StopMediaFrameReaderAsync();
-        }
     }
 
 #if ENABLE_WINMD_SUPPORT
