@@ -18,10 +18,9 @@ public class ArucoTracker : MonoBehaviour
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
     public ArUcoBoardPositions boardPositions;
 
-    public Action<IReadOnlyList<ValueTuple<Vector3, Quaternion>>> onMarkersDetected;
-    public Action<bool, Vector3, Quaternion> onBoardDetected;
+    public Action<IReadOnlyList<Marker>> onDetectionFinished;
 
-    private List<Tuple<Vector3, Quaternion>> markersInUnity = new List<Tuple<Vector3, Quaternion>>();
+    private List<Marker> markersInUnity = new List<Marker>();
     private MediaCaptureUtility _MediaCaptureUtility;
     private bool _isRunning = false;
 
@@ -66,24 +65,25 @@ public class ArucoTracker : MonoBehaviour
             // and asynchronously evaluate
             Debug.Log("Begin tracking in frame grab loop.");
             _isRunning = true;
+            _MediaCaptureUtility.onFrameArrived += HandleArUcoTracking;
 
             // Run the frame grab and aruco tracking in a new task block
-            await Task.Run(() =>
-            {
-                while (_isRunning)
-                {
-                    if (_MediaCaptureUtility.IsCapturing)
-                    {
-                        var mediaFrameReference = _MediaCaptureUtility.GetLatestFrame();
-                        HandleArUcoTracking(mediaFrameReference);
-                        mediaFrameReference?.Dispose();
-                    }
-                    else
-                    {
-                        return;
-                    }
-                }
-            });
+            //await Task.Run(() =>
+            //{
+            //    while (_isRunning)
+            //    {
+            //        if (_MediaCaptureUtility.IsCapturing)
+            //        {
+            //            var mediaFrameReference = _MediaCaptureUtility.GetLatestFrame();
+            //            HandleArUcoTracking(mediaFrameReference);
+            //            mediaFrameReference?.Dispose();
+            //        }
+            //        else
+            //        {
+            //            return;
+            //        }
+            //    }
+            //});
 #endif 
         }
         catch (Exception ex)
@@ -143,6 +143,7 @@ public class ArucoTracker : MonoBehaviour
     /// </summary>
     private void HandleArUcoTracking(Windows.Media.Capture.Frames.MediaFrameReference mediaFrameReference)
     {
+        return;
         // Request software bitmap from media frame reference
         var softwareBitmap = mediaFrameReference?.VideoMediaFrame?.SoftwareBitmap;
         Debug.Log("Successfully requested software bitmap.");
@@ -176,16 +177,15 @@ public class ArucoTracker : MonoBehaviour
                     var markers = DetectMarkers(softwareBitmap, calibParams);
                     UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                     {
-                        status.text = $"Detected: {markers.Count} markers";
-                        onMarkersDetected?.Invoke(markers);
+                        onDetectionFinished?.Invoke(markers);
                     }, false);
                     break;
 
                 case ArUcoUtils.ArUcoTrackingType.CustomBoard:
-                    var boardDetection = DetectBoard(softwareBitmap, calibParams);
+                    markers = DetectBoard(softwareBitmap, calibParams);
                     UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                     {
-                        onBoardDetected?.Invoke(boardDetection.Item1, boardDetection.Item2, boardDetection.Item3);
+                        onDetectionFinished?.Invoke(markers);
                     }, false);
                     break;
 
@@ -202,7 +202,7 @@ public class ArucoTracker : MonoBehaviour
         softwareBitmap?.Dispose();
     }
 
-    private IReadOnlyList<ValueTuple<Vector3, Quaternion>> DetectMarkers(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
+    private IReadOnlyList<Marker> DetectMarkers(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
     {
 
         // Get marker detections from opencv component
@@ -223,17 +223,18 @@ public class ArucoTracker : MonoBehaviour
 
             var posInUnity = ArUcoUtils.GetVectorFromMatrix(transformUnityWorld);
             var rotInUnity = ArUcoUtils.GetQuatFromMatrix(transformUnityWorld);
-            var markerInUnity = new Tuple<Vector3, Quaternion>(posInUnity, rotInUnity);
+            var markerInUnity = new Marker(posInUnity, rotInUnity);
             markersInUnity.Add(markerInUnity);
         }
 
         return markersInUnity;
     }
 
-    private ValueTuple<bool, Vector3, Quaternion> DetectBoard(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
+    private IReadOnlyList<Marker> DetectBoard(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
     {
         // Get marker detections from opencv component
         var board = CvUtils.DetectBoard(softwareBitmap, calibParams);
+        markersInUnity.Clear();
 
         Vector3 unityPosition = Vector3.zero, markerPosition = Vector3.zero;
         Quaternion unityRotation = Quaternion.identity, markerRotation = Quaternion.identity;
@@ -255,9 +256,12 @@ public class ArucoTracker : MonoBehaviour
             var transformUnityWorld = cameraToWorld * transformUnityCamera;
             unityPosition = ArUcoUtils.GetVectorFromMatrix(transformUnityWorld);
             unityRotation = ArUcoUtils.GetQuatFromMatrix(transformUnityWorld);
+            
+            var markerInUnity = new Marker(unityPosition, unityRotation);
+            markersInUnity.Add(markerInUnity);
         }
 
-        return new ValueTuple<bool, Vector3, Quaternion>(isDetected, unityPosition, unityRotation);
+        return markersInUnity;
     }
 
     //https://github.com/microsoft/MixedReality-SpectatorView/blob/7796da6acb0ae41bed1b9e0e9d1c5c683b4b8374/src/SpectatorView.Unity/Assets/PhotoCapture/Scripts/HoloLensCamera.cs#L1256

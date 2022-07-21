@@ -58,14 +58,6 @@
         "com.microsoft.mixedreality.toolkit.foundation": "2.8.0"
       }
     },
-    "com.ptc.vuforia.engine": {
-      "version": "file:com.ptc.vuforia.engine-10.7.2.tgz",
-      "depth": 0,
-      "source": "local-tarball",
-      "dependencies": {
-        "com.unity.ugui": "1.0.0"
-      }
-    },
     "com.unity.collab-proxy": {
       "version": "1.15.18",
       "depth": 0,

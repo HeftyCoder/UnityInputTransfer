@@ -15,18 +15,22 @@ public class ArUcoFollower : MonoBehaviour
     }
     private void OnEnable()
     {
-        tracker.onBoardDetected += OnBoard;
+        tracker.onDetectionFinished += OnBoard;
     }
 
     private void OnDisable()
     {
-        tracker.onBoardDetected -= OnBoard;
+        tracker.onDetectionFinished -= OnBoard;
     }
 
-    private void OnBoard(bool found, Vector3 pos, Quaternion rot)
+    private void OnBoard(IReadOnlyList<Marker> detectedMarkers)
     {
-        if (found)
-            transform.SetPositionAndRotation(pos, rot);
+        //
+        if (detectedMarkers.Count != 0)
+        {
+            var firstMarker = detectedMarkers[0];
+            transform.SetPositionAndRotation(firstMarker.position, firstMarker.rotation);
+        }
         else
             transform.SetPositionAndRotation(ogPos, ogRot);
     }

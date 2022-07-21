@@ -2,11 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
-using Vuforia;
 public class VirtualPhone : MonoBehaviour
 {
     [SerializeField] PhoneServer phoneServer;
-    [SerializeField] ImageTargetBehaviour imageTarget;
     [SerializeField] Transform imageContainer;
 
     [SerializeField] Vector3 rotationOffset;
@@ -14,7 +12,6 @@ public class VirtualPhone : MonoBehaviour
     InputActions inputs;
 
     [SerializeField] float positionScaleFactor = 10;
-    Status imageTrackingStatus = Status.NO_POSE;
     public Vector3 onImageLostDevicePos = Vector3.zero,
             onImageLostDeviceRot = Vector3.zero,
             lastImageTrackedPosition, lastImageTrackedRotation;
@@ -27,33 +24,33 @@ public class VirtualPhone : MonoBehaviour
         var rotationAction = actions.PhoneRotation;
 
         //Image target
-        imageTarget.OnTargetStatusChanged += (observer, statusStruct) =>
-        {
-            var status = statusStruct.Status;
-            switch (status)
-            {
-                case Status.NO_POSE:
-                case Status.LIMITED:
-                case Status.EXTENDED_TRACKED:
-                    if (imageTrackingStatus == Status.NO_POSE)
-                        return;
-                    lastImageTrackedPosition = transform.position;
-                    lastImageTrackedRotation = transform.rotation.eulerAngles;
-                    onImageLostDevicePos = positionAction.ReadValue<Vector3>();
-                    onImageLostDeviceRot = rotationAction.ReadValue<Quaternion>().eulerAngles;
-                    imageTrackingStatus = Status.NO_POSE;
-                    transform.SetParent(null);
-                    break;
-                case Status.TRACKED:
-                    if (imageTrackingStatus == Status.TRACKED)
-                        return;
-                    transform.SetParent(imageContainer);
-                    transform.localRotation = Quaternion.identity;
-                    transform.localPosition = Vector3.zero;
-                    imageTrackingStatus = Status.TRACKED;
-                    break;
-            }
-        };
+        //imageTarget.OnTargetStatusChanged += (observer, statusStruct) =>
+        //{
+        //    var status = statusStruct.Status;
+        //    switch (status)
+        //    {
+        //        case Status.NO_POSE:
+        //        case Status.LIMITED:
+        //        case Status.EXTENDED_TRACKED:
+        //            if (imageTrackingStatus == Status.NO_POSE)
+        //                return;
+        //            lastImageTrackedPosition = transform.position;
+        //            lastImageTrackedRotation = transform.rotation.eulerAngles;
+        //            onImageLostDevicePos = positionAction.ReadValue<Vector3>();
+        //            onImageLostDeviceRot = rotationAction.ReadValue<Quaternion>().eulerAngles;
+        //            imageTrackingStatus = Status.NO_POSE;
+        //            transform.SetParent(null);
+        //            break;
+        //        case Status.TRACKED:
+        //            if (imageTrackingStatus == Status.TRACKED)
+        //                return;
+        //            transform.SetParent(imageContainer);
+        //            transform.localRotation = Quaternion.identity;
+        //            transform.localPosition = Vector3.zero;
+        //            imageTrackingStatus = Status.TRACKED;
+        //            break;
+        //    }
+        //};
 
         //Position
         
@@ -80,9 +77,6 @@ public class VirtualPhone : MonoBehaviour
             inputs.devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<InputDevice>(array);
             server.haveDevicesChanged = false;
         }
-    
-        if (imageTrackingStatus == Status.TRACKED)
-            return;
     
         var actions = inputs.Player;
         var position = actions.PhonePosition.ReadValue<Vector3>();

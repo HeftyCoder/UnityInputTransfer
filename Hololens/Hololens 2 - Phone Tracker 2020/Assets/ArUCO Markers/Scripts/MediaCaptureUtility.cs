@@ -29,6 +29,8 @@ public class MediaCaptureUtility
     }
 
 #if ENABLE_WINMD_SUPPORT
+    
+    public event Action<MediaFrameReference> onFrameArrived;
     private MediaCapture _mediaCapture;
     private MediaFrameReader _mediaFrameReader;
 
@@ -87,6 +89,7 @@ public class MediaCaptureUtility
                 subtype);
             _mediaFrameReader.AcquisitionMode = MediaFrameReaderAcquisitionMode.Realtime;
 
+            _mediaFrameReader.FrameArrived += ProcessFrame;
             await _mediaFrameReader.StartAsync();
             Debug.Log("InitializeMediaFrameReaderAsync: Successfully started media frame reader.");
 
@@ -116,6 +119,7 @@ public class MediaCaptureUtility
 #if ENABLE_WINMD_SUPPORT
         if (_mediaCapture != null && _mediaCapture.CameraStreamState != CameraStreamState.Shutdown)
         {
+            _mediaFrameReader.FrameArrived -= ProcessFrame;
             await _mediaFrameReader.StopAsync();
             _mediaFrameReader.Dispose();
             _mediaCapture.Dispose();
@@ -127,6 +131,13 @@ public class MediaCaptureUtility
 
 
 #if ENABLE_WINMD_SUPPORT
+    private void ProcessFrame(MediaFrameReader frameReader, MediaFrameArrivedEventArgs args)
+    {
+        var frameRef = frameReader.TryAcquireLatestFrame();
+        onFrameArrived?.Invoke(frameRef);
+        frameRef?.Dispose();
+    }
+
     /// <summary>
     /// https://mtaulty.com/page/5/
     /// Provide an input width, height and framerate to request for the 
