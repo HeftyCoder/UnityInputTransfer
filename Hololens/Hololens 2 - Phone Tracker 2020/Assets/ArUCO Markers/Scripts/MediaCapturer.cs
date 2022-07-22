@@ -25,8 +25,14 @@ public class MediaCapturer : MonoBehaviour
         HL2_896x504,
         HL1_1280x720
     }
+    public enum MediaCaptureFPS
+    {
+        FPS_15,
+        FPS_30
+    }
 
     [SerializeField] MediaCaptureProfiles mediaCaptureProfiles;
+    [SerializeField] MediaCaptureFPS fpsProfile;
 #if ENABLE_WINMD_SUPPORT
     
     public event Action<MediaFrameReference> onFrameArrived;
@@ -66,6 +72,7 @@ public class MediaCapturer : MonoBehaviour
         // Get the media capture description and request media capture profile
         int width = 0;
         int height = 0;
+        int fps = 30;
         bool isHL1 = false;
         switch (mediaCaptureProfiles)
         {
@@ -90,13 +97,25 @@ public class MediaCapturer : MonoBehaviour
                 break;
         }
 
+        switch (fpsProfile)
+        {
+            case MediaCaptureFPS.FPS_15:
+                fps = 15;
+                break;
+            case MediaCaptureFPS.FPS_30:
+                fps = 30;
+                break;
+
+        }
+
+
         // Convert the pixel formats to bgra8
         var subtype = MediaEncodingSubtypes.Bgra8;
 
         // Create the media capture and media capture frame source from description
         // as a colour media frame source with 30 FPS
         var mediaCaptureAndFrameSource = await GetMediaCaptureForDescriptionAsync(
-            MediaFrameSourceKind.Color, width, height, 30, isHL1);
+            MediaFrameSourceKind.Color, width, height, fps, isHL1);
 
         // Create the media frame reader with specified description and subtype
         _mediaFrameReader = await mediaCaptureAndFrameSource.capture.CreateFrameReaderAsync(

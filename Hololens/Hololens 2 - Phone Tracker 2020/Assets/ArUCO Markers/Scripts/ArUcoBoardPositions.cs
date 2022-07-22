@@ -16,7 +16,7 @@ public class ArUcoBoardPositions : MonoBehaviour
 	/// Convert from unity vector 3 to windows vector 3
 	/// </summary>
 	/// <returns></returns>
-	public List<System.Numerics.Vector3> FillCustomObjectPointsFromUnity()
+	public List<System.Numerics.Vector3> GetLayout()
     {
 		List<System.Numerics.Vector3> customObjectPoints = new List<System.Numerics.Vector3>();
 		foreach(var objectPoint in customObjectPointsUnity)
@@ -26,21 +26,15 @@ public class ArUcoBoardPositions : MonoBehaviour
 		return customObjectPoints;
     }		
 
-	public float ComputeMarkerSizeForTrackingType(
-		ArUcoUtils.ArUcoTrackingType arUcoTrackingType,
-		float singleMarker,
-		float boardMarkers)
+	public float GetMarkerSize(ArUcoUtils.ArUcoTrackingType arUcoTrackingType)
     {
 		switch (arUcoTrackingType)
 		{
 			case ArUcoUtils.ArUcoTrackingType.Markers:
-				Debug.Log($"Using aruco marker of size: {singleMarker}.");
-				return singleMarker;
+				return markerSizeForSingle;
 
 			case ArUcoUtils.ArUcoTrackingType.CustomBoard:
-				Debug.Log($"Using aruco board markers of size: {boardMarkers}.");
-				return boardMarkers;
-
+				return markerSizeForBoard;
 			case ArUcoUtils.ArUcoTrackingType.None:
 				Debug.Log("Not tracking...");
 				return 0;

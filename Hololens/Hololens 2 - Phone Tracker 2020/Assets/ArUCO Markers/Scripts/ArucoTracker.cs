@@ -8,31 +8,33 @@ using TMPro;
 #if ENABLE_WINMD_SUPPORT
 using Windows.Graphics.Imaging;
 using Windows.Perception.Spatial;
+using OpenCVRuntimeComponent;
+using OpenCVRuntimeComponent.Aruco;
 #endif
 
 public class ArucoTracker : MonoBehaviour
 {
     [SerializeField] MediaCapturer mediaCapturer;
     public TMP_Text status;
+    public int everyOtherFrame = 1;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
     public ArUcoBoardPositions boardPositions;
     
+
     public Action<IReadOnlyList<Marker>> onDetectionFinished;
 
+    private int count = 0;
     private List<Marker> markersInUnity = new List<Marker>();
     private MediaCapturer _MediaCaptureUtility;
 
-    private Queue<Vector3> _posCamQ = new Queue<Vector3>();
-    private Queue<Quaternion> _rotCamQ = new Queue<Quaternion>();
-
-    private Queue<Transform> instantiatedPrefabs = new Queue<Transform>();
 #if ENABLE_WINMD_SUPPORT
     /// <summary>
     /// OpenCV windows runtime dll component
     /// </summary>
-    OpenCVRuntimeComponent.CvUtils CvUtils;
-    OpenCVRuntimeComponent.CameraCalibrationParams calibParams;
+    
+    ArucoDetector detector;
+    OpenCVRuntimeComponent.Aruco.CameraIntrinsics calibParams;
 
     /// <summary>
     /// Coordinate system reference for Unity to WinRt transform construction.
@@ -68,15 +70,19 @@ public class ArucoTracker : MonoBehaviour
         }
 
         // Configure the dll with input parameters
-        CvUtils = new OpenCVRuntimeComponent.CvUtils(
-            boardPositions.ComputeMarkerSizeForTrackingType(
-                ArUcoTrackingType, 
-                boardPositions.markerSizeForSingle,
-                boardPositions.markerSizeForBoard),
-            boardPositions.numMarkers,
-            (int)ArUcoDictionaryName,
-            boardPositions.FillCustomObjectPointsFromUnity());
-
+        var mSize = boardPositions.GetMarkerSize(ArUcoTrackingType);
+        var numMarkers = boardPositions.numMarkers;
+        var layout = boardPositions.GetLayout();
+        
+        status.text = "Setting dll";
+        try
+        {
+            if (detector != null)
+                detector = new ArucoDetector(mSize, numMarkers, (int)ArUcoDictionaryName, layout);
+        }
+        catch(Exception e){
+            status.text = $"{e.Message}";
+        }
         mediaCapturer.onFrameArrived += HandleArUcoTracking;
 #endif
     }
@@ -96,13 +102,21 @@ public class ArucoTracker : MonoBehaviour
     /// </summary>
     private void HandleArUcoTracking(Windows.Media.Capture.Frames.MediaFrameReference mediaFrameReference)
     {
+        if (count != 0)
+        {
+            count--;
+            return;
+        }
+            
+        count = everyOtherFrame;
         // Request software bitmap from media frame reference
         var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
         var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
         
         if (softwareBitmap == null)
             return;
-            
+        if (detector == null)
+            return;
         // Cache the current camera projection transform (not using currently) ??
         //var cameraProjectionTransform = camIntrinsics.UndistortedProjectionTransform;
             
@@ -112,19 +126,21 @@ public class ArucoTracker : MonoBehaviour
         if (calibParams == null)
         {
             var camIntrinsics = videoMediaFrame.CameraIntrinsics;
-            calibParams = new OpenCVRuntimeComponent.CameraCalibrationParams(
+            calibParams = new OpenCVRuntimeComponent.Aruco.CameraIntrinsics(
                     camIntrinsics.FocalLength, // Focal length
                     camIntrinsics.PrincipalPoint, // Principal point
                     camIntrinsics.RadialDistortion, // Radial distortion
                     camIntrinsics.TangentialDistortion, // Tangential distortion
                     (int)camIntrinsics.ImageWidth, // Image width
                     (int)camIntrinsics.ImageHeight); // Image height
+
+            detector.SetCameraIntrinsics(calibParams);
         }
 
         switch (ArUcoTrackingType)
         {
             case ArUcoUtils.ArUcoTrackingType.Markers:
-                var markers = DetectMarkers(softwareBitmap, calibParams);
+                var markers = DetectMarkers(softwareBitmap);
                 UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                 {
                     onDetectionFinished?.Invoke(markers);
@@ -132,7 +148,7 @@ public class ArucoTracker : MonoBehaviour
                 break;
 
             case ArUcoUtils.ArUcoTrackingType.CustomBoard:
-                markers = DetectBoard(softwareBitmap, calibParams);
+                markers = DetectBoard(softwareBitmap);
                 UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                 {
                     onDetectionFinished?.Invoke(markers);
@@ -151,11 +167,11 @@ public class ArucoTracker : MonoBehaviour
         softwareBitmap.Dispose();
     }
 
-    private IReadOnlyList<Marker> DetectMarkers(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
+    private IReadOnlyList<Marker> DetectMarkers(SoftwareBitmap softwareBitmap)
     {
 
         // Get marker detections from opencv component
-        var markers = CvUtils.DetectMarkers(softwareBitmap, calibParams);
+        var markers = detector.DetectMarkers(softwareBitmap);
         markersInUnity.Clear();
 
         // Iterate across detections
@@ -179,15 +195,16 @@ public class ArucoTracker : MonoBehaviour
         return markersInUnity;
     }
 
-    private IReadOnlyList<Marker> DetectBoard(SoftwareBitmap softwareBitmap, OpenCVRuntimeComponent.CameraCalibrationParams calibParams)
+    private IReadOnlyList<Marker> DetectBoard(SoftwareBitmap softwareBitmap)
     {
         // Get marker detections from opencv component
-        var board = CvUtils.DetectBoard(softwareBitmap, calibParams);
+        var board = detector.DetectBoard(softwareBitmap);
         markersInUnity.Clear();
 
         Vector3 unityPosition = Vector3.zero, markerPosition = Vector3.zero;
         Quaternion unityRotation = Quaternion.identity, markerRotation = Quaternion.identity;
         var isDetected = board.IsDetected;
+        
         if (isDetected)
         {
             markerPosition = ArUcoUtils.Vec3FromFloat3(board.Position);
@@ -207,6 +224,7 @@ public class ArucoTracker : MonoBehaviour
             unityRotation = ArUcoUtils.GetQuatFromMatrix(transformUnityWorld);
             
             var markerInUnity = new Marker(unityPosition, unityRotation);
+            
             markersInUnity.Add(markerInUnity);
         }
 
