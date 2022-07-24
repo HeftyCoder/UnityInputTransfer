@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArUcoBoardPositions : MonoBehaviour
+public class ArucoBoardLayoutProvider : MonoBehaviour
 {
 	// size of the markers in the aruco board OR individual markers
     public float markerSizeForSingle = 0.08f;

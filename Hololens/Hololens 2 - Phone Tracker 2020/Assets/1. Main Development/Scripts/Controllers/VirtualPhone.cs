@@ -4,65 +4,54 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class VirtualPhone : MonoBehaviour
 {
+    [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] PhoneServer phoneServer;
-    [SerializeField] Transform imageContainer;
 
-    [SerializeField] Vector3 rotationOffset;
-    [SerializeField] bool alterPositionAxis = true;
     InputActions inputs;
 
-    [SerializeField] float positionScaleFactor = 10;
-    public Vector3 onImageLostDevicePos = Vector3.zero,
-            onImageLostDeviceRot = Vector3.zero,
-            lastImageTrackedPosition, lastImageTrackedRotation;
-            
+    public Vector3 vioPosition, vioRotation;
+    public Vector3 markedVioPos, markedVioRot;
+    public Marker lastMarker;
     private void Awake()
     {
         inputs = new InputActions();
         var actions = inputs.Player;
-        var positionAction = actions.PhonePosition;
-        var rotationAction = actions.PhoneRotation;
-
-        //Image target
-        //imageTarget.OnTargetStatusChanged += (observer, statusStruct) =>
-        //{
-        //    var status = statusStruct.Status;
-        //    switch (status)
-        //    {
-        //        case Status.NO_POSE:
-        //        case Status.LIMITED:
-        //        case Status.EXTENDED_TRACKED:
-        //            if (imageTrackingStatus == Status.NO_POSE)
-        //                return;
-        //            lastImageTrackedPosition = transform.position;
-        //            lastImageTrackedRotation = transform.rotation.eulerAngles;
-        //            onImageLostDevicePos = positionAction.ReadValue<Vector3>();
-        //            onImageLostDeviceRot = rotationAction.ReadValue<Quaternion>().eulerAngles;
-        //            imageTrackingStatus = Status.NO_POSE;
-        //            transform.SetParent(null);
-        //            break;
-        //        case Status.TRACKED:
-        //            if (imageTrackingStatus == Status.TRACKED)
-        //                return;
-        //            transform.SetParent(imageContainer);
-        //            transform.localRotation = Quaternion.identity;
-        //            transform.localPosition = Vector3.zero;
-        //            imageTrackingStatus = Status.TRACKED;
-        //            break;
-        //    }
-        //};
-
-        //Position
         
-
-        //Rotation
+        //Reading the values that the tracker has for us
+        actions.PhonePosition.performed += (ctx) => vioPosition = ctx.ReadValue<Vector3>();
+        actions.PhoneRotation.performed += (ctx) => vioRotation = ctx.ReadValue<Quaternion>().eulerAngles;
     }
-    private void OnEnable() => inputs.Enable();
-    private void OnDisable() => inputs.Disable();
+    private void OnEnable()
+    {
+        inputs.Enable();
+        arucoTracker.onDetectionFinished += OnArucoScanFinished;
+    }
+    private void OnDisable()
+    {
+        inputs.Disable();
+        arucoTracker.onDetectionFinished -= OnArucoScanFinished;
+    }
 
+    private void OnArucoScanFinished(IReadOnlyList<Marker> markers)
+    {
+        if (markers.Count == 0)
+            return;
+        //We're treating this as if it was a board
+        lastMarker = markers[0];
+        transform.SetPositionAndRotation(lastMarker.position, lastMarker.rotation);
+        var actions = inputs.Player;
+
+        //Values reported from VIO at the moment of aruco detection
+        markedVioPos = actions.PhonePosition.ReadValue<Vector3>();
+        markedVioRot = actions.PhoneRotation.ReadValue<Quaternion>().eulerAngles;
+    }
     private void Update()
     {
-        //Temporary
+        EnsureDevicesSet();
+        transform.SetPositionAndRotation(vioPosition, Quaternion.Euler(vioRotation));
+    }
+    private void EnsureDevicesSet()
+    {
         var server = phoneServer;
         if (server.haveDevicesChanged)
         {
@@ -76,22 +65,11 @@ public class VirtualPhone : MonoBehaviour
             }
             inputs.devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<InputDevice>(array);
             server.haveDevicesChanged = false;
+            Awake();
+            if (enabled)
+                inputs.Enable();
+            else
+                inputs.Disable();
         }
-    
-        var actions = inputs.Player;
-        var position = actions.PhonePosition.ReadValue<Vector3>();
-        var rotation = actions.PhoneRotation.ReadValue<Quaternion>();
-    
-        transform.position = lastImageTrackedPosition + positionScaleFactor * AlterPositionAxis((position - onImageLostDevicePos)); 
-        transform.rotation = Quaternion.Euler(lastImageTrackedRotation + rotation.eulerAngles - onImageLostDeviceRot);
-    }
-
-    //Real world and Unity axis react differently
-    //x is y, y is x, z is -z
-    private Vector3 AlterPositionAxis(Vector3 v)
-    {
-        if (!alterPositionAxis)
-            return v;
-        return new Vector3(-v.x, v.y, -v.z);
     }
 }

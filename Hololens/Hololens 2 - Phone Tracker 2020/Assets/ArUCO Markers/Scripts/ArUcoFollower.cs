@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ArUcoFollower : MonoBehaviour
+public class ArucoFollower : MonoBehaviour
 {
     private Vector3 ogPos;
     private Quaternion ogRot;
@@ -25,7 +25,6 @@ public class ArUcoFollower : MonoBehaviour
 
     private void OnBoard(IReadOnlyList<Marker> detectedMarkers)
     {
-        //
         if (detectedMarkers.Count != 0)
         {
             var firstMarker = detectedMarkers[0];

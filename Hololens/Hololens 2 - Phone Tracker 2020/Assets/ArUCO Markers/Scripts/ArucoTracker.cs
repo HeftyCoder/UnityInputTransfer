@@ -19,7 +19,7 @@ public class ArucoTracker : MonoBehaviour
     public int everyOtherFrame = 1;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
-    public ArUcoBoardPositions boardPositions;
+    public ArucoBoardLayoutProvider boardPositions;
     
 
     public Action<IReadOnlyList<Marker>> onDetectionFinished;

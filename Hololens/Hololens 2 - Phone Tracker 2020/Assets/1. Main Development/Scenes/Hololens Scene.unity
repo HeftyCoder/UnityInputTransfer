@@ -848,10 +848,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 401214899}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 06052dd121f0d2549a8b00744f8ff147, type: 3}
+  m_Script: {fileID: 11500000, guid: cc359c187ef776749ad40a4f2ac99b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tracker: {fileID: 1055322858}
+  arucoTracker: {fileID: 1055322858}
+  phoneServer: {fileID: 902870528}
+  vioPosition: {x: 0, y: 0, z: 0}
+  vioRotation: {x: 0, y: 0, z: 0}
+  markedVioPos: {x: 0, y: 0, z: 0}
+  markedVioRot: {x: 0, y: 0, z: 0}
 --- !u!65 &401214903
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1338,6 +1343,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mediaCapturer: {fileID: 1055322860}
   status: {fileID: 2114401674}
+  everyOtherFrame: 1
   ArUcoDictionaryName: 8
   ArUcoTrackingType: 1
   boardPositions: {fileID: 1055322857}

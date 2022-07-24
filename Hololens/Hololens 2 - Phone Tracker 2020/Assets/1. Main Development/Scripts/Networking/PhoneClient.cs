@@ -67,7 +67,6 @@ public class PhoneClient : MonoBehaviour
         Application.targetFrameRate = targetFrameRate;
         if (trackedMotion != null)
         {
-            poseDriver = GetComponent<TrackedPoseDriver>();
             trackedDeviceDescription = new DeviceDescription();
             trackedDeviceDescription.customName = deviceName;
             trackedDeviceDescription.device = $"<{nameof(TrackedDevice)}>";
