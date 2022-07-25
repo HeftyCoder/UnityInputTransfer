@@ -10,11 +10,13 @@ using Windows.Graphics.Imaging;
 using Windows.Perception.Spatial;
 using OpenCVRuntimeComponent;
 using OpenCVRuntimeComponent.Aruco;
+using Windows.Media.Devices.Core;
 #endif
 
 public class ArucoTracker : MonoBehaviour
 {
     [SerializeField] MediaCapturer mediaCapturer;
+    
     public TMP_Text status;
     public int everyOtherFrame = 1;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
@@ -26,7 +28,6 @@ public class ArucoTracker : MonoBehaviour
 
     private int count = 0;
     private List<Marker> markersInUnity = new List<Marker>();
-    private MediaCapturer _MediaCaptureUtility;
 
 #if ENABLE_WINMD_SUPPORT
     /// <summary>
@@ -36,6 +37,7 @@ public class ArucoTracker : MonoBehaviour
     ArucoDetector detector;
     OpenCVRuntimeComponent.Aruco.CameraIntrinsics calibParams;
 
+    Windows.Media.Devices.Core camIntrinsics;
     /// <summary>
     /// Coordinate system reference for Unity to WinRt transform construction.
     /// </summary>
@@ -77,8 +79,9 @@ public class ArucoTracker : MonoBehaviour
         status.text = "Setting dll";
         try
         {
-            if (detector != null)
-                detector = new ArucoDetector(mSize, numMarkers, (int)ArUcoDictionaryName, layout);
+            //This will never be null, I think
+            detector = new ArucoDetector(mSize, numMarkers, (int)ArUcoDictionaryName, layout);
+            camIntrinsics = null;
         }
         catch(Exception e){
             status.text = $"{e.Message}";
@@ -102,20 +105,11 @@ public class ArucoTracker : MonoBehaviour
     /// </summary>
     private void HandleArUcoTracking(Windows.Media.Capture.Frames.MediaFrameReference mediaFrameReference)
     {
-        if (count != 0)
-        {
-            count--;
-            return;
-        }
-            
-        count = everyOtherFrame;
         // Request software bitmap from media frame reference
         var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
         var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
         
         if (softwareBitmap == null)
-            return;
-        if (detector == null)
             return;
         // Cache the current camera projection transform (not using currently) ??
         //var cameraProjectionTransform = camIntrinsics.UndistortedProjectionTransform;
@@ -123,9 +117,9 @@ public class ArucoTracker : MonoBehaviour
         // Cache the current camera frame coordinate system
         _frameCoordinateSystem = mediaFrameReference.CoordinateSystem;
             
-        if (calibParams == null)
+        if (camIntrinsics == null)
         {
-            var camIntrinsics = videoMediaFrame.CameraIntrinsics;
+            camIntrinsics = videoMediaFrame.CameraIntrinsics;
             calibParams = new OpenCVRuntimeComponent.Aruco.CameraIntrinsics(
                     camIntrinsics.FocalLength, // Focal length
                     camIntrinsics.PrincipalPoint, // Principal point
@@ -151,6 +145,7 @@ public class ArucoTracker : MonoBehaviour
                 markers = DetectBoard(softwareBitmap);
                 UnityEngine.WSA.Application.InvokeOnAppThread(() =>
                 {
+                    status.text = $"markers.Count";
                     onDetectionFinished?.Invoke(markers);
                 }, false);
                 break;

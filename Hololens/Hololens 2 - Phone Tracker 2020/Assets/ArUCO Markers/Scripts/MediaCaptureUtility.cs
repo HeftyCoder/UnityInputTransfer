@@ -15,10 +15,15 @@ using Windows.Media.MediaProperties;
 using Windows.Media.Devices;
 using Windows.Graphics.Imaging;
 using Windows.Devices.Enumeration;
-#endif
+#endif // ENABLE_WINMD_SUPPORT
 
-public class MediaCapturer : MonoBehaviour
+public class MediaCaptureUtility : MonoBehaviour
 {
+    public TMP_Text status;
+    public MediaCaptureProfiles profiles;
+
+    public bool IsCapturing { get; set; }
+
     // https://docs.microsoft.com/en-us/windows/mixed-reality/develop/platform-capabilities-and-apis/locatable-camera
     public enum MediaCaptureProfiles
     {
@@ -26,135 +31,116 @@ public class MediaCapturer : MonoBehaviour
         HL2_896x504,
         HL1_1280x720
     }
-    public enum MediaCaptureFPS
+
+    private async void Start()
     {
-        FPS_15,
-        FPS_30
+#if ENABLE_WINMD_SUPPORT
+        await InitializeMediaFrameReaderAsync(profiles);
+#endif
     }
 
-    public TMP_Text status;
-    [SerializeField] MediaCaptureProfiles mediaCaptureProfiles;
-    [SerializeField] MediaCaptureFPS fpsProfile;
 #if ENABLE_WINMD_SUPPORT
-    
     public event Action<MediaFrameReference> onFrameArrived;
     private MediaCapture _mediaCapture;
     private MediaFrameReader _mediaFrameReader;
-#endif
-    
-    public bool IsCapturing { get; set; }
-    bool hasStarted = false;
-    private async void Start()
-    {
-        await StartCapture(mediaCaptureProfiles);
-        hasStarted = true;
-    }
+
     private async void OnDestroy()
     {
-        await StopCapture();
+        await StopMediaFrameReaderAsync();
     }
-    private async void OnEnable()
+    /// <summary>
+    /// Method to start media frame reader at desired resolution.
+    /// </summary>
+    /// <param name="width"></param>
+    /// <param name="height"></param>
+    /// <returns></returns>
+    public async Task InitializeMediaFrameReaderAsync(MediaCaptureProfiles mediaCaptureProfiles)
     {
-        if (!hasStarted)
-            return;
-        await ResumeCapture();
-    }
-    private async void OnDisable()
-    {
-        await PauseCapture();
-    }
-
-    //Start
-    public async Task StartCapture(MediaCaptureProfiles mediaCaptureProfiles)
-    {
-        this.mediaCaptureProfiles = mediaCaptureProfiles;
-#if ENABLE_WINMD_SUPPORT
-        await StopCapture();
-
-        // Get the media capture description and request media capture profile
-        int width = 0;
-        int height = 0;
-        int fps = 30;
-        bool isHL1 = false;
-        switch (mediaCaptureProfiles)
+        // Check state of media capture object 
+        if (_mediaCapture == null || _mediaCapture.CameraStreamState == CameraStreamState.Shutdown || _mediaCapture.CameraStreamState == CameraStreamState.NotStreaming)
         {
-            case MediaCaptureProfiles.HL2_2272x1278:
-                width = 2272;
-                height = 1278;
-                break;
-            case MediaCaptureProfiles.HL2_896x504:
-                width = 896;
-                height = 504;
-                break;
-            case MediaCaptureProfiles.HL1_1280x720:
-                width = 1280;
-                height = 720;
-                isHL1 = true;
-                Debug.Log("InitializeMediaFrameReaderAsync: Using the HoloLens 1 settings for initialization.");
+            if (_mediaCapture != null)
+                _mediaCapture.Dispose();
 
-                break;
-            default:
-                width = 0;
-                height = 0;
-                break;
+            // Get the media capture description and request media capture profile
+            int width = 0;
+            int height = 0;
+            bool isHL1 = false;
+            switch (mediaCaptureProfiles)
+            {
+                case MediaCaptureProfiles.HL2_2272x1278:
+                    width = 2272;
+                    height = 1278;
+                    break;
+                case MediaCaptureProfiles.HL2_896x504:
+                    width = 896;
+                    height = 504;
+                    break;
+                case MediaCaptureProfiles.HL1_1280x720:
+                    width = 1280;
+                    height = 720;
+                    isHL1 = true;
+                    Debug.Log("InitializeMediaFrameReaderAsync: Using the HoloLens 1 settings for initialization.");
+
+                    break;
+                default:
+                    width = 0;
+                    height = 0;
+                    break;
+            }
+
+            // Convert the pixel formats to bgra8
+            var subtype = MediaEncodingSubtypes.Bgra8;
+
+            // Create the media capture and media capture frame source from description
+            // as a colour media frame source with 30 FPS
+            var mediaCaptureAndFrameSource = await GetMediaCaptureForDescriptionAsync(
+                MediaFrameSourceKind.Color, width, height, 30, isHL1);
+
+            // Create the media frame reader with specified description and subtype
+            _mediaFrameReader = await mediaCaptureAndFrameSource.capture.CreateFrameReaderAsync(
+                mediaCaptureAndFrameSource.source,
+                subtype);
+            _mediaFrameReader.AcquisitionMode = MediaFrameReaderAcquisitionMode.Realtime;
+
+            _mediaFrameReader.FrameArrived += ProcessFrame;
+            await _mediaFrameReader.StartAsync();
+            Debug.Log("InitializeMediaFrameReaderAsync: Successfully started media frame reader.");
+
+            IsCapturing = true;
         }
-
-        // Convert the pixel formats to bgra8
-        var subtype = MediaEncodingSubtypes.Bgra8;
-
-        // Create the media capture and media capture frame source from description
-        // as a colour media frame source with 30 FPS
-        //Debug.Log(fps);
-        var mediaCaptureAndFrameSource = await GetMediaCaptureForDescriptionAsync(
-            MediaFrameSourceKind.Color, width, height, fps, isHL1);
-
-        // Create the media frame reader with specified description and subtype
-        _mediaCapture = mediaCaptureAndFrameSource.capture;
-        _mediaFrameReader = await mediaCaptureAndFrameSource.capture.CreateFrameReaderAsync(
-            mediaCaptureAndFrameSource.source,
-            subtype);
-        _mediaFrameReader.AcquisitionMode = MediaFrameReaderAcquisitionMode.Realtime;
-
-        _mediaFrameReader.FrameArrived += ProcessFrame;
-        await _mediaFrameReader.StartAsync();
-            
-        IsCapturing = true;
-#endif
     }
 
-    public async Task ResumeCapture()
+    private void ProcessFrame(MediaFrameReader frameReader, MediaFrameArrivedEventArgs args)
     {
-#if ENABLE_WINMD_STUPPORT
-        if (_mediaFrameReader == null)
-            return;
-        _mediaFrameReader.StartAsync();
-        IsCapturing = true;
-#endif
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+        {
+            status.text = "Processing";
+        }, false);
+        var frameRef = frameReader.TryAcquireLatestFrame();
+        UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+        {
+            status.text = $"Processed {frameRef == null}";
+        }, false);
+        
+        onFrameArrived?.Invoke(frameRef);
+        frameRef?.Dispose();
     }
-    public async Task PauseCapture()
-    {
-#if ENABLE_WINMD_SUPPORT
-        if (_mediaFrameReader == null)
-            return;
-        await _mediaFrameReader.StopAsync();
-        IsCapturing = false;
 #endif
-    }
+
     /// <summary>
     /// Asynchronously stop media capture and dispose of resources
     /// </summary>
     /// <returns></returns>
-    public async Task StopCapture()
+    public async Task StopMediaFrameReaderAsync()
     {
 #if ENABLE_WINMD_SUPPORT
         if (_mediaCapture != null && _mediaCapture.CameraStreamState != CameraStreamState.Shutdown)
         {
-            _mediaFrameReader.FrameArrived -= ProcessFrame;
             await _mediaFrameReader.StopAsync();
             _mediaFrameReader.Dispose();
             _mediaCapture.Dispose();
             _mediaCapture = null;
-            _mediaFrameReader = null;
         }
         IsCapturing = false;
 #endif
@@ -162,14 +148,6 @@ public class MediaCapturer : MonoBehaviour
 
 
 #if ENABLE_WINMD_SUPPORT
-    private void ProcessFrame(MediaFrameReader frameReader, MediaFrameArrivedEventArgs args)
-    {
-        var frameRef = frameReader.TryAcquireLatestFrame();
-        onFrameArrived?.Invoke(frameRef);
-        frameRef?.Dispose();
-    }
-
-
     /// <summary>
     /// https://mtaulty.com/page/5/
     /// Provide an input width, height and framerate to request for the 
@@ -192,6 +170,7 @@ public class MediaCapturer : MonoBehaviour
         MediaFrameSource frameSource = null;
 
         var sourceGroups = await MediaFrameSourceGroup.FindAllAsync();
+
 
         // Ignore frame rate here on the description as both depth streams seem to tell me they are
         // 30fps whereas I don't think they are (from the docs) so I leave that to query later on.
