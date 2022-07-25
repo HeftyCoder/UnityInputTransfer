@@ -10,8 +10,12 @@ public class VirtualPhone : MonoBehaviour
     InputActions inputs;
 
     public Vector3 vioPosition, vioRotation;
+
     public Vector3 markedVioPos, markedVioRot;
     public Marker lastMarker;
+
+    private Vector3 tHP = Vector3.zero;
+    private Quaternion rHP = Quaternion.identity;
     private void Awake()
     {
         inputs = new InputActions();
@@ -43,12 +47,21 @@ public class VirtualPhone : MonoBehaviour
 
         //Values reported from VIO at the moment of aruco detection
         markedVioPos = actions.PhonePosition.ReadValue<Vector3>();
-        markedVioRot = actions.PhoneRotation.ReadValue<Quaternion>().eulerAngles;
+        var markedVioQuat = actions.PhoneRotation.ReadValue<Quaternion>();
+        markedVioRot = markedVioQuat.eulerAngles;
+
+        //Finding rotation and translation 
+        rHP = markedVioQuat * Quaternion.Inverse(lastMarker.rotation);
+        tHP = lastMarker.position - rHP* markedVioPos; 
     }
     private void Update()
     {
         EnsureDevicesSet();
-        transform.SetPositionAndRotation(vioPosition, Quaternion.Euler(vioRotation));
+
+        var rot = rHP * Quaternion.Euler(vioRotation);
+        rot = Quaternion.Inverse(rot);
+        var pos = tHP + rHP * vioPosition;
+        transform.SetPositionAndRotation(pos, rot);
     }
     private void EnsureDevicesSet()
     {

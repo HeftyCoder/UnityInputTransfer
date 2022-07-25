@@ -18,7 +18,7 @@ public class ArucoTracker : MonoBehaviour
     [SerializeField] MediaCapturer mediaCapturer;
     
     public TMP_Text status;
-    public int everyOtherFrame = 1;
+    public int processAfterNumFrames = 1;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
     public ArucoBoardLayoutProvider boardPositions;
@@ -103,6 +103,12 @@ public class ArucoTracker : MonoBehaviour
     /// </summary>
     private void HandleArUcoTracking(Windows.Media.Capture.Frames.MediaFrameReference mediaFrameReference)
     {
+        if (count != 0)
+        {   
+            count--;
+            return;
+        }
+        count = processAfterNumFrames;
         // Request software bitmap from media frame reference
         var videoMediaFrame = mediaFrameReference?.VideoMediaFrame;
         var softwareBitmap = videoMediaFrame?.SoftwareBitmap;
