@@ -37,7 +37,7 @@ public class ArucoTracker : MonoBehaviour
     ArucoDetector detector;
     OpenCVRuntimeComponent.Aruco.CameraIntrinsics calibParams;
 
-    Windows.Media.Devices.Core camIntrinsics;
+    Windows.Media.Devices.Core.CameraIntrinsics camIntrinsics;
     /// <summary>
     /// Coordinate system reference for Unity to WinRt transform construction.
     /// </summary>
@@ -72,8 +72,6 @@ public class ArucoTracker : MonoBehaviour
         }
 
         // Configure the dll with input parameters
-        var mSize = boardPositions.GetMarkerSize(ArUcoTrackingType);
-        var numMarkers = boardPositions.numMarkers;
         var layout = boardPositions.GetLayout();
         
         status.text = "Setting dll";
