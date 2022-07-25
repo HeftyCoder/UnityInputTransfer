@@ -6,6 +6,14 @@ public class MarkersLayout : MonoBehaviour
 {
     [SerializeField] DpiFetcher dpiFetcher;
     [SerializeField] List<RectTransform> rectTransforms = new List<RectTransform>();
+
+    [SerializeField] List<ArucoBoardLayoutItem> testItems;
+    [ContextMenu("Test")]
+    private void Test()
+    {
+        var board = CalculateBoard();
+        testItems = board.items;
+    }
     public ArucoBoardLayout CalculateBoard()
     {
         var result = new ArucoBoardLayout();
@@ -20,8 +28,8 @@ public class MarkersLayout : MonoBehaviour
             var topLeft = corners[1];
             var topRight = corners[2];
 
-            var topLeftInScreen = GetFromCenterInCentimeters(topLeft, camera);
-            var topRightInScreen = GetFromCenterInCentimeters(topRight, camera);
+            var topLeftInScreen = GetFromCenterInMeters(topLeft, camera);
+            var topRightInScreen = GetFromCenterInMeters(topRight, camera);
             var width = (topLeftInScreen - topRightInScreen).magnitude;
 
             var item = new ArucoBoardLayoutItem
@@ -38,14 +46,14 @@ public class MarkersLayout : MonoBehaviour
     }
 
 
-    private Vector3 GetFromCenterInCentimeters(Vector3 worldPos, Camera camera)
+    private Vector3 GetFromCenterInMeters(Vector3 worldPos, Camera camera)
     {
         var inScreen = camera.WorldToScreenPoint(worldPos);
         var dpi = dpiFetcher.GetDpi();
         inScreen -= new Vector3(Screen.width / 2, Screen.height / 2, 0);
         inScreen.z = 0;
         inScreen = inScreen / dpi;
-        inScreen *= 2.54f;
+        inScreen *= 0.0254f;
         return inScreen;
     }
 }

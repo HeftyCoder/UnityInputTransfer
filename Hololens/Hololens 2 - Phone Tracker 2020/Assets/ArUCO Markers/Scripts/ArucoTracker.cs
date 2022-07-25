@@ -80,7 +80,7 @@ public class ArucoTracker : MonoBehaviour
         try
         {
             //This will never be null, I think
-            detector = new ArucoDetector(mSize, numMarkers, (int)ArUcoDictionaryName, layout);
+            detector = new ArucoDetector((int)ArUcoDictionaryName, layout);
             camIntrinsics = null;
         }
         catch(Exception e){

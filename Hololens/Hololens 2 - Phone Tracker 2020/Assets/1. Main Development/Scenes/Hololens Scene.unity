@@ -1477,6 +1477,7 @@ MonoBehaviour:
   port: 5000
   onStart: 1
   delayThreshold: 0.05
+  arucoTracker: {fileID: 1055322858}
   haveDevicesChanged: 0
 --- !u!1 &1055322856
 GameObject:
@@ -1511,7 +1512,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   markerSizeForSingle: 0.08
   markerSizeForBoard: 0.04
-  numMarkers: 4
+  arucoLayout:
+    items: []
   customObjectPointsUnity:
   - {x: -0.0956385, y: 0.0893296, z: 0}
   - {x: 0.0574237, y: 0.0893345, z: 0}
@@ -1524,7 +1526,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1055322856}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ce5aa633368adcf42a719f42b9c8bd38, type: 3}
   m_Name: 

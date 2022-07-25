@@ -22,7 +22,7 @@ public class ArucoBoardLayoutItem : SerializablePacket
     }
     public override void FromBinaryReader(EndianBinaryReader reader)
     {
-        size = reader.ReadInt32();
+        size = reader.ReadSingle();
         topLeftCorner = reader.ReadVector3();
     }
 }
