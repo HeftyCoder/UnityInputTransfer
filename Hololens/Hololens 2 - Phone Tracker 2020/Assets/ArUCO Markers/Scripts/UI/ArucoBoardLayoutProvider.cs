@@ -7,8 +7,8 @@ public class ArucoBoardLayoutProvider : MonoBehaviour
 	// size of the markers in the aruco board OR individual markers
     public float markerSizeForSingle = 0.08f;
     public float markerSizeForBoard = 0.04f;
-    public int numMarkers;
 
+	public ArucoBoardLayout arucoLayout; 
 	// custom points representing the corner locations of 
 	public List<Vector3> customObjectPointsUnity;
 	
@@ -16,31 +16,16 @@ public class ArucoBoardLayoutProvider : MonoBehaviour
 	/// Convert from unity vector 3 to windows vector 3
 	/// </summary>
 	/// <returns></returns>
-	public List<System.Numerics.Vector3> GetLayout()
+	public List<System.Numerics.Vector4> GetLayout()
     {
-		List<System.Numerics.Vector3> customObjectPoints = new List<System.Numerics.Vector3>();
-		foreach(var objectPoint in customObjectPointsUnity)
+		List<System.Numerics.Vector4> customObjectPoints = new List<System.Numerics.Vector4>();
+		foreach(var data in arucoLayout.items)
         {
-			customObjectPoints.Add(new System.Numerics.Vector3(objectPoint.x, objectPoint.y, objectPoint.z));
+			var pos = data.topLeftCorner;
+			customObjectPoints.Add(new System.Numerics.Vector4(pos.x, pos.y, pos.z, data.size));
         }
 		return customObjectPoints;
     }		
-
-	public float GetMarkerSize(ArUcoUtils.ArUcoTrackingType arUcoTrackingType)
-    {
-		switch (arUcoTrackingType)
-		{
-			case ArUcoUtils.ArUcoTrackingType.Markers:
-				return markerSizeForSingle;
-
-			case ArUcoUtils.ArUcoTrackingType.CustomBoard:
-				return markerSizeForBoard;
-			case ArUcoUtils.ArUcoTrackingType.None:
-				Debug.Log("Not tracking...");
-				return 0;
-		}
-		return 0;
-	}
 
 	/*
 	Centered Markup from Slicer

@@ -4,13 +4,13 @@ using UnityEngine;
 using Barebones.Networking;
 
 [Serializable]
-public class ArucoBoardLayout : SerializablePacket
+public class ArucoBoardLayoutItem : SerializablePacket
 {
     public float size = 0;
     public Vector3 topLeftCorner = Vector3.zero;
 
-    public ArucoBoardLayout() { }
-    public ArucoBoardLayout(float size, Vector3 topLeftCorner)
+    public ArucoBoardLayoutItem() { }
+    public ArucoBoardLayoutItem(float size, Vector3 topLeftCorner)
     {
         this.size = size;
         this.topLeftCorner = topLeftCorner;

@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.XR;
 
 public class PhoneClient : MonoBehaviour
 {
+    [SerializeField] MarkersLayout arucoMarkersLayout;
     [SerializeField] bool connectOnStart;
     [SerializeField] string ip = "127.0.0.1";
     [SerializeField] int port = 5000;
@@ -83,6 +84,9 @@ public class PhoneClient : MonoBehaviour
         ClientSocket.Connected += () =>
         {
             var data = new SubscriptionData(DeviceDescriptions);
+            if (arucoMarkersLayout != null)
+                data.arucoLayout = arucoMarkersLayout.CalculateBoard();
+
             ClientSocket.SendMessage((short)Operations.Subscribe, data);
             
             startMessaging = true;

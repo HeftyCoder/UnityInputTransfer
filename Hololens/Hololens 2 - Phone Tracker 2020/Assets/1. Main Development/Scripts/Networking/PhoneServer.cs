@@ -17,6 +17,7 @@ public class PhoneServer : MonoBehaviour
     [SerializeField] int port = 5000;
     [SerializeField] bool onStart = false;
     [SerializeField] float delayThreshold = 1f;
+    [SerializeField] ArucoTracker arucoTracker;
 
     private bool listening = false;
     private int count = 0;
@@ -112,6 +113,10 @@ public class PhoneServer : MonoBehaviour
     {
         var subData = new SubscriptionData();
         message.Deserialize(subData);
+
+        arucoTracker.boardPositions.arucoLayout = subData.arucoLayout;
+        arucoTracker.enabled = true;
+
         var peer = message.Peer;
         foreach (var desc in subData.devices)
         {
