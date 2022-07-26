@@ -8,7 +8,7 @@ public class VirtualPhone : MonoBehaviour
     [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] PhoneServer phoneServer;
 
-    InputActions inputs;
+    InputActions inputs => phoneServer.InputActions;
 
     public bool useInitials; //useful in the editor
     private Vector3 initialPosition;
@@ -22,12 +22,11 @@ public class VirtualPhone : MonoBehaviour
     public Marker lastMarker;
     public Quaternion markedInverseVioRotation;
     private Vector3 tHP = Vector3.zero;
-    
+
+    private InputAction phonePosition, phoneRotation;
     private void Awake()
     {
-        inputs = new InputActions();
-        var actions = inputs.Player;
-
+        var actions = inputs.Phone;
         lastMarker = Marker.Identity;
 
         //With these set, we can work in the editor as well
@@ -38,19 +37,23 @@ public class VirtualPhone : MonoBehaviour
         markedInverseVioRotation = Quaternion.identity;
 
         //Reading the values that the tracker has for us
-        actions.PhonePosition.performed += (ctx) => vioPosition = ctx.ReadValue<Vector3>();
-        actions.PhoneRotation.performed += (ctx) => vioRotation = ctx.ReadValue<Quaternion>();
+        phonePosition = actions.PhonePosition;
+        phoneRotation = actions.PhoneRotation;
     }
     private void OnEnable()
     {
-        inputs.Enable();
+        phonePosition.performed += ReadPosition;
+        phoneRotation.performed += ReadRotation;
         arucoTracker.onDetectionFinished += OnArucoScanFinished;
     }
     private void OnDisable()
     {
-        inputs.Disable();
+        phonePosition.performed -= ReadPosition;
+        phoneRotation.performed -= ReadRotation;
         arucoTracker.onDetectionFinished -= OnArucoScanFinished;
     }
+    private void ReadPosition(InputAction.CallbackContext ctx) => vioPosition = ctx.ReadValue<Vector3>();
+    private void ReadRotation(InputAction.CallbackContext ctx) => vioRotation = ctx.ReadValue<Quaternion>();
 
     private void OnArucoScanFinished(IReadOnlyList<Marker> markers)
     {
@@ -59,7 +62,7 @@ public class VirtualPhone : MonoBehaviour
         //We're treating this as if it was a board
         lastMarker = markers[0];
         transform.SetPositionAndRotation(lastMarker.position, lastMarker.rotation);
-        var actions = inputs.Player;
+        var actions = inputs.Phone;
 
         //Values reported from VIO at the moment of aruco detection
         vioPosition = actions.PhonePosition.ReadValue<Vector3>();
@@ -71,8 +74,6 @@ public class VirtualPhone : MonoBehaviour
 }
     private void Update()
     {
-        EnsureDevicesSet();
-
         var rot = (markedInverseVioRotation * vioRotation) * lastMarker.rotation;
         var pos = tHP + vioPosition;
         if (useInitials)
@@ -80,28 +81,7 @@ public class VirtualPhone : MonoBehaviour
             rot *= initialRotation;
             pos += initialPosition;
         }
+        status.text = rot.eulerAngles.ToString();
         transform.SetPositionAndRotation(pos, rot);
-    }
-    private void EnsureDevicesSet()
-    {
-        var server = phoneServer;
-        if (server.haveDevicesChanged)
-        {
-            var devices = server.CreatedDevices;
-            var array = new InputDevice[devices.Count];
-            var i = 0;
-            foreach (var device in devices)
-            {
-                array[i] = device;
-                i++;
-            }
-            inputs.devices = new UnityEngine.InputSystem.Utilities.ReadOnlyArray<InputDevice>(array);
-            server.haveDevicesChanged = false;
-            Awake();
-            if (enabled)
-                inputs.Enable();
-            else
-                inputs.Disable();
-        }
     }
 }

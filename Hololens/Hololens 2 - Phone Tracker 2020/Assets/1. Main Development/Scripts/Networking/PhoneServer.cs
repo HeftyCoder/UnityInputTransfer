@@ -3,13 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Barebones.Networking;
 using System;
-using TMPro;
 using UnityEngine.InputSystem.LowLevel;
-using System.IO;
 using UnityEngine.InputSystem;
-using UnityEngine.InputSystem.OnScreen;
-using UnityEngine.Networking;
-
+using UnityEngine.InputSystem.Utilities;
 public class PhoneServer : MonoBehaviour
 {
     public static PhoneServer Instance;
@@ -24,9 +20,11 @@ public class PhoneServer : MonoBehaviour
     private float timeSinceLastMessage = 0;
     public IServerSocket ServerSocket { get; private set; }
 
+    private InputActions inputActions;
     private InputEventTrace eventTrace = new InputEventTrace();
     private Dictionary<IPeer, Dictionary<string,InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
 
+    public InputActions InputActions => inputActions;
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
     public bool haveDevicesChanged = false;
 
@@ -36,6 +34,7 @@ public class PhoneServer : MonoBehaviour
 
     private void Awake()
     {
+        inputActions = new InputActions();
         localClient = GetComponent<PhoneClient>();
         if (Instance != null && Instance != this)
         {
@@ -48,6 +47,8 @@ public class PhoneServer : MonoBehaviour
         InitializeServer();
         Instance = this;
     }
+    private void OnEnable() => inputActions.Enable();
+    private void OnDisable() => inputActions.Disable();
     private void Start()
     {
         if (onStart)
@@ -122,6 +123,8 @@ public class PhoneServer : MonoBehaviour
         {
             AddDevice(desc, peer);
         }
+
+        RefreshDevices();
     }
     private void OnPhoneData(IIncommingMessage message)
     {;
@@ -161,6 +164,8 @@ public class PhoneServer : MonoBehaviour
             var device = GetDevice(desc.Layout, peer);
             input.QueueInput(device);
         }
+        if (haveDevicesChanged)
+            RefreshDevices();
     }
     #endregion
 
@@ -211,6 +216,22 @@ public class PhoneServer : MonoBehaviour
 
         peerToDevices.Remove(peer);
         localClient?.SetCaptureEvents(true);
+        RefreshDevices();
+    }
+
+    private void RefreshDevices()
+    {
+        var createdDevices = CreatedDevices;
+        var devices = new InputDevice[createdDevices.Count];
+
+        int i = 0;
+        foreach (var device in createdDevices)
+        {
+            devices[i] = device;
+            i++;
+        }
+
+        inputActions.devices = new ReadOnlyArray<InputDevice>(devices);
     }
     #endregion
     

@@ -66,7 +66,7 @@ public class TransformController : MonoBehaviour
             server.haveDevicesChanged = false;
         }
 
-        var actions = inputs.Player;
+        var actions = inputs.Phone;
         var position = actions.PhonePosition.ReadValue<Vector3>();
         position += unityOffset;
         var rotation = actions.PhoneRotation.ReadValue<Quaternion>();
@@ -74,6 +74,14 @@ public class TransformController : MonoBehaviour
         transform.position = posScale * position;
         transform.rotation = rotation;
     }
+
+    private void ResetValues()
+    {
+        position = ogPosition;
+        velocity = Vector3.zero;
+    }
+
+    #region Pathetic Attemp without VIO
     //Trying without AR Core
     /*private void FixedUpdate()
     {
@@ -117,10 +125,5 @@ public class TransformController : MonoBehaviour
         velocity = newVelocity;
         linearAcceleration = newLinearAcceleration;
     }*/
-
-    private void ResetValues()
-    {
-        position = ogPosition;
-        velocity = Vector3.zero;
-    }
+    #endregion
 }

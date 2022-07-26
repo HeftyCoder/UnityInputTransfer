@@ -24,7 +24,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     ""name"": ""Input Actions"",
     ""maps"": [
         {
-            ""name"": ""Player"",
+            ""name"": ""Phone"",
             ""id"": ""ac1219ed-a02c-4678-9d87-8466f3869e14"",
             ""actions"": [
                 {
@@ -186,15 +186,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         }
     ]
 }");
-        // Player
-        m_Player = asset.FindActionMap("Player", throwIfNotFound: true);
-        m_Player_Move = m_Player.FindAction("Move", throwIfNotFound: true);
-        m_Player_Attitude = m_Player.FindAction("Attitude", throwIfNotFound: true);
-        m_Player_LinearAcceleration = m_Player.FindAction("LinearAcceleration", throwIfNotFound: true);
-        m_Player_Acceleration = m_Player.FindAction("Acceleration", throwIfNotFound: true);
-        m_Player_AngVelocity = m_Player.FindAction("AngVelocity", throwIfNotFound: true);
-        m_Player_PhonePosition = m_Player.FindAction("PhonePosition", throwIfNotFound: true);
-        m_Player_PhoneRotation = m_Player.FindAction("PhoneRotation", throwIfNotFound: true);
+        // Phone
+        m_Phone = asset.FindActionMap("Phone", throwIfNotFound: true);
+        m_Phone_Move = m_Phone.FindAction("Move", throwIfNotFound: true);
+        m_Phone_Attitude = m_Phone.FindAction("Attitude", throwIfNotFound: true);
+        m_Phone_LinearAcceleration = m_Phone.FindAction("LinearAcceleration", throwIfNotFound: true);
+        m_Phone_Acceleration = m_Phone.FindAction("Acceleration", throwIfNotFound: true);
+        m_Phone_AngVelocity = m_Phone.FindAction("AngVelocity", throwIfNotFound: true);
+        m_Phone_PhonePosition = m_Phone.FindAction("PhonePosition", throwIfNotFound: true);
+        m_Phone_PhoneRotation = m_Phone.FindAction("PhoneRotation", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -251,59 +251,59 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         return asset.FindBinding(bindingMask, out action);
     }
 
-    // Player
-    private readonly InputActionMap m_Player;
-    private IPlayerActions m_PlayerActionsCallbackInterface;
-    private readonly InputAction m_Player_Move;
-    private readonly InputAction m_Player_Attitude;
-    private readonly InputAction m_Player_LinearAcceleration;
-    private readonly InputAction m_Player_Acceleration;
-    private readonly InputAction m_Player_AngVelocity;
-    private readonly InputAction m_Player_PhonePosition;
-    private readonly InputAction m_Player_PhoneRotation;
-    public struct PlayerActions
+    // Phone
+    private readonly InputActionMap m_Phone;
+    private IPhoneActions m_PhoneActionsCallbackInterface;
+    private readonly InputAction m_Phone_Move;
+    private readonly InputAction m_Phone_Attitude;
+    private readonly InputAction m_Phone_LinearAcceleration;
+    private readonly InputAction m_Phone_Acceleration;
+    private readonly InputAction m_Phone_AngVelocity;
+    private readonly InputAction m_Phone_PhonePosition;
+    private readonly InputAction m_Phone_PhoneRotation;
+    public struct PhoneActions
     {
         private @InputActions m_Wrapper;
-        public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
-        public InputAction @Move => m_Wrapper.m_Player_Move;
-        public InputAction @Attitude => m_Wrapper.m_Player_Attitude;
-        public InputAction @LinearAcceleration => m_Wrapper.m_Player_LinearAcceleration;
-        public InputAction @Acceleration => m_Wrapper.m_Player_Acceleration;
-        public InputAction @AngVelocity => m_Wrapper.m_Player_AngVelocity;
-        public InputAction @PhonePosition => m_Wrapper.m_Player_PhonePosition;
-        public InputAction @PhoneRotation => m_Wrapper.m_Player_PhoneRotation;
-        public InputActionMap Get() { return m_Wrapper.m_Player; }
+        public PhoneActions(@InputActions wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Move => m_Wrapper.m_Phone_Move;
+        public InputAction @Attitude => m_Wrapper.m_Phone_Attitude;
+        public InputAction @LinearAcceleration => m_Wrapper.m_Phone_LinearAcceleration;
+        public InputAction @Acceleration => m_Wrapper.m_Phone_Acceleration;
+        public InputAction @AngVelocity => m_Wrapper.m_Phone_AngVelocity;
+        public InputAction @PhonePosition => m_Wrapper.m_Phone_PhonePosition;
+        public InputAction @PhoneRotation => m_Wrapper.m_Phone_PhoneRotation;
+        public InputActionMap Get() { return m_Wrapper.m_Phone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
         public bool enabled => Get().enabled;
-        public static implicit operator InputActionMap(PlayerActions set) { return set.Get(); }
-        public void SetCallbacks(IPlayerActions instance)
+        public static implicit operator InputActionMap(PhoneActions set) { return set.Get(); }
+        public void SetCallbacks(IPhoneActions instance)
         {
-            if (m_Wrapper.m_PlayerActionsCallbackInterface != null)
+            if (m_Wrapper.m_PhoneActionsCallbackInterface != null)
             {
-                @Move.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Move.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnMove;
-                @Attitude.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
-                @Attitude.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
-                @Attitude.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAttitude;
-                @LinearAcceleration.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
-                @LinearAcceleration.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
-                @LinearAcceleration.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnLinearAcceleration;
-                @Acceleration.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
-                @Acceleration.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
-                @Acceleration.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAcceleration;
-                @AngVelocity.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
-                @AngVelocity.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
-                @AngVelocity.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAngVelocity;
-                @PhonePosition.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
-                @PhonePosition.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
-                @PhonePosition.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhonePosition;
-                @PhoneRotation.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
-                @PhoneRotation.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
-                @PhoneRotation.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPhoneRotation;
+                @Move.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
+                @Move.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
+                @Move.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
+                @Attitude.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
+                @Attitude.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
+                @Attitude.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
+                @LinearAcceleration.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnLinearAcceleration;
+                @LinearAcceleration.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnLinearAcceleration;
+                @LinearAcceleration.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnLinearAcceleration;
+                @Acceleration.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAcceleration;
+                @Acceleration.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAcceleration;
+                @Acceleration.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAcceleration;
+                @AngVelocity.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAngVelocity;
+                @AngVelocity.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAngVelocity;
+                @PhonePosition.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhonePosition;
+                @PhonePosition.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhonePosition;
+                @PhonePosition.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhonePosition;
+                @PhoneRotation.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
+                @PhoneRotation.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
+                @PhoneRotation.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
             }
-            m_Wrapper.m_PlayerActionsCallbackInterface = instance;
+            m_Wrapper.m_PhoneActionsCallbackInterface = instance;
             if (instance != null)
             {
                 @Move.started += instance.OnMove;
@@ -330,7 +330,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             }
         }
     }
-    public PlayerActions @Player => new PlayerActions(this);
+    public PhoneActions @Phone => new PhoneActions(this);
     private int m_GamepadSchemeIndex = -1;
     public InputControlScheme GamepadScheme
     {
@@ -340,7 +340,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
             return asset.controlSchemes[m_GamepadSchemeIndex];
         }
     }
-    public interface IPlayerActions
+    public interface IPhoneActions
     {
         void OnMove(InputAction.CallbackContext context);
         void OnAttitude(InputAction.CallbackContext context);

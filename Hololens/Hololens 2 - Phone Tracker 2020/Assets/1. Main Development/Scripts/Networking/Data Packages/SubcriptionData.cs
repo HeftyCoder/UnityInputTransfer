@@ -5,7 +5,7 @@ public class SubscriptionData : SerializablePacket
 {
     public IList<DeviceDescription> devices = new List<DeviceDescription>();
     public ArucoBoardLayout arucoLayout = new ArucoBoardLayout();
-
+    public string trackedDeviceName = "";
     public SubscriptionData() { }
     public SubscriptionData(IList<DeviceDescription> devices) => this.devices = devices;
     public SubscriptionData(IEnumerable<DeviceDescription> devices)
@@ -16,6 +16,7 @@ public class SubscriptionData : SerializablePacket
     }
     public override void ToBinaryWriter(EndianBinaryWriter writer)
     {
+        writer.Write(trackedDeviceName);
         writer.Write(devices.Count);
         foreach (var device in devices)
             writer.Write(device);
@@ -24,6 +25,7 @@ public class SubscriptionData : SerializablePacket
     }
     public override void FromBinaryReader(EndianBinaryReader reader)
     {
+        trackedDeviceName = reader.ReadString();
         var count = reader.ReadInt32();
         devices.Clear();
         for (int i = 0; i < count; i++)
