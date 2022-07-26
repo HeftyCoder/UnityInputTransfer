@@ -35,6 +35,7 @@ public class PhoneServer : MonoBehaviour
     private void Awake()
     {
         inputActions = new InputActions();
+        RefreshDevices();
         localClient = GetComponent<PhoneClient>();
         if (Instance != null && Instance != this)
         {
