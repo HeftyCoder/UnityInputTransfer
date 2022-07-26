@@ -32,7 +32,6 @@ public class MediaCapturer : MonoBehaviour
         FPS_30
     }
 
-    public TMP_Text status;
     [SerializeField] MediaCaptureProfiles mediaCaptureProfiles;
     [SerializeField] MediaCaptureFPS fpsProfile;
 #if ENABLE_WINMD_SUPPORT

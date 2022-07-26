@@ -4,26 +4,42 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 public class VirtualPhone : MonoBehaviour
 {
+    [SerializeField] TMPro.TMP_Text status;
     [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] PhoneServer phoneServer;
 
     InputActions inputs;
 
-    public Vector3 vioPosition, vioRotation;
+    public bool useInitials; //useful in the editor
+    private Vector3 initialPosition;
+    private Quaternion initialRotation;
 
-    public Vector3 markedVioPos, markedVioRot;
+    [Header("VIO Reported")]
+    public Vector3 vioPosition;
+    public Quaternion vioRotation;
+
+    [Header("Marker and At Marker Vio")]
     public Marker lastMarker;
-
+    public Quaternion markedInverseVioRotation;
     private Vector3 tHP = Vector3.zero;
-    private Quaternion rHP = Quaternion.identity;
+    
     private void Awake()
     {
         inputs = new InputActions();
         var actions = inputs.Player;
+
+        lastMarker = Marker.Identity;
+
+        //With these set, we can work in the editor as well
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
         
+        vioRotation = Quaternion.identity;
+        markedInverseVioRotation = Quaternion.identity;
+
         //Reading the values that the tracker has for us
         actions.PhonePosition.performed += (ctx) => vioPosition = ctx.ReadValue<Vector3>();
-        actions.PhoneRotation.performed += (ctx) => vioRotation = ctx.ReadValue<Quaternion>().eulerAngles;
+        actions.PhoneRotation.performed += (ctx) => vioRotation = ctx.ReadValue<Quaternion>();
     }
     private void OnEnable()
     {
@@ -46,21 +62,24 @@ public class VirtualPhone : MonoBehaviour
         var actions = inputs.Player;
 
         //Values reported from VIO at the moment of aruco detection
-        markedVioPos = actions.PhonePosition.ReadValue<Vector3>();
-        var markedVioQuat = actions.PhoneRotation.ReadValue<Quaternion>();
-        markedVioRot = markedVioQuat.eulerAngles;
+        vioPosition = actions.PhonePosition.ReadValue<Vector3>();
+        vioRotation = actions.PhoneRotation.ReadValue<Quaternion>();
 
         //Finding rotation and translation 
-        rHP = markedVioQuat * Quaternion.Inverse(lastMarker.rotation);
-        tHP = lastMarker.position - rHP* markedVioPos; 
-    }
+        markedInverseVioRotation = Quaternion.Inverse(vioRotation);
+        tHP = lastMarker.position - vioPosition;
+}
     private void Update()
     {
         EnsureDevicesSet();
 
-        var rot = rHP * Quaternion.Euler(vioRotation);
-        rot = Quaternion.Inverse(rot);
-        var pos = tHP + rHP * vioPosition;
+        var rot = (markedInverseVioRotation * vioRotation) * lastMarker.rotation;
+        var pos = tHP + vioPosition;
+        if (useInitials)
+        {
+            rot *= initialRotation;
+            pos += initialPosition;
+        }
         transform.SetPositionAndRotation(pos, rot);
     }
     private void EnsureDevicesSet()

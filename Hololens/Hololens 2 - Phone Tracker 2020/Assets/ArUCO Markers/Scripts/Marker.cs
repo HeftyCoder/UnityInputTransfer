@@ -5,6 +5,8 @@ using UnityEngine;
 [Serializable]
 public struct Marker
 {
+    public static Marker Identity => new Marker(Vector3.zero, Quaternion.identity);
+
     public Vector3 position;
     public Quaternion rotation;
 

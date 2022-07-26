@@ -833,13 +833,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401214899}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.331, y: 0.104, z: 3.103}
+  m_LocalRotation: {x: 0.5735764, y: 0, z: 0, w: 0.8191521}
+  m_LocalPosition: {x: -0.331, y: 0.104, z: 1.22}
   m_LocalScale: {x: 0.05, y: 0.13, z: 0.01}
   m_Children: []
   m_Father: {fileID: 663438188}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 70, y: 0, z: 0}
 --- !u!114 &401214901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -852,15 +852,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc359c187ef776749ad40a4f2ac99b56, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  status: {fileID: 753882889}
   arucoTracker: {fileID: 1055322858}
   phoneServer: {fileID: 902870528}
+  useInitials: 0
   vioPosition: {x: 0, y: 0, z: 0}
-  vioRotation: {x: 0, y: 0, z: 0}
-  markedVioPos: {x: 0, y: 0, z: 0}
-  markedVioRot: {x: 0, y: 0, z: 0}
+  vioRotation: {x: 0, y: 0, z: 0, w: 0}
   lastMarker:
     position: {x: 0, y: 0, z: 0}
     rotation: {x: 0, y: 0, z: 0, w: 0}
+  markedInverseVioRotation: {x: 0, y: 0, z: 0, w: 1}
 --- !u!114 &401214902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1273,7 +1274,7 @@ GameObject:
   - component: {fileID: 753882890}
   - component: {fileID: 753882889}
   m_Layer: 0
-  m_Name: Media Text
+  m_Name: General Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1533,7 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   mediaCapturer: {fileID: 1055322860}
   status: {fileID: 2114401674}
-  processAfterNumFrames: 2
+  processAfterNumFrames: 1
   ArUcoDictionaryName: 8
   ArUcoTrackingType: 1
   boardPositions: {fileID: 1055322857}
@@ -1563,7 +1564,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e19cad19857d6014d8f251e3a70d2a61, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  status: {fileID: 753882889}
   mediaCaptureProfiles: 1
   fpsProfile: 0
 --- !u!1 &1119066947
