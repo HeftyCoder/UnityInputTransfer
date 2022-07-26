@@ -135,8 +135,8 @@ public class PhoneClient : MonoBehaviour
             {
                 var motionInput = new InputData(trackedDeviceDescription);
 
-                var position = trackedMotion.position;
-                var rotation = trackedMotion.rotation;
+                var position = trackedMotion.localPosition;
+                var rotation = trackedMotion.localRotation;
                 motionInput.inputData = new TrackedDeviceInput(position, rotation);
                 data.inputDatas.Add(motionInput);
             }
