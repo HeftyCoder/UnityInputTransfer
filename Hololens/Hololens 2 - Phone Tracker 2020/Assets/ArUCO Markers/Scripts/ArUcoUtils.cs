@@ -295,7 +295,7 @@ public abstract class ArUcoUtils
 
         //q = Quaternion.Euler(q.eulerAngles.x, q.eulerAngles.y, q.eulerAngles.z) * Quaternion.Euler(0, 180, 180);
 
-        rot = Quaternion.Euler(-rot.eulerAngles.x, q.eulerAngles.y, -rot.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
+        rot = Quaternion.Euler(-rot.eulerAngles.x, rot.eulerAngles.y, -rot.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
 
         var result =  Matrix4x4.TRS(pos, rot, Vector3.one);
 
