@@ -216,13 +216,10 @@ public class ArucoTracker : MonoBehaviour
         var yRot = Quaternion.Euler(new Vector3(0,180,0));
         if (isDetected)
         {
-            markerPosition = ArUcoUtils.Vec3FromFloat3(board.Position);
-            markerRotation = ArUcoUtils.RotationQuatFromRodrigues(ArUcoUtils.Vec3FromFloat3(board.Rotation));
-
             // Get the transform from C++ component and format for Unity coordinate system
-            var transformUnityCamera = ArUcoUtils.GetTransformInUnityCamera(
-                markerPosition,
-                markerRotation);
+            var transformUnityCamera = ArUcoUtils.GetMatrixFromOpenCVToUnity(
+                board.Position,
+                board.Rotation);
 
             // Camera view transform used for transform chain
             var cameraToWorld = GetViewToUnityTransform(_frameCoordinateSystem);

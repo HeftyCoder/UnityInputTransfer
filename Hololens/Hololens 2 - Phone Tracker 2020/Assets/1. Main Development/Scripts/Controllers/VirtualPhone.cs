@@ -2,6 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 public class VirtualPhone : MonoBehaviour
 {
     [SerializeField] TMPro.TMP_Text status;
@@ -23,7 +26,21 @@ public class VirtualPhone : MonoBehaviour
 
     private InputAction phonePosition, phoneRotation;
 
-    [ContextMenu("Test")]
+    [ContextMenu("Test a matrix rotation")]
+    private void TestMatrixRotation()
+    {
+#if UNITY_EDITOR
+        Undo.RecordObject(transform, "Undo Transformation");
+#endif
+        var m = transform.worldToLocalMatrix;
+        m = m * Matrix4x4.Rotate(Quaternion.Euler(0, 180, 0)) * m.inverse;
+        var pos = m.GetColumn(3);
+        var rot = m.rotation;
+
+        transform.localPosition = pos;
+        transform.localRotation = rot;
+    }
+    [ContextMenu("Test Calculate RT")]
     private void TestInEditor()
     {
         CalculateRT(posVio, rotVio, posMarker, rotMarker);

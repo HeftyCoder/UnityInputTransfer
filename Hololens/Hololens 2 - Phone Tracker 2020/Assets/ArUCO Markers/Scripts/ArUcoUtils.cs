@@ -281,21 +281,22 @@ public abstract class ArUcoUtils
 
     public static Matrix4x4 GetMatrixFromOpenCVToUnity(System.Numerics.Vector3 position, System.Numerics.Vector3 rodrigRotation)
     {
-        var pos = new Vector3(position.X, position.Y, position.Z);
+        //right handed to left handed
+        var pos = new Vector3(position.X, -position.Y, position.Z);
         var rodrigRot = new Vector3(rodrigRotation.X, rodrigRotation.Y, rodrigRotation.Z);
 
         var angle = Mathf.Rad2Deg * rodrigRot.magnitude;
         var axis = rodrigRot.normalized;
         var rot = Quaternion.AngleAxis(angle, axis);
         // Ensure: 
-        // Positive x axis is in the left direction of the observed marker
+        // Positive x axis is in the right direction of the observed marker
         // Positive y axis is in the upward direction of the observed marker
-        // Positive z axis is facing outward from the observed marker
+        // Positive z axis is facing inward from the observed marker
         // Convert from rodrigues to quaternion representation of angle
 
-        //q = Quaternion.Euler(q.eulerAngles.x, q.eulerAngles.y, q.eulerAngles.z) * Quaternion.Euler(0, 180, 180);
+        //q = Quaternion.Euler(-q.eulerAngles.x, q.eulerAngles.y, -q.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
 
-        rot = Quaternion.Euler(-rot.eulerAngles.x, rot.eulerAngles.y, -rot.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
+        rot = Quaternion.Euler(-rot.eulerAngles.x, rot.eulerAngles.y, -rot.eulerAngles.z) * Quaternion.Euler(0, 180, 180);
 
         var result =  Matrix4x4.TRS(pos, rot, Vector3.one);
 
