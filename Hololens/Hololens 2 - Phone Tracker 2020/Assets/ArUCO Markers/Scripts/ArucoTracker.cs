@@ -254,17 +254,21 @@ public class ArucoTracker : MonoBehaviour
 
         // No cameraViewTransform availabnle currently, using identity for HL2
         // Inverse of identity is identity
-        var viewToCamera = Matrix4x4.identity;
+        //var viewToCamera = Matrix4x4.identity;
+        
         var cameraToUnity = ArUcoUtils.Mat4x4FromFloat4x4(cameraToUnityRef.Value);
 
         // Compute transform to relate winrt coordinate system with unity coordinate frame (viewToUnity)
         // WinRT transfrom -> Unity transform by transpose and flip row 3
-        var viewToUnityWinRT = viewToCamera * cameraToUnity;
+        //var viewToUnityWinRT = viewToCamera * cameraToUnity;
+        
+        var viewToUnityWinRT = cameraToUnity;
         var viewToUnity = Matrix4x4.Transpose(viewToUnityWinRT);
-        viewToUnity.m20 *= -1.0f;
-        viewToUnity.m21 *= -1.0f;
-        viewToUnity.m22 *= -1.0f;
-        viewToUnity.m23 *= -1.0f;
+        
+        //viewToUnity.m20 *= -1.0f;
+        //viewToUnity.m21 *= -1.0f;
+        //viewToUnity.m22 *= -1.0f;
+        //viewToUnity.m23 *= -1.0f;
 
         return viewToUnity;
     }

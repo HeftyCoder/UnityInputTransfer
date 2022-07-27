@@ -95,7 +95,8 @@ public abstract class ArUcoUtils
 
     public static Quaternion GetQuatFromMatrix(Matrix4x4 m)
     {
-        return Quaternion.LookRotation(m.GetColumn(2), m.GetColumn(1));
+        return m.rotation;
+        //return Quaternion.LookRotation(m.GetColumn(2), m.GetColumn(1));
     }
 
     /// <summary>
