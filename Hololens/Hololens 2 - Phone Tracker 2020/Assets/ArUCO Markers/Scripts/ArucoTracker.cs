@@ -18,6 +18,7 @@ public class ArucoTracker : MonoBehaviour
     [SerializeField] MediaCapturer mediaCapturer;
     
     public TMP_Text status;
+    public int minimumMarkersForDetection = 5;
     public int processAfterNumFrames = 1;
     public ArUcoUtils.ArUcoDictionaryName ArUcoDictionaryName = ArUcoUtils.ArUcoDictionaryName.DICT_6X6_50;
     public ArUcoUtils.ArUcoTrackingType ArUcoTrackingType = ArUcoUtils.ArUcoTrackingType.Markers;
@@ -135,23 +136,15 @@ public class ArucoTracker : MonoBehaviour
             detector.SetCameraIntrinsics(calibParams);
         }
 
+        IReadOnlyList<Marker> markers = null;
         switch (ArUcoTrackingType)
         {
             case ArUcoUtils.ArUcoTrackingType.Markers:
-                var markers = DetectMarkers(softwareBitmap);
-                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-                {
-                    onDetectionFinished?.Invoke(markers);
-                }, false);
+                markers = DetectMarkers(softwareBitmap);
                 break;
 
             case ArUcoUtils.ArUcoTrackingType.CustomBoard:
                 markers = DetectBoard(softwareBitmap);
-                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
-                {
-                    status.text = $"markers.Count";
-                    onDetectionFinished?.Invoke(markers);
-                }, false);
                 break;
 
             case ArUcoUtils.ArUcoTrackingType.None:
@@ -163,6 +156,14 @@ public class ArucoTracker : MonoBehaviour
                 break;
         }
 
+        if (markers != null)
+        {
+                UnityEngine.WSA.Application.InvokeOnAppThread(() =>
+                {
+                    status.text = $"markers.Count";
+                    onDetectionFinished?.Invoke(markers);
+                }, false);
+        }
         softwareBitmap.Dispose();
     }
 
@@ -191,6 +192,10 @@ public class ArucoTracker : MonoBehaviour
             markersInUnity.Add(markerInUnity);
         }
 
+        //Avoid returning a pose estimation with too little markers as it is inconsistent
+        if (markersInUnity.Count >= minimumMarkersForDetection)
+            return null;
+
         return markersInUnity;
     }
 
@@ -204,6 +209,11 @@ public class ArucoTracker : MonoBehaviour
         Quaternion unityRotation = Quaternion.identity, markerRotation = Quaternion.identity;
         var isDetected = board.IsDetected;
         
+        //Ensure that the markers found are adequate for board detection (it's inconsistent to find 1-2 markers if board has 24)
+        if (board.MarkersCount < minimumMarkersForDetection)
+            return null;
+        
+        var yRot = Quaternion.Euler(new Vector3(0,180,0));
         if (isDetected)
         {
             markerPosition = ArUcoUtils.Vec3FromFloat3(board.Position);
@@ -265,10 +275,10 @@ public class ArucoTracker : MonoBehaviour
         var viewToUnityWinRT = cameraToUnity;
         var viewToUnity = Matrix4x4.Transpose(viewToUnityWinRT);
         
-        //viewToUnity.m20 *= -1.0f;
-        //viewToUnity.m21 *= -1.0f;
-        //viewToUnity.m22 *= -1.0f;
-        //viewToUnity.m23 *= -1.0f;
+        viewToUnity.m20 *= -1.0f;
+        viewToUnity.m21 *= -1.0f;
+        viewToUnity.m22 *= -1.0f;
+        viewToUnity.m23 *= -1.0f;
 
         return viewToUnity;
     }

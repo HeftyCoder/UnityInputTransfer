@@ -4,15 +4,10 @@ using UnityEngine;
 
 public class ArucoFollower : MonoBehaviour
 {
-    private Vector3 ogPos;
-    private Quaternion ogRot;
+    private Vector3 pos;
+    private Quaternion rot;
     [SerializeField] ArucoTracker tracker;
 
-    private void Awake()
-    {
-        ogPos = transform.position;
-        ogRot = transform.rotation;
-    }
     private void OnEnable()
     {
         tracker.onDetectionFinished += OnBoard;
@@ -25,12 +20,11 @@ public class ArucoFollower : MonoBehaviour
 
     private void OnBoard(IReadOnlyList<Marker> detectedMarkers)
     {
-        if (detectedMarkers.Count != 0)
-        {
-            var firstMarker = detectedMarkers[0];
-            transform.SetPositionAndRotation(firstMarker.position, firstMarker.rotation);
-        }
-        else
-            transform.SetPositionAndRotation(ogPos, ogRot);
+        if (detectedMarkers.Count == 0)
+            return;
+        var firstMarker = detectedMarkers[0];
+        pos = firstMarker.position;
+        rot = firstMarker.rotation;
+        transform.SetPositionAndRotation(pos, rot);
     }
 }

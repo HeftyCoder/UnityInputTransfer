@@ -93,11 +93,7 @@ public abstract class ArUcoUtils
         return m.GetColumn(3);
     }
 
-    public static Quaternion GetQuatFromMatrix(Matrix4x4 m)
-    {
-        return m.rotation;
-        //return Quaternion.LookRotation(m.GetColumn(2), m.GetColumn(1));
-    }
+    public static Quaternion GetQuatFromMatrix(Matrix4x4 m) => m.rotation;
 
     /// <summary>
     /// https://github.com/EnoxSoftware/OpenCVForUnity/blob/a681093ccf8cc0d69a7cd2356dd5e29c1f854495/Assets/OpenCVForUnity/Examples/ContribModules/aruco/ArUcoExample/ArUcoExample.cs#L236
@@ -156,10 +152,10 @@ public abstract class ArUcoUtils
         // Positive y axis is in the upward direction of the observed marker
         // Positive z axis is facing outward from the observed marker
         // Convert from rodrigues to quaternion representation of angle
-        q = Quaternion.Euler(
-            -1.0f * q.eulerAngles.x,
-            q.eulerAngles.y,
-            -1.0f * q.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
+
+        //q = Quaternion.Euler(q.eulerAngles.x, q.eulerAngles.y, q.eulerAngles.z) * Quaternion.Euler(0, 180, 180);
+        
+        q = Quaternion.Euler(-q.eulerAngles.x, q.eulerAngles.y, -q.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
 
         return q;
     }
@@ -271,16 +267,45 @@ public abstract class ArUcoUtils
     public static Matrix4x4 GetTransformInUnityCamera(Vector3 pos, Quaternion rot)
     {
         // right-handed coordinates system (OpenCV) to left-handed one (Unity)
-        var t = new Vector3(pos.x, -pos.y, pos.z);
-
+        pos = new Vector3(pos.x, -pos.y, pos.z);
+        //rot = Quaternion.Euler(0, 180, 0) * rot;
         // Compose a matrix
-        var T = Matrix4x4.TRS(t, rot, Vector3.one);
+        var T = Matrix4x4.TRS(pos, rot, Vector3.one);
         T.m20 *= -1.0f;
         T.m21 *= -1.0f;
         T.m22 *= -1.0f;
         T.m23 *= -1.0f;
 
         return T;
+    }
+
+    public static Matrix4x4 GetMatrixFromOpenCVToUnity(System.Numerics.Vector3 position, System.Numerics.Vector3 rodrigRotation)
+    {
+        var pos = new Vector3(position.X, position.Y, position.Z);
+        var rodrigRot = new Vector3(rodrigRotation.X, rodrigRotation.Y, rodrigRotation.Z);
+
+        var angle = Mathf.Rad2Deg * rodrigRot.magnitude;
+        var axis = rodrigRot.normalized;
+        var rot = Quaternion.AngleAxis(angle, axis);
+        // Ensure: 
+        // Positive x axis is in the left direction of the observed marker
+        // Positive y axis is in the upward direction of the observed marker
+        // Positive z axis is facing outward from the observed marker
+        // Convert from rodrigues to quaternion representation of angle
+
+        //q = Quaternion.Euler(q.eulerAngles.x, q.eulerAngles.y, q.eulerAngles.z) * Quaternion.Euler(0, 180, 180);
+
+        rot = Quaternion.Euler(-rot.eulerAngles.x, q.eulerAngles.y, -rot.eulerAngles.z) * Quaternion.Euler(0, 0, 180);
+
+        var result =  Matrix4x4.TRS(pos, rot, Vector3.one);
+
+        //This changes the Z axis
+        result.m20 *= -1.0f;
+        result.m21 *= -1.0f;
+        result.m22 *= -1.0f;
+        result.m23 *= -1.0f;
+
+        return result;
     }
 
     /// <summary>

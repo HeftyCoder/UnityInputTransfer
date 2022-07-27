@@ -10,6 +10,7 @@ public class PhoneServer : MonoBehaviour
 {
     public static PhoneServer Instance;
 
+    [SerializeField] int targetFramerate = -1;
     [SerializeField] int port = 5000;
     [SerializeField] bool onStart = false;
     [SerializeField] float delayThreshold = 1f;
@@ -52,6 +53,7 @@ public class PhoneServer : MonoBehaviour
     private void OnDisable() => inputActions.Disable();
     private void Start()
     {
+        Application.targetFrameRate = targetFramerate;
         if (onStart)
             Listen();
     }
