@@ -68,7 +68,7 @@ public class PhoneServer : MonoBehaviour
     }
     private void InitializeServer()
     {
-        ServerSocket = new TelepathyServerSocket(400);
+        ServerSocket = new TelepathyServerSocket(800);
         operations.Add((short)Operations.Subscribe, OnSubscribe);
         operations.Add((short)Operations.StateData, OnPhoneData);
 
@@ -180,6 +180,7 @@ public class PhoneServer : MonoBehaviour
         localClient?.SetCaptureEvents(true);
         var peerDevices = peerToDevices[peer];
         peerDevices.Add(layout, device);
+        Debug.Log($"{name} {device}");
         CreatedDevices.Add(device);
     }
     private void RemoveDevice(DeviceDescription desc, IPeer peer)

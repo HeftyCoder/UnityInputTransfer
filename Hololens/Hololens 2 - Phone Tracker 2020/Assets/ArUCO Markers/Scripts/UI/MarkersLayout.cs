@@ -5,7 +5,9 @@ using UnityEngine;
 public class MarkersLayout : MonoBehaviour
 {
     [SerializeField] DpiFetcher dpiFetcher;
+    [SerializeField] bool findChildrenInTransform;
     [SerializeField] List<RectTransform> rectTransforms = new List<RectTransform>();
+    [SerializeField] List<RectTransform> excludedTransforms = new List<RectTransform>();
 
     [SerializeField] List<ArucoBoardLayoutItem> testItems;
     [ContextMenu("Test")]
@@ -13,6 +15,20 @@ public class MarkersLayout : MonoBehaviour
     {
         var board = CalculateBoard();
         testItems = board.items;
+    }
+
+    private void Awake()
+    {
+        if (findChildrenInTransform)
+        {
+            rectTransforms.Clear();
+            foreach (Transform child in transform)
+            {
+                var rectTr = (RectTransform)child;
+                if (!excludedTransforms.Contains(rectTr))
+                    rectTransforms.Add(rectTr);
+            }
+        }
     }
     public ArucoBoardLayout CalculateBoard()
     {

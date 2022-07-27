@@ -61,7 +61,7 @@ public class PhoneClient : MonoBehaviour
     bool startMessaging = false;
 
     public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
-    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(400);
+    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(800);
     
     private void Awake()
     {
@@ -87,8 +87,9 @@ public class PhoneClient : MonoBehaviour
             if (arucoMarkersLayout != null)
                 data.arucoLayout = arucoMarkersLayout.CalculateBoard();
 
+            Debug.Log("Sending subscribe");
             ClientSocket.SendMessage((short)Operations.Subscribe, data);
-            
+           
             startMessaging = true;
             //Enable sensors here
             foreach (var sensorDesc in sensorsToConnect)
