@@ -10,6 +10,7 @@ public class PhoneServer : MonoBehaviour
 {
     public static PhoneServer Instance;
 
+    [SerializeField] TransportServer server;
     [SerializeField] int targetFramerate = -1;
     [SerializeField] int port = 5000;
     [SerializeField] bool onStart = false;
@@ -19,7 +20,7 @@ public class PhoneServer : MonoBehaviour
     private bool listening = false;
     private int count = 0;
     private float timeSinceLastMessage = 0;
-    public IServerSocket ServerSocket { get; private set; }
+    public IServerSocket ServerSocket => server;
 
     private InputActions inputActions;
     private InputEventTrace eventTrace = new InputEventTrace();
@@ -45,8 +46,7 @@ public class PhoneServer : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
-            
-        InitializeServer();
+        
         Instance = this;
     }
     private void OnEnable() => inputActions.Enable();
@@ -54,6 +54,7 @@ public class PhoneServer : MonoBehaviour
     private void Start()
     {
         Application.targetFrameRate = targetFramerate;
+        InitializeServer();
         if (onStart)
             Listen();
     }
@@ -70,7 +71,6 @@ public class PhoneServer : MonoBehaviour
     }
     private void InitializeServer()
     {
-        ServerSocket = new TelepathyServerSocket(800);
         operations.Add((short)Operations.Subscribe, OnSubscribe);
         operations.Add((short)Operations.StateData, OnPhoneData);
 

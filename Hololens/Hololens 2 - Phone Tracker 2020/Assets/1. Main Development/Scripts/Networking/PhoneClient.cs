@@ -8,6 +8,7 @@ using UnityEngine.InputSystem.XR;
 
 public class PhoneClient : MonoBehaviour
 {
+    [SerializeField] TransportClient client;
     [SerializeField] MarkersLayout arucoMarkersLayout;
     [SerializeField] bool connectOnStart;
     [SerializeField] string ip = "127.0.0.1";
@@ -61,7 +62,7 @@ public class PhoneClient : MonoBehaviour
     bool startMessaging = false;
 
     public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
-    public IClientSocket ClientSocket { get; private set; } = new TelepathyClientSocket(800);
+    public IClientSocket ClientSocket => client;
     
     private void Awake()
     {

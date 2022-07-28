@@ -127,7 +127,6 @@ public static class NetworkTransportLoop
 
     static void NetworkLateUpdate()
     {
-        Debug.Log($"NetworkLateUpdate {Time.time}");
         OnLateUpdate?.Invoke();
         foreach (var clientTransport in clients)
             clientTransport.Transport.ClientLateUpdate();

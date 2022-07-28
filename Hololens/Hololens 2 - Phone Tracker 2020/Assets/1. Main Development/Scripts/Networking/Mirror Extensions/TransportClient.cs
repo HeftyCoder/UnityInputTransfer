@@ -19,6 +19,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
         }
         public override void SendMessage(IMessage message, DeliveryMethod deliveryMethod)
         {
+            Debug.Log("sending messaage");
             var bytes = message.ToBytes();
             var segment = new ArraySegment<byte>(bytes);
             var channelId = GetChannelId(deliveryMethod);
@@ -26,11 +27,12 @@ public class TransportClient : BaseTransportSocket, IClientSocket
         }
     }
 
-    [SerializeField] public string ipToConnect;
+    [SerializeField] string ipToConnect = "localhost";
+
     private ConnectionStatus status;
     private BasePeer peer;
     private BaseClientSocket msgDispatcher; // bad naming
-    private Dictionary<short, IPacketHandler> handlers;
+    private Dictionary<short, IPacketHandler> handlers = new Dictionary<short, IPacketHandler>();
 
     public ConnectionStatus Status
     {
@@ -54,17 +56,8 @@ public class TransportClient : BaseTransportSocket, IClientSocket
 
     public IPeer Peer => Peer;
 
-    public event Action Connected
-    {
-        add => transport.OnClientConnected += value;
-        remove => transport.OnClientConnected -= value;
-    }
-
-    public event Action Disconnected
-    {
-        add => transport.OnClientDisconnected += value;
-        remove => transport.OnClientDisconnected -= value;
-    }
+    public event Action Connected;
+    public event Action Disconnected;
     public event Action<ConnectionStatus> StatusChanged;
 
     private void Awake()
@@ -77,17 +70,23 @@ public class TransportClient : BaseTransportSocket, IClientSocket
         {
             Status = ConnectionStatus.Connected;
             StatusChanged?.Invoke(Status);
+            Connected?.Invoke();
         }
         void handleDisconnect()
         {
             Status = ConnectionStatus.Disconnected;
             StatusChanged?.Invoke(Status);
+            Disconnected?.Invoke();
         }
-        transport.OnClientConnected += handleConnect;
-        transport.OnClientDisconnected += handleDisconnect;
+        transport.OnClientConnected = handleConnect;
+        transport.OnClientDisconnected = handleDisconnect;
+        
         peer = new TransportClientPeer(transport);
+        peer.MessageReceived += HandleMessage;
+
         msgDispatcher = new  BaseClientSocket();
         msgDispatcher.Peer = peer;
+
 
         void DataReceived(ArraySegment<byte> data, int channel)
         {
@@ -100,7 +99,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
 
             peer.HandleDataReceived(myData, 0);
         }
-        transport.OnClientDataReceived += DataReceived;
+        transport.OnClientDataReceived = DataReceived;
 
         NetworkTransportLoop.AddClient(this);
     }
@@ -109,22 +108,35 @@ public class TransportClient : BaseTransportSocket, IClientSocket
     {
         NetworkTransportLoop.RemoveClient(this);
     }
-    public IClientSocket Connect(string ip, int port, int timeoutMillis)
+
+    public IClientSocket Connect()
     {
         if (IsConnected)
             return this;
-        ipToConnect = ip;
-        transport.ClientConnect(ip);
+        transport.ClientConnect(EnsureIP(ipToConnect));
         return this;
     }
-
+    public IClientSocket Connect(int port) => Connect(ipToConnect, port);
+    public IClientSocket Connect(string ip, int port, int timeoutMillis)
+    {
+        //Do something here I guess
+        return Connect(ip, port);
+    }
     public IClientSocket Connect(string ip, int port)
     {
         if (IsConnected)
             return this;
-        ipToConnect = ip;
-        transport.ClientConnect(ip);
+        ipToConnect = EnsureIP(ip);
+        transport.SetPort(port);
+        transport.ClientConnect(ipToConnect);
         return this;
+    }
+    private string EnsureIP(string ip)
+    {
+        string result = ip;
+        if (ip == "localhost")
+            result = "127.0.0.1";
+        return result;
     }
 
     public void WaitConnection(Action<IClientSocket> connectionCallback, float timeoutSeconds)
@@ -178,6 +190,42 @@ public class TransportClient : BaseTransportSocket, IClientSocket
     }
 
     public void Disconnect() => transport.ClientDisconnect();
+
+
+    private void HandleMessage(IIncommingMessage message)
+    {
+        try
+        {
+            IPacketHandler handler;
+            handlers.TryGetValue(message.OpCode, out handler);
+
+            if (handler != null)
+                handler.Handle(message);
+            else if (message.IsExpectingResponse)
+            {
+                Logs.Error("Connection is missing a handler. OpCode: " + message.OpCode);
+                message.Respond(ResponseStatus.Error);
+            }
+        }
+        catch (Exception e)
+        {
+
+            Logs.Error("Failed to handle a message. OpCode: " + message.OpCode);
+            Logs.Error(e);
+
+            if (!message.IsExpectingResponse)
+                return;
+
+            try
+            {
+                message.Respond(ResponseStatus.Error);
+            }
+            catch (Exception exception)
+            {
+                Logs.Error(exception);
+            }
+        }
+    }
 
     public void SendMessage(short opCode) => msgDispatcher.SendMessage(opCode);
     public void SendMessage(short opCode, ISerializablePacket packet) => msgDispatcher.SendMessage(opCode);

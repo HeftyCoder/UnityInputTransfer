@@ -85,6 +85,7 @@ namespace Barebones.Networking
         private void SetUp()
         {
             peer = new TelepathyClientPeer(telepathyClient);
+            peer.MessageReceived += HandleMessage;
             Peer = peer;
         }
         public IClientSocket Connect(string ip, int port, int timeoutMillis)
@@ -171,6 +172,41 @@ namespace Barebones.Networking
                 return;
 
             _handlers.Remove(handler.OpCode);
+        }
+
+        private void HandleMessage(IIncommingMessage message)
+        {
+            try
+            {
+                IPacketHandler handler;
+                _handlers.TryGetValue(message.OpCode, out handler);
+
+                if (handler != null)
+                    handler.Handle(message);
+                else if (message.IsExpectingResponse)
+                {
+                    Logs.Error("Connection is missing a handler. OpCode: " + message.OpCode);
+                    message.Respond(ResponseStatus.Error);
+                }
+            }
+            catch (Exception e)
+            {
+
+                Logs.Error("Failed to handle a message. OpCode: " + message.OpCode);
+                Logs.Error(e);
+
+                if (!message.IsExpectingResponse)
+                    return;
+
+                try
+                {
+                    message.Respond(ResponseStatus.Error);
+                }
+                catch (Exception exception)
+                {
+                    Logs.Error(exception);
+                }
+            }
         }
         #endregion
     }

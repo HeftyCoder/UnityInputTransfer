@@ -506,6 +506,8 @@ GameObject:
   - component: {fileID: 140851843}
   - component: {fileID: 140851842}
   - component: {fileID: 140851844}
+  - component: {fileID: 140851845}
+  - component: {fileID: 140851846}
   m_Layer: 0
   m_Name: Hololens Phone Client
   m_TagString: Untagged
@@ -525,6 +527,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd92897d52e20f04c89e2f63ed60adf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  client: {fileID: 140851845}
   arucoMarkersLayout: {fileID: 1460825970}
   connectOnStart: 0
   ip: 127.0.0.1
@@ -570,6 +573,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ea7fbb3c406b58645a3ea600abf911d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &140851845
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140851841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: afc699c5a15898e418fb9de6cf00088c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transport: {fileID: 140851846}
+  ipToConnect: localhost
+--- !u!114 &140851846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140851841}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  DualMode: 0
+  NoDelay: 1
+  Interval: 10
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  NonAlloc: 1
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!1 &148200061
 GameObject:
   m_ObjectHideFlags: 0

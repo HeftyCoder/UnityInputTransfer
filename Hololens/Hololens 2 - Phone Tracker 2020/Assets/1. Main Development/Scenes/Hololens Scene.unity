@@ -1472,6 +1472,8 @@ GameObject:
   m_Component:
   - component: {fileID: 902870527}
   - component: {fileID: 902870528}
+  - component: {fileID: 902870529}
+  - component: {fileID: 902870526}
   m_Layer: 0
   m_Name: Hololens Phone Server
   m_TagString: Untagged
@@ -1479,6 +1481,31 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &902870526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902870525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Port: 7777
+  DualMode: 0
+  NoDelay: 1
+  Interval: 5
+  Timeout: 10000
+  FastResend: 2
+  CongestionWindow: 0
+  SendWindowSize: 4096
+  ReceiveWindowSize: 4096
+  NonAlloc: 1
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0
 --- !u!4 &902870527
 Transform:
   m_ObjectHideFlags: 0
@@ -1505,12 +1532,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d03ad4d0768d52e4e84293f7517b61c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetFramerate: 30
+  server: {fileID: 902870529}
+  targetFramerate: -1
   port: 5000
   onStart: 1
   delayThreshold: 0.05
   arucoTracker: {fileID: 1055322858}
   haveDevicesChanged: 0
+--- !u!114 &902870529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 902870525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660cf35535e28484d80eccbaf6a0a7ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transport: {fileID: 902870526}
 --- !u!1 &1055322856
 GameObject:
   m_ObjectHideFlags: 0

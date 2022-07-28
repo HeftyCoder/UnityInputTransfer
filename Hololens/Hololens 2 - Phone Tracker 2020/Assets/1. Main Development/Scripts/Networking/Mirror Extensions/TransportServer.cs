@@ -49,7 +49,7 @@ public class TransportServer : BaseTransportSocket, IServerSocket
             peers.Add(id, peer);
             Connected?.Invoke(peer);
         }
-        transport.OnServerConnected += handleConnect;
+        transport.OnServerConnected = handleConnect;
 
         void handleDisconnect(int id)
         {
@@ -57,7 +57,7 @@ public class TransportServer : BaseTransportSocket, IServerSocket
             peers.Remove(id);
             Disconnected?.Invoke(peer);
         }
-        transport.OnServerDisconnected += handleDisconnect;
+        transport.OnServerDisconnected = handleDisconnect;
 
         void handleData(int id, ArraySegment<byte> data, int channel)
         {
@@ -72,7 +72,7 @@ public class TransportServer : BaseTransportSocket, IServerSocket
             peer.HandleDataReceived(myData, 0);
         }
 
-        transport.OnServerDataReceived += handleData;
+        transport.OnServerDataReceived = handleData;
         NetworkTransportLoop.AddServer(this);
     }
     private void OnDestroy()
@@ -80,8 +80,13 @@ public class TransportServer : BaseTransportSocket, IServerSocket
         NetworkTransportLoop.RemoveServer(this);
     }
 
+    public void Listen()
+    {
+        transport.ServerStart();
+    }
     public void Listen(int port)
     {
+        transport.SetPort(port);
         transport.ServerStart();
     }
 

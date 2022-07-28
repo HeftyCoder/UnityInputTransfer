@@ -4,7 +4,7 @@ using Mirror;
 using UnityEngine;
 using Barebones.Networking;
 
-[DisallowMultipleComponent, RequireComponent(typeof(Transport))]
+[DisallowMultipleComponent, RequireComponent(typeof(Transport), m_Type0 = typeof(kcp2k.KcpTransport))]
 public class BaseTransportSocket : MonoBehaviour
 {
     public static int GetChannelId(DeliveryMethod method)
