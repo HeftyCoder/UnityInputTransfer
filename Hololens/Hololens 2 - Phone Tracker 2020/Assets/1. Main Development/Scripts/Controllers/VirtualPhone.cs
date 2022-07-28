@@ -26,20 +26,6 @@ public class VirtualPhone : MonoBehaviour
 
     private InputAction phonePosition, phoneRotation;
 
-    [ContextMenu("Test a matrix rotation")]
-    private void TestMatrixRotation()
-    {
-#if UNITY_EDITOR
-        Undo.RecordObject(transform, "Undo Transformation");
-#endif
-        var m = transform.worldToLocalMatrix;
-        m = m * Matrix4x4.Rotate(Quaternion.Euler(0, 180, 0)) * m.inverse;
-        var pos = m.GetColumn(3);
-        var rot = m.rotation;
-
-        transform.localPosition = pos;
-        transform.localRotation = rot;
-    }
     [ContextMenu("Test Calculate RT")]
     private void TestInEditor()
     {
@@ -104,5 +90,6 @@ public class VirtualPhone : MonoBehaviour
 
         status.text = rot.eulerAngles.ToString();
         transform.SetPositionAndRotation(pos, rot);
+
     }
 }

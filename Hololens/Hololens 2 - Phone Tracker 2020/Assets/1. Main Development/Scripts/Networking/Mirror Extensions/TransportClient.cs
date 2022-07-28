@@ -30,7 +30,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
 
     private ConnectionStatus status;
     private BasePeer peer;
-    private BaseClientSocket msgDispatcher; // bad naming
+    private BaseClientSocket msgDispatcher; // bad naming for the class
     private Dictionary<short, IPacketHandler> handlers = new Dictionary<short, IPacketHandler>();
 
     public ConnectionStatus Status
