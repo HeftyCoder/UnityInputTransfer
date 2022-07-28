@@ -19,7 +19,6 @@ public class TransportClient : BaseTransportSocket, IClientSocket
         }
         public override void SendMessage(IMessage message, DeliveryMethod deliveryMethod)
         {
-            Debug.Log("sending messaage");
             var bytes = message.ToBytes();
             var segment = new ArraySegment<byte>(bytes);
             var channelId = GetChannelId(deliveryMethod);
@@ -228,7 +227,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
     }
 
     public void SendMessage(short opCode) => msgDispatcher.SendMessage(opCode);
-    public void SendMessage(short opCode, ISerializablePacket packet) => msgDispatcher.SendMessage(opCode);
+    public void SendMessage(short opCode, ISerializablePacket packet) => msgDispatcher.SendMessage(opCode, packet);
     public void SendMessage(short opCode, ISerializablePacket packet, DeliveryMethod method) => msgDispatcher.SendMessage(opCode, packet, method);
     public void SendMessage(short opCode, ISerializablePacket packet, ResponseCallback responseCallback) => msgDispatcher.SendMessage(opCode, packet, responseCallback);
     public void SendMessage(short opCode, ISerializablePacket packet, ResponseCallback responseCallback, int timeoutSecs) =>
@@ -242,7 +241,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
     public void SendMessage(short opCode, string data, ResponseCallback responseCallback) =>
         msgDispatcher.SendMessage(opCode, data, responseCallback);
     public void SendMessage(short opCode, string data, ResponseCallback responseCallback, int timeoutSecs) =>
-        msgDispatcher.SendMessage(opCode, data, responseCallback);
+        msgDispatcher.SendMessage(opCode, data, responseCallback, timeoutSecs);
     public void SendMessage(short opCode, int data) => msgDispatcher.SendMessage(opCode, data);
     public void SendMessage(short opCode, int data, ResponseCallback responseCallback) =>
         msgDispatcher.SendMessage(opCode, data, responseCallback);

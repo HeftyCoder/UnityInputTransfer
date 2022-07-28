@@ -1534,7 +1534,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   server: {fileID: 902870529}
   targetFramerate: -1
-  port: 5000
+  port: 7777
   onStart: 1
   delayThreshold: 0.05
   arucoTracker: {fileID: 1055322858}
