@@ -16,7 +16,7 @@ public class FarPointerProvider : MonoBehaviour
             foreach (var pointer in inputSource.Pointers)
             {
                 Debug.Log(pointerName);
-                if (pointer.PointerName == pointerName)
+                if (pointer.PointerName == pointerName && pointer.IsInteractionEnabled && pointer.IsActive)
                     return pointer;
             }
         }

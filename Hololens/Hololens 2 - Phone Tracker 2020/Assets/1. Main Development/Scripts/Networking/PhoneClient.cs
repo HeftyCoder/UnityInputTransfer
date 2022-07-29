@@ -66,6 +66,7 @@ public class PhoneClient : MonoBehaviour
     
     private void Awake()
     {
+        Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = targetFrameRate;
         if (trackedMotion != null)
         {
