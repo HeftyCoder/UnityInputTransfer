@@ -579,6 +579,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4243e8da8938f6843b6c39649793c27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  red: {fileID: 2100000, guid: 451c5da2c5056496297cffba02216286, type: 2}
+  green: {fileID: 2100000, guid: bbe2c7293af197640a2b40018e79b9a6, type: 2}
 --- !u!65 &463062059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -641,6 +643,50 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 463062056}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &466122947
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 466122948}
+  - component: {fileID: 466122949}
+  m_Layer: 0
+  m_Name: Pointer Provider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &466122948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466122947}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 902870527}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &466122949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 466122947}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60e07d66d1a78e94dbd90872491f8661, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pointerName: Gaze Pointer
 --- !u!1 &572449457
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1059,7 @@ Transform:
   - {fileID: 47677420}
   - {fileID: 1055322859}
   - {fileID: 1123376132}
+  - {fileID: 466122948}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1253,7 +1300,19 @@ MonoBehaviour:
   identifier: {fileID: 11400000, guid: 287754e67fb22d44f96a5a4330cd1441, type: 2}
   clickedSetInEditor:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 466122949}
+        m_TargetAssemblyTypeName: FarPointerProvider, Assembly-CSharp
+        m_MethodName: OnClickEvent
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1177121996
 GameObject:
   m_ObjectHideFlags: 0

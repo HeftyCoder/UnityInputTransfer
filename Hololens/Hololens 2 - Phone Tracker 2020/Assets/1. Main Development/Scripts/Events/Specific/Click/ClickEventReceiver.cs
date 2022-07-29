@@ -8,7 +8,7 @@ public class ClickEventReceiver : MonoBehaviour
     [SerializeField] EventManager manager;
     [SerializeField] EventIdentifier identifier;
 
-    [SerializeField] UnityEvent clickedSetInEditor;
+    [SerializeField] UnityEvent<int> clickedSetInEditor;
     public event Action<ClickEvent> clicked;
     private void Awake()
     {
@@ -17,10 +17,9 @@ public class ClickEventReceiver : MonoBehaviour
 
     private void OnClickArrived(IIncommingMessage message)
     {
-        Debug.Log("Click Arrived!!");
         var click = new ClickEvent();
         message.Deserialize(click);
         clicked?.Invoke(click);
-        clickedSetInEditor?.Invoke();
+        clickedSetInEditor?.Invoke(click.clickCount);
     }
 }
