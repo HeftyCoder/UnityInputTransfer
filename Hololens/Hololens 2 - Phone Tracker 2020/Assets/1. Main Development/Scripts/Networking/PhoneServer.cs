@@ -21,6 +21,7 @@ public class PhoneServer : MonoBehaviour
     private bool listening = false;
     private int count = 0;
     private float timeSinceLastMessage = 0;
+    private PhoneClient localClient;
     public IServerSocket ServerSocket => server;
 
     private InputActions inputActions;
@@ -30,11 +31,7 @@ public class PhoneServer : MonoBehaviour
     public InputActions InputActions => inputActions;
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
     public bool haveDevicesChanged = false;
-
-    private Dictionary<short, Action<IIncommingMessage>> operations = new Dictionary<short, Action<IIncommingMessage>>();
-
-    private PhoneClient localClient;
-
+    public Dictionary<short, Action<IIncommingMessage>> Operations { get; private set; } = new Dictionary<short, Action<IIncommingMessage>>();
     private void Awake()
     {
         inputActions = new InputActions();
@@ -72,8 +69,8 @@ public class PhoneServer : MonoBehaviour
     }
     private void InitializeServer()
     {
-        operations.Add((short)Operations.Subscribe, OnSubscribe);
-        operations.Add((short)Operations.StateData, OnPhoneData);
+        Operations.Add((short)global::Operations.Subscribe, this.OnSubscribe);
+        Operations.Add((short)global::Operations.StateData, this.OnPhoneData);
 
         ServerSocket.Connected += (peer) =>
         {
@@ -88,7 +85,7 @@ public class PhoneServer : MonoBehaviour
                 //    Debug.Log($"Message Processing took: {timeSinceLastMessage}");
                 timeSinceLastMessage = 0;
                 var opcode = message.OpCode;
-                operations[opcode].Invoke(message);
+                Operations[opcode].Invoke(message);
             };
         };
 

@@ -10,26 +10,6 @@ public class SimpleFirebaseClient : MonoBehaviour
     private const string projectId = "hololens-phone-controller";
     private const string endPoint = "firebaseio.com";
 
-    [SerializeField] TMPro.TMP_Text tmp;
-
-    [ContextMenu("Test get")]
-    private void TestGet()
-    {
-        Get<Person>("george", (person, result) =>
-        {
-            if (result)
-                tmp.text = person.age.ToString();
-        });
-    }
-    [ContextMenu("Test put")]
-    private void TestPut()
-    {
-        var person = new Person { name = "Madafak", age = 3 };
-        Save("george", person, (data, result) =>
-        {
-            tmp.text = data;
-        });
-    }
     public void Get<T>(string path, Action<T, bool> onResult)
     {
         Get(path, (data, result) =>
