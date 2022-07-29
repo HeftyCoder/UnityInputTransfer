@@ -7,7 +7,6 @@ using UnityEditor;
 #endif
 public class VirtualPhone : MonoBehaviour
 {
-    [SerializeField] TMPro.TMP_Text status;
     [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] PhoneServer phoneServer;
 
@@ -88,7 +87,6 @@ public class VirtualPhone : MonoBehaviour
         var rot = R * rotVio;
         var pos = T + R * posVio;
 
-        status.text = rot.eulerAngles.ToString();
         transform.SetPositionAndRotation(pos, rot);
 
     }

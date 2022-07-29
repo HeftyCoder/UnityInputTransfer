@@ -16,7 +16,7 @@ namespace Barebones.MasterServer
             _db = database;
 
             _profiles = _db.GetCollection<ProfileDataLdb>("profiles");
-            _profiles.EnsureIndex(a => a.Username, new IndexOptions() { Unique = true });
+            //_profiles.EnsureIndex(a => a.Username, new IndexOptions() { Unique = true });
         }
 
         /// <summary>

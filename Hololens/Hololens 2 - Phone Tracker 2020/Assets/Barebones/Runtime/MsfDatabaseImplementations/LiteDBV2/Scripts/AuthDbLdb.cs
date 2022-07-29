@@ -18,14 +18,14 @@ namespace Barebones.MasterServer
             _db = database;
 
             _accounts = _db.GetCollection<AccountDataLdb>("accounts");
-            _accounts.EnsureIndex(a => a.Username, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true});
-            _accounts.EnsureIndex(a => a.Email, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true });
+            //_accounts.EnsureIndex(a => a.Username, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true});
+            //_accounts.EnsureIndex(a => a.Email, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true });
 
             _resetCodes = _db.GetCollection<PasswordResetData>("resets");
-            _resetCodes.EnsureIndex(a => a.Email, new IndexOptions() {Unique = true, IgnoreCase = true, TrimWhitespace = true});
+            //_resetCodes.EnsureIndex(a => a.Email, new IndexOptions() {Unique = true, IgnoreCase = true, TrimWhitespace = true});
 
             _emailConfirmations = _db.GetCollection<EmailConfirmationData>("emailConf");
-            _emailConfirmations.EnsureIndex(a => a.Email, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true });
+            //_emailConfirmations.EnsureIndex(a => a.Email, new IndexOptions() { Unique = true, IgnoreCase = true, TrimWhitespace = true });
         }
 
         public IAccountData CreateAccountObject()

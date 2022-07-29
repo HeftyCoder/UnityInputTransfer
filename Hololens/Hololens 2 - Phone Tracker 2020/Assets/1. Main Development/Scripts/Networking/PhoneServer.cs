@@ -16,6 +16,7 @@ public class PhoneServer : MonoBehaviour
     [SerializeField] bool onStart = false;
     [SerializeField] float delayThreshold = 1f;
     [SerializeField] ArucoTracker arucoTracker;
+    [SerializeField] bool enableArucoTrackerOnConnection = false;
 
     private bool listening = false;
     private int count = 0;
@@ -117,9 +118,11 @@ public class PhoneServer : MonoBehaviour
     {
         var subData = new SubscriptionData();
         message.Deserialize(subData);
-
+ 
         arucoTracker.boardPositions.arucoLayout = subData.arucoLayout;
-        arucoTracker.enabled = true;
+        
+        if (enableArucoTrackerOnConnection)
+            arucoTracker.enabled = true;
 
         var peer = message.Peer;
         foreach (var desc in subData.devices)
