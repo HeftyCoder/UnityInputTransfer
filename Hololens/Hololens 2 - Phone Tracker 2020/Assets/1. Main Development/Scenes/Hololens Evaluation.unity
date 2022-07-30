@@ -3048,6 +3048,11 @@ MonoBehaviour:
   basicTestInformation: {fileID: 753882889}
   targetsProvider: {fileID: 564387570}
   path: testers
+  currentEvaluation:
+    selectedCount: 0
+    targetLookUpTimes:
+    - times: []
+    targetSelectedTimes: []
 --- !u!1 &915250837
 GameObject:
   m_ObjectHideFlags: 0
@@ -3270,10 +3275,7 @@ MonoBehaviour:
   countBeforeStart: 3
   endText: You have finished your test!
   countBeforeEnd: 3
-  demoResults:
-    currentTime: 0
-    selectedCount: 0
-    targetSelectedTimes: []
+  testing: 0
 --- !u!1 &1055322856
 GameObject:
   m_ObjectHideFlags: 0

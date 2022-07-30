@@ -9,15 +9,16 @@ namespace UOPHololens.Evaluation
         [NonSerialized] public string username;
         
         public int age;
-        public List<EvaluationResults> targetBasedEvaluation = new List<EvaluationResults>();
-        public List<EvaluationResults> timeBasedEvaluation = new List<EvaluationResults>();
+        public List<EvaluationResults> targetBasedEvaluations = new List<EvaluationResults>();
+        public List<EvaluationResults> timeBasedEvaluations = new List<EvaluationResults>();
     }
 
     [Serializable]
     public class EvaluationResults
     {
-        public float currentTime = 0;
+        [NonSerialized] public float currentTime = 0;
         private LookUpTimes currentLookUpTimesList;
+
         public int selectedCount = 0;
         public List<LookUpTimes> targetLookUpTimes = new List<LookUpTimes>();
         public List<float> targetSelectedTimes = new List<float>();

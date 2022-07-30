@@ -8,14 +8,15 @@ namespace UOPHololens.Evaluation
     public class DemoTester : BaseTester
     {
         [SerializeField] bool testing = false;
-        [SerializeField] EvaluationResults demoResults;
         public override IEnumerator StartTest()
         {
             var targetsProvider = evaluator.targetsProvider;
             var player = evaluator.player;
-            demoResults = new EvaluationResults();
+            var demoResults = new EvaluationResults();
+            evaluator.currentEvaluation = demoResults;
 
-            targetsProvider.EnableTargets(true);
+            targetsProvider.SetActiveStateTargets(true);
+            targetsProvider.EnableTargets(false);
 
             void onClick(SelectableTarget target)
             {
@@ -32,6 +33,7 @@ namespace UOPHololens.Evaluation
             testing = true;
             yield return beginTest();
 
+            targetsProvider.PickNextTarget();
             while (testing)
             {
                 demoResults.currentTime += Time.deltaTime;
@@ -43,6 +45,9 @@ namespace UOPHololens.Evaluation
             targetsProvider.RemoveOnFocusExit(onFocusExit);
 
             targetsProvider.EnableTargets(false);
+            targetsProvider.SetActiveStateTargets(false);
+
+            evaluator.Save();
         }
     }
 }

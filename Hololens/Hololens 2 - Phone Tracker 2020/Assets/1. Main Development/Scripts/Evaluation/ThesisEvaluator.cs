@@ -21,10 +21,11 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] internal string path = "testers";
 
-        internal EvaluationPlayer player;
-        
+        public EvaluationResults currentEvaluation;
 
-        private string username;
+        internal EvaluationPlayer player = new EvaluationPlayer();
+        
+        private string username = "george";
         State state = State.Idle;
 
         private void Awake()
@@ -70,14 +71,15 @@ namespace UOPHololens.Evaluation
                 return;
             if (int.TryParse(ageField.text, out int age));
                 player.age = age;
+
+            player.targetBasedEvaluations.Add(currentEvaluation);
             client.Save(getPath(username), player, (data, valid) =>
             {
-                Debug.Log(valid);
                 onResult?.Invoke(data, valid);
             });
         }
         private bool Protect() => state != State.Idle || !enabled || evaluationTest == null;
-        private string getPath(string username) => $"{path}/{username}.json";
+        private string getPath(string username) => $"{path}/{username}";
     }
 }
 
