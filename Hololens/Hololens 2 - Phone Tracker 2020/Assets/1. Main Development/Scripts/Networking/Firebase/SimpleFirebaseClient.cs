@@ -52,9 +52,4 @@ public class SimpleFirebaseClient : MonoBehaviour
 
     private string getPath(string innerPath) => $"{firebaseUrl}{innerPath}.json";
 
-    private class Person
-    {
-        public string name;
-        public int age;
-    }
 }

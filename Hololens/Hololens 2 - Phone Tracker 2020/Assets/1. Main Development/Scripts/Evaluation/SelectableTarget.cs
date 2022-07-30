@@ -20,8 +20,6 @@ namespace UOPHololens.Evaluation
         Vector3 ogScale;
         Sequence scaleSequence;
         Renderer rend;
-
-        public event Action<GameObject> onTargeted;
         private void Awake()
         {
             ogScale = transform.localScale;
