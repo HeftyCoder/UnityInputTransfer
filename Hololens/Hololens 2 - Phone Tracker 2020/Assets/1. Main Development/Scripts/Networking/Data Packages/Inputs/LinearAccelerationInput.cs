@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class LinearAccelerationInput : Vector3Input
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var la = (LinearAccelerationSensor)device;
         value = la.acceleration.ReadValue();

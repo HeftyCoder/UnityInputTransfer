@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class AccelerometerInput : Vector3Input
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var acc = (Accelerometer)device;
         value = acc.acceleration.ReadValue();

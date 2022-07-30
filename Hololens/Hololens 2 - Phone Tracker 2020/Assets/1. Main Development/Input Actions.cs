@@ -89,6 +89,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": true
+                },
+                {
+                    ""name"": ""Clicked"",
+                    ""type"": ""Button"",
+                    ""id"": ""ff26e90a-de68-45fe-89fa-42fb1e1c664c"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -168,6 +177,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""PhoneRotation"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""50b94093-076b-49ef-bef4-e6ccb415298a"",
+                    ""path"": ""<Touchscreen>/touch0/tap"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Clicked"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -195,6 +215,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Phone_AngVelocity = m_Phone.FindAction("AngVelocity", throwIfNotFound: true);
         m_Phone_PhonePosition = m_Phone.FindAction("PhonePosition", throwIfNotFound: true);
         m_Phone_PhoneRotation = m_Phone.FindAction("PhoneRotation", throwIfNotFound: true);
+        m_Phone_Clicked = m_Phone.FindAction("Clicked", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -261,6 +282,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Phone_AngVelocity;
     private readonly InputAction m_Phone_PhonePosition;
     private readonly InputAction m_Phone_PhoneRotation;
+    private readonly InputAction m_Phone_Clicked;
     public struct PhoneActions
     {
         private @InputActions m_Wrapper;
@@ -272,6 +294,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @AngVelocity => m_Wrapper.m_Phone_AngVelocity;
         public InputAction @PhonePosition => m_Wrapper.m_Phone_PhonePosition;
         public InputAction @PhoneRotation => m_Wrapper.m_Phone_PhoneRotation;
+        public InputAction @Clicked => m_Wrapper.m_Phone_Clicked;
         public InputActionMap Get() { return m_Wrapper.m_Phone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -302,6 +325,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @PhoneRotation.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
                 @PhoneRotation.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
                 @PhoneRotation.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnPhoneRotation;
+                @Clicked.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
+                @Clicked.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
+                @Clicked.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
             }
             m_Wrapper.m_PhoneActionsCallbackInterface = instance;
             if (instance != null)
@@ -327,6 +353,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @PhoneRotation.started += instance.OnPhoneRotation;
                 @PhoneRotation.performed += instance.OnPhoneRotation;
                 @PhoneRotation.canceled += instance.OnPhoneRotation;
+                @Clicked.started += instance.OnClicked;
+                @Clicked.performed += instance.OnClicked;
+                @Clicked.canceled += instance.OnClicked;
             }
         }
     }
@@ -349,5 +378,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnAngVelocity(InputAction.CallbackContext context);
         void OnPhonePosition(InputAction.CallbackContext context);
         void OnPhoneRotation(InputAction.CallbackContext context);
+        void OnClicked(InputAction.CallbackContext context);
     }
 }

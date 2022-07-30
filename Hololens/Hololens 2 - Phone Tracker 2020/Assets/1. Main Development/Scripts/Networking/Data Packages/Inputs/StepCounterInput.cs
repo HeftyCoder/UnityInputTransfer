@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class StepCounterInput : IntegerInput
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var sc = (StepCounter)device;
         value = sc.stepCounter.ReadValue();

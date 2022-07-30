@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class AmbientTemperatureInput : SingleInput
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var at = (AmbientTemperatureSensor)device;
         value = at.ambientTemperature.ReadValue();

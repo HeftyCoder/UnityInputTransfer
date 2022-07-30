@@ -130,7 +130,7 @@ public class PhoneServer : MonoBehaviour
         RefreshDevices();
     }
     private void OnPhoneData(IIncommingMessage message)
-    {;
+    {
         var phoneData = new PhoneData();
         message.Deserialize(phoneData);
         var peer = message.Peer;
@@ -169,6 +169,14 @@ public class PhoneServer : MonoBehaviour
         }
         if (haveDevicesChanged)
             RefreshDevices();
+
+        foreach (var ev in phoneData.events)
+        {
+            var message = MessageHelper.FromBytes(ev.bytes, 0, peer);
+            var opcode = message.OpCode;
+            if (Operations.TryGetValue(opcode, out var result))
+                result?.Invoke(message);
+        }
     }
     #endregion
 

@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class ProximityInput : SingleInput
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var pr = (ProximitySensor)device;
         value = pr.distance.ReadValue();

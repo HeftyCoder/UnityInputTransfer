@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.LowLevel;
 
 public static class InputFactory
 {
@@ -37,12 +38,12 @@ public static class InputFactory
             return new NoInput();
         return creator.Invoke();
     }
-    public static BaseInput CreateInput(InputDevice device, string layout)
+    public static BaseInput CreateInput(InputDevice device, string layout, InputEventPtr inputPtr)
     {
         var result = CreateInput(layout);
         if (result == null)
             return null;
-        result.SetUp(device);
+        result.SetUp(device, inputPtr);
         return result;
     }
 }

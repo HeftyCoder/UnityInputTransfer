@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class LightInput : SingleInput
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var l = (LightSensor)device;
         value = l.lightLevel.ReadValue();

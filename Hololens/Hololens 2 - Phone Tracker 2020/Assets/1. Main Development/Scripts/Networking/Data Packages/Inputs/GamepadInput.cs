@@ -6,7 +6,7 @@ public class GamepadInput : BaseInput
 {
     public GamepadState state = new GamepadState();
 
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var gp = (Gamepad)device;
         gp.CopyState(out state);

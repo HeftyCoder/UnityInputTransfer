@@ -6,7 +6,6 @@ using Barebones.Networking;
 public class ClientEventManager : EventManager
 {
     [SerializeField] PhoneClient client;
-
     public override void SetEventHandler(EventIdentifier e, Action<IIncommingMessage> onEventRaised) =>
         client.ClientSocket.SetHandler(e.Id, CreateHandler(onEventRaised));
     public override void RemoveEventHandler(EventIdentifier e)
@@ -19,8 +18,13 @@ public class ClientEventManager : EventManager
         return handler;
     }
 
-    public void SendEvent(EventIdentifier e, ISerializablePacket packet)
+    public void SendImmediate(EventIdentifier e, ISerializablePacket packet, DeliveryMethod deliveryMethod = DeliveryMethod.ReliableSequenced)
     {
-        client.ClientSocket.SendMessage(e.Id, packet);
+        client.ClientSocket.SendMessage(e.Id, packet, deliveryMethod);
+    }
+    public void Send(EventIdentifier e, ISerializablePacket packet)
+    {
+        var ev = new EventPacket(e.Id, packet);
+        client.Events.Add(ev);
     }
 }

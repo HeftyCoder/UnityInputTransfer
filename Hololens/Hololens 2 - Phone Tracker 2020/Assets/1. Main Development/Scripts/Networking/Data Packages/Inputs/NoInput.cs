@@ -1,6 +1,6 @@
 ﻿using Barebones.Networking;
 using UnityEngine.InputSystem;
-
+using UnityEngine.InputSystem.LowLevel;
 public class NoInput : BaseInput
 {
     public override void FromBinaryReader(EndianBinaryReader reader)
@@ -11,7 +11,7 @@ public class NoInput : BaseInput
     {
     }
 
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
     }
 

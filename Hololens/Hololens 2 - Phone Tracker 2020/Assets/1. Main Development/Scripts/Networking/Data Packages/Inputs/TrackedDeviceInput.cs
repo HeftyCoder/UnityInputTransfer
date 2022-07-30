@@ -17,7 +17,7 @@ public class TrackedDeviceInput : BaseInput
         this.position = position;
         this.rotation = rotation;
     }
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var tr = (TrackedDevice)device;
         position = tr.devicePosition.ReadValue();

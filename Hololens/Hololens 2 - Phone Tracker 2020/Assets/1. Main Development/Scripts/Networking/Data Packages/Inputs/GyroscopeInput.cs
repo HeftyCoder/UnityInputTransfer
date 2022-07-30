@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class GyroscopeInput : Vector3Input
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var gr = (Gyroscope)device;
         value = gr.angularVelocity.ReadValue();

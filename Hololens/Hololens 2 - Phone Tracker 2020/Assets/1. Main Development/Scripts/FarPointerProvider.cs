@@ -7,7 +7,7 @@ using Microsoft.MixedReality.Toolkit;
 public class FarPointerProvider : MonoBehaviour
 {
     [SerializeField] string pointerName;
-    [ContextMenu("test")]
+    float timeSinceLastClick = 0;
     
     public IMixedRealityPointer GetPointer()
     {
@@ -15,7 +15,6 @@ public class FarPointerProvider : MonoBehaviour
         {
             foreach (var pointer in inputSource.Pointers)
             {
-                Debug.Log(pointerName);
                 if (pointer.PointerName == pointerName && pointer.IsInteractionEnabled && pointer.IsActive)
                     return pointer;
             }
@@ -24,6 +23,8 @@ public class FarPointerProvider : MonoBehaviour
     }
     public void OnClickEvent()
     {
+        Debug.Log(Time.time - timeSinceLastClick);
+        timeSinceLastClick = Time.time;
         var pointer = GetPointer();
         if (pointer == null)
             return;

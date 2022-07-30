@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class HumidityInput : SingleInput
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var h = (HumiditySensor)device;
         value = h.relativeHumidity.ReadValue();

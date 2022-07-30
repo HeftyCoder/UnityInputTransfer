@@ -4,7 +4,7 @@ using UnityEngine.InputSystem.LowLevel;
 
 public class MagneticFieldInput : Vector3Input
 {
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var m = (MagneticFieldSensor)device;
         value = m.magneticField.ReadValue();

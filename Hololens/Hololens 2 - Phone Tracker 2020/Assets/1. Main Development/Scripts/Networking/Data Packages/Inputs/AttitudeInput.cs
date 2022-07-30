@@ -9,7 +9,7 @@ public class AttitudeInput : BaseInput
 {
     public Quaternion value;
 
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         var att = (AttitudeSensor)device;
         value = att.attitude.ReadValue();

@@ -9,15 +9,21 @@ public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMix
 {
     [SerializeField] float scaleAmount = 1.5f, scaleTime = 0.2f;
     [SerializeField] UnityEvent onSelected, onFocusEnter, onFocusExit;
+    [SerializeField] PhoneServer server;
     Vector3 ogScale;
     Sequence scaleSequence;
 
     private void Awake()
     {
         ogScale = transform.localScale;
+        server.InputActions.Phone.Clicked.performed += ctx => OnClick();
     }
     #region Pointer
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
+    {
+        OnClick();
+    }
+    private void OnClick()
     {
         if (scaleSequence != null)
             scaleSequence.Complete();
@@ -58,4 +64,5 @@ public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMix
         onFocusExit?.Invoke();
     }
     #endregion
+
 }

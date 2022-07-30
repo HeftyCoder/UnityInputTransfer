@@ -31,6 +31,7 @@ public class PhoneClient : MonoBehaviour
     //Care not to use duplicates above
     private Dictionary<string, DeviceDescription> layoutToDescription = new Dictionary<string, DeviceDescription>();
     private Dictionary<string, InputData> gatheredData = new Dictionary<string, InputData>();
+    
     IEnumerable<DeviceDescription> internalDeviceDescriptionQuery
     {
         get
@@ -61,6 +62,7 @@ public class PhoneClient : MonoBehaviour
     PhoneServer localServer;
     bool startMessaging = false;
 
+    public List<EventPacket> Events { get; private set; } = new List<EventPacket>();
     public IEnumerable<DeviceDescription> DeviceDescriptions => internalDeviceDescriptionQuery;
     public IClientSocket ClientSocket => client;
     
@@ -131,9 +133,9 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
-        if (gatheredData.Count != 0 || trackedMotion != null)
+        if (Events.Count != 0 || gatheredData.Count != 0 || trackedMotion != null)
         {
-            PhoneData data = new PhoneData(gatheredData.Values);
+            PhoneData data = new PhoneData(gatheredData.Values, Events);
             if (trackedMotion != null)
             {
                 var motionInput = new InputData(trackedDeviceDescription);
@@ -146,6 +148,7 @@ public class PhoneClient : MonoBehaviour
 
             ClientSocket.SendMessage((short)Operations.StateData, data);
             gatheredData.Clear();
+            Events.Clear();
         }
     }
     private void OnDestroy()
@@ -202,7 +205,7 @@ public class PhoneClient : MonoBehaviour
             return;
 
         var data = GetInputData(layout);
-        var inputData = InputFactory.CreateInput(device, layout);
+        var inputData = InputFactory.CreateInput(device, layout, ptr);
         data.inputData = inputData;
     }
 

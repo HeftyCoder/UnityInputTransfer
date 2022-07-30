@@ -5,7 +5,7 @@ using UnityEngine.InputSystem.LowLevel;
 public class KeyboardInput : BaseInput
 {
     public KeyboardState keyboardState;
-    public override void SetUp(InputDevice device)
+    public override void SetUp(InputDevice device, InputEventPtr ptr)
     {
         device.CopyState(out keyboardState);
     }

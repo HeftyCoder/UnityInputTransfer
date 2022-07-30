@@ -628,6 +628,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+  server: {fileID: 902870528}
 --- !u!65 &463062059
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -877,7 +878,7 @@ MonoBehaviour:
   targetFXColor: {r: 1, g: 1, b: 1, a: 1}
   targetFXCenter: {fileID: 0}
   targetFXRotationSpeed: 50
-  targetFXInitialScale: 4
+  targetFXInitialScale: 1.9
   targetFXEndScale: 1.5
   targetFXScaleToRenderBounds: 1
   targetFXAlignToGround: 0
@@ -1306,12 +1307,12 @@ MonoBehaviour:
   Port: 7777
   DualMode: 0
   NoDelay: 1
-  Interval: 5
+  Interval: 0
   Timeout: 10000
   FastResend: 2
   CongestionWindow: 0
-  SendWindowSize: 4096
-  ReceiveWindowSize: 4096
+  SendWindowSize: 2048
+  ReceiveWindowSize: 2048
   NonAlloc: 1
   debugLog: 0
   statisticsGUI: 0
@@ -1348,7 +1349,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   server: {fileID: 902870529}
   targetFramerate: -1
-  port: 7777
+  port: 7778
   onStart: 1
   delayThreshold: 0.05
   arucoTracker: {fileID: 1055322858}

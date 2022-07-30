@@ -535,7 +535,9 @@ MonoBehaviour:
   port: 5000
   targetFrameRate: -1
   sensorsToConnect: []
-  devicesToConnect: []
+  devicesToConnect:
+  - device: <Touchscreen>
+    customName: 
   trackedMotion: {fileID: 0}
   deviceName: Tracked Phone Controller
 --- !u!4 &140851843
@@ -593,12 +595,12 @@ MonoBehaviour:
   Port: 7777
   DualMode: 0
   NoDelay: 1
-  Interval: 5
+  Interval: 0
   Timeout: 10000
   FastResend: 2
   CongestionWindow: 0
-  SendWindowSize: 4096
-  ReceiveWindowSize: 4096
+  SendWindowSize: 2048
+  ReceiveWindowSize: 2048
   NonAlloc: 1
   debugLog: 0
   statisticsGUI: 0
@@ -2079,6 +2081,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   identifier: {fileID: 11400000, guid: 287754e67fb22d44f96a5a4330cd1441, type: 2}
   eventManager: {fileID: 140851847}
+  deliveryMethod: 0
 --- !u!114 &581364302
 MonoBehaviour:
   m_ObjectHideFlags: 0
