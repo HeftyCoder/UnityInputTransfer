@@ -7,8 +7,8 @@ using System;
 public class SimpleFirebaseClient : MonoBehaviour
 {
     private const string myUrl = "https://hololens-phone-controller-default-rtdb.europe-west1.firebasedatabase.app/";
-    private const string projectId = "hololens-phone-controller";
-    private const string endPoint = "firebaseio.com";
+
+    [SerializeField] string firebaseUrl;
 
     public void Get<T>(string path, Action<T, bool> onResult)
     {
@@ -50,7 +50,7 @@ public class SimpleFirebaseClient : MonoBehaviour
         StartCoroutine(save());
     }
 
-    private string getPath(string innerPath) => $"{myUrl}{innerPath}.json";
+    private string getPath(string innerPath) => $"{firebaseUrl}{innerPath}.json";
 
     private class Person
     {
