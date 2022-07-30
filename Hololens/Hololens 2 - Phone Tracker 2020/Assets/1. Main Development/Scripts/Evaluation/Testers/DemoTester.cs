@@ -5,10 +5,10 @@ using UnityEngine;
 
 namespace UOPHololens.Evaluation
 {
-    public abstract class DemoTester : BaseTester
+    public class DemoTester : BaseTester
     {
-        bool testing = false;
-        EvaluationResults demoResults;
+        [SerializeField] bool testing = false;
+        [SerializeField] EvaluationResults demoResults;
         public override IEnumerator StartTest()
         {
             var targetsProvider = evaluator.targetsProvider;

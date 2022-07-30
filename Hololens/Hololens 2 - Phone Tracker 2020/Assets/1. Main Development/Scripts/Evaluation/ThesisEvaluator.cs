@@ -13,14 +13,16 @@ namespace UOPHololens.Evaluation
 
         public BaseTester evaluationTest;
 
-        internal SimpleFirebaseClient client;
-        internal TMP_InputField usernameField;
-        internal TMP_InputField ageField;
-        internal TMP_Text targetsLeftCounter;
-        internal TMP_Text basicTestInformation;
-        internal SelectableTargetsProvider targetsProvider;
+        [SerializeField] internal SimpleFirebaseClient client;
+        [SerializeField] internal TMP_InputField usernameField;
+        [SerializeField] internal TMP_InputField ageField;
+        [SerializeField] internal TMP_Text targetsLeftCounter;
+        [SerializeField] internal TMP_Text basicTestInformation;
+        [SerializeField] internal SelectableTargetsProvider targetsProvider;
+        [SerializeField] internal string path = "testers";
+
         internal EvaluationPlayer player;
-        internal string path = "testers";
+        
 
         private string username;
         State state = State.Idle;
@@ -46,13 +48,20 @@ namespace UOPHololens.Evaluation
             });     
         }
         public State CurrentState => state;
+
+        [ContextMenu("Test")]
         public void Play()
         {
             if (Protect())
                 return;
             state = State.Evaluating;
-            evaluationTest.evaluator = this;
-            StartCoroutine(evaluationTest.StartTest());
+            IEnumerator play()
+            {
+                evaluationTest.evaluator = this;
+                yield return evaluationTest.StartTest();
+                state = State.Idle;
+            }
+            StartCoroutine(play());
         }
 
         public void Save(Action<string, bool> onResult = null)

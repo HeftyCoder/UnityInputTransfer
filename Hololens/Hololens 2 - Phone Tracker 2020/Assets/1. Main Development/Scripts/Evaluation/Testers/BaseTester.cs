@@ -14,7 +14,6 @@ namespace UOPHololens.Evaluation
         public int countBeforeEnd;
 
         protected WaitForSeconds waitOne = new WaitForSeconds(1);
-        private EvaluationResults results = new EvaluationResults();
         public virtual IEnumerator StartTest()
         {
             yield return null;
@@ -22,7 +21,6 @@ namespace UOPHololens.Evaluation
 
         protected IEnumerator beginTest()
         {
-            results = new EvaluationResults();
             yield return showInfo(startText, countBeforeStart);
         }
         protected IEnumerator endTest() => showInfo(endText, countBeforeEnd);
@@ -33,6 +31,13 @@ namespace UOPHololens.Evaluation
             infoTmp.text = info;
             for (int i = 0; i < countdown; i++)
                 yield return waitOne;
+
+            for (int i = countdown; i > 0; i--)
+            {
+                infoTmp.text = $"{i}";
+                yield return waitOne;
+            }
+                
             infoTmp.enabled = false;
         }
 
