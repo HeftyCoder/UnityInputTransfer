@@ -18,7 +18,6 @@ namespace UOPHololens.Evaluation
         internal TMP_InputField ageField;
         internal TMP_Text targetsLeftCounter;
         internal TMP_Text basicTestInformation;
-        internal DirectionalIndicator targetIndicator;
         internal SelectableTargetsProvider targetsProvider;
         internal EvaluationPlayer player;
         internal string path = "testers";
@@ -38,7 +37,10 @@ namespace UOPHololens.Evaluation
                     if (!valid)
                         this.player = new EvaluationPlayer() { username = username };
                     else
+                    {
                         this.player = player;
+                        ageField.text = player.age.ToString();
+                    }
                     state = State.Idle;
                 });
             });     
@@ -57,6 +59,8 @@ namespace UOPHololens.Evaluation
         {
             if (player == null)
                 return;
+            if (int.TryParse(ageField.text, out int age));
+                player.age = age;
             client.Save(getPath(username), player, (data, valid) =>
             {
                 Debug.Log(valid);

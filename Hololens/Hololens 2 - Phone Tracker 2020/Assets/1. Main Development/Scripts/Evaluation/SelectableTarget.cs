@@ -9,14 +9,17 @@ using System;
 namespace UOPHololens.Evaluation
 {
     [RequireComponent(typeof(PointerHandler), typeof(FocusHandler))]
-    public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler
+    public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMixedRealityFocusHandler
     {
         [SerializeField] float scaleAmount = 1.5f, scaleTime = 0.2f;
         [SerializeField] Material enabledMaterial, disabledMaterial;
 
         PointerHandler pointerHandler;
         FocusHandler focusHandler;
-        public event Action<GameObject> onClicked;
+        public event Action<SelectableTarget> onClicked;
+        public event Action<SelectableTarget> onFocusEnter;
+        public event Action<SelectableTarget> onFocusExit;
+
         Vector3 ogScale;
         Sequence scaleSequence;
         Renderer rend;
@@ -65,7 +68,7 @@ namespace UOPHololens.Evaluation
             scaleSequence.Append(scaleUp).Append(scaleDown);
             scaleSequence.onComplete = () => scaleSequence = null;
 
-            onClicked?.Invoke(gameObject);
+            onClicked?.Invoke(this);
         }
 
         public void OnPointerDown(MixedRealityPointerEventData eventData)
@@ -82,6 +85,12 @@ namespace UOPHololens.Evaluation
         {
 
         }
+        #endregion
+
+        #region Focus
+        public void OnFocusEnter(FocusEventData eventData) => onFocusEnter?.Invoke(this);
+
+        public void OnFocusExit(FocusEventData eventData) => onFocusExit?.Invoke(this);
         #endregion
 
     }
