@@ -535,9 +535,7 @@ MonoBehaviour:
   port: 5000
   targetFrameRate: -1
   sensorsToConnect: []
-  devicesToConnect:
-  - device: <Touchscreen>
-    customName: 
+  devicesToConnect: []
   trackedMotion: {fileID: 0}
   deviceName: Tracked Phone Controller
 --- !u!4 &140851843

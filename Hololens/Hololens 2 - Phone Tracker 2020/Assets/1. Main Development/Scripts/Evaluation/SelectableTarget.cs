@@ -4,18 +4,40 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
 using UnityEngine.Events;
+using System;
 
+[RequireComponent(typeof(PointerHandler), typeof(FocusHandler))]
 public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMixedRealityFocusHandler
 {
     [SerializeField] float scaleAmount = 1.5f, scaleTime = 0.2f;
-    [SerializeField] UnityEvent onSelected, onFocusEnter, onFocusExit;
-    [SerializeField] PhoneServer server;
+    [SerializeField] Material enabledMaterial, disabledMaterial;
+
+    PointerHandler pointerHandler;
+    FocusHandler focusHandler;
+    public event Action<GameObject> onClicked;
     Vector3 ogScale;
     Sequence scaleSequence;
+    Renderer rend;
 
+    public event Action<GameObject> onTargeted;
     private void Awake()
     {
         ogScale = transform.localScale;
+        rend = GetComponent<Renderer>();
+        pointerHandler = GetComponent<PointerHandler>();
+        focusHandler = GetComponent<FocusHandler>();
+    }
+    private void OnEnable()
+    {
+        pointerHandler.enabled = true;
+        pointerHandler.enabled = true;
+        rend.sharedMaterial = enabledMaterial;
+    }
+    private void OnDisable()
+    {
+        rend.sharedMaterial = disabledMaterial;
+        pointerHandler.enabled = false;
+        focusHandler.enabled = false;
     }
     #region Pointer
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
@@ -33,34 +55,34 @@ public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMix
         scaleSequence.Append(scaleUp).Append(scaleDown);
         scaleSequence.onComplete = () => scaleSequence = null;
 
-        onSelected?.Invoke();
+        onClicked?.Invoke(gameObject);
     }
 
     public void OnPointerDown(MixedRealityPointerEventData eventData)
     {
-
+    
     }
 
     public void OnPointerDragged(MixedRealityPointerEventData eventData)
     {
-
+    
     }
 
     public void OnPointerUp(MixedRealityPointerEventData eventData)
-    { 
-
+    {
+    
     }
     #endregion
 
     #region Focus
     public void OnFocusEnter(FocusEventData eventData)
     {
-        onFocusEnter?.Invoke();
+    
     }
 
     public void OnFocusExit(FocusEventData eventData)
     {
-        onFocusExit?.Invoke();
+    
     }
     #endregion
 
