@@ -16,7 +16,6 @@ public class SelectableTarget : MonoBehaviour, IMixedRealityPointerHandler, IMix
     private void Awake()
     {
         ogScale = transform.localScale;
-        server.InputActions.Phone.Clicked.performed += ctx => OnClick();
     }
     #region Pointer
     public void OnPointerClicked(MixedRealityPointerEventData eventData)
