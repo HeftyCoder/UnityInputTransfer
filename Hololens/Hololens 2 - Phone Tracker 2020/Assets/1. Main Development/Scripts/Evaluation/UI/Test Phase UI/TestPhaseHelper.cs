@@ -13,6 +13,7 @@ namespace UOPHololens.Evaluation
         
         public int countdown;
         public bool showButton;
+        public bool showCountdown;
 
         [SerializeField] TMP_Text infoTmp;
         [SerializeField] TMP_Text countdownTmp;
@@ -27,12 +28,14 @@ namespace UOPHololens.Evaluation
         }
         
         
-        public IEnumerator WaitPhase(int countdown = -1)
+        public IEnumerator WaitPhaseToStart(int countdown = -1)
         {
             gameObject.SetActive(true);
             var onClick = configHelper.OnClick;
             var waiter = countdown <= 0 ? new WaitForSeconds(this.countdown) : new WaitForSeconds(countdown);
             configHelper.gameObject.SetActive(showButton);
+            continueTest = false;
+            countdownTmp.enabled = showCountdown;
 
             while (!continueTest && showButton)
                 yield return null;
