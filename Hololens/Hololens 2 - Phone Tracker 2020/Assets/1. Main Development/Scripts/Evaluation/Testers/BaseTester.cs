@@ -9,6 +9,7 @@ namespace UOPHololens.Evaluation
     public abstract class BaseTester : MonoBehaviour
     {
         [NonSerialized] public ThesisEvaluator evaluator;
+        [SerializeField] protected AudioSource endingSound;
 
         protected WaitForSeconds waitOne = new WaitForSeconds(1);
         protected SelectableTargetsProvider targetsProvider;
@@ -37,22 +38,6 @@ namespace UOPHololens.Evaluation
             targetsProvider.RemoveOnFocusExit(onFocusExit);
             targetsProvider.EnableTargets(false);
             targetsProvider.SetActiveStateTargets(false);
-        }
-        protected IEnumerator showInfo(string info, int countdown)
-        {
-            var infoTmp = evaluator.gameUI.TestInformation;
-            infoTmp.enabled = true;
-            infoTmp.text = info;
-            for (int i = 0; i < countdown; i++)
-                yield return waitOne;
-
-            for (int i = countdown; i > 0; i--)
-            {
-                infoTmp.text = $"{i}";
-                yield return waitOne;
-            }
-                
-            infoTmp.enabled = false;
         }
 
         protected virtual void onClick(SelectableTarget target)

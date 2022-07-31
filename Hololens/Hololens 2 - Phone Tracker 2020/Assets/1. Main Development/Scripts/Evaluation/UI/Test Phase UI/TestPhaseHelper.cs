@@ -15,33 +15,42 @@ namespace UOPHololens.Evaluation
         public bool showButton;
         public bool showCountdown;
 
-        [SerializeField] TMP_Text infoTmp;
+        [SerializeField] TMP_Text[] infoTmps;
+        [SerializeField] TMP_Text countdownInfoTmp;
         [SerializeField] TMP_Text countdownTmp;
         [SerializeField] ButtonConfigHelper configHelper;
 
         bool continueTest = false;
         private void Start()
         {
-            gameObject.SetActive(false);
+            countdownInfoTmp.enabled = false;
             countdownTmp.enabled = false;
             configHelper.OnClick.AddListener(() => continueTest = true);
         }
         
         
-        public IEnumerator WaitPhaseToStart(int countdown = -1)
+        public IEnumerator Wait(int countdown = -1)
         {
             gameObject.SetActive(true);
-            var onClick = configHelper.OnClick;
-            var waiter = countdown <= 0 ? new WaitForSeconds(this.countdown) : new WaitForSeconds(countdown);
+
+            foreach (var tmp in infoTmps)
+                tmp.enabled = true;
+
             configHelper.gameObject.SetActive(showButton);
             continueTest = false;
-            countdownTmp.enabled = showCountdown;
 
             while (!continueTest && showButton)
                 yield return null;
 
+            configHelper.gameObject.SetActive(false);
             if (countdown > 0)
             {
+                foreach (var tmp in infoTmps)
+                    tmp.enabled = false;
+
+                countdownInfoTmp.enabled = showCountdown;
+                countdownTmp.enabled = showCountdown;
+
                 var count = countdown;
                 countdownTmp.text = count.ToString();
                 countdownTmp.enabled = true;
@@ -54,6 +63,7 @@ namespace UOPHololens.Evaluation
                 }
 
                 countdownTmp.enabled = false;
+                countdownInfoTmp.enabled = false;
             }
 
             gameObject.SetActive(false);

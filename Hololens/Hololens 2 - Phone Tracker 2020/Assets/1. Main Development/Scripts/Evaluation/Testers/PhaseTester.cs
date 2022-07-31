@@ -11,9 +11,14 @@ namespace UOPHololens.Evaluation {
         [SerializeField] TestPhaseHelper phonePhase;
         [SerializeField] PhasePicker phasePicker;
 
+        [SerializeField] TestPhaseHelper startPhase;
         [SerializeField] TestPhaseHelper middlePhase;
+        [SerializeField] TestPhaseHelper endPhase;
         TestPhaseHelper currentPhase;
 
+        public TestPhaseHelper StartPhase => startPhase;
+        public TestPhaseHelper MiddlePhase => middlePhase;
+        public TestPhaseHelper EndPhase => endPhase;
         public TestPhaseHelper GetFirstPhase(EvaluationTest evTest)
         {
             var player = evaluator.player;

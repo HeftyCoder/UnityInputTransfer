@@ -18,7 +18,6 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal UserUI userUI;
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] internal string path = "testers";
-        [SerializeField] AudioSource endingSound;
 
         public EvaluationResults currentEvaluation;
 
@@ -62,7 +61,6 @@ namespace UOPHololens.Evaluation
                 yield return evaluationTest.StartTest();
                 state = State.Idle;
 
-                endingSound.Play();
                 gameUI.gameObject.SetActive(false);
             }
 
