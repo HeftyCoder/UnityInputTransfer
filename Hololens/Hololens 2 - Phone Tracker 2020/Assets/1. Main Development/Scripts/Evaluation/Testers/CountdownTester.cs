@@ -6,13 +6,16 @@ namespace UOPHololens.Evaluation
     public class CountdownTester : BaseTester
     {
         public float allowedTime = 20;
+
         private float currentTime;
         public override IEnumerator StartTest()
         {
+            beginTest();
+
             currentTime = allowedTime;
             var timeTmp = evaluator.gameUI.TimeCounter;
             timeTmp.text = allowedTime.ToString();
-            yield return beginTest();
+            
             
             targetsProvider.PickNextTarget();
 
@@ -25,7 +28,7 @@ namespace UOPHololens.Evaluation
                 yield return null;
             }
 
-            yield return endTest();
+            endTest();
         }
         protected override void onClick(SelectableTarget target)
         {

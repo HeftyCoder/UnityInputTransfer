@@ -2,16 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Collections;
+using Microsoft.MixedReality.Toolkit.UI;
 
 namespace UOPHololens.Evaluation
 {
     public abstract class BaseTester : MonoBehaviour
     {
         [NonSerialized] public ThesisEvaluator evaluator;
-        public string startText;
-        public int countBeforeStart;
-        public string endText;
-        public int countBeforeEnd;
 
         protected WaitForSeconds waitOne = new WaitForSeconds(1);
         protected SelectableTargetsProvider targetsProvider;
@@ -24,7 +21,7 @@ namespace UOPHololens.Evaluation
         {
 
         }
-        protected IEnumerator beginTest()
+        protected void beginTest()
         {
             targetsProvider = evaluator.targetsProvider;
             targetsProvider.SetActiveStateTargets(true);
@@ -32,16 +29,14 @@ namespace UOPHololens.Evaluation
             targetsProvider.AddOnClick(onClick);
             targetsProvider.AddOnFocusExit(onFocusExit);
             targetsProvider.AddOnFocusEnter(onFocusEnter);
-            yield return showInfo(startText, countBeforeStart);
         }
-        protected IEnumerator endTest()
+        protected void endTest()
         {
             targetsProvider.RemoveOnClick(onClick);
             targetsProvider.RemoveOnFocusEnter(onFocusEnter);
             targetsProvider.RemoveOnFocusExit(onFocusExit);
             targetsProvider.EnableTargets(false);
             targetsProvider.SetActiveStateTargets(false);
-            yield return showInfo(endText, countBeforeEnd);
         }
         protected IEnumerator showInfo(string info, int countdown)
         {

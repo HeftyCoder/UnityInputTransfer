@@ -8,6 +8,10 @@ namespace UOPHololens.Evaluation
     public class DemoTester : BaseTester
     {
         [SerializeField] bool testing = false;
+        public string startText;
+        public int countBeforeStart;
+        public string endText;
+        public int countBeforeEnd;
         public override IEnumerator StartTest()
         {
             testing = true;
@@ -17,8 +21,8 @@ namespace UOPHololens.Evaluation
             timeTmp.text = "0";
             results = new EvaluationResults();
 
-            yield return beginTest();
-
+            beginTest();
+            yield return showInfo(startText, countBeforeStart);
             targetsProvider.PickNextTarget();
             while (testing)
             {
@@ -29,7 +33,8 @@ namespace UOPHololens.Evaluation
                 yield return null;
             }
 
-            yield return endTest();
+            endTest();
+            yield return showInfo(endText, countBeforeEnd);
         }
 
         public override void StopTest() => testing = false;
