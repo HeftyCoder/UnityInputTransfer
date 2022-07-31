@@ -9,10 +9,17 @@ namespace UOPHololens.Evaluation
         [NonSerialized] public string username;
         
         public int age;
-        public List<EvaluationResults> targetBasedEvaluations = new List<EvaluationResults>();
-        public List<EvaluationResults> timeBasedEvaluations = new List<EvaluationResults>();
+        public EvaluationTest targetBasedTest = new EvaluationTest();
+        public EvaluationTest timeBasedTest = new EvaluationTest();
+    
     }
 
+    [Serializable]
+    public class EvaluationTest
+    {
+        public List<EvaluationResults> nativeTest = new List<EvaluationResults>();
+        public List<EvaluationResults> phoneTest = new List<EvaluationResults>();
+    }
     [Serializable]
     public class EvaluationResults
     {
@@ -48,7 +55,7 @@ namespace UOPHololens.Evaluation
         }
     }
 
-    //This is needed for Unity's serialization. It can't serialize List<List<..>> well
+    //This is needed for Unity's serialization. It can't serialize List<List<..>> on its own
     [Serializable]
     public class LookUpTimes: IList<float>
     {

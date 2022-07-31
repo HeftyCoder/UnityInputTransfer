@@ -14,23 +14,21 @@ namespace UOPHololens.Evaluation
         public BaseTester evaluationTest;
 
         [SerializeField] internal SimpleFirebaseClient client;
-        [SerializeField] internal TMP_InputField usernameField;
-        [SerializeField] internal TMP_InputField ageField;
-        [SerializeField] internal TMP_Text targetsLeftCounter;
-        [SerializeField] internal TMP_Text basicTestInformation;
+        [SerializeField] internal GameUI gameUI;
+        [SerializeField] internal UserUI userUI;
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] internal string path = "testers";
+        [SerializeField] AudioSource endingSound;
 
         public EvaluationResults currentEvaluation;
 
         internal EvaluationPlayer player = new EvaluationPlayer();
-        
         private string username = "george";
         State state = State.Idle;
 
         private void Awake()
         {
-            usernameField.onSubmit.AddListener((username) =>
+            userUI.UsernameInput.onSubmit.AddListener((username) =>
             {
                 state = State.Loading;
                 this.username = username;
@@ -42,7 +40,7 @@ namespace UOPHololens.Evaluation
                     else
                     {
                         this.player = player;
-                        ageField.text = player.age.ToString();
+                        userUI.AgeInput.text = player.age.ToString();
                     }
                     state = State.Idle;
                 });
@@ -50,7 +48,6 @@ namespace UOPHololens.Evaluation
         }
         public State CurrentState => state;
 
-        [ContextMenu("Test")]
         public void Play()
         {
             if (Protect())
@@ -58,10 +55,17 @@ namespace UOPHololens.Evaluation
             state = State.Evaluating;
             IEnumerator play()
             {
+                gameUI.gameObject.SetActive(true);
+                userUI.gameObject.SetActive(false);
+
                 evaluationTest.evaluator = this;
                 yield return evaluationTest.StartTest();
                 state = State.Idle;
+
+                endingSound.Play();
+                gameUI.gameObject.SetActive(false);
             }
+
             StartCoroutine(play());
         }
 
@@ -69,10 +73,9 @@ namespace UOPHololens.Evaluation
         {
             if (player == null)
                 return;
-            if (int.TryParse(ageField.text, out int age));
+            if (int.TryParse(userUI.AgeInput.text, out int age));
                 player.age = age;
 
-            player.targetBasedEvaluations.Add(currentEvaluation);
             client.Save(getPath(username), player, (data, valid) =>
             {
                 onResult?.Invoke(data, valid);

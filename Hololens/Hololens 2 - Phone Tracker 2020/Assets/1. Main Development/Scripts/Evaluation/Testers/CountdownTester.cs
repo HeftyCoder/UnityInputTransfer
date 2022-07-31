@@ -1,39 +1,32 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
 namespace UOPHololens.Evaluation
 {
-    public class DemoTester : BaseTester
+    public class CountdownTester : BaseTester
     {
-        [SerializeField] bool testing = false;
+        public float allowedTime = 20;
+        private float currentTime;
         public override IEnumerator StartTest()
         {
-            testing = true;
-            float allTime = 0;
-            evaluator.gameUI.TargetsCounter.text = "0";
+            currentTime = allowedTime;
             var timeTmp = evaluator.gameUI.TimeCounter;
-            timeTmp.text = "0";
-            results = new EvaluationResults();
-
+            timeTmp.text = allowedTime.ToString();
             yield return beginTest();
-
+            
             targetsProvider.PickNextTarget();
-            while (testing)
+
+            while (currentTime > 0)
             {
                 var delta = Time.deltaTime;
                 results.currentTime += delta;
-                allTime += delta;
-                timeTmp.text = allTime.ToString();
+                currentTime -= delta;
+                timeTmp.text = currentTime.ToString();
                 yield return null;
             }
 
             yield return endTest();
         }
-
-        public override void StopTest() => testing = false;
-
         protected override void onClick(SelectableTarget target)
         {
             base.onClick(target);
