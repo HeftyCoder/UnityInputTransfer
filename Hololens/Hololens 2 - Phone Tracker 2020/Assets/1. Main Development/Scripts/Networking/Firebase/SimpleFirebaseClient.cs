@@ -31,6 +31,8 @@ public class SimpleFirebaseClient : MonoBehaviour
             var request = UnityWebRequest.Get(getPath(path));
             yield return request.SendWebRequest();
             var result = request.result == UnityWebRequest.Result.Success;
+            var data = request.downloadHandler.text;
+            result = result && data != "null";
             onResult?.Invoke(request.downloadHandler.text, result);
         }
         StartCoroutine(get());

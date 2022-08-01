@@ -32,8 +32,6 @@ namespace UOPHololens.Evaluation
                     yield return null;
                 }
 
-
-                endingSound.Play();
                 targetsProvider.EnableTargets(false);
                 evaluator.gameUI.Close();
             }
@@ -55,7 +53,9 @@ namespace UOPHololens.Evaluation
             yield return secondPhase.Wait();
             yield return doTest();
 
+            endingSound.Play();
             results.fullTime = fullTime;
+
             evaluator.Save();
             yield return EndPhase?.Wait();
             endTest();

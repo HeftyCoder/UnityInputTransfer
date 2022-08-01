@@ -4,6 +4,7 @@ using UnityEngine;
 using TMPro;
 using Microsoft.MixedReality.Toolkit.Utilities.Solvers;
 using System;
+using Microsoft.MixedReality.Toolkit.Input;
 
 namespace UOPHololens.Evaluation
 {
@@ -17,18 +18,22 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal GameObject mainMenu;
         [SerializeField] GameObject introUI;
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
+        [SerializeField] ThesisInputHandler inputHandler;
+        [SerializeField] GazeProvider gazeProvider;
         [SerializeField] internal string path = "testers";
-
-        public EvaluationResults currentEvaluation;
 
         internal EvaluationPlayer player = new EvaluationPlayer();
         private string username = "george";
         private BaseTester currentTester;
         State state = State.Idle;
-
         Coroutine currentTest;
+
+        public EvaluationResults currentEvaluation;
+
+        public ThesisInputHandler InputHandler => inputHandler;
         private void Awake()
         {
+            gazeProvider.IsEyeTrackingEnabled = true;
             currentTester = null;
             userUI.UsernameInput.onSubmit.AddListener((username) =>
             {
@@ -36,7 +41,8 @@ namespace UOPHololens.Evaluation
                 this.username = username;
                 client.Get<EvaluationPlayer>(getPath(username), (player, valid) =>
                 {
-                    this.username = username;
+                    Debug.Log(this.username);
+                    Debug.Log(valid);
                     if (!valid)
                         this.player = new EvaluationPlayer() { username = username };
                     else
@@ -95,8 +101,8 @@ namespace UOPHololens.Evaluation
         {
             if (player == null)
                 return;
-            if (int.TryParse(userUI.AgeInput.text, out int age)) ;
-            player.age = age;
+            if (int.TryParse(userUI.AgeInput.text, out int age))
+                player.age = age;
 
             client.Save(getPath(username), player, (data, valid) =>
             {

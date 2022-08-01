@@ -25,7 +25,7 @@ namespace UOPHololens.Evaluation
                     timeTmp.text = $"{currentTime:0.##}";
                     yield return null;
                 }
-                endingSound.Play();
+                
                 evaluator.gameUI.Close();
                 targetsProvider.EnableTargets(false);
             }
@@ -46,9 +46,12 @@ namespace UOPHololens.Evaluation
             var secondPhase = GetSecondPhase(test);
             yield return secondPhase.Wait();
             yield return doTest();
+            endingSound.Play();
 
             results.fullTime = allowedTime;
-            evaluator.Save();
+
+            evaluator.Save((data, result) => Debug.Log(result));
+           
             yield return EndPhase?.Wait();
 
             endingSound.Stop();
