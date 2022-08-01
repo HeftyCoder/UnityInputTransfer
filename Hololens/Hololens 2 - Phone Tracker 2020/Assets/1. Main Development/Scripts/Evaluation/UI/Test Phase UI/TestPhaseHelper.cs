@@ -35,16 +35,19 @@ namespace UOPHololens.Evaluation
         public IEnumerator Wait(string replace, int countdown)
         {
             gameObject.SetActive(true);
+            countdownInfoTmp.enabled = false;
+            countdownTmp.enabled = false;
+            continueTest = false;
 
             foreach (var tmp in infoTmps)
                 tmp.enabled = true;
 
             configHelper.gameObject.SetActive(showButton);
-            continueTest = false;
 
             while (!continueTest && showButton)
                 yield return null;
 
+            yield return null;
             configHelper.gameObject.SetActive(false);
 
             if (countdown > 0)
