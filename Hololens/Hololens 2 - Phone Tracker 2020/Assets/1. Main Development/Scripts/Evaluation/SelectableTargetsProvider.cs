@@ -11,10 +11,15 @@ namespace UOPHololens.Evaluation
         [SerializeField] DirectionalIndicator targetIndicator;
         public List<SelectableTarget> targets = new List<SelectableTarget>();
 
-        private void Start()
+        private IEnumerator Start()
         {
+            yield return null;
+            targetIndicator.DirectionalTarget = null;
+            EnableTargets(false);
             SetActiveStateTargets(false);
         }
+
+        public void SetEmptyTarget() => targetIndicator.DirectionalTarget = null;
         public void PickNextTarget()
         {
             var randomTarget = PickRandomTarget();
@@ -66,11 +71,15 @@ namespace UOPHololens.Evaluation
         {
             foreach (var target in targets)
                 target.enabled = enable;
+            if (!enable)
+                SetEmptyTarget();
         }
         public void SetActiveStateTargets(bool activeState)
         {
             foreach (var target in targets)
                 target.gameObject.SetActive(activeState);
+            if (!activeState)
+                SetEmptyTarget();
         }
     }
 }

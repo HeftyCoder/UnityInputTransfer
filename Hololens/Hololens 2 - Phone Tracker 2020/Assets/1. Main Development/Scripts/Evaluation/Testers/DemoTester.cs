@@ -2,14 +2,22 @@
 using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
+using Microsoft.MixedReality.Toolkit.UI;
 
 namespace UOPHololens.Evaluation
 {
     public class DemoTester : BaseTester
     {
         [SerializeField] bool testing = false;
+        [SerializeField] ButtonConfigHelper exitButton;
+
+        private void Awake()
+        {
+            exitButton.OnClick.AddListener(() => StopTest());
+        }
         public override IEnumerator StartTest()
         {
+            exitButton.gameObject.SetActive(true);
             testing = true;
             float allTime = 0;
             evaluator.gameUI.Open(0, 0);
@@ -26,12 +34,12 @@ namespace UOPHololens.Evaluation
                 var delta = Time.deltaTime;
                 results.currentTime += delta;
                 allTime += delta;
-                timeTmp.text = allTime.ToString();
+                timeTmp.text = $"{allTime:0.##}";
                 yield return null;
             }
 
-            endingSound.Play();
             endTest();
+            exitButton.gameObject.SetActive(false);
         }
 
         public override void StopTest() => testing = false;

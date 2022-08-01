@@ -39,7 +39,8 @@ namespace UOPHololens.Evaluation
             var firstPhase = GetFirstPhase(test);
             yield return firstPhase.Wait();
             yield return doTest();
-            
+            results.fullTime = allowedTime;
+
             yield return MiddlePhase?.Wait();
 
             var secondPhase = GetSecondPhase(test);

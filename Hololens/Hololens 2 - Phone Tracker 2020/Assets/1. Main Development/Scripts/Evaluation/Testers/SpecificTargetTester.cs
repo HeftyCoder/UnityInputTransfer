@@ -16,6 +16,7 @@ namespace UOPHololens.Evaluation
 
             IEnumerator doTest()
             {
+                fullTime = 0;
                 currentCount = targetCount;
                 evaluator.gameUI.Open(targetCount, 0);
                 
@@ -28,6 +29,7 @@ namespace UOPHololens.Evaluation
                     timeCounter.text = $"{fullTime:0.##}";
                     yield return null;
                 }
+
 
                 endingSound.Play();
                 targetsProvider.EnableTargets(false);
@@ -43,7 +45,8 @@ namespace UOPHololens.Evaluation
             var firstPhase = GetFirstPhase(test);
             yield return firstPhase.Wait();
             yield return doTest();
-            
+            results.fullTime = fullTime;
+
             yield return MiddlePhase?.Wait();
 
             var secondPhase = GetSecondPhase(test);

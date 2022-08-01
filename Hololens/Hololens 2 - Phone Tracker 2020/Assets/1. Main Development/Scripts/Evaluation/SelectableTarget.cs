@@ -34,7 +34,7 @@ namespace UOPHololens.Evaluation
         {
             foreach (var pointer in PointerUtils.GetPointers())
             {
-                var go = pointer.Result.CurrentPointerTarget;
+                var go = pointer?.Result?.CurrentPointerTarget;
                 if (go == gameObject)
                 {
                     focusHandler.OnFocusEnterEvent?.Invoke();
