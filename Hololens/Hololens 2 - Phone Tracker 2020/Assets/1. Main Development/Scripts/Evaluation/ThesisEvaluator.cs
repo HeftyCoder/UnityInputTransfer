@@ -15,6 +15,7 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal GameUI gameUI;
         [SerializeField] internal UserUI userUI;
         [SerializeField] internal GameObject mainMenu;
+        [SerializeField] GameObject introUI;
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] internal string path = "testers";
 
@@ -49,7 +50,7 @@ namespace UOPHololens.Evaluation
         }
         private void Start()
         {
-            SetMain();
+            currentTester?.Menu.SetActive(false);
         }
         public State CurrentState => state;
 
@@ -121,6 +122,8 @@ namespace UOPHololens.Evaluation
         }
         private bool Protect() => state != State.Idle || !enabled;
         private string getPath(string username) => $"{path}/{username}";
+
+        
     }
 }
 
