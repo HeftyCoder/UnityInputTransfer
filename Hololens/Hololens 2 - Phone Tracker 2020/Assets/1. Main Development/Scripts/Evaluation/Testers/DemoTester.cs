@@ -9,15 +9,13 @@ namespace UOPHololens.Evaluation
     public class DemoTester : BaseTester
     {
         [SerializeField] bool testing = false;
-        [SerializeField] ButtonConfigHelper exitButton;
 
         private void Awake()
         {
-            exitButton.OnClick.AddListener(() => StopTest());
+
         }
         public override IEnumerator StartTest()
         {
-            exitButton.gameObject.SetActive(true);
             testing = true;
             float allTime = 0;
             evaluator.gameUI.Open(0, 0);
@@ -39,10 +37,7 @@ namespace UOPHololens.Evaluation
             }
 
             endTest();
-            exitButton.gameObject.SetActive(false);
         }
-
-        public override void StopTest() => testing = false;
 
         protected override void onClick(SelectableTarget target)
         {

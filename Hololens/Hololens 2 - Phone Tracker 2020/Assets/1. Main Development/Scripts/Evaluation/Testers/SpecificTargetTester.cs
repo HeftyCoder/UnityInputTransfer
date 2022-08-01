@@ -9,8 +9,10 @@ namespace UOPHololens.Evaluation
     {
         public int targetCount = 15;
         private int currentCount;
+        private bool earlyExit = false;
         public override IEnumerator StartTest()
         {
+            earlyExit = false;
             var timeCounter = evaluator.gameUI.TimeCounter;
             float fullTime = 0;
 

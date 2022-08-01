@@ -16,6 +16,7 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal SimpleFirebaseClient client;
         [SerializeField] internal GameUI gameUI;
         [SerializeField] internal UserUI userUI;
+        [SerializeField] internal GameObject mainMenu;
         [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] internal string path = "testers";
 
@@ -23,8 +24,10 @@ namespace UOPHololens.Evaluation
 
         internal EvaluationPlayer player = new EvaluationPlayer();
         private string username = "george";
+        private BaseTester currentTester;
         State state = State.Idle;
 
+        Coroutine currentTest;
         private void Awake()
         {
             userUI.UsernameInput.onSubmit.AddListener((username) =>
@@ -43,11 +46,14 @@ namespace UOPHololens.Evaluation
                     }
                     state = State.Idle;
                 });
-            });     
+            });
+        }
+        private void Start()
+        {
+            SetMain();
         }
         public State CurrentState => state;
 
-        [ContextMenu("Play")]
         public void Play()
         {
             if (Protect())
@@ -55,6 +61,7 @@ namespace UOPHololens.Evaluation
             state = State.Evaluating;
             IEnumerator play()
             {
+                SetTest();
                 userUI.gameObject.SetActive(false);
 
                 evaluationTest.evaluator = this;
@@ -62,22 +69,49 @@ namespace UOPHololens.Evaluation
                 state = State.Idle;
 
                 gameUI.gameObject.SetActive(false);
+                currentTest = null;
+                SetMain();
             }
 
-            StartCoroutine(play());
+            currentTest = StartCoroutine(play());
         }
+        public void Stop()
+        {
+            if (state == State.Idle || currentTest == null)
+                return;
 
+            StopCoroutine(currentTest);
+            SetMain();
+            currentTest = null;
+        }
         public void Save(Action<string, bool> onResult = null)
         {
             if (player == null)
                 return;
-            if (int.TryParse(userUI.AgeInput.text, out int age));
-                player.age = age;
+            if (int.TryParse(userUI.AgeInput.text, out int age)) ;
+            player.age = age;
 
             client.Save(getPath(username), player, (data, valid) =>
             {
                 onResult?.Invoke(data, valid);
             });
+        }
+
+        public void Play(BaseTester tester)
+        {
+            SetTester(tester);
+            Play();
+        }
+        public void SetTester(BaseTester tester) => currentTester = tester;
+        private void SetMain()
+        {
+            mainMenu.SetActive(true);
+            currentTester?.Menu.SetActive(false);
+        }
+        private void SetTest()
+        {
+            mainMenu.SetActive(false);
+            currentTester?.Menu.SetActive(true);
         }
         private bool Protect() => state != State.Idle || !enabled || evaluationTest == null;
         private string getPath(string username) => $"{path}/{username}";

@@ -8,19 +8,18 @@ namespace UOPHololens.Evaluation
 {
     public abstract class BaseTester : MonoBehaviour
     {
-        [NonSerialized] public ThesisEvaluator evaluator;
+        [NonSerialized]  public ThesisEvaluator evaluator;
         [SerializeField] protected AudioSource endingSound;
+        [SerializeField] GameObject testerMenu;
 
         protected WaitForSeconds waitOne = new WaitForSeconds(1);
         protected SelectableTargetsProvider targetsProvider;
         protected EvaluationResults results;
+
+        public GameObject Menu => testerMenu;
         public virtual IEnumerator StartTest()
         {
             yield return null;
-        }
-        public virtual void StopTest()
-        {
-
         }
         protected void beginTest()
         {
