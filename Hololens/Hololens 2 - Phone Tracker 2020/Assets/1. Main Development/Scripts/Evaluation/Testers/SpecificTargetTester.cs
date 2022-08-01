@@ -25,16 +25,17 @@ namespace UOPHololens.Evaluation
                     var delta = Time.deltaTime;
                     fullTime += delta;
                     results.currentTime += delta;
-                    timeCounter.text = fullTime.ToString();
+                    timeCounter.text = $"{fullTime:0.##}";
                     yield return null;
                 }
 
                 endingSound.Play();
-                yield return new WaitForSeconds(endingSound.clip.length);
+                targetsProvider.EnableTargets(false);
                 evaluator.gameUI.Close();
             }
 
             beginTest();
+            targetsProvider.EnableTargets(false);
 
             yield return StartPhase?.Wait();
 
@@ -49,14 +50,19 @@ namespace UOPHololens.Evaluation
             yield return secondPhase.Wait();
             yield return doTest();
 
+            results.fullTime = fullTime;
+            evaluator.Save();
             yield return EndPhase?.Wait();
             endTest();
+            endingSound.Stop();
         }
         protected override void onClick(SelectableTarget target)
         {
-            base.onClick(target);
             currentCount--;
+            if (currentCount < 0)
+                return;
             evaluator.gameUI.TargetsCounter.text = currentCount.ToString();
+            base.onClick(target);
         }
     }
 }

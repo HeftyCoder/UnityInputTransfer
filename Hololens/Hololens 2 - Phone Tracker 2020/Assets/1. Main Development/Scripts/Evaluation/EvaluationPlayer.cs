@@ -24,8 +24,10 @@ namespace UOPHololens.Evaluation
     public class EvaluationResults
     {
         [NonSerialized] public float currentTime = 0;
+
         private LookUpTimes currentLookUpTimesList;
 
+        public float fullTime = 0;
         public int selectedCount = 0;
         public List<LookUpTimes> targetLookUpTimes = new List<LookUpTimes>();
         public List<float> targetSelectedTimes = new List<float>();

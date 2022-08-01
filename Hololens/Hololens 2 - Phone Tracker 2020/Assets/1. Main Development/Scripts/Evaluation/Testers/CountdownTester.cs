@@ -22,15 +22,16 @@ namespace UOPHololens.Evaluation
                     var delta = Time.deltaTime;
                     results.currentTime += delta;
                     currentTime -= delta;
-                    timeTmp.text = currentTime.ToString();
+                    timeTmp.text = $"{currentTime:0.##}";
                     yield return null;
                 }
                 endingSound.Play();
-                yield return new WaitForSeconds(endingSound.clip.length);
                 evaluator.gameUI.Close();
+                targetsProvider.EnableTargets(false);
             }
 
             beginTest();
+            targetsProvider.EnableTargets(false);
 
             yield return StartPhase?.Wait();
             //First phase
@@ -38,14 +39,18 @@ namespace UOPHololens.Evaluation
             var firstPhase = GetFirstPhase(test);
             yield return firstPhase.Wait();
             yield return doTest();
-
+            
             yield return MiddlePhase?.Wait();
 
             var secondPhase = GetSecondPhase(test);
             yield return secondPhase.Wait();
             yield return doTest();
+
+            results.fullTime = allowedTime;
+            evaluator.Save();
             yield return EndPhase?.Wait();
 
+            endingSound.Stop();
             endTest();
         }
 

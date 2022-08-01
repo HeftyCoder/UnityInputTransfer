@@ -47,6 +47,7 @@ namespace UOPHololens.Evaluation
         }
         public State CurrentState => state;
 
+        [ContextMenu("Play")]
         public void Play()
         {
             if (Protect())
@@ -54,7 +55,6 @@ namespace UOPHololens.Evaluation
             state = State.Evaluating;
             IEnumerator play()
             {
-                gameUI.gameObject.SetActive(true);
                 userUI.gameObject.SetActive(false);
 
                 evaluationTest.evaluator = this;

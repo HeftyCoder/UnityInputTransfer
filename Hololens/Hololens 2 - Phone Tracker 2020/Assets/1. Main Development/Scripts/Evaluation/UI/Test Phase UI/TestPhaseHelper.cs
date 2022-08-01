@@ -28,8 +28,11 @@ namespace UOPHololens.Evaluation
             configHelper.OnClick.AddListener(() => continueTest = true);
         }
         
-        
-        public IEnumerator Wait(int countdown = -1)
+        public IEnumerator Wait(string replace = null)
+        {
+            return Wait(replace, countdown);
+        }
+        public IEnumerator Wait(string replace, int countdown)
         {
             gameObject.SetActive(true);
 
@@ -43,6 +46,7 @@ namespace UOPHololens.Evaluation
                 yield return null;
 
             configHelper.gameObject.SetActive(false);
+
             if (countdown > 0)
             {
                 foreach (var tmp in infoTmps)
@@ -57,9 +61,9 @@ namespace UOPHololens.Evaluation
 
                 while (count >= 0)
                 {
-                    count -= 1;
                     countdownTmp.text = count.ToString();
                     yield return waitOne;
+                    count -= 1;
                 }
 
                 countdownTmp.enabled = false;
