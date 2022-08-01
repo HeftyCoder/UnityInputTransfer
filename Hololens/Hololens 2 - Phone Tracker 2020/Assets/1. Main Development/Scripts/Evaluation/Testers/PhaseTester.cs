@@ -60,5 +60,14 @@ namespace UOPHololens.Evaluation {
             return currentPhase;
         }
 
+        public override void Stop()
+        {
+            nativePhase?.Close();
+            phonePhase?.Close();
+            startPhase?.Close();
+            middlePhase?.Close();
+            endPhase?.Close();
+        }
+
     }
 }

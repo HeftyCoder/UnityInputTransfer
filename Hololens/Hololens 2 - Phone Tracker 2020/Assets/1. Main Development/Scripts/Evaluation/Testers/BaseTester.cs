@@ -16,10 +16,18 @@ namespace UOPHololens.Evaluation
         protected SelectableTargetsProvider targetsProvider;
         protected EvaluationResults results;
 
+        private void Start()
+        {
+            testerMenu?.SetActive(false);
+        }
         public GameObject Menu => testerMenu;
         public virtual IEnumerator StartTest()
         {
             yield return null;
+        }
+        public virtual void Stop()
+        {
+
         }
         protected void beginTest()
         {

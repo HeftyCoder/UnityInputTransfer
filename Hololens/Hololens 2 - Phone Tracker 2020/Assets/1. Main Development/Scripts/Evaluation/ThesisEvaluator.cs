@@ -11,8 +11,6 @@ namespace UOPHololens.Evaluation
     {
         public enum State { Idle, Loading, Saving, Evaluating }
 
-        public BaseTester evaluationTest;
-
         [SerializeField] internal SimpleFirebaseClient client;
         [SerializeField] internal GameUI gameUI;
         [SerializeField] internal UserUI userUI;
@@ -30,6 +28,7 @@ namespace UOPHololens.Evaluation
         Coroutine currentTest;
         private void Awake()
         {
+            currentTester = null;
             userUI.UsernameInput.onSubmit.AddListener((username) =>
             {
                 state = State.Loading;
@@ -61,11 +60,12 @@ namespace UOPHololens.Evaluation
             state = State.Evaluating;
             IEnumerator play()
             {
+                yield return null;
                 SetTest();
                 userUI.gameObject.SetActive(false);
 
-                evaluationTest.evaluator = this;
-                yield return evaluationTest.StartTest();
+                currentTester.evaluator = this;
+                yield return currentTester.StartTest();
                 state = State.Idle;
 
                 gameUI.gameObject.SetActive(false);
@@ -80,8 +80,14 @@ namespace UOPHololens.Evaluation
             if (state == State.Idle || currentTest == null)
                 return;
 
+            state = State.Idle;
             StopCoroutine(currentTest);
             SetMain();
+            targetsProvider.EnableTargets(false);
+            targetsProvider.SetActiveStateTargets(false);
+            gameUI.gameObject.SetActive(false);
+            currentTester?.Stop();
+            currentTester = null;
             currentTest = null;
         }
         public void Save(Action<string, bool> onResult = null)
@@ -113,7 +119,7 @@ namespace UOPHololens.Evaluation
             mainMenu.SetActive(false);
             currentTester?.Menu.SetActive(true);
         }
-        private bool Protect() => state != State.Idle || !enabled || evaluationTest == null;
+        private bool Protect() => state != State.Idle || !enabled;
         private string getPath(string username) => $"{path}/{username}";
     }
 }

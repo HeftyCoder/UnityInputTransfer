@@ -73,5 +73,10 @@ namespace UOPHololens.Evaluation
             gameObject.SetActive(false);
         }
 
+        public void Close()
+        {
+            gameObject.SetActive(false);
+        }
+
     }
 }
