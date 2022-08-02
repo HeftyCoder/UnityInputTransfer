@@ -3429,7 +3429,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60e07d66d1a78e94dbd90872491f8661, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pointerName: Gaze Pointer
 --- !u!1 &501540822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7059,7 +7058,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 891844250}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.04280113, z: -0.04}
+  m_LocalPosition: {x: 0, y: -0.04280113, z: -0.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1075056920}
@@ -14264,6 +14263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7e165ddb89889e24cb3e3e154ae195cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  creationOffsetFromCamera: {x: 0, y: 0, z: 1}
   prefabForVisualization: {fileID: 7947625016135268791, guid: 6da20f8ece9709b4eb50f659eb725eb3,
     type: 3}
   anchorManager: {fileID: 663438189}
@@ -17524,17 +17524,19 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\u0393\u03B5\u03B9\u03B1 \u03C3\u03B1\u03C2! \u03A4\u03BF\u03C0\u03BF\u03B8\u03B5\u03C4\u03AE\u03C3\u03C4\u03B5
-    \u03C4\u03B7\u03BD \u03C0\u03B1\u03BB\u03AC\u03BC\u03B7 \u03C3\u03B1\u03C2 \u03BC\u03C0\u03C1\u03BF\u03C3\u03C4\u03AC
-    \u03C3\u03C4\u03B7\u03BD \u03BA\u03AC\u03BC\u03B5\u03C1\u03B1 \u03AD\u03B1\u03BD
-    \u03B4\u03B5 \u03C6\u03B1\u03AF\u03BD\u03B5\u03C4\u03B1\u03B9 \u03C4\u03AF\u03C0\u03BF\u03C4\u03B1!\n\u03A0\u03B1\u03C1\u03B1\u03BA\u03B1\u03BB\u03CE
+  m_text: "\u0393\u03B5\u03B9\u03B1 \u03C3\u03B1\u03C2! \u03A0\u03B1\u03C1\u03B1\u03BA\u03B1\u03BB\u03CE
     \u03C0\u03B7\u03B3\u03B1\u03AF\u03BD\u03B5\u03C4\u03B5 \u03C3\u03C4\u03B9\u03C2
     \u03C1\u03C5\u03B8\u03BC\u03AF\u03C3\u03B5\u03B9\u03C2 \u03B1\u03C6\u03BF\u03CD
     \u03C0\u03B1\u03C4\u03AE\u03C3\u03B5\u03C4\u03B5 \u03BC\u03B5 \u03C4\u03BF\u03BD
     \u03B4\u03B5\u03AF\u03BA\u03C4\u03B7 \u03C3\u03B1\u03C2 \u03C4\u03BF \u03C0\u03B1\u03C1\u03B1\u03BA\u03AC\u03C4\u03C9
     \u03BA\u03BF\u03C5\u03BC\u03C0\u03AF \u03CE\u03C3\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03B9\u03C3\u03AC\u03B3\u03B5\u03C4\u03B5
     \u03BA\u03AC\u03C0\u03BF\u03B9\u03B1 \u03B5\u03B9\u03BA\u03BF\u03BD\u03B9\u03BA\u03AC
-    \u03C3\u03C4\u03BF\u03B9\u03C7\u03B5\u03AF\u03B1."
+    \u03C3\u03C4\u03BF\u03B9\u03C7\u03B5\u03AF\u03B1.\n\u0395\u03C6\u03CC\u03C3\u03BF\u03BD
+    \u03C4\u03BF \u03BA\u03AC\u03BD\u03B5\u03C4\u03B5 \u03B1\u03C5\u03C4\u03CC, \u03C4\u03BF\u03C0\u03BF\u03B8\u03B5\u03C4\u03AE\u03C3\u03C4\u03B5
+    \u03C4\u03B7\u03BD \u03B1\u03C1\u03B9\u03C3\u03C4\u03B5\u03C1\u03AE \u03C0\u03B1\u03BB\u03AC\u03BC\u03B7
+    \u03C3\u03B1\u03C2 \u03BC\u03C0\u03C1\u03BF\u03C3\u03C4\u03AC \u03C3\u03C4\u03B7\u03BD
+    \u03BA\u03AC\u03BC\u03B5\u03C1\u03B1 \u03B5\u03AC\u03BD \u03B4\u03B5 \u03C6\u03B1\u03AF\u03BD\u03B5\u03C4\u03B1\u03B9
+    \u03C4\u03AF\u03C0\u03BF\u03C4\u03B1."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2100000, guid: 2db440f3b63d19a4c90ff86d6e0ea256, type: 2}
@@ -17719,8 +17721,8 @@ MonoBehaviour:
   smoothing: 1
   lifetime: 0
   referenceDirection: 1
-  minDistance: 0.58
-  maxDistance: 0.58
+  minDistance: 0.68
+  maxDistance: 0.68
   minViewDegrees: 0
   maxViewDegrees: 10
   aspectV: 1

@@ -15,6 +15,7 @@ namespace UOPHololens.Evaluation
     {
         private const string anchorKeeperID = "ANCHORS";
 
+        [SerializeField] Vector3 creationOffsetFromCamera;
         [SerializeField] Transform prefabForVisualization;
         [SerializeField] ARAnchorManager anchorManager;
         [SerializeField] TMP_Text status;
@@ -24,7 +25,7 @@ namespace UOPHololens.Evaluation
         private SavedAnchors savedAnchorNames = new SavedAnchors();
         private HashSet<Transform> trackables = new HashSet<Transform>();
         private HashSet<ARAnchor> anchors = new HashSet<ARAnchor>();
-        public IEnumerable<ARAnchor> Anchors => anchors;
+        public IReadOnlyCollection<ARAnchor> Anchors => anchors;
         private async void Start()
         {
             //https://docs.microsoft.com/en-us/dotnet/api/microsoft.mixedreality.openxr.arfoundation.anchormanagerextensions.loadanchorstoreasync?view=mixedreality-openxr-plugin-1.4
@@ -43,6 +44,7 @@ namespace UOPHololens.Evaluation
             if (!string.IsNullOrEmpty(json))
                 JsonUtility.FromJsonOverwrite(json, savedAnchorNames);
             var names = savedAnchorNames.anchorNames;
+            Debug.Log(names.Count);
 
             try
             {
@@ -50,6 +52,8 @@ namespace UOPHololens.Evaluation
                 {
                     var anchorId = anchorStore.LoadAnchor(name);
                     var anchor = anchorManager.GetAnchor(anchorId);
+                    if (anchor == null)
+                        continue;
                     anchors.Add(anchor);
                     var visual = Instantiate(prefabForVisualization);
                     var anchorTr = anchor.transform;
@@ -62,6 +66,7 @@ namespace UOPHololens.Evaluation
             catch(Exception e)
             {
                 status.text = "Could not load anchors despite them being there";
+                throw e;
             }
         }
 
@@ -76,6 +81,7 @@ namespace UOPHololens.Evaluation
 
             anchors.Clear();
             trackables.Clear();
+            PlayerPrefs.SetString(anchorKeeperID, "");
         }
         public void CreateNewAnchor()
         {
@@ -86,7 +92,8 @@ namespace UOPHololens.Evaluation
             }
             var visual = Instantiate(prefabForVisualization);
             var tr = visual.transform;
-            tr.position = mainCamera.transform.position + new Vector3(0, 0, 0.3f);
+            var camTrans = mainCamera.transform;
+            tr.position = camTrans.position + camTrans.rotation * creationOffsetFromCamera;
             trackables.Add(visual);
         }
         public void OpenAnchorEdit()
@@ -123,9 +130,11 @@ namespace UOPHololens.Evaluation
                 anchorNames.Add(name);
                 var go = new GameObject(name);
                 var tr = go.transform;
-                var anchor = go.AddComponent<ARAnchor>();
+                //Set the position and rotation before making it an anchor...
                 tr.SetPositionAndRotation(track.position, track.rotation);
+                var anchor = go.AddComponent<ARAnchor>();
                 anchorStore?.TryPersistAnchor(anchor.trackableId, name);
+                anchors.Add(anchor);
                 i++;
             }
 

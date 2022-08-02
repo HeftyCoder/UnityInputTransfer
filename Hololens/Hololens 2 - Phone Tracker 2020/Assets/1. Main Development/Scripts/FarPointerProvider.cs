@@ -6,29 +6,25 @@ using Microsoft.MixedReality.Toolkit;
 
 public class FarPointerProvider : MonoBehaviour
 {
-    [SerializeField] string pointerName;
     float timeSinceLastClick = 0;
     
-    public IMixedRealityPointer GetPointer()
+    public IEnumerable<IMixedRealityPointer> GetPointers()
     {
         foreach (var inputSource in CoreServices.InputSystem.DetectedInputSources)
         {
             foreach (var pointer in inputSource.Pointers)
             {
-                if (pointer.PointerName == pointerName && pointer.IsInteractionEnabled && pointer.IsActive)
-                    return pointer;
+                if (pointer.IsInteractionEnabled && pointer.IsActive)
+                    yield return pointer;
             }
         }
-        return null;
     }
     public void OnClickEvent()
     {
         Debug.Log(Time.time - timeSinceLastClick);
         timeSinceLastClick = Time.time;
-        var pointer = GetPointer();
-        if (pointer == null)
-            return;
         MixedRealityInputAction action = new MixedRealityInputAction();
-        CoreServices.InputSystem.RaisePointerClicked(pointer, action, 1);
+        foreach (var pointer in GetPointers())
+            CoreServices.InputSystem.RaisePointerClicked(pointer, action, 1);
     }
 }
