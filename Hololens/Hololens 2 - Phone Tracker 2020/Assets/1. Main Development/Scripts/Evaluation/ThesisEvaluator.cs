@@ -17,11 +17,18 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal UserUI userUI;
         [SerializeField] internal GameObject mainMenu;
         [SerializeField] GameObject introUI;
-        [SerializeField] internal SelectableTargetsProvider targetsProvider;
         [SerializeField] ThesisInputHandler inputHandler;
         [SerializeField] GazeProvider gazeProvider;
+        [SerializeField] bool enableEyeTracking = false;
         [SerializeField] internal string path = "testers";
 
+        [Header("Targets provider")]
+        [SerializeField] internal SelectableTargetsProvider targetsProvider;
+        [SerializeField] AnchorKeeper anchorKeeper;
+        [SerializeField] SelectableTarget targetPrefab;
+        [SerializeField] List<SelectableTarget> targetsIfNoAnchors = new List<SelectableTarget>();
+
+        private List<SelectableTarget> createdTargets = new List<SelectableTarget>();
         internal EvaluationPlayer player = new EvaluationPlayer();
         private string username = "george";
         private BaseTester currentTester;
@@ -33,7 +40,7 @@ namespace UOPHololens.Evaluation
         public ThesisInputHandler InputHandler => inputHandler;
         private void Awake()
         {
-            gazeProvider.IsEyeTrackingEnabled = true;
+            gazeProvider.IsEyeTrackingEnabled = enableEyeTracking;
             currentTester = null;
             userUI.UsernameInput.onSubmit.AddListener((username) =>
             {
@@ -57,6 +64,10 @@ namespace UOPHololens.Evaluation
         private void Start()
         {
             currentTester?.Menu.SetActive(false);
+            foreach (var target in targetsIfNoAnchors)
+            {
+                target.gameObject.SetActive(false);
+            }
         }
         public State CurrentState => state;
 
@@ -67,7 +78,12 @@ namespace UOPHololens.Evaluation
             state = State.Evaluating;
             IEnumerator play()
             {
+                CreateTargetsFromAnchors();
                 yield return null;
+                if (createdTargets.Count != 0)
+                    targetsProvider.targets = createdTargets;
+                else
+                    targetsProvider.targets = targetsIfNoAnchors;
                 SetTest();
                 userUI.gameObject.SetActive(false);
 
@@ -78,6 +94,7 @@ namespace UOPHololens.Evaluation
                 gameUI.gameObject.SetActive(false);
                 currentTest = null;
                 SetMain();
+                ClearTargetsFromAnchors();
             }
 
             currentTest = StartCoroutine(play());
@@ -96,6 +113,23 @@ namespace UOPHololens.Evaluation
             currentTester?.Stop();
             currentTester = null;
             currentTest = null;
+            ClearTargetsFromAnchors();
+        }
+        private void CreateTargetsFromAnchors()
+        {
+            foreach (var anchor in anchorKeeper.Anchors)
+            {
+                var target = Instantiate(targetPrefab);
+                var tr = anchor.transform;
+                target.transform.SetPositionAndRotation(tr.position, tr.rotation);
+                createdTargets.Add(target);
+            }
+        }
+        private void ClearTargetsFromAnchors()
+        {
+            foreach (var target in createdTargets)
+                Destroy(target.gameObject);
+            createdTargets.Clear();
         }
         public void Save(Action<string, bool> onResult = null)
         {
