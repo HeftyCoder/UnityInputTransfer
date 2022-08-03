@@ -10,7 +10,7 @@ namespace UOPHololens.Evaluation
     {
         [NonSerialized]  public ThesisEvaluator evaluator;
         [SerializeField] protected AudioSource endingSound;
-        [SerializeField] GameObject testerMenu;
+        [SerializeField] GameObject[] testerMenuObjects;
 
         protected WaitForSeconds waitOne = new WaitForSeconds(1);
         protected SelectableTargetsProvider targetsProvider;
@@ -18,16 +18,16 @@ namespace UOPHololens.Evaluation
 
         private void Start()
         {
-            testerMenu?.SetActive(false);
+            SetMenu(false);
         }
-        public GameObject Menu => testerMenu;
+
         public virtual IEnumerator StartTest()
         {
             yield return null;
         }
         public virtual void Stop()
         {
-
+            endTest();
         }
         protected void beginTest()
         {
@@ -37,6 +37,7 @@ namespace UOPHololens.Evaluation
             targetsProvider.AddOnClick(onClick);
             targetsProvider.AddOnFocusExit(onFocusExit);
             targetsProvider.AddOnFocusEnter(onFocusEnter);
+            SetMenu(true);
         }
         protected void endTest()
         {
@@ -45,6 +46,7 @@ namespace UOPHololens.Evaluation
             targetsProvider.RemoveOnFocusExit(onFocusExit);
             targetsProvider.EnableTargets(false);
             targetsProvider.SetActiveStateTargets(false);
+            SetMenu(false);
         }
 
         protected virtual void onClick(SelectableTarget target)
@@ -54,5 +56,11 @@ namespace UOPHololens.Evaluation
         }
         void onFocusEnter(SelectableTarget target) => results.LookedAtTarget();
         void onFocusExit(SelectableTarget target) => results.LookedAwayFromTarget();
+    
+        private void SetMenu(bool enable)
+        {
+            foreach (var go in testerMenuObjects)
+                go.SetActive(enable);
+        }
     }
 }

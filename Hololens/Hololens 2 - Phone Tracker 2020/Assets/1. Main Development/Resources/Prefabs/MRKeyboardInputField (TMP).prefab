@@ -202,7 +202,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eventsToReceive: 1
-  debounceThreshold: 0.01
+  debounceThreshold: 0.05
 --- !u!1 &5403751986149601531
 GameObject:
   m_ObjectHideFlags: 0

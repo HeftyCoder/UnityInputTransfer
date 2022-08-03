@@ -15,7 +15,7 @@ namespace UOPHololens.Evaluation
         [SerializeField] internal SimpleFirebaseClient client;
         [SerializeField] internal GameUI gameUI;
         [SerializeField] internal UserUI userUI;
-        [SerializeField] internal GameObject mainMenu;
+        [SerializeField] internal GameObject[] mainMenuObjects;
         [SerializeField] GameObject introUI;
         [SerializeField] ThesisInputHandler inputHandler;
         [SerializeField] GazeProvider gazeProvider;
@@ -61,7 +61,6 @@ namespace UOPHololens.Evaluation
         }
         private void Start()
         {
-            currentTester?.Menu.SetActive(false);
             foreach (var target in targetsIfNoAnchors)
             {
                 target.gameObject.SetActive(false);
@@ -150,13 +149,13 @@ namespace UOPHololens.Evaluation
         public void SetTester(BaseTester tester) => currentTester = tester;
         private void SetMain()
         {
-            mainMenu.SetActive(true);
-            currentTester?.Menu.SetActive(false);
+            foreach (var obj in mainMenuObjects)
+                obj.SetActive(true);
         }
         private void SetTest()
         {
-            mainMenu.SetActive(false);
-            currentTester?.Menu.SetActive(true);
+            foreach (var obj in mainMenuObjects)
+                obj.SetActive(false);
         }
         private bool Protect() => state != State.Idle || !enabled;
         private string getPath(string username) => $"{path}/{username}";
