@@ -81,16 +81,16 @@ namespace UOPHololens.Evaluation
                     targetsProvider.targets = createdTargets;
                 else
                     targetsProvider.targets = targetsIfNoAnchors;
-                SetTest();
+                SetTestUI();
                 userUI.gameObject.SetActive(false);
 
                 currentTester.evaluator = this;
                 yield return currentTester.StartTest();
                 state = State.Idle;
 
-                gameUI.gameObject.SetActive(false);
+                gameUI.Close();
                 currentTest = null;
-                SetMain();
+                SetMainUI();
                 ClearTargetsFromAnchors();
             }
 
@@ -103,7 +103,7 @@ namespace UOPHololens.Evaluation
 
             state = State.Idle;
             StopCoroutine(currentTest);
-            SetMain();
+            SetMainUI();
             targetsProvider.EnableTargets(false);
             targetsProvider.SetActiveStateTargets(false);
             gameUI.gameObject.SetActive(false);
@@ -147,12 +147,12 @@ namespace UOPHololens.Evaluation
             Play();
         }
         public void SetTester(BaseTester tester) => currentTester = tester;
-        private void SetMain()
+        public void SetMainUI()
         {
             foreach (var obj in mainMenuObjects)
                 obj.SetActive(true);
         }
-        private void SetTest()
+        public void SetTestUI()
         {
             foreach (var obj in mainMenuObjects)
                 obj.SetActive(false);

@@ -144,7 +144,6 @@ namespace UOPHololens.Evaluation
                 var anchor = go.AddComponent<ARAnchor>();
                 var result = anchorStore.TryPersistAnchor(anchor.trackableId, name);
                 status.text = $"{result}";
-                Debug.Log(result);
                 anchors.Add(anchor);
                 i++;
             }
