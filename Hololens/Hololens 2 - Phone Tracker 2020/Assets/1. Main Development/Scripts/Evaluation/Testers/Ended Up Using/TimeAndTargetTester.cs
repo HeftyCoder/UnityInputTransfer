@@ -52,6 +52,7 @@ namespace UOPHololens.Evaluation
             results.fullTime = currentTime;
 
             evaluator.Save();
+            endingSound.Play();
             endTest();
         }
         private IEnumerator doTimeTest()

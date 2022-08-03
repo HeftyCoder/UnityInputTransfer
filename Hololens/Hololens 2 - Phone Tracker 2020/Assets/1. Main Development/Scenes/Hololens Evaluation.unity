@@ -2254,9 +2254,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e90a49d269b8d3948adb44919a0ac348, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetsLeftContainer: {fileID: 0}
+  targetsLeftContainer: {fileID: 202128431}
   targetsLeftCounter: {fileID: 1997731207}
-  timeContainer: {fileID: 0}
+  timeContainer: {fileID: 476115534}
   timeCounter: {fileID: 592446035}
 --- !u!1 &274424852
 GameObject:
@@ -3707,6 +3707,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pointerName: Gaze Pointer
+--- !u!1 &476115534 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4568569794606063956, guid: 305cf147b6e0f77438469c7e6b9ad549,
+    type: 3}
+  m_PrefabInstance: {fileID: 4568569795199633358}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &501540822
 GameObject:
   m_ObjectHideFlags: 0
@@ -10900,7 +10906,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2f4d4a931cfc24f807db8aa5b26850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endingSound: {fileID: 0}
+  endingSound: {fileID: 914441150}
   testerMenuObjects:
   - {fileID: 502423129}
   - {fileID: 1689814063}
@@ -14681,7 +14687,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f2f4d4a931cfc24f807db8aa5b26850, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  endingSound: {fileID: 0}
+  endingSound: {fileID: 914441150}
   testerMenuObjects:
   - {fileID: 502423129}
   - {fileID: 1689814063}
@@ -19152,7 +19158,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &605563247159743052
 MonoBehaviour:
   m_ObjectHideFlags: 0
