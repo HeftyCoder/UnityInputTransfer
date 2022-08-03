@@ -10,21 +10,22 @@ public class FarPointerProvider : MonoBehaviour
     
     public IEnumerable<IMixedRealityPointer> GetPointers()
     {
-        foreach (var inputSource in CoreServices.InputSystem.DetectedInputSources)
+        foreach (var pointer in PointerUtils.GetPointers<IMixedRealityPointer>(Microsoft.MixedReality.Toolkit.Utilities.Handedness.Any))
         {
-            foreach (var pointer in inputSource.Pointers)
-            {
-                if (pointer.IsInteractionEnabled && pointer.IsActive)
-                    yield return pointer;
-            }
+            if (pointer.IsInteractionEnabled && pointer.IsActive)
+                yield return pointer;
         }
     }
     public void OnClickEvent()
     {
         Debug.Log(Time.time - timeSinceLastClick);
         timeSinceLastClick = Time.time;
-        MixedRealityInputAction action = new MixedRealityInputAction();
+        uint id = 0;
         foreach (var pointer in GetPointers())
+        {
+            var action = new MixedRealityInputAction(id, "onClick");
             CoreServices.InputSystem.RaisePointerClicked(pointer, action, 1);
+            id++;
+        }
     }
 }

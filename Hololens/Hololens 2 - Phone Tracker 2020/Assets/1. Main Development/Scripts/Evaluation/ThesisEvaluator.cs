@@ -30,7 +30,7 @@ namespace UOPHololens.Evaluation
 
         private List<SelectableTarget> createdTargets = new List<SelectableTarget>();
         internal EvaluationPlayer player = new EvaluationPlayer();
-        private string username = "george";
+        [SerializeField] private string username = "george";
         private BaseTester currentTester;
         State state = State.Idle;
         Coroutine currentTest;
@@ -42,14 +42,12 @@ namespace UOPHololens.Evaluation
         {
             gazeProvider.IsEyeTrackingEnabled = enableEyeTracking;
             currentTester = null;
-            userUI.UsernameInput.onSubmit.AddListener((username) =>
+            userUI.UsernameInput.onEndEdit.AddListener((username) =>
             {
                 state = State.Loading;
                 this.username = username;
                 client.Get<EvaluationPlayer>(getPath(username), (player, valid) =>
                 {
-                    Debug.Log(this.username);
-                    Debug.Log(valid);
                     if (!valid)
                         this.player = new EvaluationPlayer() { username = username };
                     else

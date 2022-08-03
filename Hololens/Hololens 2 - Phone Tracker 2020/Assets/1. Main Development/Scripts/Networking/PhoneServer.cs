@@ -113,6 +113,7 @@ public class PhoneServer : MonoBehaviour
     #region Operations
     private void OnSubscribe(IIncommingMessage message)
     {
+        Debug.Log("Subscribed");
         var subData = new SubscriptionData();
         message.Deserialize(subData);
  

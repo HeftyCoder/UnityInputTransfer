@@ -15,6 +15,7 @@ namespace UOPHololens.Evaluation
     {
         private const string anchorKeeperID = "ANCHORS";
 
+        [SerializeField] bool throwExceptionInEditor;
         [SerializeField] Vector3 creationOffsetFromCamera;
         [SerializeField] Transform prefabForVisualization;
         [SerializeField] ARAnchorManager anchorManager;
@@ -25,6 +26,8 @@ namespace UOPHololens.Evaluation
         private SavedAnchors savedAnchorNames = new SavedAnchors();
         private HashSet<Transform> trackables = new HashSet<Transform>();
         private HashSet<ARAnchor> anchors = new HashSet<ARAnchor>();
+
+        [SerializeField] ARAnchor anchor;
         public IReadOnlyCollection<ARAnchor> Anchors => anchors;
         private async void Start()
         {
@@ -33,18 +36,23 @@ namespace UOPHololens.Evaluation
             try
             {
                 anchorStore = await anchorManager.LoadAnchorStoreAsync();
+                var result = anchorStore.TryPersistAnchor(anchor.trackableId, "lucy");
+                Debug.Log(result);
                 status.text = (anchorStore == null).ToString();
             }
             catch (Exception e)
             {
                 status.text = e.Message;
+#if UNITY_EDITOR
+                if (throwExceptionInEditor)
+                    throw e;
+#endif
             }
 
             var json = PlayerPrefs.GetString(anchorKeeperID);
             if (!string.IsNullOrEmpty(json))
                 JsonUtility.FromJsonOverwrite(json, savedAnchorNames);
             var names = savedAnchorNames.anchorNames;
-            Debug.Log(names.Count);
 
             try
             {
@@ -66,7 +74,8 @@ namespace UOPHololens.Evaluation
             catch(Exception e)
             {
                 status.text = "Could not load anchors despite them being there";
-                throw e;
+                if (throwExceptionInEditor)
+                    throw e;
             }
         }
 
@@ -133,7 +142,9 @@ namespace UOPHololens.Evaluation
                 //Set the position and rotation before making it an anchor...
                 tr.SetPositionAndRotation(track.position, track.rotation);
                 var anchor = go.AddComponent<ARAnchor>();
-                anchorStore?.TryPersistAnchor(anchor.trackableId, name);
+                var result = anchorStore.TryPersistAnchor(anchor.trackableId, name);
+                status.text = $"{result}";
+                Debug.Log(result);
                 anchors.Add(anchor);
                 i++;
             }
