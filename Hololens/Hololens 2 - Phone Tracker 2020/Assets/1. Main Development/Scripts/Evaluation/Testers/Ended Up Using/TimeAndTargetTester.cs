@@ -54,6 +54,7 @@ namespace UOPHololens.Evaluation
             evaluator.Save();
             endingSound.Play();
             endTest();
+            yield return endPhase?.Wait();
         }
         private IEnumerator doTimeTest()
         {
@@ -93,7 +94,7 @@ namespace UOPHololens.Evaluation
         }
         protected override void onClick(SelectableTarget target)
         {
-            if (isTimeTesting)
+            if (!isTimeTesting)
             {
                 currentCount--;
                 if (currentCount < 0)
@@ -113,6 +114,11 @@ namespace UOPHololens.Evaluation
         {
             base.Stop();
             isTimeTesting = false;
+            startPhase?.Close();
+            timePhase?.Close();
+            middlePhase?.Close();
+            targetPhase?.Close();
+            endPhase?.Close();
         }
 
     }

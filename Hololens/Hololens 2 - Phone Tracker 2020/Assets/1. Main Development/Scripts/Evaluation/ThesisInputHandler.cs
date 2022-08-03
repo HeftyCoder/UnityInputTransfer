@@ -21,6 +21,7 @@ public class ThesisInputHandler : MonoBehaviour
         switch (inputType)
         {
             case InputType.GazePointer:
+                //
                 PointerUtils.SetGazePointerBehavior(PointerBehavior.AlwaysOn);
                 PointerUtils.SetHandRayPointerBehavior(PointerBehavior.AlwaysOff);
                 break;
