@@ -23,7 +23,7 @@ public class VirtualPhone : MonoBehaviour
     private Quaternion R = Quaternion.identity;
     private Vector3 T = Vector3.zero;
 
-    private InputAction phonePosition, phoneRotation;
+    private InputAction phonePositionInput, phoneRotationInput;
 
     [ContextMenu("Test Calculate RT")]
     private void TestInEditor()
@@ -40,19 +40,19 @@ public class VirtualPhone : MonoBehaviour
         rotVio = transform.rotation;
 
         //Reading the values that the tracker has for us
-        phonePosition = actions.PhonePosition;
-        phoneRotation = actions.PhoneRotation;
+        phonePositionInput = actions.PhonePosition;
+        phoneRotationInput = actions.PhoneRotation;
     }
     private void OnEnable()
     {
-        phonePosition.performed += ReadPosition;
-        phoneRotation.performed += ReadRotation;
+        phonePositionInput.performed += ReadPosition;
+        phoneRotationInput.performed += ReadRotation;
         arucoTracker.onDetectionFinished += OnArucoScanFinished;
     }
     private void OnDisable()
     {
-        phonePosition.performed -= ReadPosition;
-        phoneRotation.performed -= ReadRotation;
+        phonePositionInput.performed -= ReadPosition;
+        phoneRotationInput.performed -= ReadRotation;
         arucoTracker.onDetectionFinished -= OnArucoScanFinished;
     }
     private void ReadPosition(InputAction.CallbackContext ctx) => posVio = ctx.ReadValue<Vector3>();
