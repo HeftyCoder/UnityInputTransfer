@@ -15,6 +15,15 @@
                     "initialStateCheck": true
                 },
                 {
+                    "name": "Jump",
+                    "type": "Button",
+                    "id": "1df272c2-8f02-497b-9618-fdd02c13b522",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "Attitude",
                     "type": "Value",
                     "id": "da088950-1be8-422d-a02b-d0f23f7837a0",
@@ -164,6 +173,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "Clicked",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f661e322-af78-43e5-a550-e45199ebdaf7",
+                    "path": "<Gamepad>/buttonEast",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Jump",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

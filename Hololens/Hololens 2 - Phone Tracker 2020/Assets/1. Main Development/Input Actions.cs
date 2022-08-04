@@ -37,6 +37,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
+                    ""name"": ""Jump"",
+                    ""type"": ""Button"",
+                    ""id"": ""1df272c2-8f02-497b-9618-fdd02c13b522"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
                     ""name"": ""Attitude"",
                     ""type"": ""Value"",
                     ""id"": ""da088950-1be8-422d-a02b-d0f23f7837a0"",
@@ -188,6 +197,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Clicked"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f661e322-af78-43e5-a550-e45199ebdaf7"",
+                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Jump"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -209,6 +229,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         // Phone
         m_Phone = asset.FindActionMap("Phone", throwIfNotFound: true);
         m_Phone_Move = m_Phone.FindAction("Move", throwIfNotFound: true);
+        m_Phone_Jump = m_Phone.FindAction("Jump", throwIfNotFound: true);
         m_Phone_Attitude = m_Phone.FindAction("Attitude", throwIfNotFound: true);
         m_Phone_LinearAcceleration = m_Phone.FindAction("LinearAcceleration", throwIfNotFound: true);
         m_Phone_Acceleration = m_Phone.FindAction("Acceleration", throwIfNotFound: true);
@@ -276,6 +297,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputActionMap m_Phone;
     private IPhoneActions m_PhoneActionsCallbackInterface;
     private readonly InputAction m_Phone_Move;
+    private readonly InputAction m_Phone_Jump;
     private readonly InputAction m_Phone_Attitude;
     private readonly InputAction m_Phone_LinearAcceleration;
     private readonly InputAction m_Phone_Acceleration;
@@ -288,6 +310,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         private @InputActions m_Wrapper;
         public PhoneActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @Move => m_Wrapper.m_Phone_Move;
+        public InputAction @Jump => m_Wrapper.m_Phone_Jump;
         public InputAction @Attitude => m_Wrapper.m_Phone_Attitude;
         public InputAction @LinearAcceleration => m_Wrapper.m_Phone_LinearAcceleration;
         public InputAction @Acceleration => m_Wrapper.m_Phone_Acceleration;
@@ -307,6 +330,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMove;
+                @Jump.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnJump;
+                @Jump.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnJump;
+                @Jump.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnJump;
                 @Attitude.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
                 @Attitude.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
                 @Attitude.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnAttitude;
@@ -335,6 +361,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
+                @Jump.started += instance.OnJump;
+                @Jump.performed += instance.OnJump;
+                @Jump.canceled += instance.OnJump;
                 @Attitude.started += instance.OnAttitude;
                 @Attitude.performed += instance.OnAttitude;
                 @Attitude.canceled += instance.OnAttitude;
@@ -372,6 +401,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     public interface IPhoneActions
     {
         void OnMove(InputAction.CallbackContext context);
+        void OnJump(InputAction.CallbackContext context);
         void OnAttitude(InputAction.CallbackContext context);
         void OnLinearAcceleration(InputAction.CallbackContext context);
         void OnAcceleration(InputAction.CallbackContext context);

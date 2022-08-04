@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/1. Main Development/Scenes/Hololens Test.unity
+    path: Assets/1. Main Development/Scenes/Presentation/Hololens Thesis Presentation.unity
     guid: b0d692814332f414aa1cd1dae2b2cc76
-  - enabled: 1
-    path: Assets/1. Main Development/Scenes/Android Controller.unity
+  - enabled: 0
+    path: Assets/1. Main Development/Scenes/Evaluation/Evaluation Controller.unity
     guid: 64b775b1f114fc94e9084a94246a0794
   - enabled: 0
-    path: Assets/1. Main Development/Scenes/Hololens Evaluation.unity
+    path: Assets/1. Main Development/Scenes/Evaluation/Hololens Evaluation.unity
     guid: 5ea580c55ec628c40aa8da9dd3bdbb1f
+  - enabled: 1
+    path: Assets/1. Main Development/Scenes/Presentation/Presentation Controller.unity
+    guid: 4575b22491107ee499a92aa2827d8b71
   m_configObjects:
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: 744b813df90924c169af73489b8325de,
       type: 2}
