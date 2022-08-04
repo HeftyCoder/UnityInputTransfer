@@ -26,7 +26,7 @@ public class PhoneServer : MonoBehaviour
 
     private InputActions inputActions;
     private InputEventTrace eventTrace = new InputEventTrace();
-    private Dictionary<IPeer, Dictionary<string,InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
+    private Dictionary<IPeer, Dictionary<string, InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
 
     public InputActions InputActions => inputActions;
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
@@ -96,7 +96,7 @@ public class PhoneServer : MonoBehaviour
             Clear(peer);
         };
     }
-    
+    public void EnableTracker(bool enable) => arucoTracker.enabled = enable;
     public void Listen()
     {
         Listen(port);
