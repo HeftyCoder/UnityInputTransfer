@@ -11,10 +11,10 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/1. Main Development/Scenes/Evaluation/Evaluation Controller.unity
     guid: 64b775b1f114fc94e9084a94246a0794
-  - enabled: 0
+  - enabled: 1
     path: Assets/1. Main Development/Scenes/Evaluation/Hololens Evaluation.unity
     guid: 5ea580c55ec628c40aa8da9dd3bdbb1f
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Main Development/Scenes/Presentation/Presentation Controller.unity
     guid: 4575b22491107ee499a92aa2827d8b71
   m_configObjects:
