@@ -199,7 +199,8 @@ public class PhoneServer : MonoBehaviour
 
         var layout = desc.Layout;
         var peerDevices = peerToDevices[peer];
-        var device = peerDevices[layout];
+        if (!peerDevices.TryGetValue(layout, out var device))
+            return;
         peerDevices.Remove(layout);
         CreatedDevices.Remove(device);
         InputSystem.RemoveDevice(device);

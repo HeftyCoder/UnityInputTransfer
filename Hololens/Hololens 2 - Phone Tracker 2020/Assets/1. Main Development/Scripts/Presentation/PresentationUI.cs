@@ -7,7 +7,15 @@ public class PresentationUI : MonoBehaviour
     [SerializeField] GameObject connectionUI;
     [SerializeField] ScreenOrientation mainOrientation;
 
+    [SerializeField] PresentationItem[] presItems;
     private PresentationItem currentUI;
+
+    private void Start()
+    {
+        foreach (var presentation in presItems)
+            presentation.gameObject.SetActive(false);
+        gameObject.SetActive(false);
+    }
     public void EnterPresentation(PresentationItem item)
     {
         currentUI = item;
@@ -18,15 +26,12 @@ public class PresentationUI : MonoBehaviour
     }
     public void ExitPresentation()
     {
-        currentUI.gameObject.SetActive(false);
         connectionUI.SetActive(true);
         Screen.orientation = mainOrientation;
+        if (currentUI == null)
+            return;
+        currentUI.gameObject.SetActive(false);
         currentUI.onExit?.Invoke();
         currentUI = null;
-    }
-
-    private void OnEnable()
-    {
-        ExitPresentation();
     }
 }
