@@ -14112,7 +14112,7 @@ MonoBehaviour:
   mediaCapturer: {fileID: 1055322860}
   status: {fileID: 2114401674}
   minimumMarkersForDetection: 5
-  processAfterNumFrames: 1
+  processAfterNumFrames: 15
   ArUcoDictionaryName: 8
   ArUcoTrackingType: 1
   boardPositions: {fileID: 1055322857}

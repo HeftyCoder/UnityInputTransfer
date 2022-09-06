@@ -64,16 +64,6 @@ public class TestController : MonoBehaviour
 
     private void Update()
     {
-        timeSinceLast += Time.deltaTime;
-        var x = Random.RandomRange(0, 10);
-        var y = Random.RandomRange(0, 10);
-        var z = Random.RandomRange(0, 10);
 
-        currentOrientation += new Vector3(x, y, z);
-        var rotation = Quaternion.Euler(currentOrientation);
-
-        test.quat = rotation;
-        client.SendMessage(1, test);
-        
     }
 }
