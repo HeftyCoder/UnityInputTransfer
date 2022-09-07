@@ -4826,7 +4826,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 401214899}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.04, y: 0.43, z: 1.22}
+  m_LocalPosition: {x: 0.077, y: -0.042, z: 1.043}
   m_LocalScale: {x: 0.05, y: 0.05, z: 0.01}
   m_Children:
   - {fileID: 572449458}
@@ -5915,7 +5915,7 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u03A4\u03B5\u03C3\u03C4 \u03A3\u03C4\u03CC\u03C7\u03C9\u03BD:\n\u0398\u03B1
         \u03AD\u03C7\u03B5\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5
-        30 \u03C3\u03C4\u03CC\u03C7\u03BF\u03C5\u03C2 \u03C3\u03B5 \u03CC\u03C3\u03BF
+        20 \u03C3\u03C4\u03CC\u03C7\u03BF\u03C5\u03C2 \u03C3\u03B5 \u03CC\u03C3\u03BF
         \u03C7\u03C1\u03CC\u03BD\u03BF \u03B8\u03AD\u03BB\u03B5\u03C4\u03B5. \u03A0\u03C1\u03BF\u03C3\u03C0\u03B1\u03B8\u03AE\u03C3\u03C4\u03B5
         \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03C4\u03BF
         \u03C3\u03C4\u03CC\u03C7\u03BF \u03BC\u03CC\u03BB\u03B9\u03C2 \u03C4\u03BF\u03BD
@@ -15455,7 +15455,7 @@ MonoBehaviour:
   - {fileID: 502423129}
   - {fileID: 1689814063}
   timePhaseTime: 45
-  targetPhaseTargets: 30
+  targetPhaseTargets: 20
   isNativeTest: 1
   startPhase: {fileID: 83164853}
   timePhase: {fileID: 1503868226}
@@ -19833,7 +19833,7 @@ MonoBehaviour:
   - {fileID: 502423129}
   - {fileID: 1689814063}
   timePhaseTime: 45
-  targetPhaseTargets: 30
+  targetPhaseTargets: 20
   isNativeTest: 0
   startPhase: {fileID: 269624184}
   timePhase: {fileID: 1407589818}
@@ -21128,7 +21128,7 @@ PrefabInstance:
       propertyPath: m_text
       value: "\u03A4\u03B5\u03C3\u03C4 \u03A3\u03C4\u03CC\u03C7\u03BF\u03C5:\n\u0398\u03B1
         \u03AD\u03C7\u03B5\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5
-        30 \u03C3\u03C4\u03CC\u03C7\u03BF\u03C5\u03C2 \u03C3\u03B5 \u03CC\u03C3\u03BF
+        20 \u03C3\u03C4\u03CC\u03C7\u03BF\u03C5\u03C2 \u03C3\u03B5 \u03CC\u03C3\u03BF
         \u03C7\u03C1\u03CC\u03BD\u03BF \u03B8\u03AD\u03BB\u03B5\u03C4\u03B5. \u03A0\u03C1\u03BF\u03C3\u03C0\u03B1\u03B8\u03AE\u03C3\u03C4\u03B5
         \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5 \u03C4\u03BF
         \u03C3\u03C4\u03CC\u03C7\u03BF \u03BC\u03CC\u03BB\u03B9\u03C2 \u03C4\u03BF\u03BD

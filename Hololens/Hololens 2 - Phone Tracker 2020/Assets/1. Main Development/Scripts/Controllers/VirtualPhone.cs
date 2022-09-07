@@ -55,8 +55,16 @@ public class VirtualPhone : MonoBehaviour
         phoneRotationInput.performed -= ReadRotation;
         arucoTracker.onDetectionFinished -= OnArucoScanFinished;
     }
-    private void ReadPosition(InputAction.CallbackContext ctx) => posVio = ctx.ReadValue<Vector3>();
-    private void ReadRotation(InputAction.CallbackContext ctx) => rotVio = ctx.ReadValue<Quaternion>();
+    private void ReadPosition(InputAction.CallbackContext ctx)
+    {
+        posVio = ctx.ReadValue<Vector3>();
+        Debug.Log("Reading position at : " +Time.frameCount);
+    }
+    private void ReadRotation(InputAction.CallbackContext ctx)
+    {
+        rotVio = ctx.ReadValue<Quaternion>();
+        Debug.Log("Reading rotation at : " + Time.frameCount);
+    }
 
     private void OnArucoScanFinished(IReadOnlyList<Marker> markers)
     {
