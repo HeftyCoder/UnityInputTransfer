@@ -133,6 +133,7 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
+        Debug.Log($"CLIENT: {Mirror.NetworkTime.time}");
         if (Events.Count != 0 || gatheredData.Count != 0 || trackedMotion != null)
         {
             PhoneData data = new PhoneData(gatheredData.Values, Events);
