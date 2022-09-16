@@ -66,7 +66,6 @@ public class PhoneServer : MonoBehaviour
     private void Update()
     {
         timeSinceLastMessage += Time.deltaTime;
-        Debug.Log("SERVER: "+Mirror.NetworkTime.time);
     }
     private void InitializeServer()
     {

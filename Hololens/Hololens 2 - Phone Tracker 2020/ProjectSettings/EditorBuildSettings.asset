@@ -5,10 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/1. Main Development/Scenes/Thesis/Thesis Hololens.unity
     guid: 5ea580c55ec628c40aa8da9dd3bdbb1f
-  - enabled: 1
+  - enabled: 0
     path: Assets/1. Main Development/Scenes/Thesis/Thesis Phone Controller.unity
     guid: 4575b22491107ee499a92aa2827d8b71
   m_configObjects:
