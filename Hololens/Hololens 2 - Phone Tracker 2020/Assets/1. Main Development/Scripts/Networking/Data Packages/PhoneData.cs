@@ -8,6 +8,9 @@ public class PhoneData : SerializablePacket
 {
     public IList<InputData> inputDatas = new List<InputData>();
     public IList<EventPacket> events = new List<EventPacket>();
+    public PingMessage ping;
+    public double latency;
+    public double networkTimestamp;
     public PhoneData() { }
     public PhoneData(IEnumerable<InputData> deviceChanges, IEnumerable<EventPacket> eventPackets) => Reset(deviceChanges, eventPackets);
     public void Reset(IEnumerable<InputData> deviceChanges, IEnumerable<EventPacket> eventPackets)
@@ -32,6 +35,10 @@ public class PhoneData : SerializablePacket
         writer.Write(events.Count);
         foreach (var ev in events)
             writer.Write(ev);
+
+        writer.Write(ping);
+        writer.Write(latency);
+        writer.Write(networkTimestamp);
     }
     public override void FromBinaryReader(EndianBinaryReader reader)
     {
@@ -52,6 +59,11 @@ public class PhoneData : SerializablePacket
             reader.ReadPacket(ev);
             events.Add(ev);
         }
+
+        ping = new PingMessage();
+        reader.ReadPacket(ping);
+        latency = reader.ReadDouble();
+        networkTimestamp = reader.ReadDouble();
     }
 
 }

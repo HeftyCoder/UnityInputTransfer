@@ -8,18 +8,27 @@ namespace kcp2k
     {
         // events
         public Action OnConnected;
-        public Action<ArraySegment<byte>> OnData;
+        public Action<ArraySegment<byte>, KcpChannel> OnData;
         public Action OnDisconnected;
+        // error callback instead of logging.
+        // allows libraries to show popups etc.
+        // (string instead of Exception for ease of use and to avoid user panic)
+        public Action<ErrorCode, string> OnError;
 
         // state
         public KcpClientConnection connection;
         public bool connected;
 
-        public KcpClient(Action OnConnected, Action<ArraySegment<byte>> OnData, Action OnDisconnected)
+        public KcpClient(Action OnConnected,
+                         Action<ArraySegment<byte>,
+                         KcpChannel> OnData,
+                         Action OnDisconnected,
+                         Action<ErrorCode, string> OnError)
         {
             this.OnConnected = OnConnected;
             this.OnData = OnData;
             this.OnDisconnected = OnDisconnected;
+            this.OnError = OnError;
         }
 
         // CreateConnection can be overwritten for where-allocation:
@@ -27,7 +36,17 @@ namespace kcp2k
         protected virtual KcpClientConnection CreateConnection() =>
             new KcpClientConnection();
 
-        public void Connect(string address, ushort port, bool noDelay, uint interval, int fastResend = 0, bool congestionWindow = true, uint sendWindowSize = Kcp.WND_SND, uint receiveWindowSize = Kcp.WND_RCV, int timeout = KcpConnection.DEFAULT_TIMEOUT)
+        public void Connect(string address,
+                            ushort port,
+                            bool noDelay,
+                            uint interval,
+                            int fastResend = 0,
+                            bool congestionWindow = true,
+                            uint sendWindowSize = Kcp.WND_SND,
+                            uint receiveWindowSize = Kcp.WND_RCV,
+                            int timeout = KcpConnection.DEFAULT_TIMEOUT,
+                            uint maxRetransmits = Kcp.DEADLINK,
+                            bool maximizeSendReceiveBuffersToOSLimit = false)
         {
             if (connected)
             {
@@ -43,23 +62,37 @@ namespace kcp2k
             {
                 Log.Info($"KCP: OnClientConnected");
                 connected = true;
-                OnConnected.Invoke();
+                OnConnected();
             };
-            connection.OnData = (message) =>
+            connection.OnData = (message, channel) =>
             {
                 //Log.Debug($"KCP: OnClientData({BitConverter.ToString(message.Array, message.Offset, message.Count)})");
-                OnData.Invoke(message);
+                OnData(message, channel);
             };
             connection.OnDisconnected = () =>
             {
                 Log.Info($"KCP: OnClientDisconnected");
                 connected = false;
                 connection = null;
-                OnDisconnected.Invoke();
+                OnDisconnected();
+            };
+            connection.OnError = (error, reason) =>
+            {
+                OnError(error, reason);
             };
 
             // connect
-            connection.Connect(address, port, noDelay, interval, fastResend, congestionWindow, sendWindowSize, receiveWindowSize, timeout);
+            connection.Connect(address,
+                               port,
+                               noDelay,
+                               interval,
+                               fastResend,
+                               congestionWindow,
+                               sendWindowSize,
+                               receiveWindowSize,
+                               timeout,
+                               maxRetransmits,
+                               maximizeSendReceiveBuffersToOSLimit);
         }
 
         public void Send(ArraySegment<byte> segment, KcpChannel channel)
@@ -111,10 +144,5 @@ namespace kcp2k
             TickIncoming();
             TickOutgoing();
         }
-
-        // pause/unpause to safely support mirror scene handling and to
-        // immediately pause the receive while loop if needed.
-        public void Pause() => connection?.Pause();
-        public void Unpause() => connection?.Unpause();
     }
 }

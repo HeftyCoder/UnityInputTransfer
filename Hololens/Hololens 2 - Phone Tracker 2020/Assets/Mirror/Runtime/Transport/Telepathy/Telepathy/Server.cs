@@ -358,6 +358,7 @@ namespace Telepathy
             // only if pipe was created yet (after start())
             if (receivePipe == null)
                 return 0;
+
             // process up to 'processLimit' messages for this connection
             for (int i = 0; i < processLimit; ++i)
             {

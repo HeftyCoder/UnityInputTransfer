@@ -2,9 +2,14 @@
 //
 // reliable: latency
 // unreliable: latency, loss, scramble (unreliable isn't ordered so we scramble)
+//
+// IMPORTANT: use Time.unscaledTime instead of Time.time.
+//            some games might have Time.timeScale modified.
+//            see also: https://github.com/vis2k/Mirror/issues/2907
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Mirror
 {
@@ -22,10 +27,12 @@ namespace Mirror
         public Transport wrap;
 
         [Header("Common")]
-        [Tooltip("Spike latency via perlin(Time * speedMultiplier) * spikeMultiplier")]
-        [Range(0, 1)] public float latencySpikeMultiplier;
-        [Tooltip("Spike latency via perlin(Time * speedMultiplier) * spikeMultiplier")]
-        public float latencySpikeSpeedMultiplier = 1;
+        [Tooltip("Jitter latency via perlin(Time * jitterSpeed) * jitter")]
+        [FormerlySerializedAs("latencySpikeMultiplier")]
+        [Range(0, 1)] public float jitter;
+        [Tooltip("Jitter latency via perlin(Time * jitterSpeed) * jitter")]
+        [FormerlySerializedAs("latencySpikeSpeedMultiplier")]
+        public float jitterSpeed = 1;
 
         [Header("Reliable Messages")]
         [Tooltip("Reliable latency in seconds")]
@@ -59,7 +66,7 @@ namespace Mirror
         public void Awake()
         {
             if (wrap == null)
-                throw new Exception("PressureDrop requires an underlying transport to wrap around.");
+                throw new Exception("LatencySimulationTransport requires an underlying transport to wrap around.");
         }
 
         // forward enable/disable to the wrapped transport
@@ -76,7 +83,7 @@ namespace Mirror
             // no spikes isn't realistic.
             // sin is too predictable / no realistic.
             // perlin is still deterministic and random enough.
-            float spike = Noise(Time.time * latencySpikeSpeedMultiplier) * latencySpikeMultiplier;
+            float spike = Noise(Time.unscaledTime * jitterSpeed) * jitter;
 
             // base latency
             switch (channeldId)
@@ -103,7 +110,7 @@ namespace Mirror
             {
                 connectionId = connectionId,
                 bytes = bytes,
-                time = Time.time + latency
+                time = Time.unscaledTime + latency
             };
 
             switch (channelId)
@@ -206,7 +213,7 @@ namespace Mirror
             {
                 // check the first message time
                 QueuedMessage message = reliableClientToServer[0];
-                if (message.time <= Time.time)
+                if (message.time <= Time.unscaledTime)
                 {
                     // send and eat
                     wrap.ClientSend(new ArraySegment<byte>(message.bytes), Channels.Reliable);
@@ -221,7 +228,7 @@ namespace Mirror
             {
                 // check the first message time
                 QueuedMessage message = unreliableClientToServer[0];
-                if (message.time <= Time.time)
+                if (message.time <= Time.unscaledTime)
                 {
                     // send and eat
                     wrap.ClientSend(new ArraySegment<byte>(message.bytes), Channels.Unreliable);
@@ -241,7 +248,7 @@ namespace Mirror
             {
                 // check the first message time
                 QueuedMessage message = reliableServerToClient[0];
-                if (message.time <= Time.time)
+                if (message.time <= Time.unscaledTime)
                 {
                     // send and eat
                     wrap.ServerSend(message.connectionId, new ArraySegment<byte>(message.bytes), Channels.Reliable);
@@ -256,7 +263,7 @@ namespace Mirror
             {
                 // check the first message time
                 QueuedMessage message = unreliableServerToClient[0];
-                if (message.time <= Time.time)
+                if (message.time <= Time.unscaledTime)
                 {
                     // send and eat
                     wrap.ServerSend(message.connectionId, new ArraySegment<byte>(message.bytes), Channels.Unreliable);

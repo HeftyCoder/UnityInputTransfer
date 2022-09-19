@@ -18,9 +18,9 @@ public class PhoneServer : MonoBehaviour
     [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] bool enableArucoTrackerOnConnection = false;
 
+    [SerializeField] private ServerNetworkClock clock = new ServerNetworkClock();
     private bool listening = false;
     private int count = 0;
-    private float timeSinceLastMessage = 0;
     private PhoneClient localClient;
     public IServerSocket ServerSocket => server;
 
@@ -34,6 +34,7 @@ public class PhoneServer : MonoBehaviour
     public Dictionary<short, Action<IIncommingMessage>> Operations { get; private set; } = new Dictionary<short, Action<IIncommingMessage>>();
     private void Awake()
     {
+        clock.Reset();
         inputActions = new InputActions();
         RefreshDevices();
         localClient = GetComponent<PhoneClient>();
@@ -56,17 +57,12 @@ public class PhoneServer : MonoBehaviour
         if (onStart)
             Listen();
     }
-
     private void OnDestroy()
     {
         foreach (var device in CreatedDevices)
             InputSystem.RemoveDevice(device);
     }
 
-    private void Update()
-    {
-        timeSinceLastMessage += Time.deltaTime;
-    }
     private void InitializeServer()
     {
         Operations.Add((short)global::Operations.Subscribe, this.OnSubscribe);
@@ -81,9 +77,6 @@ public class PhoneServer : MonoBehaviour
 
             peer.MessageReceived += (message) =>
             {
-                //if (timeSinceLastMessage > delayThreshold)
-                //    Debug.Log($"Message Processing took: {timeSinceLastMessage}");
-                timeSinceLastMessage = 0;
                 var opcode = message.OpCode;
                 Operations[opcode].Invoke(message);
             };
@@ -135,8 +128,13 @@ public class PhoneServer : MonoBehaviour
         message.Deserialize(phoneData);
         var peer = message.Peer;
 
-        //datas[peer] = phoneData;
         ProcessPhoneData(peer, phoneData);
+
+        //Update time
+        var pong = clock.GetPongMessage(phoneData.ping);
+        message.Respond(pong, ResponseStatus.Success);
+
+        Debug.Log($"Time of Server: {clock.Time} \nTime of Phone at message: {phoneData.networkTimestamp} \nLatency: {phoneData.latency}");
     }
 
     private void ProcessPhoneData(IPeer peer, PhoneData phoneData)

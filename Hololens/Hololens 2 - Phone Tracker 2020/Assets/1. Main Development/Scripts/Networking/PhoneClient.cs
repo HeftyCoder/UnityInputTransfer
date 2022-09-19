@@ -25,6 +25,10 @@ public class PhoneClient : MonoBehaviour
     [SerializeField] Transform trackedMotion;
     [SerializeField] string deviceName;
 
+    [Header("Ping and network")]
+    [SerializeField] bool updatePing = true;
+    [SerializeField] ClientNetworkClock clock = new ClientNetworkClock();
+
     TrackedPoseDriver poseDriver;
     DeviceDescription trackedDeviceDescription;
     private bool captureChangeEvents = true;
@@ -68,6 +72,7 @@ public class PhoneClient : MonoBehaviour
     
     private void Awake()
     {
+        clock.Reset();
         Screen.sleepTimeout = SleepTimeout.NeverSleep;
         Application.targetFrameRate = targetFrameRate;
         if (trackedMotion != null)
@@ -133,7 +138,7 @@ public class PhoneClient : MonoBehaviour
         if (!ClientSocket.IsConnected || !startMessaging)
             return;
 
-        if (Events.Count != 0 || gatheredData.Count != 0 || trackedMotion != null)
+        if (updatePing || Events.Count != 0 || gatheredData.Count != 0 || trackedMotion != null)
         {
             PhoneData data = new PhoneData(gatheredData.Values, Events);
             if (trackedMotion != null)
@@ -146,9 +151,23 @@ public class PhoneClient : MonoBehaviour
                 data.inputDatas.Add(motionInput);
             }
 
-            ClientSocket.SendMessage((short)Operations.StateData, data);
+            data.ping = clock.GetPingMessage();
+            data.networkTimestamp = clock.Time;
+            data.latency = clock.Latency;
+
+            ClientSocket.SendMessage((short)Operations.StateData, data, (status, message) =>
+            {
+                if (status != ResponseStatus.Success)
+                    return;
+                var pong = new PongMessage();
+                message.Deserialize(pong);
+                Debug.Log($"{pong.clientTime} {pong.serverTime}");
+                clock.Update(pong);
+            });
+
             gatheredData.Clear();
             Events.Clear();
+
         }
     }
     private void OnDestroy()

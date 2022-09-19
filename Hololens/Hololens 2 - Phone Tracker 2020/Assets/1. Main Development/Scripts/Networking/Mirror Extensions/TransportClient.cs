@@ -29,7 +29,7 @@ public class TransportClient : BaseTransportSocket, IClientSocket
     [SerializeField] string ipToConnect = "localhost";
 
     private ConnectionStatus status;
-    private BasePeer peer;
+    private TransportClientPeer peer;
     private BaseClientSocket msgDispatcher; // bad naming for the class
     private Dictionary<short, IPacketHandler> handlers = new Dictionary<short, IPacketHandler>();
 
@@ -68,11 +68,13 @@ public class TransportClient : BaseTransportSocket, IClientSocket
         void handleConnect()
         {
             Status = ConnectionStatus.Connected;
+            peer.connected = true;
             StatusChanged?.Invoke(Status);
             Connected?.Invoke();
         }
         void handleDisconnect()
         {
+            peer.connected = false;
             Status = ConnectionStatus.Disconnected;
             StatusChanged?.Invoke(Status);
             Disconnected?.Invoke();

@@ -7,21 +7,7 @@ namespace Barebones.Networking
     /// </summary>
     public abstract class SerializablePacket : ISerializablePacket
     {
-        public byte[] ToBytes()
-        {
-            byte[] b;
-            using (var ms = new MemoryStream())
-            {
-                using (var writer = new EndianBinaryWriter(EndianBitConverter.Big, ms))
-                {
-                    ToBinaryWriter(writer);
-                }
-
-                b = ms.ToArray();
-            }
-            return b;
-        }
-
+        public byte[] ToBytes() => SerializablePacket.ToBytes(this);
         public abstract void ToBinaryWriter(EndianBinaryWriter writer);
         public abstract void FromBinaryReader(EndianBinaryReader reader);
 
@@ -35,6 +21,20 @@ namespace Barebones.Networking
                     return packet;
                 }
             }
+        }
+        public static byte[] ToBytes(ISerializablePacket packet)
+        {
+            byte[] b;
+            using (var ms = new MemoryStream())
+            {
+                using (var writer = new EndianBinaryWriter(EndianBitConverter.Big, ms))
+                {
+                    packet.ToBinaryWriter(writer);
+                }
+
+                b = ms.ToArray();
+            }
+            return b;
         }
 
         /// <summary>

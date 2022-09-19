@@ -11,13 +11,22 @@ namespace kcp2k
     {
         // events
         public Action<int> OnConnected;
-        public Action<int, ArraySegment<byte>> OnData;
+        public Action<int, ArraySegment<byte>, KcpChannel> OnData;
         public Action<int> OnDisconnected;
+        // error callback instead of logging.
+        // allows libraries to show popups etc.
+        // (string instead of Exception for ease of use and to avoid user panic)
+        public Action<int, ErrorCode, string> OnError;
 
-        // configuration
+        // socket configuration
         // DualMode uses both IPv6 and IPv4. not all platforms support it.
         // (Nintendo Switch, etc.)
         public bool DualMode;
+        // too small send/receive buffers might cause connection drops under
+        // heavy load. using the OS max size can make a difference already.
+        public bool MaximizeSendReceiveBuffersToOSLimit;
+
+        // kcp configuration
         // NoDelay is recommended to reduce latency. This also scales better
         // without buffers getting full.
         public bool NoDelay;
@@ -41,6 +50,8 @@ namespace kcp2k
         public uint ReceiveWindowSize;
         // timeout in milliseconds
         public int Timeout;
+        // maximum retransmission attempts until dead_link
+        public uint MaxRetransmits;
 
         // state
         protected Socket socket;
@@ -57,8 +68,9 @@ namespace kcp2k
         public Dictionary<int, KcpServerConnection> connections = new Dictionary<int, KcpServerConnection>();
 
         public KcpServer(Action<int> OnConnected,
-                         Action<int, ArraySegment<byte>> OnData,
+                         Action<int, ArraySegment<byte>, KcpChannel> OnData,
                          Action<int> OnDisconnected,
+                         Action<int, ErrorCode, string> OnError,
                          bool DualMode,
                          bool NoDelay,
                          uint Interval,
@@ -66,11 +78,14 @@ namespace kcp2k
                          bool CongestionWindow = true,
                          uint SendWindowSize = Kcp.WND_SND,
                          uint ReceiveWindowSize = Kcp.WND_RCV,
-                         int Timeout = KcpConnection.DEFAULT_TIMEOUT)
+                         int Timeout = KcpConnection.DEFAULT_TIMEOUT,
+                         uint MaxRetransmits = Kcp.DEADLINK,
+                         bool MaximizeSendReceiveBuffersToOSLimit = false)
         {
             this.OnConnected = OnConnected;
             this.OnData = OnData;
             this.OnDisconnected = OnDisconnected;
+            this.OnError = OnError;
             this.DualMode = DualMode;
             this.NoDelay = NoDelay;
             this.Interval = Interval;
@@ -79,6 +94,8 @@ namespace kcp2k
             this.SendWindowSize = SendWindowSize;
             this.ReceiveWindowSize = ReceiveWindowSize;
             this.Timeout = Timeout;
+            this.MaxRetransmits = MaxRetransmits;
+            this.MaximizeSendReceiveBuffersToOSLimit = MaximizeSendReceiveBuffersToOSLimit;
 
             // create newClientEP either IPv4 or IPv6
             newClientEP = DualMode
@@ -87,6 +104,25 @@ namespace kcp2k
         }
 
         public bool IsActive() => socket != null;
+
+        // if connections drop under heavy load, increase to OS limit.
+        // if still not enough, increase the OS limit.
+        void ConfigureSocketBufferSizes()
+        {
+            if (MaximizeSendReceiveBuffersToOSLimit)
+            {
+                // log initial size for comparison.
+                // remember initial size for log comparison
+                int initialReceive = socket.ReceiveBufferSize;
+                int initialSend = socket.SendBufferSize;
+
+                socket.SetReceiveBufferToOSLimit();
+                socket.SetSendBufferToOSLimit();
+                Log.Info($"KcpServer: RecvBuf = {initialReceive}=>{socket.ReceiveBufferSize} ({socket.ReceiveBufferSize/initialReceive}x) SendBuf = {initialSend}=>{socket.SendBufferSize} ({socket.SendBufferSize/initialSend}x) increased to OS limits!");
+            }
+            // otherwise still log the defaults for info.
+            else Log.Info($"KcpServer: RecvBuf = {socket.ReceiveBufferSize} SendBuf = {socket.SendBufferSize}. If connections drop under heavy load, enable {nameof(MaximizeSendReceiveBuffersToOSLimit)} to increase it to OS limit. If they still drop, increase the OS limit.");
+        }
 
         public void Start(ushort port)
         {
@@ -110,6 +146,9 @@ namespace kcp2k
                 socket = new Socket(AddressFamily.InterNetwork, SocketType.Dgram, ProtocolType.Udp);
                 socket.Bind(new IPEndPoint(IPAddress.Any, port));
             }
+
+            // configure socket buffer size.
+            ConfigureSocketBufferSizes();
         }
 
         public void Send(int connectionId, ArraySegment<byte> segment, KcpChannel channel)
@@ -128,13 +167,14 @@ namespace kcp2k
             }
         }
 
-        public string GetClientAddress(int connectionId)
+        // expose the whole IPEndPoint, not just the IP address. some need it.
+        public IPEndPoint GetClientEndPoint(int connectionId)
         {
             if (connections.TryGetValue(connectionId, out KcpServerConnection connection))
             {
-                return (connection.GetRemoteEndPoint() as IPEndPoint).Address.ToString();
+                return (connection.GetRemoteEndPoint() as IPEndPoint);
             }
-            return "";
+            return null;
         }
 
         // EndPoint & Receive functions can be overwritten for where-allocation:
@@ -162,7 +202,7 @@ namespace kcp2k
         }
 
         protected virtual KcpServerConnection CreateConnection() =>
-            new KcpServerConnection(socket, newClientEP, NoDelay, Interval, FastResend, CongestionWindow, SendWindowSize, ReceiveWindowSize, Timeout);
+            new KcpServerConnection(socket, newClientEP, NoDelay, Interval, FastResend, CongestionWindow, SendWindowSize, ReceiveWindowSize, Timeout, MaxRetransmits);
 
         // process incoming messages. should be called before updating the world.
         HashSet<int> connectionsToRemove = new HashSet<int>();
@@ -226,11 +266,11 @@ namespace kcp2k
                                 // internet.
 
                                 // setup data event
-                                connection.OnData = (message) =>
+                                connection.OnData = (message, channel) =>
                                 {
                                     // call mirror event
                                     //Log.Info($"KCP: OnServerDataReceived({connectionId}, {BitConverter.ToString(message.Array, message.Offset, message.Count)})");
-                                    OnData.Invoke(connectionId, message);
+                                    OnData.Invoke(connectionId, message, channel);
                                 };
 
                                 // setup disconnected event
@@ -243,12 +283,18 @@ namespace kcp2k
 
                                     // call mirror event
                                     Log.Info($"KCP: OnServerDisconnected({connectionId})");
-                                    OnDisconnected.Invoke(connectionId);
+                                    OnDisconnected(connectionId);
+                                };
+
+                                // setup error event
+                                connection.OnError = (error, reason) =>
+                                {
+                                    OnError(connectionId, error, reason);
                                 };
 
                                 // finally, call mirror OnConnected event
                                 Log.Info($"KCP: OnServerConnected({connectionId})");
-                                OnConnected.Invoke(connectionId);
+                                OnConnected(connectionId);
                             };
 
                             // now input the message & process received ones
@@ -275,7 +321,13 @@ namespace kcp2k
                     }
                 }
                 // this is fine, the socket might have been closed in the other end
-                catch (SocketException) {}
+                catch (SocketException ex)
+                {
+                    // the other end closing the connection is not an 'error'.
+                    // but connections should never just end silently.
+                    // at least log a message for easier debugging.
+                    Log.Info($"KCP ClientConnection: looks like the other end has closed the connection. This is fine: {ex}");
+                }
             }
 
             // process inputs for all server connections
@@ -318,20 +370,6 @@ namespace kcp2k
         {
             socket?.Close();
             socket = null;
-        }
-
-        // pause/unpause to safely support mirror scene handling and to
-        // immediately pause the receive while loop if needed.
-        public void Pause()
-        {
-            foreach (KcpServerConnection connection in connections.Values)
-                connection.Pause();
-        }
-
-        public void Unpause()
-        {
-            foreach (KcpServerConnection connection in connections.Values)
-                connection.Unpause();
         }
     }
 }

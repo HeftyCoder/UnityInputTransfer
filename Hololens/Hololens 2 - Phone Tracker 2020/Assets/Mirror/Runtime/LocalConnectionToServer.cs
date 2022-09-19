@@ -4,49 +4,6 @@ using UnityEngine;
 
 namespace Mirror
 {
-    // a server's connection TO a LocalClient.
-    // sending messages on this connection causes the client's handler function to be invoked directly
-    public class LocalConnectionToClient : NetworkConnectionToClient
-    {
-        internal LocalConnectionToServer connectionToServer;
-
-        public LocalConnectionToClient() : base(LocalConnectionId) {}
-
-        public override string address => "localhost";
-
-        // Send stage two: serialized NetworkMessage as ArraySegment<byte>
-        internal override void Send(ArraySegment<byte> segment, int channelId = Channels.Reliable)
-        {
-            // get a writer to copy the message into since the segment is only
-            // valid until returning.
-            // => pooled writer will be returned to pool when dequeuing.
-            // => WriteBytes instead of WriteArraySegment because the latter
-            //    includes a 4 bytes header. we just want to write raw.
-            //Debug.Log($"Enqueue {BitConverter.ToString(segment.Array, segment.Offset, segment.Count)}");
-            PooledNetworkWriter writer = NetworkWriterPool.GetWriter();
-            writer.WriteBytes(segment.Array, segment.Offset, segment.Count);
-            connectionToServer.queue.Enqueue(writer);
-        }
-
-        // true because local connections never timeout
-        internal override bool IsAlive(float timeout) => true;
-
-        internal void DisconnectInternal()
-        {
-            // set not ready and handle clientscene disconnect in any case
-            // (might be client or host mode here)
-            isReady = false;
-            RemoveFromObservingsObservers();
-        }
-
-        /// <summary>Disconnects this connection.</summary>
-        public override void Disconnect()
-        {
-            DisconnectInternal();
-            connectionToServer.DisconnectInternal();
-        }
-    }
-
     // a localClient's connection TO a server.
     // send messages on this connection causes the server's handler function to be invoked directly.
     public class LocalConnectionToServer : NetworkConnectionToServer
@@ -54,7 +11,7 @@ namespace Mirror
         internal LocalConnectionToClient connectionToClient;
 
         // packet queue
-        internal readonly Queue<PooledNetworkWriter> queue = new Queue<PooledNetworkWriter>();
+        internal readonly Queue<NetworkWriterPooled> queue = new Queue<NetworkWriterPooled>();
 
         public override string address => "localhost";
 
@@ -76,14 +33,14 @@ namespace Mirror
             // OnTransportData assumes batching.
             // so let's make a batch with proper timestamp prefix.
             Batcher batcher = GetBatchForChannelId(channelId);
-            batcher.AddMessage(segment);
+            batcher.AddMessage(segment, NetworkTime.localTime);
 
             // flush it to the server's OnTransportData immediately.
             // local connection to server always invokes immediately.
-            using (PooledNetworkWriter writer = NetworkWriterPool.GetWriter())
+            using (NetworkWriterPooled writer = NetworkWriterPool.Get())
             {
                 // make a batch with our local time (double precision)
-                if (batcher.MakeNextBatch(writer, NetworkTime.localTime))
+                if (batcher.GetBatch(writer))
                 {
                     NetworkServer.OnTransportData(connectionId, writer.ToArraySegment(), channelId);
                 }
@@ -106,24 +63,24 @@ namespace Mirror
             while (queue.Count > 0)
             {
                 // call receive on queued writer's content, return to pool
-                PooledNetworkWriter writer = queue.Dequeue();
+                NetworkWriterPooled writer = queue.Dequeue();
                 ArraySegment<byte> message = writer.ToArraySegment();
 
                 // OnTransportData assumes a proper batch with timestamp etc.
                 // let's make a proper batch and pass it to OnTransportData.
                 Batcher batcher = GetBatchForChannelId(Channels.Reliable);
-                batcher.AddMessage(message);
+                batcher.AddMessage(message, NetworkTime.localTime);
 
-                using (PooledNetworkWriter batchWriter = NetworkWriterPool.GetWriter())
+                using (NetworkWriterPooled batchWriter = NetworkWriterPool.Get())
                 {
                     // make a batch with our local time (double precision)
-                    if (batcher.MakeNextBatch(batchWriter, NetworkTime.localTime))
+                    if (batcher.GetBatch(batchWriter))
                     {
                         NetworkClient.OnTransportData(batchWriter.ToArraySegment(), Channels.Reliable);
                     }
                 }
 
-                NetworkWriterPool.Recycle(writer);
+                NetworkWriterPool.Return(writer);
             }
 
             // should we still process a disconnected event?

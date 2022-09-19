@@ -12,7 +12,7 @@ namespace Mirror.Examples.Chat
 
         public void Awake()
         {
-            Player.OnMessage += OnPlayerMessage;
+            //Player.OnMessage += OnPlayerMessage;
         }
 
         void OnPlayerMessage(Player player, string message)
@@ -35,7 +35,7 @@ namespace Mirror.Examples.Chat
             Player player = NetworkClient.connection.identity.GetComponent<Player>();
 
             // send a message
-            player.CmdSend(chatMessage.text.Trim());
+            //player.CmdSend(chatMessage.text.Trim());
 
             chatMessage.text = "";
         }

@@ -79,7 +79,7 @@ namespace Barebones.Networking
 
         public void SendMessage(short opCode, ISerializablePacket packet, ResponseCallback responseCallback)
         {
-            var message = MessageHelper.Create(opCode, packet.ToBytes());
+            var message = MessageHelper.Create(opCode, packet);
             SendMessage(message, responseCallback);
         }
 
