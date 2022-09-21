@@ -161,7 +161,6 @@ public class PhoneClient : MonoBehaviour
                     return;
                 var pong = new PongMessage();
                 message.Deserialize(pong);
-                Debug.Log($"{pong.clientTime} {pong.serverTime}");
                 clock.Update(pong);
             });
 

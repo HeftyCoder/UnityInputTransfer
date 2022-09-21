@@ -564,6 +564,9 @@ MonoBehaviour:
     customName: 
   trackedMotion: {fileID: 2001593231}
   deviceName: Tracked Phone Controller
+  updatePing: 1
+  clock:
+    windowSize: 10
 --- !u!4 &140851843
 Transform:
   m_ObjectHideFlags: 0
@@ -625,7 +628,11 @@ MonoBehaviour:
   CongestionWindow: 0
   SendWindowSize: 2048
   ReceiveWindowSize: 2048
+  MaxRetransmit: 40
   NonAlloc: 1
+  MaximizeSendReceiveBuffersToOSLimit: 1
+  ReliableMaxMessageSize: 298449
+  UnreliableMaxMessageSize: 1199
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
