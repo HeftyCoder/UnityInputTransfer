@@ -10,7 +10,7 @@ public class ConnectionUI : MonoBehaviour
     const string ipKey = "IP";
     const string portKey = "port";
 
-    [SerializeField] PhoneClient phoneClient;
+    [SerializeField] DeviceClient phoneClient;
     [SerializeField] Button connectButton;
     [SerializeField] TMP_InputField ipInput;
     [SerializeField] TMP_InputField portInput;

@@ -9,7 +9,7 @@ using UnityEngine.SpatialTracking;
 public class ControlUI : MonoBehaviour
 {
     [SerializeField] Button disconnectButton;
-    [SerializeField] PhoneClient phoneClient;
+    [SerializeField] DeviceClient phoneClient;
     [SerializeField] PresentationUI presentationUI;
     private bool inputLock = false;
 

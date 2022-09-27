@@ -6,7 +6,7 @@ using UnityEngine.InputSystem.LowLevel;
 using TMPro;
 using UnityEngine.InputSystem.XR;
 
-public class PhoneClient : MonoBehaviour
+public class DeviceClient : MonoBehaviour
 {
     [SerializeField] TransportClient client;
     [SerializeField] MarkersLayout arucoMarkersLayout;

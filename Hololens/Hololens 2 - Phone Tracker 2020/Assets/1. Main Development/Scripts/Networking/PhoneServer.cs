@@ -21,7 +21,7 @@ public class PhoneServer : MonoBehaviour
     [SerializeField] private ServerNetworkClock clock = new ServerNetworkClock();
     private bool listening = false;
     private int count = 0;
-    private PhoneClient localClient;
+    private DeviceClient localClient;
     public IServerSocket ServerSocket => server;
 
     private InputActions inputActions;
@@ -37,7 +37,7 @@ public class PhoneServer : MonoBehaviour
         clock.Reset();
         inputActions = new InputActions();
         RefreshDevices();
-        localClient = GetComponent<PhoneClient>();
+        localClient = GetComponent<DeviceClient>();
         if (Instance != null && Instance != this)
         {
             Destroy(this);

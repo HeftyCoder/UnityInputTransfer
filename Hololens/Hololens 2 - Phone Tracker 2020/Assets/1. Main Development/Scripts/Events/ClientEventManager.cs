@@ -5,7 +5,7 @@ using System;
 using Barebones.Networking;
 public class ClientEventManager : EventManager
 {
-    [SerializeField] PhoneClient client;
+    [SerializeField] DeviceClient client;
     public override void SetEventHandler(EventIdentifier e, Action<IIncommingMessage> onEventRaised) =>
         client.ClientSocket.SetHandler(e.Id, CreateHandler(onEventRaised));
     public override void RemoveEventHandler(EventIdentifier e)
