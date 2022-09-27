@@ -526,7 +526,6 @@ GameObject:
   - component: {fileID: 140851845}
   - component: {fileID: 140851846}
   - component: {fileID: 140851847}
-  - component: {fileID: 140851844}
   m_Layer: 0
   m_Name: Hololens Phone Client
   m_TagString: Untagged
@@ -581,18 +580,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &140851844
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 140851841}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea7fbb3c406b58645a3ea600abf911d6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &140851845
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -602,7 +589,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 140851841}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: afc699c5a15898e418fb9de6cf00088c, type: 3}
+  m_Script: {fileID: 11500000, guid: c26ee359112482f44bc828123dbdca44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   transport: {fileID: 140851846}

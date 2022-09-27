@@ -4,8 +4,8 @@ using UnityEngine;
 using Barebones.Networking;
 public class TestScriptForMirror : MonoBehaviour
 {
-    [SerializeField] TransportClient client;
-    [SerializeField] TransportServer server;
+    [SerializeField] TransportClientSocket client;
+    [SerializeField] TransportServerSocket server;
 
     //IClientSocket client;
     //IServerSocket server;

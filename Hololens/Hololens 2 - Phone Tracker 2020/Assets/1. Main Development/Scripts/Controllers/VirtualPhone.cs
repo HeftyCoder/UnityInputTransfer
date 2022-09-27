@@ -8,7 +8,7 @@ using UnityEditor;
 public class VirtualPhone : MonoBehaviour
 {
     [SerializeField] ArucoTracker arucoTracker;
-    [SerializeField] PhoneServer phoneServer;
+    [SerializeField] DeviceServer phoneServer;
 
     InputActions inputs => phoneServer.InputActions;
 

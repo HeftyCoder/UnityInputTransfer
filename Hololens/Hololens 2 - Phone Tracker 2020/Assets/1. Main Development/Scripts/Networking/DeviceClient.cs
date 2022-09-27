@@ -8,7 +8,7 @@ using UnityEngine.InputSystem.XR;
 
 public class DeviceClient : MonoBehaviour
 {
-    [SerializeField] TransportClient client;
+    [SerializeField] TransportClientSocket client;
     [SerializeField] MarkersLayout arucoMarkersLayout;
     [SerializeField] bool connectOnStart;
     [SerializeField] string ip = "127.0.0.1";
@@ -63,7 +63,7 @@ public class DeviceClient : MonoBehaviour
     }
 
     //To avoid conflict in case this is running locally
-    PhoneServer localServer;
+    DeviceServer localServer;
     bool startMessaging = false;
 
     public List<EventPacket> Events { get; private set; } = new List<EventPacket>();
@@ -83,7 +83,7 @@ public class DeviceClient : MonoBehaviour
             trackedDeviceDescription.deviceId = -99;
         }
         //
-        localServer = GetComponent<PhoneServer>();
+        localServer = GetComponent<DeviceServer>();
         //Add all the needed layouts
         foreach (var desc in sensorsToConnect)
             layoutToDescription.Add(desc.Layout, desc);
@@ -140,7 +140,7 @@ public class DeviceClient : MonoBehaviour
 
         if (updatePing || Events.Count != 0 || gatheredData.Count != 0 || trackedMotion != null)
         {
-            PhoneData data = new PhoneData(gatheredData.Values, Events);
+            DeviceData data = new DeviceData(gatheredData.Values, Events);
             if (trackedMotion != null)
             {
                 var motionInput = new InputData(trackedDeviceDescription);

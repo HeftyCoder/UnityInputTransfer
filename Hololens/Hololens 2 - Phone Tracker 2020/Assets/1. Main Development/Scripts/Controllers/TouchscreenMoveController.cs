@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class TouchscreenMoveController : MonoBehaviour
 {
-    [SerializeField] PhoneServer phoneServer;
+    [SerializeField] DeviceServer phoneServer;
 
     InputAction touchDelta;
     

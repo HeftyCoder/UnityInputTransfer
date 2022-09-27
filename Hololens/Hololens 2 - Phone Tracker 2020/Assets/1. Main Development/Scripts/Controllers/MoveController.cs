@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class MoveController : MonoBehaviour
 {
-    [SerializeField] PhoneServer phoneServer;
+    [SerializeField] DeviceServer phoneServer;
     [SerializeField] float moveScale = 0.01f;
     [SerializeField] float jumpScale = 0.3f;
     [SerializeField] ForceMode jumpForceMode;

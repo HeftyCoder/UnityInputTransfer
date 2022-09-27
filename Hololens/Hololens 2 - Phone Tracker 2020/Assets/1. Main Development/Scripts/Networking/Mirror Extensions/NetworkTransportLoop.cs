@@ -25,12 +25,12 @@ public static class NetworkTransportLoop
 {
     // helper enum to add loop to begin/end of subSystemList
     internal enum AddMode { Beginning, End }
-    static HashSet<TransportClient> clients = new HashSet<TransportClient>();
-    static HashSet<TransportServer> servers = new HashSet<TransportServer>();
-    public static bool AddServer(TransportServer server) => servers.Add(server);
-    public static bool RemoveServer(TransportServer server) => servers.Remove(server);
-    public static bool AddClient(TransportClient client) => clients.Add(client);
-    public static bool RemoveClient(TransportClient client) => clients.Remove(client);
+    static HashSet<TransportClientSocket> clients = new HashSet<TransportClientSocket>();
+    static HashSet<TransportServerSocket> servers = new HashSet<TransportServerSocket>();
+    public static bool AddServer(TransportServerSocket server) => servers.Add(server);
+    public static bool RemoveServer(TransportServerSocket server) => servers.Remove(server);
+    public static bool AddClient(TransportClientSocket client) => clients.Add(client);
+    public static bool RemoveClient(TransportClientSocket client) => clients.Remove(client);
     // callbacks in case someone needs to use early/lateupdate too.
     public static Action OnEarlyUpdate;
     public static Action OnLateUpdate;

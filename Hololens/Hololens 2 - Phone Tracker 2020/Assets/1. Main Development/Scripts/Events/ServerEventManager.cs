@@ -5,7 +5,7 @@ using Barebones.Networking;
 using System;
 public class ServerEventManager : EventManager
 {
-    [SerializeField] PhoneServer server;
+    [SerializeField] DeviceServer server;
 
     public override void SetEventHandler(EventIdentifier e, Action<IIncommingMessage> onEventRaised) =>
         server.Operations.Add(e.Id, onEventRaised);

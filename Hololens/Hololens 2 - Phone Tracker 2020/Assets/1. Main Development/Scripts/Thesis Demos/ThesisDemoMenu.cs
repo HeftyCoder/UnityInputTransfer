@@ -7,7 +7,7 @@ public class ThesisDemoMenu : MonoBehaviour
     [SerializeField] float waitAfterButtonClick = 0.05f;
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject internalMenu;
-    [SerializeField] PhoneServer phoneServer;
+    [SerializeField] DeviceServer phoneServer;
     [SerializeField] Vector3 gamepadStartPos = new Vector3(0, 0, 0.8f);
     [SerializeField] GameObject gamepadDemoObject, trackerDemoObject;
 
