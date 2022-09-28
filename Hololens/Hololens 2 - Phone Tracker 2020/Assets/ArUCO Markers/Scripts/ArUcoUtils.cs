@@ -305,7 +305,6 @@ public abstract class ArUcoUtils
         result.m21 *= -1.0f;
         result.m22 *= -1.0f;
         result.m23 *= -1.0f;
-
         return result;
     }
 
