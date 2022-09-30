@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+
 namespace UOPHololens.Evaluation
 {
     [Serializable]
@@ -19,6 +20,12 @@ namespace UOPHololens.Evaluation
     {
         public List<EvaluationResults> nativeTest = new List<EvaluationResults>();
         public List<EvaluationResults> phoneTest = new List<EvaluationResults>();
+
+        public float FirstMeanLookUpTimePhone() => phoneTest[0].CalculateMeanLoopkUpTime();
+        public float FirstMeanResponseTimePhone() => phoneTest[0].CalculateMeanResponseTime();
+        public float FirstMeanLookUpTimeNative() => nativeTest[0].CalculateMeanLoopkUpTime();
+        public float FirstMeanResponseTimeNative() => nativeTest[0].CalculateMeanResponseTime();
+
     }
     [Serializable]
     public class EvaluationResults
@@ -38,6 +45,24 @@ namespace UOPHololens.Evaluation
             targetLookUpTimes.Add(currentLookUpTimesList);
         }
 
+        public float CalculateMeanLoopkUpTime()
+        {
+            var count = 0;
+            float result = 0;
+            for (int i = 0; i < targetLookUpTimes.Count; i++)
+                count += targetLookUpTimes[i].Count;
+            foreach (var lookupTable in targetLookUpTimes)
+                foreach (var time in lookupTable)
+                    result += time;
+            return result / count;
+        }
+        public float CalculateMeanResponseTime()
+        {
+            float result = 0;
+            foreach (var responseTime in targetSelectedTimes)
+                result += responseTime;
+            return result / targetSelectedTimes.Count;
+        }
         public void LookedAtTarget()
         {
             currentLookUpTimesList.Add(currentTime);
