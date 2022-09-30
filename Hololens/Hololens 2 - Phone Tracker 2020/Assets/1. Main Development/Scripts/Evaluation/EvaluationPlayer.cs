@@ -21,10 +21,10 @@ namespace UOPHololens.Evaluation
         public List<EvaluationResults> nativeTest = new List<EvaluationResults>();
         public List<EvaluationResults> phoneTest = new List<EvaluationResults>();
 
-        public float FirstMeanLookUpTimePhone() => phoneTest[0].CalculateMeanLoopkUpTime();
-        public float FirstMeanResponseTimePhone() => phoneTest[0].CalculateMeanResponseTime();
-        public float FirstMeanLookUpTimeNative() => nativeTest[0].CalculateMeanLoopkUpTime();
-        public float FirstMeanResponseTimeNative() => nativeTest[0].CalculateMeanResponseTime();
+        public float FirstMeanLookUpTimePhone(int targetSize = -1) => phoneTest[0].CalculateMeanLoopkUpTime(targetSize);
+        public float FirstMeanResponseTimePhone(int targetSize = -1) => phoneTest[0].CalculateMeanResponseTime(targetSize);
+        public float FirstMeanLookUpTimeNative(int targetSize = -1) => nativeTest[0].CalculateMeanLoopkUpTime(targetSize);
+        public float FirstMeanResponseTimeNative(int targetSize = -1) => nativeTest[0].CalculateMeanResponseTime(targetSize);
 
     }
     [Serializable]
@@ -45,23 +45,31 @@ namespace UOPHololens.Evaluation
             targetLookUpTimes.Add(currentLookUpTimesList);
         }
 
-        public float CalculateMeanLoopkUpTime()
+        public float CalculateMeanLoopkUpTime(int targetSize = -1)
         {
             var count = 0;
             float result = 0;
-            for (int i = 0; i < targetLookUpTimes.Count; i++)
+            if (targetSize <= 0 || targetSize > targetLookUpTimes.Count)
+                targetSize = targetLookUpTimes.Count;
+            for (int i = 0; i < targetSize; i++)
                 count += targetLookUpTimes[i].Count;
-            foreach (var lookupTable in targetLookUpTimes)
+            for (int i = 0; i < targetSize; i++)
+            {
+                var lookupTable = targetLookUpTimes[i];
                 foreach (var time in lookupTable)
                     result += time;
+            }
+                
             return result / count;
         }
-        public float CalculateMeanResponseTime()
+        public float CalculateMeanResponseTime(int targetSize = -1)
         {
             float result = 0;
-            foreach (var responseTime in targetSelectedTimes)
-                result += responseTime;
-            return result / targetSelectedTimes.Count;
+            if (targetSize <= 0)
+                targetSize = targetSelectedTimes.Count;
+            for (int i = 0; i < targetSize; i++)
+                result += targetSelectedTimes[i];
+            return result / targetSize;
         }
         public void LookedAtTarget()
         {

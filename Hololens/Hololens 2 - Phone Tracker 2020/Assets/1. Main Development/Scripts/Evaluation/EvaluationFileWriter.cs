@@ -11,6 +11,7 @@ public class EvaluationFileWriter : ScriptableObject
     public string fileLocation;
     public string saveLocation;
     public int ageBiggerThan;
+    public int targetSize = 20;
 
     public List<EvaluationPlayer> players = new List<EvaluationPlayer>();
 
@@ -33,14 +34,14 @@ public class EvaluationFileWriter : ScriptableObject
             {
                 var timeResponse = player.targetBasedTest;
                 var targetReponse = player.timeBasedTest;
-                s.WriteLine($"native,{timeResponse.FirstMeanLookUpTimeNative()},{timeResponse.FirstMeanResponseTimeNative()},{targetReponse.nativeTest[0].selectedCount}");
+                s.WriteLine($"1,{timeResponse.FirstMeanLookUpTimeNative(targetSize)},{timeResponse.FirstMeanResponseTimeNative(targetSize)},{targetReponse.nativeTest[0].selectedCount}");
             }
 
             foreach (var player in players)
             {
                 var timeResponse = player.targetBasedTest;
                 var targetReponse = player.timeBasedTest;
-                s.WriteLine($"phone,{timeResponse.FirstMeanLookUpTimePhone()},{timeResponse.FirstMeanResponseTimePhone()},{targetReponse.phoneTest[0].selectedCount}");
+                s.WriteLine($"2,{timeResponse.FirstMeanLookUpTimePhone(targetSize)},{timeResponse.FirstMeanResponseTimePhone(targetSize)},{targetReponse.phoneTest[0].selectedCount}");
             }
         }
     }
@@ -55,6 +56,7 @@ public class EvaluationFileWriter : ScriptableObject
         {
             var first = tester.First();
             var player = JsonUtility.FromJson<EvaluationPlayer>(first.ToString());
+            player.username = tester.Path;
             if (player.age > ageBiggerThan)
                 result.Add(player);
         }
