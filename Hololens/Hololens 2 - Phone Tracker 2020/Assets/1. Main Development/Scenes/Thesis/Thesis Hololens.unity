@@ -8796,7 +8796,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\u039F\u03BB\u03BF\u03BA\u03BB\u03B7\u03C1\u03CE\u03C3\u03B1\u03C4\u03B5
-        \u03C4\u03BF \u03A4\u03B5\u03C3\u03C4 \u03A7\u03C1\u03CC\u03BD\u03BF\u03C5!"
+        \u03C4\u03B7\u03BD \u0391\u03C0\u03CC\u03BA\u03C1\u03B9\u03C3\u03B7 \u03A3\u03C4\u03CC\u03C7\u03C9\u03BD!"
       objectReference: {fileID: 0}
     - target: {fileID: 2903759645254625476, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
@@ -10005,7 +10005,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\u039F\u03BB\u03BF\u03BA\u03BB\u03B7\u03C1\u03CE\u03C3\u03B1\u03C4\u03B5
-        \u03C4\u03BF \u03A4\u03B5\u03C3\u03C4 \u03A7\u03C1\u03CC\u03BD\u03BF\u03C5!"
+        \u03C4\u03B7\u03BD \u0391\u03C0\u03CC\u03BA\u03C1\u03B9\u03C3\u03B7 \u03A3\u03C4\u03CC\u03C7\u03C9\u03BD!"
       objectReference: {fileID: 0}
     - target: {fileID: 2903759645254625476, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
@@ -18238,7 +18238,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1459695001
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18700,7 +18700,7 @@ PrefabInstance:
     - target: {fileID: 2903759645254625476, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
       propertyPath: m_text
-      value: "\u03A4\u03B5\u03C3\u03C4 \u03A7\u03C1\u03CC\u03BD\u03BF\u03C5:\n\u0398\u03B1
+      value: "\u0391\u03C0\u03CC\u03BA\u03C1\u03B9\u03C3\u03B7 \u03A3\u03C4\u03CC\u03C7\u03C9\u03BD:\n\u0398\u03B1
         \u03AD\u03C7\u03B5\u03C4\u03B5 45 \u03B4\u03B5\u03C5\u03C4\u03B5\u03C1\u03CC\u03BB\u03B5\u03C0\u03C4\u03B1
         \u03B3\u03B9\u03B1 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5
         \u03CC\u03C3\u03BF\u03C5\u03C2 \u03C0\u03B5\u03C1\u03B9\u03C3\u03C3\u03CC\u03C4\u03B5\u03C1\u03BF\u03C5\u03C2
@@ -18714,7 +18714,7 @@ PrefabInstance:
     - target: {fileID: 2903759645260429145, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
       propertyPath: m_Name
-      value: Time Phase
+      value: Target Response Phase
       objectReference: {fileID: 0}
     - target: {fileID: 2903759645260429145, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
@@ -21141,7 +21141,7 @@ PrefabInstance:
     - target: {fileID: 2903759645254625476, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
       propertyPath: m_text
-      value: "\u03A4\u03B5\u03C3\u03C4 \u03A3\u03C4\u03CC\u03C7\u03BF\u03C5:\n\u0398\u03B1
+      value: "\u0391\u03C0\u03CC\u03BA\u03C1\u03B9\u03C3\u03B7 \u03A7\u03C1\u03CC\u03BD\u03BF\u03C5:\n\u0398\u03B1
         \u03AD\u03C7\u03B5\u03C4\u03B5 \u03BD\u03B1 \u03B5\u03C0\u03B9\u03BB\u03AD\u03BE\u03B5\u03C4\u03B5
         20 \u03C3\u03C4\u03CC\u03C7\u03BF\u03C5\u03C2 \u03C3\u03B5 \u03CC\u03C3\u03BF
         \u03C7\u03C1\u03CC\u03BD\u03BF \u03B8\u03AD\u03BB\u03B5\u03C4\u03B5. \u03A0\u03C1\u03BF\u03C3\u03C0\u03B1\u03B8\u03AE\u03C3\u03C4\u03B5
@@ -21157,7 +21157,7 @@ PrefabInstance:
     - target: {fileID: 2903759645260429145, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
       propertyPath: m_Name
-      value: Target Phase
+      value: Time Response Phase
       objectReference: {fileID: 0}
     - target: {fileID: 2903759645260429145, guid: a81e041762c26b047858c6a4a205d8de,
         type: 3}
