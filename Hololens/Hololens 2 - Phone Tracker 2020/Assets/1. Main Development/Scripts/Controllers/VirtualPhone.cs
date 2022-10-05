@@ -104,6 +104,7 @@ public class VirtualPhone : MonoBehaviour
                 return;
             poseBuffer[poseIndex] = pose;
             poseIndex++;
+            CalculateRT();
         }
     }
     private void OnArucoScanFinished(IReadOnlyList<Marker> markers)
