@@ -2,11 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 public class VirtualPhone : MonoBehaviour
 {
+    public struct PoseInformation
+    {
+        public Vector3 pos;
+        public Quaternion rot;
+        public double timeStamp;
+    }
     [SerializeField] ArucoTracker arucoTracker;
     [SerializeField] DeviceServer phoneServer;
 
@@ -20,11 +27,16 @@ public class VirtualPhone : MonoBehaviour
     public Vector3 posMarker;
     public Quaternion rotMarker;
 
+    public int earlyBufferLength = 10;
+    public int poseBufferLength = 50;
+    private double arucoDetectionTime;
     private Quaternion R = Quaternion.identity;
     private Vector3 T = Vector3.zero;
 
     private InputAction phonePositionInput, phoneRotationInput;
 
+    private PoseInformation[] earlyPoseBuffer, earlyPoseSavedBuffer, poseBuffer;
+    private int readCount = 0, earlyPoseIndex = 0, timedPoseIndex = 0, poseIndex = 0;
     [ContextMenu("Test Calculate RT")]
     private void TestInEditor()
     {
@@ -32,6 +44,10 @@ public class VirtualPhone : MonoBehaviour
     }
     private void Awake()
     {
+        earlyPoseBuffer = new PoseInformation[earlyBufferLength];
+        earlyPoseSavedBuffer = new PoseInformation[earlyBufferLength];
+        poseBuffer = new PoseInformation[poseBufferLength];
+
         var actions = inputs.Phone;
         posMarker = transform.position;
         rotMarker = transform.rotation;
@@ -58,12 +74,38 @@ public class VirtualPhone : MonoBehaviour
     private void ReadPosition(InputAction.CallbackContext ctx)
     {
         posVio = ctx.ReadValue<Vector3>();
+        UpdateBuffer(posVio, rotVio);
     }
     private void ReadRotation(InputAction.CallbackContext ctx)
     {
         rotVio = ctx.ReadValue<Quaternion>();
+        UpdateBuffer(posVio, rotVio);
     }
+    private void UpdateBuffer(Vector3 posVio, Quaternion rotVio)
+    {
+        readCount++;
+        if (readCount == 2)
+        {
+            readCount = 0;
+            double phoneTime = phoneServer.LastNetworkTimestamp;
+            var pose = new PoseInformation()
+            {
+                pos = posVio,
+                rot = rotVio,
+                timeStamp = phoneTime
+            };
 
+            earlyPoseBuffer[earlyPoseIndex] = pose;
+            earlyPoseIndex++;
+            if (earlyPoseIndex >= earlyPoseBuffer.Length)
+                earlyPoseIndex = 0;
+
+            if (poseIndex >= poseBufferLength)
+                return;
+            poseBuffer[poseIndex] = pose;
+            poseIndex++;
+        }
+    }
     private void OnArucoScanFinished(IReadOnlyList<Marker> markers)
     {
         if (markers.Count == 0)
@@ -76,13 +118,48 @@ public class VirtualPhone : MonoBehaviour
         transform.SetPositionAndRotation(marker.position, marker.rotation);
         var actions = inputs.Phone;
 
+        arucoDetectionTime = phoneServer.Clock.Time;
         //Values reported from VIO at the moment of aruco detection
         posVio = actions.PhonePosition.ReadValue<Vector3>();
         rotVio = actions.PhoneRotation.ReadValue<Quaternion>();
 
-        CalculateRT(posVio, rotVio, marker.position, marker.rotation);
+        //Fill the buffer with values we got before detection
+        for (int i = 0; i <= earlyPoseIndex; i++)
+        {
+            earlyPoseSavedBuffer[i] = earlyPoseBuffer[i];
+        }
+        earlyPoseIndex = 0;
+        poseIndex = 0;
     }
 
+    private void CalculateRT()
+    {
+        PoseInformation poseInfo = new PoseInformation();
+        double diff = double.MaxValue;
+        for (int i = 0; i < earlyPoseIndex; i++)
+        {
+            var p = earlyPoseSavedBuffer[i];
+            var currentDiff = Math.Abs(arucoDetectionTime - p.timeStamp);
+            if (currentDiff < diff)
+            {
+                diff = currentDiff;
+                poseInfo = p;
+            }
+        }
+
+        for (int i = 0; i < poseIndex; i++)
+        {
+            var p = poseBuffer[i];
+            var currentDiff = Math.Abs(arucoDetectionTime - p.timeStamp);
+            if (currentDiff < diff)
+            {
+                diff = currentDiff;
+                poseInfo = p;
+            }
+        }
+
+        CalculateRT(poseInfo.pos, poseInfo.rot, posMarker, rotMarker);
+    }
     private void CalculateRT(Vector3 posVio, Quaternion rotVio, Vector3 posMarker, Quaternion rotMarker)
     {
         R = Quaternion.Inverse(rotVio) * rotMarker;

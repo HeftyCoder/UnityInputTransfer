@@ -4308,7 +4308,7 @@ PrefabInstance:
     - target: {fileID: 3088167313546225240, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088167313546225241, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
@@ -4589,7 +4589,7 @@ PrefabInstance:
     - target: {fileID: 3088167313546225240, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088167313546225241, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
@@ -4863,6 +4863,8 @@ MonoBehaviour:
   rotVio: {x: 0, y: 0, z: 0, w: 0}
   posMarker: {x: 0, y: 0, z: 0}
   rotMarker: {x: 0, y: 0, z: 0, w: 0}
+  earlyBufferLength: 10
+  poseBufferLength: 50
 --- !u!114 &401214902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12622,7 +12624,7 @@ PrefabInstance:
     - target: {fileID: 3088167313546225240, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088167313546225241, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
@@ -24428,7 +24430,7 @@ PrefabInstance:
     - target: {fileID: 3088167313546225240, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3088167313546225241, guid: 10088ab06de2b754997e734625e257cf,
         type: 3}

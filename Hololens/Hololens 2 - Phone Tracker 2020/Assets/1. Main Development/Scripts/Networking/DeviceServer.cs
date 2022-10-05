@@ -26,6 +26,12 @@ public class DeviceServer : MonoBehaviour
     private InputActions inputActions;
     private Dictionary<IPeer, Dictionary<string, InputDevice>> peerToDevices = new Dictionary<IPeer, Dictionary<string,InputDevice>>();
 
+    //These should probably be per peer - dont care about it right now
+    private double lastNetworkTimeStamp, latency;
+    //
+    public double LastNetworkTimestamp => lastNetworkTimeStamp;
+    public double Latency => latency;
+    public ServerNetworkClock Clock => clock;
     public InputActions InputActions => inputActions;
     public HashSet<InputDevice> CreatedDevices { get; private set; } = new HashSet<InputDevice>();
     public bool haveDevicesChanged = false;
@@ -132,7 +138,9 @@ public class DeviceServer : MonoBehaviour
         var pong = clock.GetPongMessage(phoneData.ping);
         message.Respond(pong, ResponseStatus.Success);
 
-        Debug.Log($"Time of Server: {clock.Time} \nTime of Phone at message: {phoneData.networkTimestamp} \nLatency: {phoneData.latency}");
+        //Debug.Log($"Time of Server: {clock.Time} \nTime of Phone at message: {phoneData.networkTimestamp} \nLatency: {phoneData.latency}");
+        lastNetworkTimeStamp = phoneData.networkTimestamp;
+        latency = phoneData.latency;
     }
 
     private void ProcessPhoneData(IPeer peer, DeviceData phoneData)
