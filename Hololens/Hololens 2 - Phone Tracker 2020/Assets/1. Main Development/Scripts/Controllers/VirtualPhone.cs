@@ -116,13 +116,9 @@ public class VirtualPhone : MonoBehaviour
         posMarker = marker.position;
         rotMarker = marker.rotation;
 
-        transform.SetPositionAndRotation(marker.position, marker.rotation);
         var actions = inputs.Phone;
 
         arucoDetectionTime = phoneServer.Clock.Time;
-        //Values reported from VIO at the moment of aruco detection
-        posVio = actions.PhonePosition.ReadValue<Vector3>();
-        rotVio = actions.PhoneRotation.ReadValue<Quaternion>();
 
         //Fill the buffer with values we got before detection
         for (int i = 0; i <= earlyPoseIndex; i++)
