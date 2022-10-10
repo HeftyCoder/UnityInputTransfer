@@ -8,9 +8,21 @@ public class ThesisDemoMenu : MonoBehaviour
     [SerializeField] GameObject mainMenu;
     [SerializeField] GameObject internalMenu;
     [SerializeField] DeviceServer phoneServer;
-    [SerializeField] Vector3 gamepadStartPos = new Vector3(0, 0, 0.8f);
-    [SerializeField] GameObject gamepadDemoObject, trackerDemoObject;
+    [SerializeField] Vector3 offsetPosition = new Vector3(0, 0, 0.8f);
+    [SerializeField] GameObject gamepadDemoObject, trackerDemoObject, accelerationDemoObject, attitudeDemoObject, touchscreenDemoObject;
 
+    GameObject activeObject;
+    private IEnumerable<GameObject> objs 
+    { 
+        get
+        {
+            yield return gamepadDemoObject;
+            yield return trackerDemoObject;
+            yield return accelerationDemoObject;
+            yield return attitudeDemoObject;
+            yield return touchscreenDemoObject;
+        } 
+    }
     bool working = false;
     public void EnterDemoMenu()
     {
@@ -23,23 +35,41 @@ public class ThesisDemoMenu : MonoBehaviour
     {
         internalMenu.SetActive(false);
         gameObject.SetActive(false);
-        gamepadDemoObject.SetActive(false);
-        trackerDemoObject.SetActive(false);
+        Disable();
         mainMenu.SetActive(true);
         phoneServer.EnableTracker(false);
     }
 
     public void EnableGamepadDemo()
     {
-        gamepadDemoObject.transform.position = Camera.main.transform.rotation * gamepadStartPos;
-        gamepadDemoObject.SetActive(true);
-        trackerDemoObject.SetActive(false);
+        Enable(gamepadDemoObject);
         phoneServer.EnableTracker(false);
     }
-    public void EnableTrackerDemo()
+    public void EnableTrackerDemo() => Enable(trackerDemoObject);
+    public void EnableAccelerationDemo() => Enable(accelerationDemoObject);
+    public void EnableAttitudeDemo() => Enable(attitudeDemoObject);
+    public void EnableTouchscreenDemo() => Enable(touchscreenDemoObject);
+
+    private void Enable(GameObject activeObj)
     {
-        gamepadDemoObject.SetActive(false);
-        trackerDemoObject.SetActive(true);
-        phoneServer.EnableTracker(true);
+        foreach (var obj in objs)
+        {
+            if (obj == activeObj)
+            {
+                obj.SetActive(true);
+                if (obj == trackerDemoObject)
+                    phoneServer.EnableTracker(true);
+                else
+                    obj.transform.position = Camera.main.transform.position + Camera.main.transform.rotation * offsetPosition;
+            }
+            else
+                obj.SetActive(false);
+        }
+    }
+    private void Disable()
+    {
+        phoneServer.EnableTracker(false);
+        foreach (var obj in objs)
+            obj.SetActive(false);
     }
 }
