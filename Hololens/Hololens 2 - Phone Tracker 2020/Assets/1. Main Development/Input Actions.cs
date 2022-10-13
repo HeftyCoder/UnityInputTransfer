@@ -107,6 +107,15 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""MoveTouch"",
+                    ""type"": ""Value"",
+                    ""id"": ""850a9125-251b-4535-8bd8-0f1640726178"",
+                    ""expectedControlType"": ""Vector2"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": true
                 }
             ],
             ""bindings"": [
@@ -208,6 +217,17 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                     ""action"": ""Jump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""5cd34752-020c-4cb4-8375-cc60989b2814"",
+                    ""path"": ""<Touchscreen>/touch0/delta"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""MoveTouch"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -237,6 +257,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         m_Phone_PhonePosition = m_Phone.FindAction("PhonePosition", throwIfNotFound: true);
         m_Phone_PhoneRotation = m_Phone.FindAction("PhoneRotation", throwIfNotFound: true);
         m_Phone_Clicked = m_Phone.FindAction("Clicked", throwIfNotFound: true);
+        m_Phone_MoveTouch = m_Phone.FindAction("MoveTouch", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -305,6 +326,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
     private readonly InputAction m_Phone_PhonePosition;
     private readonly InputAction m_Phone_PhoneRotation;
     private readonly InputAction m_Phone_Clicked;
+    private readonly InputAction m_Phone_MoveTouch;
     public struct PhoneActions
     {
         private @InputActions m_Wrapper;
@@ -318,6 +340,7 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         public InputAction @PhonePosition => m_Wrapper.m_Phone_PhonePosition;
         public InputAction @PhoneRotation => m_Wrapper.m_Phone_PhoneRotation;
         public InputAction @Clicked => m_Wrapper.m_Phone_Clicked;
+        public InputAction @MoveTouch => m_Wrapper.m_Phone_MoveTouch;
         public InputActionMap Get() { return m_Wrapper.m_Phone; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -354,6 +377,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clicked.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
                 @Clicked.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
                 @Clicked.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnClicked;
+                @MoveTouch.started -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMoveTouch;
+                @MoveTouch.performed -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMoveTouch;
+                @MoveTouch.canceled -= m_Wrapper.m_PhoneActionsCallbackInterface.OnMoveTouch;
             }
             m_Wrapper.m_PhoneActionsCallbackInterface = instance;
             if (instance != null)
@@ -385,6 +411,9 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
                 @Clicked.started += instance.OnClicked;
                 @Clicked.performed += instance.OnClicked;
                 @Clicked.canceled += instance.OnClicked;
+                @MoveTouch.started += instance.OnMoveTouch;
+                @MoveTouch.performed += instance.OnMoveTouch;
+                @MoveTouch.canceled += instance.OnMoveTouch;
             }
         }
     }
@@ -409,5 +438,6 @@ public partial class @InputActions : IInputActionCollection2, IDisposable
         void OnPhonePosition(InputAction.CallbackContext context);
         void OnPhoneRotation(InputAction.CallbackContext context);
         void OnClicked(InputAction.CallbackContext context);
+        void OnMoveTouch(InputAction.CallbackContext context);
     }
 }

@@ -7,11 +7,20 @@ public class TouchscreenMoveController : MonoBehaviour
 {
     [SerializeField] DeviceServer phoneServer;
 
-    InputAction touchDelta;
-    
+    InputActions inputActions;
+    InputAction moveScreen;
     private void Awake()
     {
-        var phone = phoneServer.InputActions.Phone;
-        
+        inputActions = phoneServer.InputActions;
+        moveScreen = inputActions.Phone.MoveTouch;
+
+    }
+
+    private void OnEnable() => moveScreen.performed += ReadPosition;
+    private void OnDisable() => moveScreen.performed -= ReadPosition;
+    private void ReadPosition(InputAction.CallbackContext ctx)
+    {
+        var move = ctx.ReadValue<Vector2>();
+        transform.position += (Vector3)move;
     }
 }
