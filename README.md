@@ -1,2 +1,3 @@
-# Hololens Development
- H1 project aiming to make a Phone into a Hololens Controller. UoP Thesis
+# Unity Phone Controller
+
+Prototype Framework for passing input data from a phone (or a generic device) to another device. Tested in Unity 2020.3 LTS with an Android Device and a Hololens. Should work in newer versions, but at the time of testing, these versions were unstable for MR when regarding Hololens.
