@@ -1,0 +1,2150 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.11f1 (d00248457e15) revision 13632072'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'en' Physical Memory: 32173 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker7
+-projectPath
+C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+-logFile
+Logs/AssetImportWorker7.log
+-srvPort
+59656
+Successfully changed project path to: C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [39236] Host "[IP] 192.168.1.140 [Port] 0 [Flags] 2 [Guid] 3176168139 [EditorId] 3176168139 [Version] 1048832 [Id] WindowsEditor(7,MININT-2R6ROKC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [39236] Host "[IP] 192.168.1.140 [Port] 0 [Flags] 2 [Guid] 3176168139 [EditorId] 3176168139 [Version] 1048832 [Id] WindowsEditor(7,MININT-2R6ROKC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
+Refreshing native plugins compatible for Editor in 23.11 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.11f1 (d00248457e15)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f15)
+    Vendor:   NVIDIA
+    VRAM:     5980 MB
+    Driver:   31.0.15.1700
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56756
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.024189 seconds.
+- Loaded All Assemblies, in  0.567 seconds
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 419 ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.961 seconds
+Domain Reload Profiling: 1526ms
+	BeginReloadAssembly (157ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (60ms)
+	RebuildNativeTypeToScriptingClass (17ms)
+	initialDomainReloadingComplete (101ms)
+	LoadAllAssembliesAndSetupDomain (229ms)
+		LoadAssemblies (155ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (224ms)
+			TypeCache.Refresh (222ms)
+				TypeCache.ScanAssembly (205ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (962ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (878ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (638ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (156ms)
+			ProcessInitializeOnLoadMethodAttributes (75ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.968 seconds
+Refreshing native plugins compatible for Editor in 9.64 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mirror | mirror-networking.com | discord.gg/N9QVxbM
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Mirror.Welcome:OnInitializeOnLoad () (at Assets/Mirror/Editor/Welcome.cs:18)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Mirror/Editor/Welcome.cs Line: 18)
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.917 seconds
+Domain Reload Profiling: 1881ms
+	BeginReloadAssembly (194ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (59ms)
+	LoadAllAssembliesAndSetupDomain (648ms)
+		LoadAssemblies (476ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (287ms)
+			TypeCache.Refresh (252ms)
+				TypeCache.ScanAssembly (228ms)
+			ScanForSourceGeneratedMonoScriptInfo (25ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (918ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (679ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (72ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (99ms)
+			ProcessInitializeOnLoadAttributes (448ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 7.99 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3955 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 53 unused Assets / (64.1 KB). Loaded Objects now: 4408.
+Memory consumption went from 147.0 MB to 147.0 MB.
+Total: 6.994500 ms (FindLiveObjects: 0.577700 ms CreateObjectMapping: 0.547600 ms MarkObjects: 5.678600 ms  DeleteObjects: 0.188600 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Import Request.
+  Time since last request: 143487.238257 seconds.
+  path: Assets/Mirror/Examples/Pong/Sprites/WallHorizontal.png
+  artifactKey: Guid(b931587800e08c54aa8dbbd6c15c894f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Mirror/Examples/Pong/Sprites/WallHorizontal.png using Guid(b931587800e08c54aa8dbbd6c15c894f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28533dc37b957cfbf26caecaa6ac9001') in 0.104335 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.669 seconds
+Refreshing native plugins compatible for Editor in 8.14 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.342 seconds
+Domain Reload Profiling: 2005ms
+	BeginReloadAssembly (200ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (359ms)
+		LoadAssemblies (446ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1343ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (651ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (97ms)
+			ProcessInitializeOnLoadAttributes (411ms)
+			ProcessInitializeOnLoadMethodAttributes (56ms)
+			AfterProcessingInitializeOnLoad (16ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (10ms)
+Refreshing native plugins compatible for Editor in 11.57 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3946 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.2 KB). Loaded Objects now: 4417.
+Memory consumption went from 146.6 MB to 146.5 MB.
+Total: 4.613800 ms (FindLiveObjects: 0.622300 ms CreateObjectMapping: 0.330900 ms MarkObjects: 3.571700 ms  DeleteObjects: 0.087000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.661 seconds
+Refreshing native plugins compatible for Editor in 8.30 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.323 seconds
+Domain Reload Profiling: 1978ms
+	BeginReloadAssembly (203ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (50ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (342ms)
+		LoadAssemblies (430ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1324ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (641ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (61ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (90ms)
+			ProcessInitializeOnLoadAttributes (427ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 9.89 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.2 KB). Loaded Objects now: 4420.
+Memory consumption went from 148.8 MB to 148.7 MB.
+Total: 4.327000 ms (FindLiveObjects: 0.399300 ms CreateObjectMapping: 0.168600 ms MarkObjects: 3.672000 ms  DeleteObjects: 0.085200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.683 seconds
+Refreshing native plugins compatible for Editor in 8.08 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.302 seconds
+Domain Reload Profiling: 1980ms
+	BeginReloadAssembly (206ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (47ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (365ms)
+		LoadAssemblies (436ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (40ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1303ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (624ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (56ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (104ms)
+			ProcessInitializeOnLoadAttributes (404ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 7.40 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.2 KB). Loaded Objects now: 4423.
+Memory consumption went from 150.7 MB to 150.7 MB.
+Total: 4.626900 ms (FindLiveObjects: 0.379700 ms CreateObjectMapping: 0.142900 ms MarkObjects: 4.024700 ms  DeleteObjects: 0.077800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.698 seconds
+Refreshing native plugins compatible for Editor in 7.59 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.269 seconds
+Domain Reload Profiling: 1962ms
+	BeginReloadAssembly (217ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (46ms)
+	RebuildCommonClasses (50ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (364ms)
+		LoadAssemblies (433ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (41ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1270ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (599ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (58ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (98ms)
+			ProcessInitializeOnLoadAttributes (386ms)
+			ProcessInitializeOnLoadMethodAttributes (43ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 11.61 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4426.
+Memory consumption went from 152.6 MB to 152.6 MB.
+Total: 4.555900 ms (FindLiveObjects: 0.554300 ms CreateObjectMapping: 0.294000 ms MarkObjects: 3.628700 ms  DeleteObjects: 0.076800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  3.206 seconds
+Refreshing native plugins compatible for Editor in 8.07 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in 14.229 seconds
+Domain Reload Profiling: 17431ms
+	BeginReloadAssembly (199ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (2899ms)
+		LoadAssemblies (2988ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (14230ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (630ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (96ms)
+			ProcessInitializeOnLoadAttributes (409ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 9.11 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.2 KB). Loaded Objects now: 4429.
+Memory consumption went from 154.6 MB to 154.5 MB.
+Total: 4.726500 ms (FindLiveObjects: 0.378800 ms CreateObjectMapping: 0.146000 ms MarkObjects: 4.117900 ms  DeleteObjects: 0.082200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.669 seconds
+Refreshing native plugins compatible for Editor in 7.76 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.308 seconds
+Domain Reload Profiling: 1971ms
+	BeginReloadAssembly (216ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (346ms)
+		LoadAssemblies (435ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1308ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (611ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (93ms)
+			ProcessInitializeOnLoadAttributes (396ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (12ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 12.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (39.4 KB). Loaded Objects now: 4432.
+Memory consumption went from 156.5 MB to 156.5 MB.
+Total: 4.364100 ms (FindLiveObjects: 0.463500 ms CreateObjectMapping: 0.304100 ms MarkObjects: 3.510300 ms  DeleteObjects: 0.084300 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.658 seconds
+Refreshing native plugins compatible for Editor in 8.34 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.295 seconds
+Domain Reload Profiling: 1948ms
+	BeginReloadAssembly (204ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (50ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (344ms)
+		LoadAssemblies (433ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (18ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1296ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (618ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (94ms)
+			ProcessInitializeOnLoadAttributes (400ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 8.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4435.
+Memory consumption went from 158.4 MB to 158.4 MB.
+Total: 4.262800 ms (FindLiveObjects: 0.442700 ms CreateObjectMapping: 0.157700 ms MarkObjects: 3.571400 ms  DeleteObjects: 0.089500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.698 seconds
+Refreshing native plugins compatible for Editor in 7.44 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.251 seconds
+Domain Reload Profiling: 1943ms
+	BeginReloadAssembly (215ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (372ms)
+		LoadAssemblies (441ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (40ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1251ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (593ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (389ms)
+			ProcessInitializeOnLoadMethodAttributes (42ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 10.42 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4438.
+Memory consumption went from 160.3 MB to 160.3 MB.
+Total: 4.506000 ms (FindLiveObjects: 0.526400 ms CreateObjectMapping: 0.304900 ms MarkObjects: 3.594900 ms  DeleteObjects: 0.078200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.669 seconds
+Refreshing native plugins compatible for Editor in 8.40 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.321 seconds
+Domain Reload Profiling: 1984ms
+	BeginReloadAssembly (201ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (47ms)
+	RebuildCommonClasses (44ms)
+	RebuildNativeTypeToScriptingClass (15ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (362ms)
+		LoadAssemblies (450ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1321ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (623ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (90ms)
+			ProcessInitializeOnLoadAttributes (404ms)
+			ProcessInitializeOnLoadMethodAttributes (53ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (9ms)
+Refreshing native plugins compatible for Editor in 13.59 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (39.4 KB). Loaded Objects now: 4441.
+Memory consumption went from 162.3 MB to 162.2 MB.
+Total: 4.499400 ms (FindLiveObjects: 0.421700 ms CreateObjectMapping: 0.190000 ms MarkObjects: 3.803700 ms  DeleteObjects: 0.082500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.681 seconds
+Refreshing native plugins compatible for Editor in 8.00 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.290 seconds
+Domain Reload Profiling: 1965ms
+	BeginReloadAssembly (201ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (43ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (369ms)
+		LoadAssemblies (439ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (39ms)
+			TypeCache.Refresh (12ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (15ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1291ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (602ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (96ms)
+			ProcessInitializeOnLoadAttributes (382ms)
+			ProcessInitializeOnLoadMethodAttributes (44ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 10.13 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4444.
+Memory consumption went from 164.2 MB to 164.2 MB.
+Total: 4.700200 ms (FindLiveObjects: 0.378400 ms CreateObjectMapping: 0.144700 ms MarkObjects: 4.098800 ms  DeleteObjects: 0.076600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.703 seconds
+Refreshing native plugins compatible for Editor in 7.55 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.294 seconds
+Domain Reload Profiling: 1992ms
+	BeginReloadAssembly (213ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (45ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (381ms)
+		LoadAssemblies (445ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (42ms)
+			TypeCache.Refresh (14ms)
+				TypeCache.ScanAssembly (2ms)
+			ScanForSourceGeneratedMonoScriptInfo (16ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1295ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (612ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (62ms)
+			SetLoadedEditorAssemblies (5ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (88ms)
+			ProcessInitializeOnLoadAttributes (401ms)
+			ProcessInitializeOnLoadMethodAttributes (45ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (7ms)
+Refreshing native plugins compatible for Editor in 10.22 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4447.
+Memory consumption went from 166.1 MB to 166.1 MB.
+Total: 4.615600 ms (FindLiveObjects: 0.382600 ms CreateObjectMapping: 0.145700 ms MarkObjects: 4.005500 ms  DeleteObjects: 0.079500 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.670 seconds
+Refreshing native plugins compatible for Editor in 8.28 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.305 seconds
+Domain Reload Profiling: 1970ms
+	BeginReloadAssembly (205ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (44ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (355ms)
+		LoadAssemblies (448ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1306ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (609ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (92ms)
+			ProcessInitializeOnLoadAttributes (399ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 10.97 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4450.
+Memory consumption went from 168.1 MB to 168.0 MB.
+Total: 4.331200 ms (FindLiveObjects: 0.409500 ms CreateObjectMapping: 0.160900 ms MarkObjects: 3.678700 ms  DeleteObjects: 0.080600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.678 seconds
+Refreshing native plugins compatible for Editor in 7.57 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.376 seconds
+Domain Reload Profiling: 2048ms
+	BeginReloadAssembly (210ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (357ms)
+		LoadAssemblies (445ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1377ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (664ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (57ms)
+			SetLoadedEditorAssemblies (4ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (99ms)
+			ProcessInitializeOnLoadAttributes (442ms)
+			ProcessInitializeOnLoadMethodAttributes (50ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 11.60 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4453.
+Memory consumption went from 170.0 MB to 169.9 MB.
+Total: 4.757100 ms (FindLiveObjects: 0.403200 ms CreateObjectMapping: 0.145800 ms MarkObjects: 4.126400 ms  DeleteObjects: 0.079600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.658 seconds
+Refreshing native plugins compatible for Editor in 7.87 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.328 seconds
+Domain Reload Profiling: 1981ms
+	BeginReloadAssembly (198ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (42ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (41ms)
+	LoadAllAssembliesAndSetupDomain (353ms)
+		LoadAssemblies (441ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (20ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1328ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (638ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (61ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (92ms)
+			ProcessInitializeOnLoadAttributes (420ms)
+			ProcessInitializeOnLoadMethodAttributes (49ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 13.12 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4456.
+Memory consumption went from 171.9 MB to 171.9 MB.
+Total: 4.762400 ms (FindLiveObjects: 0.682500 ms CreateObjectMapping: 0.432800 ms MarkObjects: 3.560900 ms  DeleteObjects: 0.084100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.672 seconds
+Refreshing native plugins compatible for Editor in 7.56 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.363 seconds
+Domain Reload Profiling: 2030ms
+	BeginReloadAssembly (215ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (7ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (48ms)
+	RebuildCommonClasses (46ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (42ms)
+	LoadAllAssembliesAndSetupDomain (347ms)
+		LoadAssemblies (447ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1363ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (629ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (59ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (96ms)
+			ProcessInitializeOnLoadAttributes (412ms)
+			ProcessInitializeOnLoadMethodAttributes (46ms)
+			AfterProcessingInitializeOnLoad (10ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 12.33 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (38.3 KB). Loaded Objects now: 4459.
+Memory consumption went from 173.8 MB to 173.8 MB.
+Total: 4.473900 ms (FindLiveObjects: 0.402100 ms CreateObjectMapping: 0.146800 ms MarkObjects: 3.832100 ms  DeleteObjects: 0.091000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.665 seconds
+Refreshing native plugins compatible for Editor in 7.38 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.308 seconds
+Domain Reload Profiling: 1968ms
+	BeginReloadAssembly (214ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (6ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (40ms)
+	RebuildCommonClasses (48ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (43ms)
+	LoadAllAssembliesAndSetupDomain (338ms)
+		LoadAssemblies (434ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (19ms)
+			TypeCache.Refresh (7ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (1308ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (633ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (60ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (93ms)
+			ProcessInitializeOnLoadAttributes (415ms)
+			ProcessInitializeOnLoadMethodAttributes (47ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Refreshing native plugins compatible for Editor in 10.37 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3947 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 37 unused Assets / (39.3 KB). Loaded Objects now: 4462.
+Memory consumption went from 175.8 MB to 175.7 MB.
+Total: 4.257400 ms (FindLiveObjects: 0.429600 ms CreateObjectMapping: 0.211200 ms MarkObjects: 3.527600 ms  DeleteObjects: 0.087100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:scripting/monoscript/fileName/TransportClientSocket.cs: 0d9e3fd127992b89c0374e0835ed9cd6 -> b5113e1ae93f9957040bf0c04ac8d22a
+  custom:scripting/monoscript/fileName/TouchscreenMoveController.cs: 707b091a1e7bbad3ca85b725af63ffed -> 152aac00d19945ca5ecf0e0bbe7804c9
+  custom:scripting/monoscript/fileName/BaseInput.cs: 1a44391d2ce9884c353ab346172ce7ef -> e48c8743017492ed3edc0c0a61a7a4e0
+  custom:scripting/monoscript/fileName/ProximityInput.cs: 71de972b8eb216dd26f223719e15340c -> 18ee9e53a4633e90e82ecaecadd06546
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:scripting/monoscript/fileName/VirtualPhone.cs: e05a7f2794e6fa59f425d6a2c35fd04b -> 277b07ebdc3f71595f2a432c0cf6e6c5
+  custom:scripting/monoscript/fileName/LinearAccelerationInput.cs: 8107bef4647a0094e887b1e685522dde -> 8a82012b12127325cee602d63f69478a
+  custom:scripting/monoscript/fileName/AmbientTemperatureInput.cs: 80c454cf9ae4e00ffb731f5a7ab8576f -> c6437f1cea53fb2fe5b04fe73686fd54
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:scripting/monoscript/fileName/DeviceClient.cs: b9045226b310d7890f596cbe2d236557 -> fce42dc4d8a57847f2f6f5f51f0191f3
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:scripting/monoscript/fileName/GravityInput.cs: 9d2f14b4a5cf0494c46b26afd26800d4 -> 9b0acdaa708668c73f630d57f07c1aa0
+  custom:scripting/monoscript/fileName/MirrorExtensions.cs: 208ec2c2d7ce0198884a74d64b5e7529 -> e9086507693687c45de24b3aa1ee059d
+  custom:scripting/monoscript/fileName/DeviceServer.cs: c098adbf03931d24e1e1619fd37b5030 -> 24b58b8f5f28a90458087cb46b88afc0
+  custom:scripting/monoscript/fileName/GyroscopeInput.cs: 3cb6e88beaaf46d3d8fa67c0cfdf36c8 -> 64fc586cddae5e6356b2f77ba28ec045
+  custom:scripting/monoscript/fileName/BaseTransportSocket.cs: db76efe9d0d57a4eea527b38e433c717 -> 9c9e36a569b659a527fce7ded082dbdc
+  custom:scripting/monoscript/fileName/Vector2Input.cs: 3a739cf989e2dda54f06b1eb5db88eaf -> 0db6abde7c74df056b5b85612ce3231e
+  custom:scripting/monoscript/fileName/TransportServerSocket.cs: 5ea338312a10bb1e7fb3a001222d26b8 -> 803160343f14a9f360580bdec4e18e17
+  custom:scripting/monoscript/fileName/DeviceActionEvent.cs: 76e3243e56ae190ff5f7c4e638c14f5f -> 7edaa50c5347057900a9848b8d102103
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:scripting/monoscript/fileName/SubscriptionData.cs: a5b085a5535527345e798ce0e0dd3e17 -> 9c5f44f75a083305d9a2d2aa2ec2981c
+  custom:scripting/monoscript/fileName/MouseInput.cs: 1a5f035c07e5f6f7b6fb2306601410ba -> d263a9d1db0b67f7802d8d26508e3385
+  custom:scripting/monoscript/fileName/SimpleAttitudeController.cs: 45da4fc63aeae815c173866c0d293490 -> a53b8ab5d4d02382763879d8f6647658
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:scripting/monoscript/fileName/ServerNetworkClock.cs: 2c85b4aedea17c5d305158cff735eea0 -> 58e42b3b8dbb022f43f7d02ef3bf4c9c
+  custom:scripting/monoscript/fileName/DeviceServerInputControl.cs: 2974a82bdf7bcf40b39e4c7bd93b86c2 -> ba26a8e0e24f32ad564c2c1fb5ce123d
+  custom:scripting/monoscript/fileName/NoInput.cs: 4e5e749868bc6a561ae71c0f2ad02e11 -> fffd3d9be02f530360c1e39e9f89be4e
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:scripting/monoscript/fileName/AttitudeInput.cs: 089a82c173621b485e4652b0d445dbd8 -> 4cfbe54b58117f8770987135559f5d0c
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:scripting/monoscript/fileName/SingleInput.cs: fd568725e65181834c6fdf6d7c7db73b -> 102b35a67183e92a5c03afe1b04ac1d5
+  custom:scripting/monoscript/fileName/InputData.cs: 617bd02942306f959ba7c43b88464c51 -> 03e826c869d5034a09e126981b35995a
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:scripting/monoscript/fileName/IntegerInput.cs: da778fbf7315064c4c97531a2f418e9b -> 8bddf6ff1287de09648feac26c86acef
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:scripting/monoscript/fileName/InputFactory.cs: 8ebc531debb90f6722a37acc10fc0a90 -> a6535d5b5c9074f3f08bd3e46df583f1
+  custom:scripting/monoscript/fileName/TestScriptForMirror.cs: b940e743f982571ce1d94fc9c43a5f26 -> 2d633aaa637ae7d518d3ab4362ed8c11
+  custom:scripting/monoscript/fileName/TrackedDeviceInput.cs: 3f300b69e9dab4ab6ea35864e8544836 -> 04f91da89e0921a5122c91289d60ddb1
+  custom:scripting/monoscript/fileName/Vector3Input.cs: e69978f7e0ec766c9441adc35030c496 -> 17cb93744e71458df5f8311462a64c15
+  custom:scripting/monoscript/fileName/NetworkTransportLoop.cs: 74230f6f6690b2a45ec6cfc533a06957 -> e4883f9e2b901ce37c4c82707fc37446
+  custom:scripting/monoscript/fileName/AccelerometerInput.cs: 2e57a109cfe852882f846bbcf1ec218f -> 2cb4a9a3623b7a21fb519782750678d7
+  custom:scripting/monoscript/fileName/DeviceData.cs: 8c3ee0610ea0f7bab6ec010b30808524 -> 3a7da57bd8040ae806a2759a5718c7cd
+  custom:scripting/monoscript/fileName/DeviceActionMap.cs: a987d1bf034c124c1a3b390d3a6ba4a0 -> 570434a63adbf01042b7751fcbc484c1
+  custom:scripting/monoscript/fileName/HumidityInput.cs: d53e3a0a6b6ffa9ae9256b9ccbebbf8d -> c8b6fdb96d67bc5843b5849bbeddb1dd
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:scripting/monoscript/fileName/PressureInput.cs: da332819aad0e14478a55ac819af7cde -> 6a804161cd4ee31bb8c8371e04e0bb3e
+  custom:scripting/monoscript/fileName/BaseNetworkClock.cs: bf1f929ab23e023ac41dda6023e54ff5 -> 39146ff0e3320a05b0b5a5c3440b1d5d
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/LightInput.cs: b5d0c73f9c84ac670fe48e2aea89d53e -> 14eba83039ecdb1f6c8309120e79d318
+  custom:scripting/monoscript/fileName/DeviceDescription.cs: 4ccf6ce3295b82c6e08c85090c1c0212 -> f38843c39149e076a669b63936392295
+  custom:scripting/monoscript/fileName/ClientNetworkClock.cs: aa0e1022275f319076d382ce70707038 -> a1509f6a747c8d6bf4c74380a456604d
+  custom:scripting/monoscript/fileName/SimpleFirebaseClient.cs: d37685af7706c25df8f015158221394d -> f2a6f07d7dc1d2e73dd55bd9ed274216
+  custom:scripting/monoscript/fileName/MagneticFieldInput.cs: 02f1f8441959bb5627e48d97c57cf449 -> a8b139ec3e779e6d260db611cf7f2da0
+  custom:scripting/monoscript/fileName/TouchscreenInput.cs: 72a1990aaedb6026b2884e9005045bec -> d9501bd832f15460c374818a5183d139
+  custom:scripting/monoscript/fileName/MoveController.cs: 232e19a9124e1d7360f8fdf6e93ea4e8 -> 911148a4540c84354cd3ff39ec96329a
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:scripting/monoscript/fileName/DoubleInput.cs: ff8612263fad8b997aa0c9be4fbecfbd -> fa41b45ddcc7a68bc086ce662a47155c
+  custom:scripting/monoscript/fileName/KeyboardInput.cs: 2f3656e68a0ad46e29ba9eaf1c71260e -> bc468de05883b3878660ff24af76feef
+  custom:scripting/monoscript/fileName/GamepadInput.cs: 4c425abcf428cc6e705ba076a64b848e -> 61de4dac78dd62011b22b1c2cf11a71f
+  custom:scripting/monoscript/fileName/EventPacket.cs: 419e8be2a06e7f64afc36619401441ee -> f7b1f64642aea3e6b381a920db91e20a
+  custom:scripting/monoscript/fileName/StepCounterInput.cs: 2c7de9a1505f5206a15930b94d06b94e -> b8aebe0bf3164278cc8f55ac91e49b73

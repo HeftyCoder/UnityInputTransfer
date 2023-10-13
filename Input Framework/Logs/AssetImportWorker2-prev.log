@@ -1,0 +1,1107 @@
+Using pre-set license
+Built from '2022.3/staging' branch; Version is '2022.3.11f1 (d00248457e15) revision 13632072'; Using compiler version '192829333'; Build Type 'Release'
+OS: 'Windows 10  (10.0.19045) 64bit Core' Language: 'en' Physical Memory: 32173 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 1
+
+COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2022.3.11f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker2
+-projectPath
+C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+-logFile
+Logs/AssetImportWorker2.log
+-srvPort
+59656
+Successfully changed project path to: C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework
+[UnityMemory] Configuration Parameters - Can be set up in boot.config
+    "memorysetup-bucket-allocator-granularity=16"
+    "memorysetup-bucket-allocator-bucket-count=8"
+    "memorysetup-bucket-allocator-block-size=33554432"
+    "memorysetup-bucket-allocator-block-count=8"
+    "memorysetup-main-allocator-block-size=16777216"
+    "memorysetup-thread-allocator-block-size=16777216"
+    "memorysetup-gfx-main-allocator-block-size=16777216"
+    "memorysetup-gfx-thread-allocator-block-size=16777216"
+    "memorysetup-cache-allocator-block-size=4194304"
+    "memorysetup-typetree-allocator-block-size=2097152"
+    "memorysetup-profiler-bucket-allocator-granularity=16"
+    "memorysetup-profiler-bucket-allocator-bucket-count=8"
+    "memorysetup-profiler-bucket-allocator-block-size=33554432"
+    "memorysetup-profiler-bucket-allocator-block-count=8"
+    "memorysetup-profiler-allocator-block-size=16777216"
+    "memorysetup-profiler-editor-allocator-block-size=1048576"
+    "memorysetup-temp-allocator-size-main=16777216"
+    "memorysetup-job-temp-allocator-block-size=2097152"
+    "memorysetup-job-temp-allocator-block-size-background=1048576"
+    "memorysetup-job-temp-allocator-reduction-small-platforms=262144"
+    "memorysetup-allocator-temp-initial-block-size-main=262144"
+    "memorysetup-allocator-temp-initial-block-size-worker=262144"
+    "memorysetup-temp-allocator-size-background-worker=32768"
+    "memorysetup-temp-allocator-size-job-worker=262144"
+    "memorysetup-temp-allocator-size-preload-manager=33554432"
+    "memorysetup-temp-allocator-size-nav-mesh-worker=65536"
+    "memorysetup-temp-allocator-size-audio-worker=65536"
+    "memorysetup-temp-allocator-size-cloud-worker=32768"
+    "memorysetup-temp-allocator-size-gi-baking-worker=262144"
+    "memorysetup-temp-allocator-size-gfx=262144"
+Player connection [26804] Host "[IP] 192.168.1.140 [Port] 0 [Flags] 2 [Guid] 424761801 [EditorId] 424761801 [Version] 1048832 [Id] WindowsEditor(7,MININT-2R6ROKC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+
+Player connection [26804] Host "[IP] 192.168.1.140 [Port] 0 [Flags] 2 [Guid] 424761801 [EditorId] 424761801 [Version] 1048832 [Id] WindowsEditor(7,MININT-2R6ROKC) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+
+[Physics::Module] Initialized MultithreadedJobDispatcher with 15 workers.
+Refreshing native plugins compatible for Editor in 18.86 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2022.3.11f1 (d00248457e15)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/salok/Documents/GitHub/Hololens-Development/Input Framework/Assets
+GfxDevice: creating device client; threaded=0; jobified=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f15)
+    Vendor:   NVIDIA
+    VRAM:     5980 MB
+    Driver:   31.0.15.1700
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56988
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/iOSSupport/UnityEditor.iOS.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/LinuxStandaloneSupport/UnityEditor.LinuxStandalone.Extensions.dll
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2022.3.11f1/Editor/Data/PlaybackEngines/MetroSupport/UnityEditor.UWP.Extensions.dll
+Registered in 0.023468 seconds.
+- Loaded All Assemblies, in  0.583 seconds
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Android Extension - Scanning For ADB Devices 433 ms
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.953 seconds
+Domain Reload Profiling: 1534ms
+	BeginReloadAssembly (169ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (0ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (1ms)
+	RebuildCommonClasses (58ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (103ms)
+	LoadAllAssembliesAndSetupDomain (235ms)
+		LoadAssemblies (166ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (230ms)
+			TypeCache.Refresh (228ms)
+				TypeCache.ScanAssembly (208ms)
+			ScanForSourceGeneratedMonoScriptInfo (1ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (953ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (869ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (645ms)
+			SetLoadedEditorAssemblies (6ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (3ms)
+			ProcessInitializeOnLoadAttributes (150ms)
+			ProcessInitializeOnLoadMethodAttributes (65ms)
+			AfterProcessingInitializeOnLoad (0ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (0ms)
+========================================================================
+Worker process is ready to serve import requests
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.071 seconds
+Refreshing native plugins compatible for Editor in 7.09 ms, found 3 plugins.
+Native extension for UWP target not found
+Native extension for LinuxStandalone target not found
+Native extension for WindowsStandalone target not found
+Native extension for iOS target not found
+Native extension for Android target not found
+Package Manager log level set to [2]
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+[ScriptCompilation] NOT recompiling all scripts because this is an import worker process. Reason to compile was: Define symbols changed
+Mirror | mirror-networking.com | discord.gg/N9QVxbM
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEngine.DebugLogHandler:LogFormat (UnityEngine.LogType,UnityEngine.Object,string,object[])
+UnityEngine.Logger:Log (UnityEngine.LogType,object)
+UnityEngine.Debug:Log (object)
+Mirror.Welcome:OnInitializeOnLoad () (at Assets/Mirror/Editor/Welcome.cs:18)
+System.Reflection.RuntimeMethodInfo:Invoke (object,System.Reflection.BindingFlags,System.Reflection.Binder,object[],System.Globalization.CultureInfo)
+System.Reflection.MethodBase:Invoke (object,object[])
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadMethodAttributes ()
+
+(Filename: Assets/Mirror/Editor/Welcome.cs Line: 18)
+
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.010 seconds
+Domain Reload Profiling: 2075ms
+	BeginReloadAssembly (196ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (8ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (27ms)
+	RebuildCommonClasses (55ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (67ms)
+	LoadAllAssembliesAndSetupDomain (731ms)
+		LoadAssemblies (527ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (321ms)
+			TypeCache.Refresh (283ms)
+				TypeCache.ScanAssembly (254ms)
+			ScanForSourceGeneratedMonoScriptInfo (26ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (1010ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (745ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (64ms)
+			SetLoadedEditorAssemblies (7ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (103ms)
+			ProcessInitializeOnLoadAttributes (511ms)
+			ProcessInitializeOnLoadMethodAttributes (48ms)
+			AfterProcessingInitializeOnLoad (11ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (8ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.07 seconds
+Refreshing native plugins compatible for Editor in 9.44 ms, found 3 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 3927 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 48 unused Assets / (61.5 KB). Loaded Objects now: 4384.
+Memory consumption went from 146.1 MB to 146.0 MB.
+Total: 5.439100 ms (FindLiveObjects: 0.568300 ms CreateObjectMapping: 0.361800 ms MarkObjects: 4.312200 ms  DeleteObjects: 0.195200 ms)
+
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 756ad292c208cfabdd7b50bc23989ffe -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+========================================================================
+Received Import Request.
+  Time since last request: 61269.866821 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/kcp/Kcp.cs
+  artifactKey: Guid(a59b1cae10a334faf807432ab472f212) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/kcp/Kcp.cs using Guid(a59b1cae10a334faf807432ab472f212) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1516fd422239e6d65552d47ea007a44c') in 0.130865 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/highlevel/ErrorCode.cs
+  artifactKey: Guid(3abbeffc1d794f11a45b7fcf110353f5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/highlevel/ErrorCode.cs using Guid(3abbeffc1d794f11a45b7fcf110353f5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2048724ba12892c7e0594fc6f9a9533e') in 0.014046 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mirror/Examples/Tanks/Models/(Public Domain) Recon_Tank/Controller.controller
+  artifactKey: Guid(a7211483bbd794b6d85ed88576e7d85c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Tanks/Models/(Public Domain) Recon_Tank/Controller.controller using Guid(a7211483bbd794b6d85ed88576e7d85c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a59a7a4fd6b94c03d84f3ca356d1be14') in 0.016809 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 12
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/kcp/Utils.cs
+  artifactKey: Guid(ef959eb716205bd48b050f010a9a35ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/kcp/Utils.cs using Guid(ef959eb716205bd48b050f010a9a35ae) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3d930e7ad1e73f9dcfbe71478c6f7033') in 0.013765 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/kcp/Pool.cs
+  artifactKey: Guid(35c07818fc4784bb4ba472c8e5029002) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/kcp/Pool.cs using Guid(35c07818fc4784bb4ba472c8e5029002) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e1313cc68e4d07cf12a0c6041d0679ba') in 0.013733 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/kcp/AckItem.cs
+  artifactKey: Guid(71f47cb11125d429e84e188a150f3ae5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/kcp/AckItem.cs using Guid(71f47cb11125d429e84e188a150f3ae5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a164c633a0f3d5461314bc26b41fc1ed') in 0.013915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mirror/Examples/MultipleAdditiveScenes/Materials/Render/Player.mat
+  artifactKey: Guid(2089070a3452e6f4d866c53e51aae8f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/MultipleAdditiveScenes/Materials/Render/Player.mat using Guid(2089070a3452e6f4d866c53e51aae8f2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd94405c1ea1b8fc0422e5c20ef02cdcf') in 0.043967 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/ReceiveLoop.cs
+  artifactKey: Guid(a26c2815f58431c4a98c158c8b655ffd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/ReceiveLoop.cs using Guid(a26c2815f58431c4a98c158c8b655ffd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '54387d860e2f0ba075d8da77aa2d540c') in 0.014334 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/highlevel/KcpConfig.cs
+  artifactKey: Guid(99692f99c45c4b47b0500e7abbfd12da) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/highlevel/KcpConfig.cs using Guid(99692f99c45c4b47b0500e7abbfd12da) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f00580982047751bf4251d281fb387ee') in 0.013915 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000088 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Server/ServerHandshake.cs
+  artifactKey: Guid(6268509ac4fb48141b9944c03295da11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Server/ServerHandshake.cs using Guid(6268509ac4fb48141b9944c03295da11) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f5b99a76dae83b273623155fd607271f') in 0.014263 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Mirror/Transports/Telepathy/Telepathy/Pool.cs
+  artifactKey: Guid(6d3e530f6872642ec81e9b8b76277c93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/Telepathy/Telepathy/Pool.cs using Guid(6d3e530f6872642ec81e9b8b76277c93) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1d76d8c67f4cf01ed0bd9b6fc7f6610e') in 0.013756 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/LICENSE
+  artifactKey: Guid(0a0cf751b4a201242ac60b4adbc54657) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/LICENSE using Guid(0a0cf751b4a201242ac60b4adbc54657) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '28f0d7ef6af7f5f1e8bf92f2dc8349b9') in 0.012095 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Mirror/Examples/TanksCoop/Scripts/Projectile.cs
+  artifactKey: Guid(9b0798e773349420dbdf4ee305445d6b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/TanksCoop/Scripts/Projectile.cs using Guid(9b0798e773349420dbdf4ee305445d6b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '6bc47ba3c9f9b0bccb2eef88664221af') in 0.013063 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Mirror/Transports/KCP/kcp2k/highlevel/KcpClient.cs
+  artifactKey: Guid(6aa069a28ed24fedb533c102d9742b36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/KCP/kcp2k/highlevel/KcpClient.cs using Guid(6aa069a28ed24fedb533c102d9742b36) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4be332f0bdeb974755add231441a06fa') in 0.014362 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000061 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/SendLoop.cs
+  artifactKey: Guid(f87dd81736d9c824db67f808ac71841d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/SendLoop.cs using Guid(f87dd81736d9c824db67f808ac71841d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f9684a180f052dcb87f2e9d2f9fffb5e') in 0.014861 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mirror/Examples/Room/Scripts/RandomColor.cs
+  artifactKey: Guid(1e6a8bf08f02e254aa9a52ef0aaa1553) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Room/Scripts/RandomColor.cs using Guid(1e6a8bf08f02e254aa9a52ef0aaa1553) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '0ad19baeee4ac95c196ebf911f94c8aa') in 0.013040 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mirror/Examples/MultipleMatches/Prefabs/MatchGUI.prefab
+  artifactKey: Guid(df3727c2222378b4ca786485a8b09981) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/MultipleMatches/Prefabs/MatchGUI.prefab using Guid(df3727c2222378b4ca786485a8b09981) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd0699e302b53cc71f7c83b172030de45') in 0.071934 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 16
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Mirror/Transports/Telepathy/Telepathy/Utils.cs
+  artifactKey: Guid(951d08c05297f4b3e8feb5bfcab86531) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/Telepathy/Telepathy/Utils.cs using Guid(951d08c05297f4b3e8feb5bfcab86531) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a991f3cda15475dfb6d62d67e6faa37e') in 0.013469 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000071 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/Log.cs
+  artifactKey: Guid(3cf1521098e04f74fbea0fe2aa0439f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Common/Log.cs using Guid(3cf1521098e04f74fbea0fe2aa0439f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '447b0afce0405b1461ddc91bde315343') in 0.016743 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Mirror/Examples/RigidbodyBenchmark/Materials/Server.mat
+  artifactKey: Guid(afbd8e57822694fa38e586483925e61c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/RigidbodyBenchmark/Materials/Server.mat using Guid(afbd8e57822694fa38e586483925e61c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '21a7988d69ed181eb378e9d58f207b45') in 0.015023 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mirror/Editor/Weaver/EntryPoint/EnterPlayModeHook.cs
+  artifactKey: Guid(b73d0f106ba84aa983baa5142b08a0a9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Editor/Weaver/EntryPoint/EnterPlayModeHook.cs using Guid(b73d0f106ba84aa983baa5142b08a0a9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'af1577eb1fb30a043626f7796ae48321') in 0.012976 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Mirror/Examples/Room/Prefabs/GamePlayer.prefab
+  artifactKey: Guid(21daf89214c6ee443ad6875b73083c60) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Room/Prefabs/GamePlayer.prefab using Guid(21daf89214c6ee443ad6875b73083c60) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b0a86394a3ef1dfa86b2d906dd686116') in 0.059490 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 21
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Barebones/Runtime/Networking/Scripts/Utils/Conversion/DoubleConverter.cs
+  artifactKey: Guid(7a58aa6658d590c4792e79d7f48fcd4e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Barebones/Runtime/Networking/Scripts/Utils/Conversion/DoubleConverter.cs using Guid(7a58aa6658d590c4792e79d7f48fcd4e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f15b96c2a556931c02c3f9135b571243') in 0.014559 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Client/Webgl/SimpleWebJSLib.cs
+  artifactKey: Guid(97b96a0b65c104443977473323c2ff35) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/SimpleWeb/SimpleWeb/Client/Webgl/SimpleWebJSLib.cs using Guid(97b96a0b65c104443977473323c2ff35) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ac6568d175697ff7590e5d780e608170') in 0.014398 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Mirror/Transports/Telepathy/Telepathy/Empty/ThreadExtensions.cs
+  artifactKey: Guid(64df4eaebe4ff9a43a9fb318c3e8e321) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/Telepathy/Telepathy/Empty/ThreadExtensions.cs using Guid(64df4eaebe4ff9a43a9fb318c3e8e321) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fdf9072502976006cbc53c999d8f4d21') in 0.013211 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Mirror/Examples/Tanks/Textures/(Public Domain) Dirt Hand Painted Texture/dirt.png
+  artifactKey: Guid(bcc8fc05f1f924531a65f39394c0b703) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Tanks/Textures/(Public Domain) Dirt Hand Painted Texture/dirt.png using Guid(bcc8fc05f1f924531a65f39394c0b703) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e61871b1829091922082ec910f8eab69') in 0.081230 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Mirror/Examples/RigidbodyBenchmark/Scripts/RigidbodyBenchmarkNetworkManager.cs
+  artifactKey: Guid(b21e2d778c62d40e69f03e5c9624ddf1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/RigidbodyBenchmark/Scripts/RigidbodyBenchmarkNetworkManager.cs using Guid(b21e2d778c62d40e69f03e5c9624ddf1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'defe0f3c2b906f000b5d721322112f35') in 0.013468 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000100 seconds.
+  path: Assets/Input System Framework/Networking/Data Packages/Inputs/GravityInput.cs
+  artifactKey: Guid(ae22582a5e4a67846acda9d66017b85f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/Networking/Data Packages/Inputs/GravityInput.cs using Guid(ae22582a5e4a67846acda9d66017b85f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '92654e73db184160dae6a560c7fc68c1') in 0.013817 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000084 seconds.
+  path: Assets/Mirror/Examples/Pong/Scripts/Ball.cs
+  artifactKey: Guid(38b5c2f743cd8034a8beeebf277c92c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Pong/Scripts/Ball.cs using Guid(38b5c2f743cd8034a8beeebf277c92c1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7d8e59084775c15ff61ad45787affa9c') in 0.013594 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000086 seconds.
+  path: Assets/Mirror/Examples/AdditiveScenes/Materials/Quad.mat
+  artifactKey: Guid(6eb3f3ba66756364d8b94e662e7e8af5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/AdditiveScenes/Materials/Quad.mat using Guid(6eb3f3ba66756364d8b94e662e7e8af5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '502caa005dea7b48a8df1493f5c7c1a5') in 0.018386 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mirror/Transports/Telepathy/Telepathy/MagnificentSendPipe.cs
+  artifactKey: Guid(d490021c2e6a64374bc88168cec75c70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/Telepathy/Telepathy/MagnificentSendPipe.cs using Guid(d490021c2e6a64374bc88168cec75c70) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a57f05b60d7a744a7f7f0ad03cf93977') in 0.013215 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Mirror/Editor/Weaver/Processors/NetworkBehaviourProcessor.cs
+  artifactKey: Guid(8118d606be3214e5d99943ec39530dd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Editor/Weaver/Processors/NetworkBehaviourProcessor.cs using Guid(8118d606be3214e5d99943ec39530dd8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4813b8465adf0492ff0d4b49c120c3fb') in 0.014131 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/Mirror/Examples/Room/Prefabs/RoomPlayer.prefab
+  artifactKey: Guid(deae2134a1d77704b9c595efe69767dd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Room/Prefabs/RoomPlayer.prefab using Guid(deae2134a1d77704b9c595efe69767dd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2b5e82a044b4294266c08d67ac6fc53f') in 0.019415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 6
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/Mirror/Core/Empty/Cloud/IRequestCreator.cs
+  artifactKey: Guid(b80b95532a9d6e8418aa676a261e4f69) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Core/Empty/Cloud/IRequestCreator.cs using Guid(b80b95532a9d6e8418aa676a261e4f69) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f9eb43244a543098db001c3a56570a61') in 0.013747 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Mirror/Examples/Basic/Scenes/Example.unity
+  artifactKey: Guid(b30904751905d3f4dacde62ac85ec7c2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/Basic/Scenes/Example.unity using Guid(b30904751905d3f4dacde62ac85ec7c2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '14e80bdf9b9a3466c3886836242a5cd4') in 0.012650 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/Mirror/Examples/AdditiveScenes/Scripts/ZoneHandler.cs
+  artifactKey: Guid(884ed76587eb5854abe6b428b791fdcd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/AdditiveScenes/Scripts/ZoneHandler.cs using Guid(884ed76587eb5854abe6b428b791fdcd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'b76c307692be9a22b035325e1cc07df8') in 0.013963 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Mirror/Transports/Telepathy/Telepathy/Empty/Message.cs
+  artifactKey: Guid(aedf812e9637b4f92a35db1aedca8c92) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Transports/Telepathy/Telepathy/Empty/Message.cs using Guid(aedf812e9637b4f92a35db1aedca8c92) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ff5f0da12d1b42a558d5c66ad20f5fdc') in 0.013413 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/Mirror/Examples/AdditiveScenes/Materials/Zone.mat
+  artifactKey: Guid(a7c679cf124f7ae46a0291ea35848554) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Mirror/Examples/AdditiveScenes/Materials/Zone.mat using Guid(a7c679cf124f7ae46a0291ea35848554) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cbc81d076f7df6d7679c3c5f955d43f0') in 0.058354 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 189.125649 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs
+  artifactKey: Guid(62f173f42f288d948a32a5d81e246471) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs using Guid(62f173f42f288d948a32a5d81e246471) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '53675ad6bd0513403f23e52a12323463') in 0.012642 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.010624 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-18.png
+  artifactKey: Guid(544e3b5ff6bfb6044b488a9c847fabe4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-18.png using Guid(544e3b5ff6bfb6044b488a9c847fabe4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fd0c095f00d7d4313dbe05b8dcb7c588') in 0.052722 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-33.png
+  artifactKey: Guid(69b468679afd13640adf3454d04907d4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-33.png using Guid(69b468679afd13640adf3454d04907d4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7a51cd415a65fa466a0819c0caa5b722') in 0.043570 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons
+  artifactKey: Guid(52beb254c119c064a95c23671db5beb2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons using Guid(52beb254c119c064a95c23671db5beb2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '06b82cbf1af121dc4f8d1846f1a39931') in 0.011773 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-25.svg
+  artifactKey: Guid(1da338ef88e46b34797fe24d855562a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-25.svg using Guid(1da338ef88e46b34797fe24d855562a4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '9dc8dc8f760cc8b67901b0089b6fc2ef') in 0.012333 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000053 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-18.svg
+  artifactKey: Guid(35284d64ce21aa64a924945d0c4255e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-18.svg using Guid(35284d64ce21aa64a924945d0c4255e0) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3dda4e3254ca4c05e99d0ee3b4282cf2') in 0.013492 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000064 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-29.svg
+  artifactKey: Guid(7a1af0716ed5bcd4981b4b9d6ba0025d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-29.svg using Guid(7a1af0716ed5bcd4981b4b9d6ba0025d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7f63314ba6d98d39b4f8944a535420f9') in 0.012170 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/TrackingGos.cs
+  artifactKey: Guid(6f5c5c374c3cda84eb50eb8b1c4abe71) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/TrackingGos.cs using Guid(6f5c5c374c3cda84eb50eb8b1c4abe71) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e9ba116721708c66c67d8b89d8a2c383') in 0.012974 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-31.png
+  artifactKey: Guid(c98d618f46c3b5c4b97316301e46d40e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-31.png using Guid(c98d618f46c3b5c4b97316301e46d40e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e2492f0a44063cab12b1ce2dfca71858') in 0.046052 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-2.prefab
+  artifactKey: Guid(4e5291de3b40e894dabd7e5c2a829df8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-2.prefab using Guid(4e5291de3b40e894dabd7e5c2a829df8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '67fcbef245ca70da4f762fd5f98adccf') in 0.015262 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTarget-1.prefab
+  artifactKey: Guid(789b9b60d9cd13c43af56eaa2c565c4b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTarget-1.prefab using Guid(789b9b60d9cd13c43af56eaa2c565c4b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8d2066d8e3ea2fccc45aaf84f31486ae') in 0.012205 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-30.png
+  artifactKey: Guid(be8c5baf440451b438e01d0cea470739) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-30.png using Guid(be8c5baf440451b438e01d0cea470739) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3dae541dfab14ceac4115ef6991050f0') in 0.039395 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000042 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-3.prefab
+  artifactKey: Guid(1e7107e828e1fbc4393d8deefcc6df79) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-3.prefab using Guid(1e7107e828e1fbc4393d8deefcc6df79) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '18a738306331e3e34e7b0aa6902d76ca') in 0.017693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-4.prefab
+  artifactKey: Guid(3ae71488124650b419ed8b37b994b334) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-4.prefab using Guid(3ae71488124650b419ed8b37b994b334) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '83909569db2a2373f3ae7721472877ff') in 0.014301 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-29.png
+  artifactKey: Guid(9ccb4b28a60f2e14ea294436cf1cfe78) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-29.png using Guid(9ccb4b28a60f2e14ea294436cf1cfe78) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '64292958d2ba12974dd8ef08c95f9cb1') in 0.042119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Input System Framework/ArUCO Markers
+  artifactKey: Guid(eac11bd22d27c7441b75b80425dd6c91) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers using Guid(eac11bd22d27c7441b75b80425dd6c91) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '860138959a0b5522abd99c87afd76899') in 0.010864 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Plugins/x86/OpenCVRuntime.dll
+  artifactKey: Guid(2083588d61c69404ba94ac88b914462d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Plugins/x86/OpenCVRuntime.dll using Guid(2083588d61c69404ba94ac88b914462d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'bfc1864dd2409e2c9f9bcc6e688dc0e4') in 0.022871 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-22.svg
+  artifactKey: Guid(94d3dbefaa24aba40a7fe85c048e173a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-22.svg using Guid(94d3dbefaa24aba40a7fe85c048e173a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'bde49f3a4c3115dbd9d7f898312429b6') in 0.012858 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000089 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Plugins
+  artifactKey: Guid(f091b15afc0936c4eaa1c7fc58b2bd07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Plugins using Guid(f091b15afc0936c4eaa1c7fc58b2bd07) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cbceabcbca24154937dba8df22fbaaff') in 0.014464 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-11.svg
+  artifactKey: Guid(7525a6af306fd0746ad52156b120295b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-11.svg using Guid(7525a6af306fd0746ad52156b120295b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8167b0abd853192ce2f2ce04e7421b35') in 0.013353 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000083 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-4.prefab
+  artifactKey: Guid(108f8a12ee803b44898392044b5bd0b4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-4.prefab using Guid(108f8a12ee803b44898392044b5bd0b4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8d70894191aff4ba2c12275c7f776532') in 0.013492 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-26.svg
+  artifactKey: Guid(f0290ba07fa15fe4ab26c01fb3432f5e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-26.svg using Guid(f0290ba07fa15fe4ab26c01fb3432f5e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '31d2b53477535339c7d9279975e7aa5e') in 0.014222 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-20.svg
+  artifactKey: Guid(fd3f46973bdaec645b93670171a1cb73) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-20.svg using Guid(fd3f46973bdaec645b93670171a1cb73) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a200cd2bc5fe16ff7535ab6cc9b27061') in 0.016355 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-20.png
+  artifactKey: Guid(c48de919218793c49be20660685a07b5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-20.png using Guid(c48de919218793c49be20660685a07b5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '46e336b802f50bc0e5ccd03fe08deaaa') in 0.042169 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-26.png
+  artifactKey: Guid(07c45e828e9f0b341ad1bdc012e2bce2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-26.png using Guid(07c45e828e9f0b341ad1bdc012e2bce2) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8081fc0933455bb4072113927b550a15') in 0.048542 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000040 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-21.svg
+  artifactKey: Guid(c79feb66886055b43b4f2054e0ba299c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-21.svg using Guid(c79feb66886055b43b4f2054e0ba299c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd37a10be28f88a60b79f1e4abd8e775a') in 0.014734 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000084 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-3.svg
+  artifactKey: Guid(a110481de3e8e0d4093968beaea7aecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-3.svg using Guid(a110481de3e8e0d4093968beaea7aecd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'c12f1e4f4faea799a164cde4ddfe3979') in 0.014308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/ArucoTracker.cs
+  artifactKey: Guid(ce5aa633368adcf42a719f42b9c8bd38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/ArucoTracker.cs using Guid(ce5aa633368adcf42a719f42b9c8bd38) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f2207f1087f2563186cfefaab20be066') in 0.016191 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/DpiFetcher.cs
+  artifactKey: Guid(1e05a5d8456ce024296bf0fb2bc8e1f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/DpiFetcher.cs using Guid(1e05a5d8456ce024296bf0fb2bc8e1f8) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4d0b05dd443a1767e434e50523553469') in 0.015994 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000032 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-2-adj.prefab
+  artifactKey: Guid(005bbc9eee0ba804a9b10312b4e04f50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-2-adj.prefab using Guid(005bbc9eee0ba804a9b10312b4e04f50) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a31e4a0b24273f02e0c8d64aa56c976b') in 0.015119 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-36.png
+  artifactKey: Guid(02e1df44789cdef4f85eb7ff38872392) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-36.png using Guid(02e1df44789cdef4f85eb7ff38872392) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '81d4b0d546cba33e204b5298bb4673f0') in 0.041417 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-28.png
+  artifactKey: Guid(60e471284d827c7418f9fdfba688e9df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-28.png using Guid(60e471284d827c7418f9fdfba688e9df) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '5afc5acee50656ad1a0dee0a7bfe793e') in 0.045353 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-4-adj.prefab
+  artifactKey: Guid(0773121feb64d2b47ae572f25db84dc4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-4-adj.prefab using Guid(0773121feb64d2b47ae572f25db84dc4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aa8dd58a8c31f2a6c3dcfde3426b900c') in 0.018487 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/Test Scripts/SizeAndPositionCalculator.cs
+  artifactKey: Guid(56827de479fcbce40b2774734c09c3ef) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/Test Scripts/SizeAndPositionCalculator.cs using Guid(56827de479fcbce40b2774734c09c3ef) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '962b255e314171e2625052e77859efeb') in 0.013989 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000054 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/UI/ArucoBoardLayout.cs
+  artifactKey: Guid(29167eb4bfcadf2468c282f5641cf4c4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/UI/ArucoBoardLayout.cs using Guid(29167eb4bfcadf2468c282f5641cf4c4) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fa7ce555641f79738ebab6686017666d') in 0.013959 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000039 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-15.svg
+  artifactKey: Guid(7a208bb383b6e6d4d90f16c1a982b76a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-15.svg using Guid(7a208bb383b6e6d4d90f16c1a982b76a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3be410339ec5d08ef4599eaf0f363c0a') in 0.012972 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTarget-5.prefab
+  artifactKey: Guid(6030e39f2c70ed4498f225662c8b6180) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTarget-5.prefab using Guid(6030e39f2c70ed4498f225662c8b6180) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'af004d390bf7487279be014df6c38447') in 0.014714 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000050 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/UI
+  artifactKey: Guid(c46d87712317e2945bbcc9c5f466d376) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/UI using Guid(c46d87712317e2945bbcc9c5f466d376) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'da4720abdcb71923845ca6d7e8b37ae8') in 0.015143 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/ArucoFollower.cs
+  artifactKey: Guid(06052dd121f0d2549a8b00744f8ff147) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/ArucoFollower.cs using Guid(06052dd121f0d2549a8b00744f8ff147) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fa1ee6b554dcaf4fe1de0c434deb2199') in 0.014796 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-31.svg
+  artifactKey: Guid(0e215f93dfe09ff4e85b106662851bb1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-31.svg using Guid(0e215f93dfe09ff4e85b106662851bb1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a66fb62d6e01c71c3f88426e09d5f354') in 0.015693 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000049 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-21.png
+  artifactKey: Guid(4b184ad42c612064f8dfe2db3dd30a42) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-21.png using Guid(4b184ad42c612064f8dfe2db3dd30a42) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cd74ff9ea3d345c996f8071b78a408bc') in 0.055818 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-22.png
+  artifactKey: Guid(fd86df3c488f12e4690be36081119d9c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-22.png using Guid(fd86df3c488f12e4690be36081119d9c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1b88a547728264554ef588a4ad8308be') in 0.062605 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/UI/MarkersLayout.cs
+  artifactKey: Guid(3ccefdfaee1fa874487b99667db1e8c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/UI/MarkersLayout.cs using Guid(3ccefdfaee1fa874487b99667db1e8c9) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'd14d5cd4235f8adf4fe6f8f7b9b9bb10') in 0.025225 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000044 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-14.png
+  artifactKey: Guid(7af81d3656f994e4bb82fd09b94d9486) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-14.png using Guid(7af81d3656f994e4bb82fd09b94d9486) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '634f93943266b18d7220ad33860d65df') in 0.071308 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000059 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-2-adj.prefab
+  artifactKey: Guid(8ae5d216983a382458e19aa209162013) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-2-adj.prefab using Guid(8ae5d216983a382458e19aa209162013) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aaaafb34ba89b8454aa43efbc9ff9cdc') in 0.024937 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/Marker.cs
+  artifactKey: Guid(6dad2f6c80216be45b5f5cde40191cd6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/Marker.cs using Guid(6dad2f6c80216be45b5f5cde40191cd6) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '41176de2454f8a94cca6ffad89dc2217') in 0.018862 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000048 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-7.png
+  artifactKey: Guid(d58e3c6575cc1a84c999a7d71874157b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-7.png using Guid(d58e3c6575cc1a84c999a7d71874157b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e766cb860068e378b49c1a02a0a65bd2') in 0.064437 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000035 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50
+  artifactKey: Guid(a23b1b27615a7e04f8581dbf56560d4b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50 using Guid(a23b1b27615a7e04f8581dbf56560d4b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7ad0075945683a6368081c24edea0a60') in 0.019826 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000065 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Plugins/ARM64/OpenCVRuntimeComponent.dll
+  artifactKey: Guid(974b87a5dfc49234aaed8ef4c02ca4fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Plugins/ARM64/OpenCVRuntimeComponent.dll using Guid(974b87a5dfc49234aaed8ef4c02ca4fd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '2d2719a5b8cd130321bc7a0442ec34bc') in 0.023547 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/Reticle_Right.prefab
+  artifactKey: Guid(fff9a3140dc898f42b52ffae28107c66) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/Reticle_Right.prefab using Guid(fff9a3140dc898f42b52ffae28107c66) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f9e169e95d57be082a3cabb45184f422') in 0.016110 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 44
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Plugins/x86/opencv_world3411.dll
+  artifactKey: Guid(a50a18714395cc14295cd771fe2bcb1c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Plugins/x86/opencv_world3411.dll using Guid(a50a18714395cc14295cd771fe2bcb1c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '3c7d2ac36ddd5849d9d7b9144ba77b8e') in 0.020216 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-1-adj.prefab
+  artifactKey: Guid(1e476a7e71746004bb5e9144655e5332) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-1-adj.prefab using Guid(1e476a7e71746004bb5e9144655e5332) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '0ca93a04366cce644ab9a686178c2218') in 0.015376 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000051 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/Reticle.prefab
+  artifactKey: Guid(d5996466e28ebbb4facd587cce30b22b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/Reticle.prefab using Guid(d5996466e28ebbb4facd587cce30b22b) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'fcd5ca502fb27253176f5821d4ed521e') in 0.017861 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 44
+========================================================================
+Received Import Request.
+  Time since last request: 0.000045 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-7.svg
+  artifactKey: Guid(b95f671774581ce4f92acaadc8c59a39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-7.svg using Guid(b95f671774581ce4f92acaadc8c59a39) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '854a7b3b9565f426c4f9a93da73a9c47') in 0.015584 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/PredefinedTransform.cs
+  artifactKey: Guid(12469bfc2c0921a409829154e1a049c5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/PredefinedTransform.cs using Guid(12469bfc2c0921a409829154e1a049c5) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '82b36ec6297f8b56e760bddebe456548') in 0.015506 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000060 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceMarkers.prefab
+  artifactKey: Guid(2bd2468290dc7d644a613d0a7d072815) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceMarkers.prefab using Guid(2bd2468290dc7d644a613d0a7d072815) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '97681ce7e8089d3278d2394669b46963') in 0.017617 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/MarkerCube_Left.prefab
+  artifactKey: Guid(9c91897ed0b09db45af7235481b2a790) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/MarkerCube_Left.prefab using Guid(9c91897ed0b09db45af7235481b2a790) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e9c50bf0159abb3ee67a11174a500375') in 0.016303 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 34
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-3.png
+  artifactKey: Guid(6d4db5a5f524be54a8047611095b9e74) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-3.png using Guid(6d4db5a5f524be54a8047611095b9e74) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '8cbe9ce376b255315edc387f177378e9') in 0.043415 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000046 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-28.svg
+  artifactKey: Guid(701b8681c6c61f040a6e8c116891d55f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-28.svg using Guid(701b8681c6c61f040a6e8c116891d55f) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'f5d33feaf50c06075dd463363ce34269') in 0.013565 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000047 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-13.svg
+  artifactKey: Guid(21118677977ff524fb5a9eb42ab035bf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-13.svg using Guid(21118677977ff524fb5a9eb42ab035bf) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'cb43552f65c9eb8800a25a0721b61b14') in 0.012948 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000058 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Scripts/MediaCaptureUtility.cs
+  artifactKey: Guid(b76658389bdbd634fae25d171320c78c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Scripts/MediaCaptureUtility.cs using Guid(b76658389bdbd634fae25d171320c78c) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4fc35555d93ae58d10b436f6b90484b4') in 0.016338 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-39.png
+  artifactKey: Guid(5045ce9ca7e35a044b49f51f873f32aa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-39.png using Guid(5045ce9ca7e35a044b49f51f873f32aa) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '93b44795e2ba86b693cafef66d0ea672') in 0.048759 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs
+  artifactKey: Guid(7cb2b05eb4adb4f43a8c9b5b3642ae2e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs using Guid(7cb2b05eb4adb4f43a8c9b5b3642ae2e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '246b1d7d5945c4414bc27507ba179e5e') in 0.016114 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-5-adj.prefab
+  artifactKey: Guid(ca664f8407c321141bdb0bcdbc1b6449) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetRight-5-adj.prefab using Guid(ca664f8407c321141bdb0bcdbc1b6449) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'ce74bc029c31e2ac864762c022609367') in 0.024390 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000056 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-16.svg
+  artifactKey: Guid(016769ed7cb0da946ab4100ee733ae10) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-16.svg using Guid(016769ed7cb0da946ab4100ee733ae10) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '94ef8408325ae0c120f051d1d4453604') in 0.018400 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000090 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-38.png
+  artifactKey: Guid(7c77c69fd729720479b34eff870ede6a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-38.png using Guid(7c77c69fd729720479b34eff870ede6a) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4e2513f25372775ff4f1197759b86232') in 0.051086 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-0.svg
+  artifactKey: Guid(88666e5bd80b85e4f804dad77a1474dd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-0.svg using Guid(88666e5bd80b85e4f804dad77a1474dd) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '0171b788758b6ea5b41ddb1b244a2c2f') in 0.018638 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000087 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-3-adj.prefab
+  artifactKey: Guid(12151b1c8d3c55345a2adda17d78946d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Prefabs/TracingModels/TraceTargetLeft-3-adj.prefab using Guid(12151b1c8d3c55345a2adda17d78946d) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1221927ede3b36854fe9411df9d21417') in 0.022492 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 9
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-16.png
+  artifactKey: Guid(fc87b43f709b4c142a35ee6254e8abc1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-16.png using Guid(fc87b43f709b4c142a35ee6254e8abc1) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '1b5f71f355c6a3200d0e6dd1c20d7f46') in 0.048970 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-33.svg
+  artifactKey: Guid(22421b143e73f464d82a1018af1fc297) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-33.svg using Guid(22421b143e73f464d82a1018af1fc297) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'aff8ebeed9044eb7af9dd9420e383f4d') in 0.012700 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000041 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-11.png
+  artifactKey: Guid(098630650cebe134b85f70596b3a18a3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-11.png using Guid(098630650cebe134b85f70596b3a18a3) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '7edd5c8aa39b66e1e3e10bd52930cf12') in 0.043173 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-30.svg
+  artifactKey: Guid(18728bb759b50c747b0c18898fafdb56) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-30.svg using Guid(18728bb759b50c747b0c18898fafdb56) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'a4ac1e37cd6c2f236fa0b01e2f4f1b57') in 0.013136 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000055 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-23.svg
+  artifactKey: Guid(f3d792008b4471b40b6fd5ce6f5c8774) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/SVGs/6x6_1000-23.svg using Guid(f3d792008b4471b40b6fd5ce6f5c8774) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: '4c95a7841751c1ad1eac62aa838ca33e') in 0.013475 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 1
+========================================================================
+Received Import Request.
+  Time since last request: 0.000081 seconds.
+  path: Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-10.png
+  artifactKey: Guid(dd880c9b2eb685b418e68fd27fcdf59e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)
+Start importing Assets/Input System Framework/ArUCO Markers/Marker Icons/DICT_6X6_50/PNGs/6x6_1000-10.png using Guid(dd880c9b2eb685b418e68fd27fcdf59e) Importer(2089858483,0ecaa5967403d082aa24f35e1b516d23)  -> (artifact id: 'e17ccb3f6629c62b1d115afdb4083aa7') in 0.041903 seconds
+Number of updated asset objects reloaded before import = 0
+Number of asset objects unloaded after import = 3
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: The I/O operation has been aborted because of either a thread exit or an application request.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0

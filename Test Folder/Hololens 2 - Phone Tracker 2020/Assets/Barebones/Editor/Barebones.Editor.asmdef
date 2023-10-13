@@ -1,0 +1,18 @@
+{
+    "name": "Barebones.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:488f8adf2891233458da2aa1dff0fc7c"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
