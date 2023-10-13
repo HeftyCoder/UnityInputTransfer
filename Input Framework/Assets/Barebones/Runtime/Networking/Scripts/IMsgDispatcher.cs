@@ -10,10 +10,10 @@ namespace Barebones.Networking
         IPeer Peer { get; }
 
         void SendMessage(short opCode);
-        void SendMessage<T>(short opCode, T packet) where T:ISerializablePacket;
-        void SendMessage<T>(short opCode, T packet, DeliveryMethod method) where T:ISerializablePacket;
-        void SendMessage<T>(short opCode, T packet, ResponseCallback responseCallback) where T : ISerializablePacket;
-        void SendMessage<T>(short opCode, T packet, ResponseCallback responseCallback, int timeoutSecs) where T : ISerializablePacket;
+        void SendMessage(short opCode, ISerializablePacket packet);
+        void SendMessage(short opCode, ISerializablePacket packet, DeliveryMethod method);
+        void SendMessage(short opCode, ISerializablePacket packet, ResponseCallback responseCallback);
+        void SendMessage(short opCode, ISerializablePacket packet, ResponseCallback responseCallback, int timeoutSecs);
         void SendMessage(short opCode, ResponseCallback responseCallback);
         void SendMessage(short opCode, byte[] data);
         void SendMessage(short opCode, byte[] data, ResponseCallback responseCallback);
@@ -24,8 +24,8 @@ namespace Barebones.Networking
         void SendMessage(short opCode, int data);
         void SendMessage(short opCode, int data, ResponseCallback responseCallback);
         void SendMessage(short opCode, int data, ResponseCallback responseCallback, int timeoutSecs);
-        void SendMessage<T>(T message) where T : IMessage;
-        void SendMessage<T>(T message, ResponseCallback responseCallback) where T : IMessage;
-        void SendMessage<T>(T message, ResponseCallback responseCallback, int timeoutSecs) where T : IMessage;
+        void SendMessage(IMessage message);
+        void SendMessage(IMessage message, ResponseCallback responseCallback);
+        void SendMessage(IMessage message, ResponseCallback responseCallback, int timeoutSecs);
     }
 }
