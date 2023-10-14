@@ -6,4 +6,4 @@ The functionality of ArUco Tracking has been removed from the current version. I
 
 What it DOES: Sends input through the network between two Unity applications using [Unity's Input System](https://docs.unity3d.com/Packages/com.unity.inputsystem@1.7/manual/Installation.html). Ideal for easily passing data from your phone (sensors etc.) to another device.
 
-What it DOESN'T: It's not mean to replace the typical way of using the Input System for local multiplayer or Unity's Networking for multiplayer.
+What it DOESN'T: It's not meant to replace the typical way of using the Input System for local multiplayer or Unity's Networking for multiplayer.
