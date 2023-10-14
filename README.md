@@ -1,6 +1,6 @@
 # Unity Input Transfer Framework
 
-Prototype Framework for passing input data from a phone (or a generic device) to another device. Original built in Unity 2020.3 LTS using an Android Device, a PC or a Hololens. Since then, the project has been updated to Unity 2022.3 LTS, but should work in 2021.3 LTS. 
+Prototype Framework for passing input data from a phone (or a generic device) to another device. Originally built in Unity 2020.3 LTS using an Android Device, a PC or a Hololens. Since then, the project has been updated to Unity 2022.3 LTS, but should work in 2021.3 LTS. 
 
 The functionality of ArUco Tracking has been removed from the current version. If there is time, it will be added again.
 
