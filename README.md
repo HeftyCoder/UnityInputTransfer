@@ -9,4 +9,5 @@ What it DOES: Sends input through the network between two Unity applications usi
 What it DOESN'T: It's not meant to replace the typical way of using the Input System for local multiplayer or Unity's Networking for multiplayer.
 
 <h1>Citation</h1>
-If you use this framework for any research, please cite the [corresponding paper](https://link.springer.com/chapter/10.1007/978-3-031-42280-5_27#chapter-info).
+
+If you use this framework in any research, please cite the [Corresponding Paper](https://link.springer.com/chapter/10.1007/978-3-031-42280-5_27#chapter-info).
