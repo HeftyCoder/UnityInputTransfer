@@ -1,0 +1,108 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &9043784739584746669
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4462773909728261182}
+  - component: {fileID: 1196314446330220116}
+  - component: {fileID: 5125982539277968171}
+  - component: {fileID: 4292619584268257036}
+  m_Layer: 0
+  m_Name: Device Client
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4462773909728261182
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043784739584746669}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1196314446330220116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043784739584746669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd92897d52e20f04c89e2f63ed60adf6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  client: {fileID: 5125982539277968171}
+  arucoMarkersLayout: {fileID: 0}
+  connectOnStart: 0
+  ip: 192.168.1.140
+  port: 5000
+  targetFrameRate: -1
+  sensorsToConnect:
+  - customName: 
+    device: <AttitudeSensor>
+  devicesToConnect:
+  - customName: 
+    device: <Gamepad>
+  trackedMotion: {fileID: 0}
+  deviceName: 
+  updatePing: 1
+  clock:
+    windowSize: 10
+--- !u!114 &5125982539277968171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043784739584746669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c26ee359112482f44bc828123dbdca44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  transport: {fileID: 4292619584268257036}
+  ipToConnect: localhost
+--- !u!114 &4292619584268257036
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9043784739584746669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  port: 7777
+  DualMode: 1
+  NoDelay: 1
+  Interval: 0
+  Timeout: 10000
+  RecvBufferSize: 7361536
+  SendBufferSize: 7361536
+  FastResend: 2
+  ReceiveWindowSize: 4096
+  SendWindowSize: 4096
+  MaxRetransmit: 40
+  MaximizeSocketBuffers: 1
+  ReliableMaxMessageSize: 297433
+  UnreliableMaxMessageSize: 1195
+  debugLog: 0
+  statisticsGUI: 0
+  statisticsLog: 0

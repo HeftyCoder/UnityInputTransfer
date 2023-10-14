@@ -323,203 +323,17 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &159063876
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 159063881}
-  - component: {fileID: 159063880}
-  - component: {fileID: 159063879}
-  - component: {fileID: 159063878}
-  - component: {fileID: 159063877}
-  m_Layer: 0
-  m_Name: Device Server
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &159063877
+--- !u!114 &159063880 stripped
 MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 4302963767486569189, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+  m_PrefabInstance: {fileID: 213405893475010030}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159063876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b0fecffa3f624585964b0d0eb21b18e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  port: 7777
-  DualMode: 1
-  NoDelay: 1
-  Interval: 0
-  Timeout: 10000
-  RecvBufferSize: 7361536
-  SendBufferSize: 7361536
-  FastResend: 2
-  ReceiveWindowSize: 4096
-  SendWindowSize: 4096
-  MaxRetransmit: 40
-  MaximizeSocketBuffers: 1
-  ReliableMaxMessageSize: 297433
-  UnreliableMaxMessageSize: 1195
-  debugLog: 0
-  statisticsGUI: 0
-  statisticsLog: 0
---- !u!114 &159063878
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159063876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 660cf35535e28484d80eccbaf6a0a7ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  transport: {fileID: 159063877}
---- !u!114 &159063879
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159063876}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1b28e6aa2c9079d4d8f1efb6a7ede283, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  inputAsset: {fileID: -944628639613478452, guid: 3ad39fd8772b8a6429cc02ea1ace29ec, type: 3}
-  actionMaps:
-  - name: Phone
-    actions:
-    - actionName: Move
-      fullActionName: Phone/Move
-      actionId: a64ee366-fd8f-4342-a8bc-f657c758b3e2
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: Jump
-      fullActionName: Phone/Jump
-      actionId: 1df272c2-8f02-497b-9618-fdd02c13b522
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 1794178635}
-            m_TargetAssemblyTypeName: MoveController, Assembly-CSharp
-            m_MethodName: OnJump
-            m_Mode: 0
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - actionName: Attitude
-      fullActionName: Phone/Attitude
-      actionId: da088950-1be8-422d-a02b-d0f23f7837a0
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls:
-          - m_Target: {fileID: 57468817}
-            m_TargetAssemblyTypeName: SimpleAttitudeController, Assembly-CSharp
-            m_MethodName: DoAttitude
-            m_Mode: 0
-            m_Arguments:
-              m_ObjectArgument: {fileID: 0}
-              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-              m_IntArgument: 0
-              m_FloatArgument: 0
-              m_StringArgument: 
-              m_BoolArgument: 0
-            m_CallState: 2
-    - actionName: LinearAcceleration
-      fullActionName: Phone/LinearAcceleration
-      actionId: b5453b4b-db94-42eb-96c1-486578c13cf3
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: Acceleration
-      fullActionName: Phone/Acceleration
-      actionId: c6a5be75-b523-474e-b8b1-1926b4bd8f80
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: AngVelocity
-      fullActionName: Phone/AngVelocity
-      actionId: 7e8ba50d-49a1-435a-943c-b92a54685bb4
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: PhonePosition
-      fullActionName: Phone/PhonePosition
-      actionId: 9e4923e7-5df7-429d-a284-89c692995873
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: PhoneRotation
-      fullActionName: Phone/PhoneRotation
-      actionId: 6b5b6bc3-ab64-445d-ba22-10b0d4fedaaa
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: Clicked
-      fullActionName: Phone/Clicked
-      actionId: ff26e90a-de68-45fe-89fa-42fb1e1c664c
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
-    - actionName: MoveTouch
-      fullActionName: Phone/MoveTouch
-      actionId: 850a9125-251b-4535-8bd8-0f1640726178
-      unityEvent:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &159063880
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159063876}
+  m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d03ad4d0768d52e4e84293f7517b61c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  server: {fileID: 159063878}
-  targetFramerate: -1
-  port: 5000
-  onStart: 1
-  arucoTracker: {fileID: 0}
-  enableArucoTrackerOnConnection: 0
-  inputControl: {fileID: 159063879}
-  haveDevicesChanged: 0
---- !u!4 &159063881
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 159063876}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &529819925
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1295,71 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &213405893475010030
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4747857746708432976, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5003057870695598165, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: actionMaps.Array.data[0].actions.Array.data[1].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1794178635}
+    - target: {fileID: 5003057870695598165, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: actionMaps.Array.data[0].actions.Array.data[2].unityEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 57468817}
+    - target: {fileID: 5249784058778120380, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
+      propertyPath: m_Name
+      value: Device Server
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1b0a35ef6005731438508bb7b6e771c5, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -1491,5 +1370,5 @@ SceneRoots:
   - {fileID: 529819929}
   - {fileID: 1926664591}
   - {fileID: 1089675402}
-  - {fileID: 159063881}
+  - {fileID: 213405893475010030}
   - {fileID: 155462521}
