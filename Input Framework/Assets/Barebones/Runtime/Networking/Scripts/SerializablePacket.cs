@@ -15,6 +15,7 @@ namespace Barebones.Networking
         {
             using (var ms = new MemoryStream(data))
             {
+                UnityEngine.Debug.Log(ms.Length);
                 using (var reader = new EndianBinaryReader(EndianBitConverter.Big, ms))
                 {
                     packet.FromBinaryReader(reader);
